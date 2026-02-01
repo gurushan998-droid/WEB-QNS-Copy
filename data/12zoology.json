@@ -1,0 +1,170 @@
+{
+    "Human Reproduction": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "Zoology MCQ 1 (Book Back)",
+                    "options": [
+                        "A",
+                        "B",
+                        "C",
+                        "D"
+                    ]
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Zoology MCQ 2 (Interior)",
+                    "options": [
+                        "A",
+                        "B",
+                        "C",
+                        "D"
+                    ]
+                }
+            ]
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Zoology Short Answer 1 (Book Back)"
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "a": "Zoology Long Answer 1 (Book Back)"
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Reproductive Health": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [],
+            "interior": []
+        }
+    },
+    "Evolution": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [],
+            "interior": []
+        }
+    },
+    "Human Health and Disease": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [],
+            "interior": []
+        }
+    },
+    "Microbes in Human Welfare": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [],
+            "interior": []
+        }
+    },
+    "Biotechnology and its Applications": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [],
+            "interior": []
+        }
+    },
+    "Organisms and Populations (Zoo)": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [],
+            "interior": []
+        }
+    },
+    "Ecosystem (Zoo)": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [],
+            "interior": []
+        }
+    },
+    "Biodiversity and Conservation (Zoo)": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [],
+            "interior": []
+        }
+    },
+    "Environmental Issues (Zoo)": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [],
+            "interior": []
+        }
+    }
+}

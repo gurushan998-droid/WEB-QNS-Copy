@@ -93,45 +93,90 @@ function handleLogout() {
         location.reload(); // Page-ah refresh panni block pannuvom
     });
 }
-function loadClassData(classValue) {                    // Logic to swap data based on class choice
-    if (classValue === "11") {                         // If Class 11 is selected...
-        subjects = class11Subjects;                    // Load Class 11 subject names
-        questionBank = class11QuestionBank;             // Load Class 11 question data
-        commonQuestions = class11CommonQuestions;       // Load Class 11 header info
-    } else if (classValue === "12") {                  // If Class 12 is selected...
-        subjects = class12Subjects;                    // Load Class 12 subject names
-        questionBank = class12QuestionBank;             // Load Class 12 question data
-        commonQuestions = class12CommonQuestions;       // Load Class 12 header info
+async function loadClassData(standardValue) {
+    // Example: data/class12.json
+    const filePath = `data/class${standardValue}.json`;
+
+    try {
+        const response = await fetch(filePath);
+        if (!response.ok) throw new Error("Class file not found!");
+
+        const data = await response.json();
+
+        // Subjects list-ai update panrom
+        subjects = data.subjects;
+
+        // Dropdown-ai update pannuvom
+        populateSubjectDropdown();
+        saveState();
+
+    } catch (error) {
+        console.error("Error loading class data:", error);
+        // Fallback (Error vandha default subjects)
+        subjects = [
+            { value: "Botany", label: "Botany" },
+            { value: "Zoology", label: "Zoology" }
+        ];
+        populateSubjectDropdown();
     }
-
-    populateSubjectDropdown();                         // Update the UI dropdown with new subjects
-    chapters = [];                                     // Reset chapters list safety
-    selectedChapters = [];                             // Clear any previous chapter picks
-    populateChapterList();                             // Refresh the UI display
-    saveState();                                       // Permanently store the current state
 }
-
 /**
  * Load chapters for the selected subject
  * @param {string} subjectValue - Selected subject name
  */
-function loadSubjectChapters(subjectValue) {             // Fetches lessons for a specific subject
-    const classValue = document.getElementById('standard').value; // Get current class context
+/**
+ * Load chapters for the selected subject using JSON Fetch
+ * @param {string} subjectValue - Selected subject name
+ */
+async function loadSubjectChapters(subjectValue) {
+    const classValue = document.getElementById('standard').value;
 
-    if (classValue === "11") {                         // Logic for Class 11 subjects
-        chapters = class11Chapters[subjectValue] || []; // Pull list from class11 data
-        questionBank = class11QuestionBank[subjectValue] || {}; // Pull bank for subject
-    } else if (classValue === "12") {                  // Logic for Class 12 subjects
-        chapters = class12Chapters[subjectValue] || []; // Pull list from class12 data
-        questionBank = class12QuestionBank[subjectValue] || {}; // Pull bank for subject
-    }
+    // STEP 1: JSON File Path set pannuvom
+    // Example: data/12botany.json
+    const filePath = `data/${classValue}${subjectValue.toLowerCase()}.json`;
 
-    if (!stateRestoration) {
-        selectedChapters = [];                             // Reset chapter choices for new subject
+    try {
+        // STEP 2: Online-la irundhu data-va fetch pannuvom
+        const response = await fetch(filePath);
+        if (!response.ok) throw new Error("Question file not found!");
+
+        const data = await response.json();
+
+        // STEP 3: Question bank and Chapters-ah update pannuvom
+        // Ippo GitHub-la neenga JSON update panna udane, indha 'data' refresh aagidum
+        questionBank = data;
+        chapters = Object.keys(data); // JSON-la irukka keys-ah chapters-ah edukkum
+
+        if (!stateRestoration) {
+            selectedChapters = [];
+        }
+
+        // UI-ah update pannuvom
+        populateChapterList();
+        saveState();
+
+        console.log(`Success: Loaded ${subjectValue} questions from GitHub/Netlify.`);
+    } catch (error) {
+        console.error("Error loading JSON:", error);
+        alert("JSON file load aagala. Check if " + filePath + " exists in GitHub.");
     }
-    populateChapterList();                             // Freshly draw the chapter grid
-    saveState();                                       // Lock in the session data
 }
+
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        // Login success: User-kku content kaatuvom
+        document.querySelector('.app-main').style.display = 'block';
+
+        // Default-ah class load panna trigger pannalam
+        const currentStandard = document.getElementById('standard').value;
+        loadClassData(currentStandard);
+    } else {
+        // Login illa: Content block
+        document.querySelector('.app-main').style.display = 'none';
+        openLoginModal();
+    }
+});
+
 
 let stateRestoration = false; // Flag to prevent overwriting during loadState
 

@@ -1,0 +1,2237 @@
+{
+    "subjects": [
+        {
+            "value": "Botany",
+            "label": "Botany"
+        },
+        {
+            "value": "Zoology",
+            "label": "Zoology"
+        }
+    ],
+    "chapters": {
+        "Botany": [
+            "Asexual and Sexual Reproduction in Plants",
+            "Classical Genetics",
+            "Chromosomal Basis of Inheritance",
+            "Principles and Processes of Biotechnology",
+            "Plant Tissue Culture",
+            "Principles of Ecology",
+            "Ecosystem",
+            "Environmental Issues",
+            "Plant Breeding",
+            "Economically Useful Plants and Entrepreneurial Botany"
+        ],
+        "Zoology": [
+            "Human Reproduction",
+            "Reproductive Health",
+            "Evolution",
+            "Human Health and Disease",
+            "Microbes in Human Welfare",
+            "Biotechnology and its Applications",
+            "Organisms and Populations (Zoo)",
+            "Ecosystem (Zoo)",
+            "Biodiversity and Conservation (Zoo)",
+            "Environmental Issues (Zoo)"
+        ]
+    },
+    "questionBank": {
+        "Botany": {
+            "_comment": {
+                "Asexual and Sexual Reproduction in Plants": {
+                    "mcq": {
+                        "bb": [
+                            {
+                                "q": "Choose the correct statement from the following",
+                                "options": [
+                                    "Gametes are involved in asexual reproduction",
+                                    "Bacteria reproduce asexually by budding",
+                                    "Conidia formation is a method of sexual reproduction",
+                                    "Yeast reproduce by budding"
+                                ]
+                            },
+                            {
+                                "q": "An eminent Indian embryologist is",
+                                "options": [
+                                    "S.R.Kashyap",
+                                    "P.Maheswari",
+                                    "M.S. Swaminathan",
+                                    "K.C.Mehta"
+                                ]
+                            }
+                        ],
+                        "interior": [
+                            {
+                                "q": "Choose the correct statement(s) about tenuinucellate ovule",
+                                "options": [
+                                    "Sporogenous cell is hypodermal",
+                                    "Ovules have fairly large nucellus",
+                                    "sporogenous cell is epidermal",
+                                    "ovules have single layer of nucellus tissue"
+                                ]
+                            }
+                        ]
+                    },
+                    "shortAnswer": {
+                        "bb": [
+                            {
+                                "q": "What is reproduction?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Mention the contribution of Hofmeister towards Embryology.",
+                                "marks": 2
+                            }
+                        ],
+                        "interior": []
+                    }
+                },
+                "Classical Genetics": {
+                    "mcq": {
+                        "bb": [
+                            {
+                                "q": "Extra nuclear inheritance is a consequence of presence of genes in",
+                                "options": [
+                                    "Mitrochondria and chloroplasts",
+                                    "Endoplasmic reticulum and mitrochondria",
+                                    "Ribosomes and chloroplast",
+                                    "Lysososmes and ribosomes"
+                                ]
+                            },
+                            {
+                                "q": "In order to find out the different types of gametes produced by a pea plant having the genotype AaBb, it should be crossed to a plant with the genotype",
+                                "options": [
+                                    "aaBB",
+                                    "AaBB",
+                                    "AABB",
+                                    "aabb"
+                                ]
+                            },
+                            {
+                                "q": "How many different kinds of gametes will be produced by a plant having the genotype AABbCC?",
+                                "options": [
+                                    "Three",
+                                    "Four",
+                                    "Nine",
+                                    "Two"
+                                ]
+                            },
+                            {
+                                "q": "Which one of the following is an example of polygenic inheritance?",
+                                "options": [
+                                    "Flower colour in Mirabilis Jalapa",
+                                    "Production of male honey bee",
+                                    "Pod shape in garden pea",
+                                    "Skin Colour in humans"
+                                ]
+                            },
+                            {
+                                "q": "In Mendel’s experiments with garden pea, round seed shape (RR) was dominant over wrinkled seeds (rr), yellow cotyledon (YY) was dominant over green cotyledon (yy). What are the expected phenotypes in the F2 generation of the cross RRYY x rryy?",
+                                "options": [
+                                    "Only round seeds with green cotyledons",
+                                    "Only wrinkled seeds with yellow cotyledons",
+                                    "Only wrinkled seeds with green cotyledons",
+                                    "Round seeds with yellow cotyledons an wrinkled seeds with yellow cotyledons"
+                                ]
+                            },
+                            {
+                                "q": "Test cross involves",
+                                "options": [
+                                    "Crossing between two genotypes with recessive trait",
+                                    "Crossing between two F1 hybrids",
+                                    "Crossing the F1 hybrid with a double recessive genotype",
+                                    "Crossing between two genotypes with dominant trait"
+                                ]
+                            },
+                            {
+                                "q": "In pea plants, yellow seeds are dominant to green. If a heterozygous yellow seed pant is crossed with a green seeded plant, what ratio of yellow and green seeded plants would you expect in F1 generation?",
+                                "options": [
+                                    "9:1",
+                                    "1:3",
+                                    "3:1",
+                                    "50:50"
+                                ]
+                            },
+                            {
+                                "q": "The genotype of a plant showing the dominant phenotype can be determined by",
+                                "options": [
+                                    "Back cross",
+                                    "Test cross",
+                                    "Dihybrid corss",
+                                    "Pedigree analysis"
+                                ]
+                            },
+                            {
+                                "q": "Select the correct statement from the ones given below with respect to dihydrid cross",
+                                "options": [
+                                    "Tightly linked genes on the same chromosomes show very few combinations",
+                                    "Tightly linked genes on the same chromosomes show higher combinations",
+                                    "Genes far apart on the same chromosomes show very few recombinations",
+                                    "Genes loosely linked on the same chromosomes show similar recombinations as the tightly linked ones"
+                                ]
+                            },
+                            {
+                                "q": "Which Mendelian idea is depicted by a cross in which the F1 generation resembles both the parents",
+                                "options": [
+                                    "Incomplete dominance",
+                                    "Law of dominance",
+                                    "Inheritance of one gene",
+                                    "Co-dominance"
+                                ]
+                            },
+                            {
+                                "q": "Fruit colour in squash is an example of",
+                                "options": [
+                                    "Recessive epistatsis",
+                                    "Dominant epistasis",
+                                    "Complementary genes",
+                                    "Inhibitory genes"
+                                ]
+                            },
+                            {
+                                "q": "In his classic experiments on Pea plants, Mendel did not use",
+                                "options": [
+                                    "Flowering position",
+                                    "Seed colour",
+                                    "Pod length",
+                                    "Seed shape"
+                                ]
+                            },
+                            {
+                                "q": "The epistatic effect, in which the dihybrid cross 9:3:3:1 between AaBb Aabb is modified as",
+                                "options": [
+                                    "Dominance of one allele on another allele of both loci",
+                                    "Interaction between two alleles of different loci",
+                                    "Dominance of one allele to another alleles of same loci",
+                                    "Interaction between two alleles of some loci"
+                                ]
+                            },
+                            {
+                                "q": "In a test cross involving F1 dihybrid flies, more parental type offspring were produced than the recombination type offspring. This indicates",
+                                "options": [
+                                    "The two genes are located on two different chromosomes",
+                                    "Chromosomes failed to separate during meiosis",
+                                    "The two genes are linked and present on the some chromosome",
+                                    "Both of the characters are controlled by more than one gene"
+                                ]
+                            },
+                            {
+                                "q": "The genes controlling the seven pea characters studied by Mendel are known to be located on how many different chromosomes?",
+                                "options": [
+                                    "Seven",
+                                    "Six",
+                                    "Five",
+                                    "Four"
+                                ]
+                            },
+                            {
+                                "q": "Which of the following explains how progeny can posses the combinations of traits that none of the parent possessed?",
+                                "options": [
+                                    "Law of segregation",
+                                    "Chromosome theory",
+                                    "Law of independent assortment",
+                                    "Polygenic inheritance"
+                                ]
+                            },
+                            {
+                                "q": "“Gametes are never hybrid”. This is a statement of",
+                                "options": [
+                                    "Law of dominance",
+                                    "Law of independent assortment",
+                                    "Law of segregation",
+                                    "Law of random fertilization"
+                                ]
+                            },
+                            {
+                                "q": "Gene which suppresses other genes activity but does not lie on the same locus is called as",
+                                "options": [
+                                    "Epistatic",
+                                    "Supplement only",
+                                    "Hypostatic",
+                                    "Codominant"
+                                ]
+                            },
+                            {
+                                "q": "Pure tall plants are crossed with pure dwarf plants. In the F1 generation, all plants were tall. These tall plants of F1 generation were selfed and the ratio of tall to dwarf plants obtained was 3:1. This is called",
+                                "options": [
+                                    "Dominance",
+                                    "Inheritance",
+                                    "Codominance",
+                                    "Heredity"
+                                ]
+                            },
+                            {
+                                "q": "The dominant epistatis ratio is",
+                                "options": [
+                                    "9:3:3:1",
+                                    "12:3:1",
+                                    "9:3:4",
+                                    "9:6:1"
+                                ]
+                            },
+                            {
+                                "q": "Select the period for Mendel’s hybridization experiments",
+                                "options": [
+                                    "1856 - 1863",
+                                    "1850 - 1870",
+                                    "1857 - 1869",
+                                    "1870 - 1877"
+                                ]
+                            },
+                            {
+                                "q": "Among the following characters which one was not considered by Mendel in his experimentation pea",
+                                "options": [
+                                    "Stem – Tall or dwarf",
+                                    "Trichomal glandular or non-glandular",
+                                    "Seed – Green or yellow",
+                                    "Pod – Inflated or constricted"
+                                ]
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "match": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "assertion": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [
+                            {
+                                "q": "Name the seven contrasting traits of Mendel.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What is meant by true breeding or pure breeding lines / strain?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Give the names of the scientists who rediscovered Mendelism.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What is back cross?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Define Genetics.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What are multiple alleles",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What are the reasons for Mendel’s successes in his breeding experiment?",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Differentiate incomplete dominance and codominance.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What is meant by cytoplasmic inheritance",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Differentiate continuous variation with discontinuous variation.",
+                                "marks": 3
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [
+                            {
+                                "q": "Explain the law of dominance in monohybrid cross."
+                            },
+                            {
+                                "q": "Describe dominant epistasis with an example."
+                            },
+                            {
+                                "q": "Explain polygenic inheritance with an example."
+                            },
+                            {
+                                "q": "Explain with an example how single genes affect multiple traits and alleles the phenotype of an organism."
+                            },
+                            {
+                                "q": "Bring out the inheritance of chloroplast gene with an example."
+                            }
+                        ],
+                        "interior": []
+                    }
+                },
+                "Chromosomal Basis of Inheritance": {
+                    "mcq": {
+                        "bb": [
+                            {
+                                "q": "An allohexaploidy contains",
+                                "options": [
+                                    "Six different genomes",
+                                    "Six copies of three different genomes",
+                                    "Two copies of three different genomes",
+                                    "Six copies of one genome"
+                                ]
+                            },
+                            {
+                                "q": "The A and B genes are 10 cM apart on a chromosome. If an AB/ab heterozygote is testcrossed to ab/ab, how many of each progeny class would you expect out of 100 total progeny?",
+                                "options": [
+                                    "25 AB, 25 ab, 25 Ab, 25 aB",
+                                    "10 AB, 10 ab",
+                                    "45 AB, 45 ab",
+                                    "45 AB, 45 ab, 5 Ab, 5aB"
+                                ]
+                            },
+                            {
+                                "q": "Match list I with list II",
+                                "options": [
+                                    "A-i, B-iii, C-ii, D-iv",
+                                    "A-ii, B-iii, C-iv, D-i",
+                                    "A-ii, B-iii, C-i, D-iv",
+                                    "A-iii, B-ii, C-i, D-iv"
+                                ]
+                            },
+                            {
+                                "q": "Which of the following sentences are correct? 1. The offspring exhibit only parental combinations due to incomplete linkage 2. The linked genes exhibit some crossing over in complete linkage 3. The separation of two linked genes are possible in incomplete linkage 4. Crossing over is absent in complete linkage",
+                                "options": [
+                                    "1 and 2",
+                                    "2 and 3",
+                                    "3 and 4",
+                                    "1 and 4"
+                                ]
+                            },
+                            {
+                                "q": "Accurate mapping of genes can be done by three point test cross because increases",
+                                "options": [
+                                    "Possibility of single cross over",
+                                    "Possibility of double cross over",
+                                    "Possibility of multiple cross over",
+                                    "Possibility of recombination frequency"
+                                ]
+                            },
+                            {
+                                "q": "Due to incomplete linkage in maize, the ratio of parental and recombinants are",
+                                "options": [
+                                    "50:50",
+                                    "7:1:1:7",
+                                    "96.4: 3.6",
+                                    "1:7:7:1"
+                                ]
+                            },
+                            {
+                                "q": "Genes G S L H are located on same chromosome. The recombination percentage is between L and G is 15%, S and L is 50%, H and S are 20%. The correct order of genes is",
+                                "options": [
+                                    "GHSL",
+                                    "SHGL",
+                                    "SGHL",
+                                    "HSLG"
+                                ]
+                            },
+                            {
+                                "q": "The point mutation sequence for transition, transition, transversion and transversion in DNA are",
+                                "options": [
+                                    "A to T, T to A, C to G and G to C",
+                                    "A to G, C to T, C to G and T to A",
+                                    "C to G, A to G, T to A and G to A",
+                                    "G to C, A to T, T to A and C to G"
+                                ]
+                            },
+                            {
+                                "q": "If haploid number in a cell is 18. The double monosomic and trisomic number will be",
+                                "options": [
+                                    "35 and 37",
+                                    "34 and 35",
+                                    "37 and 35",
+                                    "17 and 19"
+                                ]
+                            },
+                            {
+                                "q": "Changing the codon AGC to AGA represents",
+                                "options": [
+                                    "missense mutation",
+                                    "nonsense mutation",
+                                    "frameshift mutation",
+                                    "deletion mutation"
+                                ]
+                            },
+                            {
+                                "q": "Assertion (A): Gamma rays are generally use to induce mutation in wheat varieties. Reason (R): Because they carry lower energy to non-ionize electrons from atom",
+                                "options": [
+                                    "A is correct. R is correct explanation of A",
+                                    "A is correct. R is not correct explanation of A",
+                                    "A is correct. R is wrong explanation of A",
+                                    "A and R is wrong"
+                                ]
+                            },
+                            {
+                                "q": "How many map units separate two alleles A and B if the recombination frequency is 0.09?",
+                                "options": [
+                                    "900 cM",
+                                    "90 cM",
+                                    "9 cM",
+                                    "0.9 cM"
+                                ]
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "match": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "assertion": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [
+                            {
+                                "q": "When two different genes came from same parent they tend to remain together. i) What is the name of this phenomenon? ii) Draw the cross with suitable example. iii) Write the observed phenotypic ratio.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "If you cross dominant genotype PV/PV male Drosophila with double recessive female and obtain F1 hybrid. Now you cross F1 male with double recessive female. i) What type of linkage is seen? ii) Draw the cross with correct genotype. iii) What is the possible genotype in F2 generation?",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What is the difference between missense and nonsense mutation?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Identify the type of mutation from given figure and explain it.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Write the salient features of Sutton and Boveri concept.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "How is Nicotiana exhibit selfincompatibility. Explain its mechanism.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Write the salient features of Sutton and Boveri concept.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "How sex is determined in monoecious plants. write their genes involved in it.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What is gene mapping? Write its uses.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Draw the diagram of different types of aneuploidy.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Mention the name of man-made cereal. How it is formed?",
+                                "marks": 2
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [
+                            {
+                                "q": "Explain the mechanism of crossing over."
+                            },
+                            {
+                                "q": "Write the steps involved in molecular mechanism of DNA recombination with diagram."
+                            }
+                        ],
+                        "interior": []
+                    }
+                },
+                "Principles and Processes of Biotechnology": {
+                    "mcq": {
+                        "bb": [
+                            {
+                                "q": "Restriction enzymes are",
+                                "options": [
+                                    "Not always required in genetic engineering",
+                                    "Essential tools in genetic engineering",
+                                    "Nucleases that cleave DNA at specific sites",
+                                    "both b and c"
+                                ]
+                            },
+                            {
+                                "q": "Plasmids are",
+                                "options": [
+                                    "circular protein molecules",
+                                    "required by bacteria",
+                                    "tiny bacteria",
+                                    "confer resistance to antibiotics"
+                                ]
+                            },
+                            {
+                                "q": "EcoRI cleaves DNA at",
+                                "options": [
+                                    "AGGGTT",
+                                    "GTATATC",
+                                    "GAATTC",
+                                    "TATAGC"
+                                ]
+                            },
+                            {
+                                "q": "Genetic engineering is",
+                                "options": [
+                                    "making artificial genes.",
+                                    "hybridization of DNA of one organism to that of the others.",
+                                    "production of alcohol by using micro organisms.",
+                                    "making artificial limbs, diagnostic instruments such as ECG, EEG etc.,"
+                                ]
+                            },
+                            {
+                                "q": "Consider the following statements: I. Recombinant DNA technology is popularly known as genetic engineering... II. pBR322 is the first artificial cloning vector... III. Restriction enzymes belongs to a class of enzymes called nucleases. Choose the correct option",
+                                "options": [
+                                    "I & II",
+                                    "I & III",
+                                    "II & III",
+                                    "I,II & III"
+                                ]
+                            },
+                            {
+                                "q": "The process of recombinant DNA technology has the following steps I. amplication of the gene II. Insertion of recombinant DNA into the host cells III. Cutting of DNA at specific location using restriction enzyme . IV. Isolation of genetic material (DNA). Pick out the correct sequence",
+                                "options": [
+                                    "II, III, IV, I",
+                                    "IV, II, III, I",
+                                    "I, II, III, IV",
+                                    "IV, III, I, II"
+                                ]
+                            },
+                            {
+                                "q": "Which one of the following palindromic base sequence in DNA can be easily cut at about the middle by some particular restriction enzymes?",
+                                "options": [
+                                    "5 CGTTCG 3 3 ATCGTA 5",
+                                    "5 GATATG 3 3 CTACTA 5",
+                                    "5 GAATTC 3 3 CTTAAG 5",
+                                    "5 CACGTA 3 3 CTCAGT 5"
+                                ]
+                            },
+                            {
+                                "q": "pBR 322, BR stands for",
+                                "options": [
+                                    "Plasmid Bacterial Recombination",
+                                    "Plasmid Bacterial Replication",
+                                    "Plasmid Boliver and Rodriguez",
+                                    "Plasmid Baltimore and Rodriguez"
+                                ]
+                            },
+                            {
+                                "q": "Which of the following one is used as a Biosensors?",
+                                "options": [
+                                    "Electrophoresis",
+                                    "Bioreactors",
+                                    "Vectors",
+                                    "Electroporation"
+                                ]
+                            },
+                            {
+                                "q": "In which techniques Ethidium Bromide is used?",
+                                "options": [
+                                    "Southern Blotting techniques",
+                                    "Western Blotting techniques",
+                                    "Polymerase Chain Reaction",
+                                    "Agrose Gel Electroporosis"
+                                ]
+                            },
+                            {
+                                "q": "Assertion : Agrobacterium tumifaciens is popular in genetic engineering... Reason: A gene incorporated in the bacterial chromosomal genome gets atomatically transferred...",
+                                "options": [
+                                    "Both assertion and reason are true. But reason is correct explanation of assertion.",
+                                    "Both assertion and reason are true. But reason is not correct explanation of assertion.",
+                                    "Assertion is true, but reason is false.",
+                                    "Assertion is false, but reason is true.",
+                                    "Both assertion and reason are false."
+                                ]
+                            },
+                            {
+                                "q": "Which one of the following is not correct statement.",
+                                "options": [
+                                    "Ti plasmid causes the bunchy top disease",
+                                    "Multiple cloning site is known as Polylinker",
+                                    "Non viral method transfection of Nucleic acid in cell",
+                                    "Polylactic acid is a kind of biodegradable and bioactive thermoplastic."
+                                ]
+                            },
+                            {
+                                "q": "An analysis of chromosomal DNA using the southern hybridisation technique does not use",
+                                "options": [
+                                    "Electrophoresis",
+                                    "Blotting",
+                                    "Autoradiography",
+                                    "Polymerase Chain Reaction"
+                                ]
+                            },
+                            {
+                                "q": "An antibiotic gene in a vector usually helps in the selection of",
+                                "options": [
+                                    "Competent cells",
+                                    "Transformed cells",
+                                    "Recombinant cells",
+                                    "None of the above"
+                                ]
+                            },
+                            {
+                                "q": "Some of the characteristics of Bt cotton are",
+                                "options": [
+                                    "Long fibre and resistant to aphids",
+                                    "Medium yield, long fibre and resistant to beetle pests",
+                                    "high yield and production of toxic protein crystals which kill dipteran pests.",
+                                    "High yield and resistant to ball worms"
+                                ]
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "match": {
+                        "bb": [
+                            {
+                                "title": "Match the following (Enzymes):",
+                                "columnA": [
+                                    "Ligase",
+                                    "EcoRI",
+                                    "pBR322",
+                                    "Transgenic"
+                                ],
+                                "columnB": [
+                                    "Molecular scissors",
+                                    "Molecular glue",
+                                    "Vector",
+                                    "GMO"
+                                ],
+                                "correctMatch": [
+                                    "B",
+                                    "A",
+                                    "C",
+                                    "D"
+                                ]
+                            }
+                        ],
+                        "interior": [
+                            {
+                                "title": "Match the following (Ratios):",
+                                "columnA": [
+                                    "Monohybrid Ratio",
+                                    "Dihybrid Ratio",
+                                    "Test Cross",
+                                    "Incomplete Dominance"
+                                ],
+                                "columnB": [
+                                    "9:3:3:1",
+                                    "3:1",
+                                    "1:2:1",
+                                    "1:1"
+                                ],
+                                "correctMatch": [
+                                    "B",
+                                    "A",
+                                    "D",
+                                    "C"
+                                ]
+                            }
+                        ]
+                    },
+                    "assertion": {
+                        "bb": [
+                            {
+                                "assertion": "Agrobacterium tumefaciens is often called 'Nature's Genetic Engineer'.",
+                                "reason": "It has a Ti-plasmid which can deliver a piece of DNA (T-DNA) into plant cells."
+                            },
+                            {
+                                "assertion": "DNA replication is semi-conservative.",
+                                "reason": "Each new DNA molecule contains one old strand and one new strand."
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [
+                            {
+                                "q": "How do you use the biotechnology in modern practice?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What are the materials used to grow microorganism like Spirulina?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "You are working in a biotechnology lab with a becterium namely E.coli. How will you cut the nucleotide sequence? explain it.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What are the enzymes you can used to cut terminal end and internal phospho di ester bond of nucleotide sequence?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Name the chemicals used in gene transfer.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What do you know about the word pBR332?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Mention the application of Biotechnology.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What are restriction enzyme. Mention their type with role in Biotechnology.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Is their any possibilities to transfer a suitable desirable gene to host plant without vector? Justify your answer.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "How will you identify a vectors?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Write the advantages of herbicide tolerant crops.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Write the advantages and disadvantages of Bt cotton.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What is bioremediation? give some examples of bioremediation.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Write the benefits and risk of Genetically Modified Foods.",
+                                "marks": 3
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [
+                            {
+                                "q": "Compare the various types of Blotting techniques."
+                            }
+                        ],
+                        "interior": []
+                    }
+                },
+                "Plant Tissue Culture": {
+                    "mcq": {
+                        "bb": [
+                            {
+                                "q": "Totipotency refers to",
+                                "options": [
+                                    "capacity to generate genetically identical plants.",
+                                    "capacity to generate a whole plant from any plant cell / explant.",
+                                    "capacity to generate hybrid protoplasts.",
+                                    "recovery of healthy plants from diseased plants."
+                                ]
+                            },
+                            {
+                                "q": "Micro propagation involves",
+                                "options": [
+                                    "vegetative multiplication of plants by using micro-organisms.",
+                                    "vegetative multiplication of plants by using small explants.",
+                                    "vegetative multiplication of plants by using microspores.",
+                                    "Non-vegetative multiplication of plants by using microspores and megaspores."
+                                ]
+                            },
+                            {
+                                "q": "The time duration for sterilization process by using autoclave is ______ minutes and the temperature is _______",
+                                "options": [
+                                    "10 to 30 minutes and 125° C",
+                                    "15 to 30 minutes and 121° C",
+                                    "15 to 20 minutes and 125° C",
+                                    "10 to 20 minutes and 121° C"
+                                ]
+                            },
+                            {
+                                "q": "Which of the following statement is correct",
+                                "options": [
+                                    "Agar is not extracted from marine algae such as seaweeds.",
+                                    "Callus undergoes differentiation and produces somatic embryoids.",
+                                    "Surface sterilization of explants is done by using mercuric bromide",
+                                    "PH of the culture medium is 5.0 to 6.0 6."
+                                ]
+                            },
+                            {
+                                "q": "Select the incorrect statement from given statement",
+                                "options": [
+                                    "A tonic used for cardiac arrest is obtained from Digitalis purpuria",
+                                    "Medicine used to treat Rheumatic pain is extracted from Capsicum annum",
+                                    "An anti malarial drug is isolated from Cinchona officinalis.",
+                                    "Anti-cancinogenic property is not seen in Catharanthus roseus."
+                                ]
+                            },
+                            {
+                                "q": "Virus free plants are developed from",
+                                "options": [
+                                    "Organ culture",
+                                    "Meristem culture",
+                                    "Protoplast culture",
+                                    "Cell suspension culture"
+                                ]
+                            },
+                            {
+                                "q": "The prevention of large scale loss of biological interity",
+                                "options": [
+                                    "Biopatent",
+                                    "Bioethics",
+                                    "Biosafety",
+                                    "Biofuel"
+                                ]
+                            },
+                            {
+                                "q": "Cryopreservation means it is a process to preserve plant cells, tissues or organs",
+                                "options": [
+                                    "at very low temperature by using ether.",
+                                    "at very high temperature by using liquid nitrogen",
+                                    "at very low temperature of -196 by using liquid nitrogen",
+                                    "at very low temperature by using liquid nitrogen"
+                                ]
+                            },
+                            {
+                                "q": "Solidifying agent used in plant tissue culture is",
+                                "options": [
+                                    "Nicotinic acid",
+                                    "Cobaltous chloride",
+                                    "EDTA",
+                                    "Agar"
+                                ]
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "match": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "assertion": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [
+                            {
+                                "q": "What is the name of the process given below? Write its 4 types. (Diagram based)",
+                                "marks": 3
+                            },
+                            {
+                                "q": "How will you avoid the growing of microbes in nutrient medium during culture process? What are the techniques used to remove the microbes?",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Write the various steps involved in cell suspension culture.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What do you mean Embryoids? Write its application.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Give the examples for micro propagation performed plants.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Based on the material used, how will you classify the culture technology? Explain it.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Give an account on Cryopreservation.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What do you know about Germplasm conservation. Describe it.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Write the protocol for artificial seed preparation.",
+                                "marks": 3
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [
+                            {
+                                "q": "Explain the basic concepts involved in plant tissue culture."
+                            }
+                        ],
+                        "interior": []
+                    }
+                },
+                "Principles of Ecology": {
+                    "mcq": {
+                        "bb": [
+                            {
+                                "q": "Arrange the correct sequence of ecological hierarchy starting from lower to higher level.",
+                                "options": [
+                                    "Individual organism → Population Landscape → Ecosystem",
+                                    "Landscape → Ecosystem → Biome → Biosphere",
+                                    "community → Ecosystem → Landscape → Biome",
+                                    "Population → organism → Biome → Landscape"
+                                ]
+                            },
+                            {
+                                "q": "Ecology is the study of an individual species is called. <br> i) Community ecology     ii) Autecology     iii) Species ecology     iv) Synecology",
+                                "options": [
+                                    "i only",
+                                    "ii only",
+                                    "i and iv only",
+                                    "ii and iii only"
+                                ]
+                            },
+                            {
+                                "q": "A specific place in an ecosystem, where an organism lives and performs its functions is",
+                                "options": [
+                                    "habitat",
+                                    "niche",
+                                    "landscape",
+                                    "biome"
+                                ]
+                            },
+                            {
+                                "q": "Read the given statements and select the correct option. <br> i) Hydrophytes possess aerenchyma    ii) Seeds of Viscum are positively photoblastic     iii) Hygroscopic water is the only soil water    iv) High temperature reduces use of water",
+                                "options": [
+                                    "i, ii, and iii only",
+                                    "ii, iii and iv",
+                                    "ii and iii only",
+                                    "i and ii only"
+                                ]
+                            },
+                            {
+                                "q": "Which of the given plant produces cardiac glycosides?",
+                                "options": [
+                                    "Calotropis",
+                                    "Acacia",
+                                    "Nepenthes",
+                                    "Utricularia"
+                                ]
+                            },
+                            {
+                                "q": "Read the given statements and select the correct option. <br> i) Loamy soil is best suited    ii) The process of humification is slow    iii) Capillary water is the only water    iv) Leaves of shade plant",
+                                "options": [
+                                    "i, ii and iii only",
+                                    "ii, iii and iv only",
+                                    "i, ii and iv only",
+                                    "ii and iii only"
+                                ]
+                            },
+                            {
+                                "q": "Read the given statements and select the correct option. <br> Statement A : Cattle do not graze on weeds of Calotropis.<br> Statement B : Calotropis have thorns and spines",
+                                "options": [
+                                    "Both statements A and B are incorrect.",
+                                    "Statement A is correct but statement B is incorrect.",
+                                    "Both statements A and B are correct but statement B is not the correct explanation of statement A.",
+                                    "Both statements A and B are correct and statement B is the correct explanation of statement A."
+                                ]
+                            },
+                            {
+                                "q": "In soil water available for plants is",
+                                "options": [
+                                    "gravitational water",
+                                    "chemically bound water",
+                                    "capillary water",
+                                    "hygroscopic water"
+                                ]
+                            },
+                            {
+                                "q": "The plant of this group are adapted to live partly in water and partly above substratum and free from water",
+                                "options": [
+                                    "Xerophytes",
+                                    "Mesophytes",
+                                    "Hydrophytes",
+                                    "Halophytes"
+                                ]
+                            },
+                            {
+                                "q": "Ophrys an orchid resembling the female of an insect so as to able to get pollinated is due to phenomenon of",
+                                "options": [
+                                    "Myrmecophily",
+                                    "Ecological equivalents",
+                                    "Mimicry",
+                                    "None of these"
+                                ]
+                            },
+                            {
+                                "q": "A free living nitrogen fixing cyanobacterium which can also form symbiotic association with the water fern Azolla",
+                                "options": [
+                                    "Nostoc",
+                                    "Anabaena",
+                                    "chlorella",
+                                    "Rhizobium"
+                                ]
+                            },
+                            {
+                                "q": "Pedogenesis refers to",
+                                "options": [
+                                    "Fossils",
+                                    "Water",
+                                    "Population",
+                                    "Soil"
+                                ]
+                            },
+                            {
+                                "q": "Mycorrhiza promotes plant growth by",
+                                "options": [
+                                    "Serving as a plant growth regulators",
+                                    "Absorbing inorganic ions from soil",
+                                    "Helping the plant in utilizing atmospheric nitrogen",
+                                    "Protecting the plant from infection"
+                                ]
+                            },
+                            {
+                                "q": "Which of the following plant has a nonsucculent xerophytic and thick leathery leaves with waxy coating",
+                                "options": [
+                                    "Bryophyllum",
+                                    "Ruscus",
+                                    "Nerium",
+                                    "Calotropis"
+                                ]
+                            },
+                            {
+                                "q": "In a fresh water environment like pond, rooted autotrophs are",
+                                "options": [
+                                    "Nymphaea and typha",
+                                    "Ceratophyllum and Utricularia",
+                                    "Wolffia and pistia",
+                                    "Azolla and lemna"
+                                ]
+                            },
+                            {
+                                "q": "Strong, sharp spines that get attached to animal’s feet are found in the fruits of",
+                                "options": [
+                                    "Argemone",
+                                    "Ecballium",
+                                    "Heritier",
+                                    "Crossandra"
+                                ]
+                            },
+                            {
+                                "q": "Sticky glands of Boerhaavia and Cleome support",
+                                "options": [
+                                    "Anemochory",
+                                    "Zoochory",
+                                    "Autochory",
+                                    "Hydrochory"
+                                ]
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "match": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "assertion": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [
+                            {
+                                "q": "Define ecology.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What is ecological hierarchy? Name the levels of ecological hierarchy.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What are ecological equivalents? Give one example.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Distinguish habitat and niche",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Why are some organisms called as eurythermals and some others as stenohaline?",
+                                "marks": 3
+                            },
+                            {
+                                "q": "‘Green algae are not likely to be found in the deepest strata of the ocean’. Give at least one reason.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What is Phytoremediation?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What is Albedo effect and write their effects?",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Why is an organic horizon generally absent in desert soils?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Soil formation can be initiated by biological organisms. Explain how?",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Sandy soil is not suitable for cultivation. Explain why?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Describe the mutual relationship between the fig and wasp and comment on the phenomenon that operates in this relationship.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Lichen is considered as a good example of obligate mutualism. Explain.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What is mutualism? Mention any two example where the organisms involved are commercially exploited in modern agriculture.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "List any two adaptive features evolved in parasites enabling them to live successfully on their host?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Mention any two significant roles of predation plays in nature.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "How does an orchid ophrys ensures its pollination by bees?",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Water is very essential for life. Write any three features for plants which enable them to survive in water scarce environment.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Why do submerged plants receive weak illumination than exposed floating plants in a lake?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What is vivipary? Name a plant group which exhibits vivipary",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What is thermal stratification? Mention their types.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "How is rhytidome act as the structural defence by plants against fire?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What is myrmecophily?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What is seed ball?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "How is anemochory differ from zoochory?",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What is co evolution?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Explain Raunkiaer classification in the world’s vegetation based on the temperature.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "List out the effects of fire to plants.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What is soil profile? Explain the characters of different soil horizons.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Give an account of various types of parasitism with examples.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Explain different types of hydrophytes with examples.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Enumerate the anatomical adaptations of xerophytes.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "List out any five morphological adaptations of halophytes.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What are the advantages of seed dispersal?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Describe dispersal of fruit and seeds by animals",
+                                "marks": 3
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [],
+                        "interior": []
+                    }
+                },
+                "Ecosystem": {
+                    "mcq": {
+                        "bb": [
+                            {
+                                "q": "Which of the following is not a abiotic component of the ecosystem?",
+                                "options": [
+                                    "Bacteria",
+                                    "Humus",
+                                    "Organic compounds",
+                                    "Inorganic compounds"
+                                ]
+                            },
+                            {
+                                "q": "Which of the following is / are not a natural ecosystem?",
+                                "options": [
+                                    "Forest ecosystem",
+                                    "Rice field",
+                                    "Grassland ecosystem",
+                                    "Desert ecosystem"
+                                ]
+                            },
+                            {
+                                "q": "Pond is a type of",
+                                "options": [
+                                    "forest ecosystem",
+                                    "grassland ecosystem",
+                                    "marine ecosystem",
+                                    "fresh water ecosystem"
+                                ]
+                            },
+                            {
+                                "q": "Pond ecosystem is",
+                                "options": [
+                                    "not self sufficient and self regulating",
+                                    "partially self sufficient and self regulating",
+                                    "self sufficient and not self regulating",
+                                    "self sufficient and self regulating"
+                                ]
+                            },
+                            {
+                                "q": "Profundal zone is predominated by heterotrophs in a pond ecosystem, because of",
+                                "options": [
+                                    "with effective light penetration",
+                                    "no effective light penetration",
+                                    "complete absence of light",
+                                    "a and b"
+                                ]
+                            },
+                            {
+                                "q": "Solar energy used by green plants for photosynthesis is only",
+                                "options": [
+                                    "2 – 8%",
+                                    "2 – 10%",
+                                    "3 – 10%",
+                                    "2 – 9%"
+                                ]
+                            },
+                            {
+                                "q": "Which of the following ecosystem has the highest primary productivity?",
+                                "options": [
+                                    "Pond ecosystem",
+                                    "Lake ecosystem",
+                                    "Grassland ecosystem",
+                                    "Forest ecosystem"
+                                ]
+                            },
+                            {
+                                "q": "Ecosystem consists of",
+                                "options": [
+                                    "decomposers",
+                                    "producers",
+                                    "consumers",
+                                    "all of the above"
+                                ]
+                            },
+                            {
+                                "q": "Significance of food web is / are",
+                                "options": [
+                                    "it does not maintain stability in nature",
+                                    "it shows patterns of energy transfer",
+                                    "it explains species interaction",
+                                    "b and c"
+                                ]
+                            },
+                            {
+                                "q": "Which of the following is / are not the mechanism of decomposition",
+                                "options": [
+                                    "Eluviation",
+                                    "Catabolism",
+                                    "Anabolism",
+                                    "Fragmentation"
+                                ]
+                            },
+                            {
+                                "q": "Which of the following is not a sedimentary cycle",
+                                "options": [
+                                    "Nitrogen cycle",
+                                    "Phosphorous cycle",
+                                    "Sulphur cycle",
+                                    "Calcium cycle"
+                                ]
+                            },
+                            {
+                                "q": "Which of the following are not regulating services of ecosystem services",
+                                "options": [
+                                    "i and iii",
+                                    "ii and iv",
+                                    "i and ii",
+                                    "i and iv"
+                                ]
+                            },
+                            {
+                                "q": "Which of the following is not a producer?",
+                                "options": [
+                                    "Spirogyra",
+                                    "Agaricus",
+                                    "Volvox",
+                                    "Nostoc"
+                                ]
+                            },
+                            {
+                                "q": "Identify the mismatching pair",
+                                "options": [
+                                    "Trophic level-1 - Herbivores",
+                                    "Trophic level-2 - Primary Consumers",
+                                    "Trophic level-3 - Secondary Consumers",
+                                    "Trophic level-4 - Tertiary Consumers"
+                                ]
+                            },
+                            {
+                                "q": "Which of the following is a partial parasite?",
+                                "options": [
+                                    "Cuscuta",
+                                    "Viscum",
+                                    "Orobanche",
+                                    "Ganoderma"
+                                ]
+                            },
+                            {
+                                "q": "Identify the correct food chain",
+                                "options": [
+                                    "Grass → Frog → Insect → Snake → Eagle",
+                                    "Grass → Insect → Frog → Snake → Eagle",
+                                    "Grass → Snake → Insect → Frog → Eagle",
+                                    "Grass → Eagle → Snake → Insect → Frog"
+                                ]
+                            },
+                            {
+                                "q": "Which of the following organism is a primary consumer?",
+                                "options": [
+                                    "Algae",
+                                    "Grasshopper",
+                                    "Frog",
+                                    "Snake"
+                                ]
+                            }
+                        ],
+                        "interior": [
+                            {
+                                "q": "Generally in summer the forest are affected by natural fire. Over a period of time it recovers itself by the process of successions . Find out the types of succession and explain."
+                            }
+                        ]
+                    },
+                    "match": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "assertion": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [
+                            {
+                                "q": "Productivity of profundal zone will be low. Why?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Discuss the gross primary productivity is more efficient than net primary productivity.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Define Ecosystem.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What are the components of an ecosystem?",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Differentiate between producers and consumers.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Explain the concept of Trophic levels.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What is a food chain? Give an example.",
+                                "marks": 2
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [],
+                        "interior": []
+                    }
+                },
+                "Environmental Issues": {
+                    "mcq": {
+                        "bb": [
+                            {
+                                "q": "Which of the following would most likely help to slow down the greenhouse effect.",
+                                "options": [
+                                    "Converting tropical forests into grazing land for cattle.",
+                                    "Ensuring that all excess paper packaging is buried to ashes.",
+                                    "Redesigning landfill dumps to allow methane to be collected.",
+                                    "Promoting the use of private rather than public transport."
+                                ]
+                            },
+                            {
+                                "q": "With respect to Eichhornia Statement A: It drains off oxygen... Statement B: It is an indigenous species...",
+                                "options": [
+                                    "Statement A is correct and Statement B is wrong.",
+                                    "Both Statements A and B are correct.",
+                                    "Statement A is correct and Statement B is wrong.",
+                                    "Both statements A and B are wrong."
+                                ]
+                            },
+                            {
+                                "q": "Find the wrongly matched pair.",
+                                "options": [
+                                    "Endemism - Species confined to a region",
+                                    "Hotspots - Western ghats",
+                                    "Ex-situ Conservation - Zoological parks",
+                                    "Alien sp. Of India - Water hyacinth"
+                                ]
+                            },
+                            {
+                                "q": "Depletion of which gas in the atmosphere can lead to an increased incidence of skin cancer?",
+                                "options": [
+                                    "Ammonia",
+                                    "Methane",
+                                    "Nitrous oxide",
+                                    "Ozone"
+                                ]
+                            },
+                            {
+                                "q": "One green house gas contributes 14% of total global warming and another contributes 6%. These are respectively identified as",
+                                "options": [
+                                    "N20 and CO2",
+                                    "CFCs and N20",
+                                    "CH4 and CO2",
+                                    "CH4 and CFCS"
+                                ]
+                            },
+                            {
+                                "q": "One of the chief reasons among the following for the depletion in the number of species making endangered is",
+                                "options": [
+                                    "over hunting and poaching",
+                                    "green house effect",
+                                    "competition and predation",
+                                    "habitat destruction"
+                                ]
+                            },
+                            {
+                                "q": "Deforestation means",
+                                "options": [
+                                    "growing plants and trees in an area where there is no forest",
+                                    "growing plants and trees in an area where the forest is removed",
+                                    "growing plants and trees in a pond",
+                                    "removal of plants and trees"
+                                ]
+                            },
+                            {
+                                "q": "Deforestation does not lead to",
+                                "options": [
+                                    "quick nutrient cycling",
+                                    "soil erosion",
+                                    "alternation of local weather conditions",
+                                    "Destruction of natural habitat weather conditions"
+                                ]
+                            },
+                            {
+                                "q": "The unit for measuring ozone thickness",
+                                "options": [
+                                    "Joule",
+                                    "Kilos",
+                                    "Dobson",
+                                    "Watt"
+                                ]
+                            },
+                            {
+                                "q": "People’s movement for the protection of environment in Sirsi of Karnataka is",
+                                "options": [
+                                    "Chipko movement",
+                                    "Amirtha Devi Bishwas movement",
+                                    "Appiko movement",
+                                    "None of the above"
+                                ]
+                            },
+                            {
+                                "q": "The plants which are grown in silivpasture system are",
+                                "options": [
+                                    "Sesbania and Acacia",
+                                    "Solenum and Crotalaria",
+                                    "Clitoria and Begonia",
+                                    "Teak and sandal"
+                                ]
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "match": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "assertion": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [
+                            {
+                                "q": "What is ozone hole?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Give four examples of plants cultivated in commercial agroforestry.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Expand CCS.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "How do forests help in maintaining the climate?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "How do sacred groves help in the conservation of biodiversity?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Which one gas is most abundant out of the four commonest greenhouse gases? Discuss the effect of this gas on the growth of plants?",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Suggest a solution to water crisis and explain its advantages.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Explain afforestation with case studies.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What are the effects of deforestation and benefits of agroforesty?",
+                                "marks": 3
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [],
+                        "interior": []
+                    }
+                },
+                "Plant Breeding": {
+                    "mcq": {
+                        "bb": [
+                            {
+                                "q": "Desired improved variety of economically useful crops are raised by",
+                                "options": [
+                                    "Natural Selection",
+                                    "hybridization",
+                                    "mutation",
+                                    "biofertilisers"
+                                ]
+                            },
+                            {
+                                "q": "Plants having similar genotypes produced by plant breeding are called",
+                                "options": [
+                                    "clone",
+                                    "haploid",
+                                    "autopolyploid",
+                                    "genome"
+                                ]
+                            },
+                            {
+                                "q": "Importing better varieties and plants from outside and acclimatising them to local environment is called",
+                                "options": [
+                                    "cloning",
+                                    "heterosis",
+                                    "selection",
+                                    "introduction"
+                                ]
+                            },
+                            {
+                                "q": "Dwarfing gene of wheat is",
+                                "options": [
+                                    "pal 1",
+                                    "Atomita 1",
+                                    "Norin 10",
+                                    "pelita 2"
+                                ]
+                            },
+                            {
+                                "q": "Crosses between the plants of the same variety are called",
+                                "options": [
+                                    "interspecific",
+                                    "inter varietal",
+                                    "intra varietal",
+                                    "inter generic"
+                                ]
+                            },
+                            {
+                                "q": "Progeny obtained as a result of repeat self pollination a cross pollinated crop to called",
+                                "options": [
+                                    "pure line",
+                                    "pedigree line",
+                                    "inbreed line",
+                                    "heterosis"
+                                ]
+                            },
+                            {
+                                "q": "Jaya and Ratna are the semi dwarf varieties of",
+                                "options": [
+                                    "wheat",
+                                    "rice",
+                                    "cowpea",
+                                    "mustard"
+                                ]
+                            },
+                            {
+                                "q": "Which one of the following are the species that are crossed to give sugarcane varieties...",
+                                "options": [
+                                    "Saccharum robustum and Saccharum officinarum",
+                                    "Saccharum barberi and Saccharum officinarum",
+                                    "Saccharum sinense and Saccharum officinarum",
+                                    "Saccharum barberi and Saccharum robustum"
+                                ]
+                            },
+                            {
+                                "q": "Match column I (crop) with column II (Corresponding disease resistant variety)",
+                                "options": [
+                                    "iv iii ii i",
+                                    "ii i iii iv",
+                                    "ii iv i iii",
+                                    "i iii iv ii"
+                                ]
+                            },
+                            {
+                                "q": "A wheat variety, Atlas 66 which has been used as a donor for improving cultivated wheat, which is rich in",
+                                "options": [
+                                    "iron",
+                                    "carbohydrates",
+                                    "proteins",
+                                    "vitamins"
+                                ]
+                            },
+                            {
+                                "q": "Which one of the following crop varieties correct matches with its resistance to a disease?",
+                                "options": [
+                                    "Pusa Komal - Bacterial blight",
+                                    "Pusa Sadabahar - White rust",
+                                    "Pusa Shubhra - Chilli mosaic virus",
+                                    "Brassica - Pusa swarnim"
+                                ]
+                            },
+                            {
+                                "q": "Which of the following is incorrectly paired?",
+                                "options": [
+                                    "Wheat - Himgiri",
+                                    "Milch breed - Sahiwal",
+                                    "Rice - Ratna",
+                                    "Pusa Komal - Brassica"
+                                ]
+                            },
+                            {
+                                "q": "Match list I with list II (Biofertilizer vs Organisms)",
+                                "options": [
+                                    "ic, iia, iiib, ivd",
+                                    "id, iic, iiia, ivb.",
+                                    "ia, iic, iiib, ivd",
+                                    "ib, iia, iiid, ivc."
+                                ]
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "match": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "assertion": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [
+                            {
+                                "q": "Differentiate primary introduction from secondary introduction.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "How are microbial innoculants used to increase the soil fertility?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What are the different types of hybridization?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Explain the best suited type followed by plant breeders at present?",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Write a note on heterosis.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "List out the new breeding techniques involved in developing new traits in plant breeding.",
+                                "marks": 3
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [],
+                        "interior": []
+                    }
+                },
+                "Economically Useful Plants and Entrepreneurial Botany": {
+                    "mcq": {
+                        "bb": [
+                            {
+                                "q": "Consider the following statements... i) Cereals are members of grass family. ii) Most of the food grains come from monocotyledon.",
+                                "options": [
+                                    "(i) is correct and (ii) is wrong",
+                                    "Both (i) and (ii) are correct",
+                                    "(i) is wrong and (ii) is correct",
+                                    "Both (i) and (ii) are wrong"
+                                ]
+                            },
+                            {
+                                "q": "Assertion: Vegetables are important part of healthy eating. Reason: Vegetables are succulent structures...",
+                                "options": [
+                                    "Assertion is correct, Reason is wrong",
+                                    "Assertion is wrong, Reason is correct",
+                                    "Both are correct and reason is the correct explanation for assertion.",
+                                    "Both are correct and reason is not the correct explanation for assertion."
+                                ]
+                            },
+                            {
+                                "q": "Groundnut is native of",
+                                "options": [
+                                    "Philippines",
+                                    "India",
+                                    "North America",
+                                    "Brazil"
+                                ]
+                            },
+                            {
+                                "q": "Statement A: Coffee contains caffeine. Statement B: Drinking coffee enhances cancer",
+                                "options": [
+                                    "A is correct, B is wrong",
+                                    "A and B – Both are correct",
+                                    "A is wrong, B is correct",
+                                    "A and B – Both are wrong"
+                                ]
+                            },
+                            {
+                                "q": "Tectona grandis is coming under family",
+                                "options": [
+                                    "Lamiaceae",
+                                    "Fabaceae",
+                                    "Dipterocaipaceae",
+                                    "Ebenaceae"
+                                ]
+                            },
+                            {
+                                "q": "Tamarindus indica is indigenous to",
+                                "options": [
+                                    "Tropical African region",
+                                    "South India, Sri Lanka",
+                                    "South America, Greece",
+                                    "India alone"
+                                ]
+                            },
+                            {
+                                "q": "New world species of cotton",
+                                "options": [
+                                    "Gossipium arboretum",
+                                    "G.herbaceum",
+                                    "Both a and b",
+                                    "G.barbadense"
+                                ]
+                            },
+                            {
+                                "q": "Assertion: Turmeric fights various kinds of cancer. Reason: Curcumin is an anti-oxidant present in turmeric",
+                                "options": [
+                                    "Assertion is correct, Reason is wrong",
+                                    "Assertion is wrong, Reason is correct",
+                                    "Both are correct",
+                                    "Both are wrong"
+                                ]
+                            },
+                            {
+                                "q": "Find out the correctly matched pair.",
+                                "options": [
+                                    "Rubber Shorea robusta",
+                                    "Dye Lawsonia inermis",
+                                    "Timber Cyperus papyrus",
+                                    "Pulp Hevea brasiliensis"
+                                ]
+                            },
+                            {
+                                "q": "Statement I – Perfumes are manufactured from essential oils. Statement II – Essential oils are formed at different parts of the plants.",
+                                "options": [
+                                    "Statement I is correct",
+                                    "Statement II is correct",
+                                    "Both statements are correct",
+                                    "Both statements are wrong"
+                                ]
+                            },
+                            {
+                                "q": "Statement I: The drug sources of Siddha include plants, animal parts, ores and minerals. Statement II: Minerals are used for preparing drugs with long shelf-life.",
+                                "options": [
+                                    "Statement I is correct",
+                                    "Statement II is correct",
+                                    "Both statements are correct",
+                                    "Both statements are wrong"
+                                ]
+                            },
+                            {
+                                "q": "The active principle trans-tetra hydro canabial is present in",
+                                "options": [
+                                    "Opium",
+                                    "Curcuma",
+                                    "Marijuana",
+                                    "Andrographis"
+                                ]
+                            },
+                            {
+                                "q": "Which one of the following matches is correct?",
+                                "options": [
+                                    "Palmyra - Native of Brazil",
+                                    "Saccharun - Abundant in Kanyakumari",
+                                    "Steveocide - Natural sweetener",
+                                    "Palmyra sap - Fermented to give ethanol"
+                                ]
+                            },
+                            {
+                                "q": "The only cereal that has originated and domesticated from the New world.",
+                                "options": [
+                                    "Oryza sativa",
+                                    "Triticum asetumn",
+                                    "Triticum duram",
+                                    "Zea mays"
+                                ]
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "match": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "assertion": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [
+                            {
+                                "q": "Write the cosmetic uses of Aloe.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "What is pseudo cereal? Give an example.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Discuss which wood is better for making furniture.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "A person got irritation while applying chemical dye. What would be your suggestion for alternative?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Name the humors that are responsible for the health of human beings.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Give definitions for organic farming?",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Which is called as the “King of Bitters”? Mention their medicinal importance.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Differentiate bio-medicines and botanical medicines.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Write the origin and area of cultivation of green gram and red gram.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What are millets? What are its types? Give example for each type.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "If a person drinks a cup of coffee daily it will help him for his health. Is this correct? If it is correct, list out the benefits.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Enumerate the uses of turmeric.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What is TSM? How does it classified and what does it focuses on?",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Write the uses of nuts you have studied.",
+                                "marks": 2
+                            },
+                            {
+                                "q": "Give an account on the role of Jasminum in perfuming.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Give an account of active principle and medicinal values of any two plants you have studied.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Write the economic importance of rice.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "Which TSM is widely practiced and culturally accepted in Tamil Nadu? - explain.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What are psychoactive drugs? Add a note Marijuana and Opium",
+                                "marks": 3
+                            },
+                            {
+                                "q": "What are the King and Queen of spices? Explain about them and their uses.",
+                                "marks": 3
+                            },
+                            {
+                                "q": "How will you prepare an organic pesticide for your home garden with the vegetables available from your kitchen?",
+                                "marks": 3
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [],
+                        "interior": []
+                    }
+                }
+            }
+        },
+        "Zoology": {
+            "_comment": {
+                "Human Reproduction": {
+                    "mcq": {
+                        "bb": [
+                            {
+                                "q": "Zoology MCQ 1 (Book Back)",
+                                "options": [
+                                    "A",
+                                    "B",
+                                    "C",
+                                    "D"
+                                ]
+                            }
+                        ],
+                        "interior": [
+                            {
+                                "q": "Zoology MCQ 2 (Interior)",
+                                "options": [
+                                    "A",
+                                    "B",
+                                    "C",
+                                    "D"
+                                ]
+                            }
+                        ]
+                    },
+                    "shortAnswer": {
+                        "bb": [
+                            {
+                                "q": "Zoology Short Answer 1 (Book Back)"
+                            }
+                        ],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [
+                            {
+                                "a": "Zoology Long Answer 1 (Book Back)"
+                            }
+                        ],
+                        "interior": []
+                    }
+                },
+                "Reproductive Health": {
+                    "mcq": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [],
+                        "interior": []
+                    }
+                },
+                "Evolution": {
+                    "mcq": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [],
+                        "interior": []
+                    }
+                },
+                "Human Health and Disease": {
+                    "mcq": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [],
+                        "interior": []
+                    }
+                },
+                "Microbes in Human Welfare": {
+                    "mcq": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [],
+                        "interior": []
+                    }
+                },
+                "Biotechnology and its Applications": {
+                    "mcq": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [],
+                        "interior": []
+                    }
+                },
+                "Organisms and Populations (Zoo)": {
+                    "mcq": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [],
+                        "interior": []
+                    }
+                },
+                "Ecosystem (Zoo)": {
+                    "mcq": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [],
+                        "interior": []
+                    }
+                },
+                "Biodiversity and Conservation (Zoo)": {
+                    "mcq": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [],
+                        "interior": []
+                    }
+                },
+                "Environmental Issues (Zoo)": {
+                    "mcq": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "shortAnswer": {
+                        "bb": [],
+                        "interior": []
+                    },
+                    "longAnswer": {
+                        "bb": [],
+                        "interior": []
+                    }
+                }
+            }
+        }
+    },
+    "commonQuestions": {
+        "match": {
+            "bb": [],
+            "interior": []
+        },
+        "assertion": {
+            "bb": [],
+            "interior": []
+        }
+    }
+}
