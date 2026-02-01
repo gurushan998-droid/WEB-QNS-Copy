@@ -1,0 +1,484 @@
+<!DOCTYPE html> <!-- Declares the document as HTML5 -->
+<html lang="en"> <!-- Sets the base language to English -->
+
+<head> <!-- Contains meta info and resource links -->
+    <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures mobile responsiveness -->
+    <title>+2 Biology Question Paper Generator</title> <!-- Tab title in the browser -->
+    <meta name="description"
+        content="Automatic Question Paper Generator for Tamil Nadu +2 Biology Quarterly Examinations">
+    <!-- SEO description -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Pre-connects to Google Fonts server -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Pre-connects for font assets -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"> <!-- Imports modern typography styles -->
+    <link rel="stylesheet" href="style.css"> <!-- Connects the external CSS design file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Library for direct PDF download -->
+
+    <!--Login module-->
+    <div class="header-actions no-print">
+        <button id="loginBtn" class="btn btn-sm btn-outline" onclick="openLoginModal()">👤 Login</button>
+        <span id="userEmail" style="display:none; font-size: 0.8rem; margin-right: 10px;"></span>
+    </div>
+</head>
+
+<body> <!-- Main visible content of the page -->
+    <!--Login module-->
+    <div id="loginModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>User Login</h3>
+                <button class="btn-icon danger" onclick="closeLoginModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="loginEmail" placeholder="example@mail.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" placeholder="******">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="handleLogin()">Login</button>
+            </div>
+        </div>
+    </div>
+    <div class="app-container"> <!-- Root wrapper for the entire application -->
+        <!-- Header -->
+        <header class="app-header"> <!-- Top navigation and title section -->
+            <div class="app-header-content"> <!-- Inner container for header text -->
+                <h1 class="app-title"> <!-- Main branding title -->
+                    <span class="icon">🌿</span> <span>Question Paper</span><br>
+                    <span>Generator PRO</span> <!-- Icon and text title -->
+                </h1>
+            </div>
+            <div class="progress-indicator"> <!-- Step-by-step navigation indicator -->
+                <div class="progress-step" onclick="goToTab(1)">Exam Details</div> <!-- Tab 1 link -->
+                <div class="progress-step" onclick="goToTab(2)">Portion Selection</div> <!-- Tab 2 link -->
+                <div class="progress-step" onclick="goToTab(3)">Configure Sections</div> <!-- Tab 3 link -->
+                <div class="progress-step" onclick="goToTab(4)">Question Selection</div> <!-- Tab 4 link -->
+                <div class="progress-step" onclick="goToTab(5)">Preview</div> <!-- Tab 5 link -->
+                <div class="progress-step print-trigger no-print" onclick="window.print()"
+                    style="background: var(--color-success); color: white; border: none; font-weight: 700;">🖨️ Print
+                    Paper</div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="app-main"> <!-- Main workspace area for the app -->
+            <!-- Tab 1: Exam Details -->
+            <section id="tab1" class="tab-content active"> <!-- Panel for basic paper info -->
+                <div class="tab-card"> <!-- Elevated container for form content -->
+                    <h2 class="tab-title">Exam Details</h2> <!-- Section header text -->
+                    <div class="form-grid"> <!-- Grid layout for input field pairs -->
+                        <div class="form-group"> <!-- Single label+input wrapper -->
+                            <label for="standard">Standard <span class="required">*</span></label>
+                            <!-- School grade label -->
+                            <select id="standard"> <!-- Dropdown for class/standard -->
+                                <!-- Populated by JS -->
+                            </select>
+                        </div>
+                        <div class="form-group"> <!-- Single label+input wrapper -->
+                            <label for="subject">Subject <span class="required">*</span></label>
+                            <!-- Academic subject label -->
+                            <select id="subject"> <!-- Dropdown for subject choice -->
+                                <!-- Populated by JS -->
+                            </select>
+                        </div>
+                        <div class="form-group"> <!-- Single label+input wrapper -->
+                            <label for="examName">Exam Name <span class="required">*</span></label>
+                            <!-- Name of the test -->
+                            <input type="text" id="examName" placeholder="e.g., Quarterly Common Examination">
+                            <!-- Name input field -->
+                        </div>
+                        <div class="form-group"> <!-- Single label+input wrapper -->
+                            <label for="examMonth">Month & Year <span class="required">*</span></label>
+                            <!-- Schedule time label -->
+                            <input type="text" id="examMonth" placeholder="e.g., September 2026">
+                            <!-- Date input field -->
+                        </div>
+                        <div class="form-group"> <!-- Single label+input wrapper -->
+                            <label for="examTime">Time Allowed <span class="required">*</span></label>
+                            <!-- Exam duration label -->
+                            <input type="text" id="examTime" placeholder="e.g., 1.30 Hrs"> <!-- Duration input field -->
+                        </div>
+                        <div class="form-group"> <!-- Single label+input wrapper -->
+                            <label for="totalMarks">Total Marks <span class="required">*</span></label>
+                            <!-- Maximum marks label -->
+                            <input type="number" id="totalMarks" placeholder="e.g., 35"> <!-- Marks numerical input -->
+                        </div>
+                    </div>
+                    <div class="tab-actions"> <!-- Bottom action buttons area -->
+                        <button class="btn btn-secondary" onclick="createNewPaper()"
+                            style="margin-right: auto; border-color: var(--color-primary); color: var(--color-primary);">✨
+                            Create New</button> <!-- Resets the generator state -->
+                        <button class="btn btn-primary" onclick="nextTab()">Next →</button> <!-- Proceeds to Tab 2 -->
+                    </div>
+                </div>
+
+                <!-- Previously Generated Papers Panel -->
+                <div class="tab-card history-panel" style="margin-top: 30px;">
+                    <h2 class="tab-title">Recent Papers</h2>
+                    <p class="tab-subtitle">Quickly access and reload your previously generated question papers</p>
+                    <div id="historyList" class="history-list">
+                        <!-- Dynamically populated -->
+                        <div class="empty-history">
+                            <span style="font-size: 2rem; display: block; margin-bottom: 10px;">📄</span>
+                            No previously generated papers yet.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 2: Portion Selection -->
+            <section id="tab2" class="tab-content"> <!-- Panel for chapter selection -->
+                <div class="tab-card"> <!-- Elevated card container -->
+                    <div class="tab-header-flex"> <!-- Flexible header for title and global toggle -->
+                        <div>
+                            <h2 class="tab-title">Select Portions/Chapters</h2> <!-- Panel heading -->
+                            <p class="tab-subtitle">Choose the lessons/topics you want to include in the question paper
+                            </p> <!-- Explanatory subtitle -->
+                        </div>
+                        <button class="btn btn-sm btn-outline" onclick="toggleSelectAllChapters()" id="selectAllBtn">
+                            ✅ Select All <!-- Toggle button for all chapters -->
+                        </button>
+                    </div>
+                    <div id="chapterList" class="chapter-grid"> <!-- Grid area for chapter checkboxes -->
+                        <!-- Dynamically populated --> <!-- Content generated by script.js -->
+                    </div>
+                    <div class="tab-actions"> <!-- Navigation buttons container -->
+                        <button class="btn btn-secondary" onclick="prevTab()">← Previous</button>
+                        <!-- Returns to Tab 1 -->
+                        <button class="btn btn-primary" onclick="nextTab()">Next →</button> <!-- Proceeds to Tab 3 -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 3: Section Configuration -->
+            <section id="tab3" class="tab-content"> <!-- Panel for paper layout setup -->
+                <div class="tab-card"> <!-- Elevated card container -->
+                    <h2 class="tab-title">Configure Sections</h2> <!-- Panel heading -->
+                    <p class="tab-subtitle">Add and configure each section of your question paper</p> <!-- Subtitle -->
+
+                    <div id="sectionsContainer"> <!-- Parent for dynamic Part A, B, C cards -->
+                        <!-- Sections will be added here dynamically --> <!-- Managed by addSection() -->
+                    </div>
+
+                    <button class="btn btn-secondary" onclick="addSection()" style="width: 100%; margin-bottom: 20px;">
+                        ➕ Add Section <!-- Button to insert a new configuration card -->
+                    </button>
+
+                    <div class="total-marks-display"> <!-- Counter for sum of section marks -->
+                        <strong>Total Marks:</strong> <span id="totalMarksCalc">0</span>
+                        <!-- Live calculation result -->
+                    </div>
+
+                    <div class="tab-actions"> <!-- Navigation buttons container -->
+                        <button class="btn btn-secondary" onclick="prevTab()" aria-label="Go back to Portions">←
+                            Previous</button>
+                        <!-- Returns to Tab 2 -->
+                        <button class="btn btn-secondary" onclick="clearTab(3)" title="Reset all sections">🗑️
+                            Clear</button>
+                        <!-- Resets all parts -->
+                        <button class="btn btn-primary" onclick="nextTab()"
+                            aria-label="Proceed to Question Selection">Next →</button> <!-- Proceeds to Tab 4 -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 4: Question Selection -->
+            <section id="tab4" class="tab-content"> <!-- Workspace for choosing specific questions -->
+                <div class="tab-card"> <!-- Shared card layout -->
+                    <h2 class="tab-title">Select Questions</h2> <!-- Heading -->
+                    <p class="tab-subtitle">Choose questions for each section</p> <!-- Subtitle -->
+
+                    <!-- Section tabs will be populated dynamically -->
+                    <div id="sectionTabsContainer" class="section-tabs"> <!-- Sub-navigation for Parts (A, B, C) -->
+                        <!-- Dynamic section tabs --> <!-- Filled by renderSectionTabs() -->
+                    </div>
+
+                    <div id="questionSelectionContainer" class="question-selection-area">
+                        <!-- Scrollable bank and slot area -->
+                        <!-- Dynamic question list per section --> <!-- Updated on tab switch -->
+                    </div>
+
+                    <div class="tab-actions"> <!-- Navigation buttons container -->
+                        <button class="btn btn-secondary" onclick="prevTab()">← Previous</button>
+                        <!-- Returns to Tab 3 -->
+                        <button class="btn btn-secondary" onclick="clearTab(4)">🗑️ Clear</button>
+                        <!-- Resets chosen questions -->
+                        <button class="btn btn-primary" onclick="nextTab()">Next Section →</button>
+                        <!-- Proceeds to Tab 5 (Preview) -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 5: Preview -->
+            <section id="tab5" class="tab-content"> <!-- Final question paper review panel -->
+                <div class="preview-container"> <!-- Centers the A4 paper simulation -->
+                    <div class="preview-actions no-print"> <!-- MS Word style formatting toolbar -->
+                        <!-- Font Group -->
+                        <div class="toolbar-group"> <!-- Font-related controls wrapper -->
+                            <!-- Font Top Row -->
+                            <div class="toolbar-row"> <!-- Row 1: Familiy, Size, Case -->
+                                <select id="tool-font-family" class="tool-select"
+                                    onchange="updatePaperStyle('fontFamily', this.value)" style="width: 90px;">
+                                    <!-- Font family toggle -->
+                                    <option value="'Times New Roman', Times, serif">Times New Roman</option>
+                                    <!-- Default serif -->
+                                    <option value="Arial, Helvetica, sans-serif">Arial</option>
+                                    <!-- Standard sans-serif -->
+                                    <option value="'Inter', sans-serif">Inter</option> <!-- Modern UI font -->
+                                    <option value="Georgia, serif">Georgia</option> <!-- Elegant serif -->
+                                    <option value="'Courier New', Courier, monospace">monospace</option>
+                                    <!-- Typewriter style -->
+                                </select>
+                                <select id="tool-font-size" class="tool-select"
+                                    onchange="updatePaperStyle('fontSize', this.value)" style="width: 45px;">
+                                    <!-- Numeric size dropdown -->
+                                    <option value="8">8</option> <!-- Tiny text -->
+                                    <option value="12" selected>12</option> <!-- Standard text -->
+                                    <option value="24">24</option> <!-- Header text -->
+                                </select>
+                                <button class="tool-btn" onclick="adjustFontSize(1)"
+                                    title="Grow Font Size">A<sup>^</sup></button> <!-- Increments size by 1pt -->
+                                <button class="tool-btn" onclick="adjustFontSize(-1)"
+                                    title="Shrink Font Size">A<sub>v</sub></button> <!-- Decrements size by 1pt -->
+                                <select id="tool-case" class="tool-select"
+                                    onchange="updatePaperStyle('case', this.value)" style="width: 80px;"
+                                    title="Change Case"> <!-- Text casing handler -->
+                                    <option value="none">Normal</option> <!-- default -->
+                                    <option value="uppercase">UPPER</option> <!-- ALL CAPS -->
+                                    <option value="lowercase">lower</option> <!-- small case -->
+                                    <option value="capitalize">Title</option> <!-- First Letter Large -->
+                                </select>
+                            </div>
+                            <!-- Font Bottom Row -->
+                            <div class="toolbar-row"> <!-- Row 2: B, I, U, sub, sup, color -->
+                                <button id="tool-bold" class="tool-btn bold-btn" onclick="togglePaperStyle('bold')"
+                                    title="Bold">B</button> <!-- Bold toggle -->
+                                <button id="tool-italic" class="tool-btn italic-btn"
+                                    onclick="togglePaperStyle('italic')" title="Italic">I</button>
+                                <!-- Italic toggle -->
+                                <button id="tool-underline" class="tool-btn underline-btn"
+                                    onclick="togglePaperStyle('underline')" title="Underline">U</button>
+                                <!-- Underline toggle -->
+                                <button id="tool-sub" class="tool-btn" onclick="togglePaperStyle('sub')"
+                                    title="Subscript">x<sub>2</sub></button> <!-- Subscript text -->
+                                <button id="tool-sup" class="tool-btn" onclick="togglePaperStyle('sup')"
+                                    title="Superscript">x<sup>2</sup></button> <!-- Superscript text -->
+
+                                <div class="tool-color-wrapper"> <!-- Font color picker wrapper -->
+                                    <input type="color" id="tool-font-color" class="tool-color-input"
+                                        onchange="updatePaperStyle('fontColor', this.value)" title="Font Color">
+                                    <!-- Color input -->
+                                    <span class="tool-btn" style="color: #ef4444;">A</span> <!-- Label A -->
+                                </div>
+                            </div>
+                            <span class="toolbar-label">Font</span> <!-- Group Footer Note -->
+                        </div>
+
+                        <!-- Paragraph Group -->
+                        <div class="toolbar-group"> <!-- Alignment, Indent, and Spacing controls -->
+                            <div class="toolbar-row"> <!-- Row 1: Indent and Border -->
+                                <button class="tool-btn" onclick="adjustIndent(-20)" title="Decrease Indent"
+                                    aria-label="Decrease Indent">←≣</button> <!-- Moves text left -->
+                                <button class="tool-btn" onclick="adjustIndent(20)" title="Increase Indent"
+                                    aria-label="Increase Indent">≣→</button> <!-- Moves text right -->
+                                <button id="tool-border" class="tool-btn" onclick="togglePaperStyle('border')"
+                                    title="Page Border" aria-label="Toggle Page Border">⊞</button>
+                                <!-- Toggles sheet boundary -->
+                            </div>
+                            <div class="toolbar-row"> <!-- Row 2: Alignment and Line Spacing -->
+                                <button id="tool-align-left" class="tool-btn active"
+                                    onclick="updatePaperStyle('align', 'left')" title="Align Left">L</button>
+                                <!-- Left align -->
+                                <button id="tool-align-center" class="tool-btn"
+                                    onclick="updatePaperStyle('align', 'center')" title="Align Center">C</button>
+                                <!-- Center align -->
+                                <button id="tool-align-justify" class="tool-btn"
+                                    onclick="updatePaperStyle('align', 'justify')" title="Justify">J</button>
+                                <!-- Justify align -->
+                                <div style="width: 4px;"></div> <!-- Spacer -->
+                                <button class="tool-btn" onclick="adjustLineSpacing(-0.1)"
+                                    title="Decrease Line Spacing">↕-</button> <!-- Tighter rows -->
+                                <span id="tool-spacing-label" class="tool-size-display"
+                                    title="Current Line Spacing">1.2</span> <!-- Readout -->
+                                <button class="tool-btn" onclick="adjustLineSpacing(0.1)"
+                                    title="Increase Line Spacing">↕+</button> <!-- Looser rows -->
+                            </div>
+                            <span class="toolbar-label">Paragraph</span> <!-- Group identifying label -->
+                        </div>
+
+                        <!-- Table Group -->
+                        <div class="toolbar-group"> <!-- Table management tools -->
+                            <div class="toolbar-row"> <!-- Table insertion tools -->
+                                <button class="tool-btn" onclick="insertTable()" title="Insert Table"
+                                    aria-label="Insert Table">▦</button> <!-- Inserts 3x3 grid -->
+                                <button class="tool-btn" onclick="alert('Drawing Tools coming soon!')"
+                                    title="Draw Table">✎</button> <!-- Placeholder for drawing -->
+                            </div>
+                            <div class="toolbar-row"> <!-- Table editing tools -->
+                                <button class="tool-btn" onclick="alert('Eraser coming soon!')"
+                                    title="Eraser">⌫</button> <!-- Logic to remove borders -->
+                                <button class="tool-btn" onclick="alert('Table Properties')"
+                                    title="Properties">⚙</button> <!-- Logic for cell styling -->
+                            </div>
+                            <span class="toolbar-label">Table</span> <!-- Group identifying label -->
+                        </div>
+
+                        <!-- Symbols Group -->
+                        <div class="toolbar-group"> <!-- Special character insertion tools -->
+                            <div class="toolbar-row"> <!-- Common math symbols -->
+                                <button class="tool-btn" onclick="alert('Equation editor coming soon!')"
+                                    title="Equation">π</button> <!-- Math mode placeholder -->
+                                <button class="tool-btn" onclick="openSymbolPopup()" title="Insert Symbol">Ω</button>
+                                <!-- Opens symbol picker modal -->
+                            </div>
+                            <div class="toolbar-row"> <!-- Shortcut symbols -->
+                                <button class="tool-btn" onclick="insertSymbol('sigma')" title="Summation">Σ</button>
+                                <!-- Injects Sigma char -->
+                                <button class="tool-btn" onclick="insertSymbol('alpha')" title="Alpha">α</button>
+                                <!-- Injects Alpha char -->
+                            </div>
+                            <span class="toolbar-label">Symbols</span> <!-- Group identifying label -->
+                        </div>
+
+                        <!-- Tools Group -->
+                        <div class="toolbar-group"> <!-- Utility and metadata tools -->
+                            <div class="toolbar-row"> <!-- Date and Time -->
+                                <button class="tool-btn" onclick="insertDate()" title="Insert Today's Date">📅</button>
+                                <!-- Injects locale date -->
+                            </div>
+                            <div class="toolbar-row"> <!-- Statistics -->
+                                <button class="tool-btn" onclick="getWordCount()" title="Check Word Count">123</button>
+                                <!-- Calculates and alerts count -->
+                            </div>
+                            <span class="toolbar-label">Tools</span> <!-- Group identifying label -->
+                        </div>
+
+                        <!-- Output Group -->
+                        <div class="toolbar-group"
+                            style="border-left: 2px solid var(--color-border); padding-left: 15px;">
+                            <!-- Exporting and Printing -->
+                            <div class="toolbar-row"> <!-- Save Action -->
+                                <button class="tool-btn" onclick="saveAsPDF(event)" title="Save as PDF"
+                                    style="color: var(--color-success); font-weight: bold;">💾</button>
+                            </div>
+                            <div class="toolbar-row"> <!-- Print Action -->
+                                <button class="tool-btn" onclick="window.print()" title="Print Paper"
+                                    style="color: var(--color-primary); font-weight: bold;">🖨️</button>
+                            </div>
+                            <span class="toolbar-label">Output</span> <!-- Group identifying label -->
+                        </div>
+                    </div>
+
+                    <div id="paperPreview" class="paper" contenteditable="true" spellcheck="false">
+                        <!-- The live editable paper sheet -->
+                        <!-- Generated paper will appear here --> <!-- Filled via generatePaper() -->
+                    </div>
+
+                    <!-- Footer Actions (Back & Print) -->
+                    <div class="preview-footer-actions no-print"> <!-- Sticky print actions at bottom -->
+                        <button class="btn btn-secondary" onclick="prevTab()">← Back</button>
+                        <button class="btn btn-success" onclick="saveAsPDF(event)">💾 Save PDF</button>
+                        <button class="btn btn-primary" onclick="window.print()">🖨️ Print Paper</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Application Footer -->
+        <footer class="app-footer no-print"> <!-- Bottom sticky footer for credits and status -->
+            <div class="footer-content"> <!-- Inner container for footer layout -->
+                <div class="footer-info"> <!-- Version and copyright group -->
+                    <span class="version-tag">Version 2.4.0-PRO</span> <!-- Release version identifier -->
+                    <span class="copyright">© 2026 Qns-Guru_Systems. All rights reserved.</span>
+                    <!-- Usage rights -->
+                </div>
+                <div class="footer-status"> <!-- Live connection or data status -->
+                    <span class="status-dot"></span> <!-- Visual status indicator -->
+                    <span class="status-text">Question Bank: Connected (Vite Local)</span> <!-- Source info -->
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Data Files -->
+    <script src="data/12botany.js"></script> <!-- Question bank for Class 12 Botany -->
+    <script src="data/12zoology.js"></script> <!-- Question bank for Class 12 Zoology -->
+    <script src="data/class11.js"></script> <!-- Portions and info for Class 11 -->
+    <script src="data/class12.js"></script> <!-- Portions and info for Class 12 -->
+
+    <!-- Import Question Modal -->
+    <div id="importModal" class="modal-overlay" style="display: none;"> <!-- Hidden overlay for adding Qs -->
+        <div class="modal-container"> <!-- Popup box wrapper -->
+            <div class="modal-header"> <!-- Modal title area -->
+                <h3>Import / Add New Question</h3> <!-- Popup header text -->
+                <button class="btn-icon danger" onclick="closeImportModal()">✕</button> <!-- Close button -->
+            </div>
+            <div class="modal-body"> <!-- Modal input area -->
+                <div class="form-group"> <!-- Label and Textarea wrapper -->
+                    <label>Question Text <span class="required">*</span></label> <!-- Question label -->
+                    <textarea id="importQText" rows="3" placeholder="Enter question text here..."></textarea>
+                    <!-- Text entry -->
+                </div>
+                <div class="form-grid" style="margin-bottom: 0;"> <!-- Nested grid for meta info -->
+                    <div class="form-group"> <!-- Chapter selection wrapper -->
+                        <label>Chapter <span class="required">*</span></label> <!-- Chapter label -->
+                        <select id="importChapter"> <!-- Chapter dropdown -->
+                            <!-- Populated dynamically --> <!-- Filled from Portion Selection -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer"> <!-- Modal action buttons wrapper -->
+                <button class="btn btn-secondary" onclick="closeImportModal()">Cancel</button>
+                <!-- Closes without saving -->
+                <button class="btn btn-primary" onclick="submitImportQuestion()">Update & Add</button>
+                <!-- Saves to local storage -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Logic -->
+    <script src="script.js"></script> <!-- The core application behavior file -->
+
+    <!-- Symbol Modal -->
+    <div id="symbolModal" class="modal-overlay"> <!-- Mathematical symbols picker overlay -->
+        <div class="modal-content"> <!-- Content area for symbols -->
+            <div class="modal-header"> <!-- Header with close button -->
+                <span class="modal-title">Insert Symbol</span> <!-- Title label -->
+                <button class="close-modal-btn" onclick="closePopup('symbolModal')">&times;</button> <!-- Exit popup -->
+            </div>
+            <div class="symbol-grid" id="symbolGrid"> <!-- Logical container for clickable symbols -->
+                <!-- Symbols populated by JS --> <!-- Managed by openSymbolPopup() -->
+            </div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+
+    <script>
+        // Firebase Config 
+        const firebaseConfig = {
+            apiKey: "AIzaSyCjPLgP_4TglF70q0IJgBz--T-t0jmmYQE",
+            authDomain: "qns-gen.firebaseapp.com",
+            projectId: "qns-gen",
+            storageBucket: "qns-gen.firebasestorage.app",
+            messagingSenderId: "217008253010",
+            appId: "1:217008253010:web:2080612700b0e498ce178b",
+            measurementId: "G-BY36LZSMJX"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+    </script>
+</body>
+
+</html>

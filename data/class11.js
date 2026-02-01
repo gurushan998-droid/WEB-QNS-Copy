@@ -1,0 +1,128 @@
+/* ==========================================
+   Class 11 - Data File
+   Subjects, Chapters, and Question Bank
+======================================== */
+
+// Subjects available for Class 11
+const class11Subjects = [
+    { value: "Botany", label: "Botany" },
+    { value: "Zoology", label: "Zoology" }
+];
+
+// Chapters organized by subject
+const class11Chapters = {
+    "Botany": [
+        "Living World",
+        "Plant Kingdom",
+        "Cell Biology",
+        "Biomolecules",
+        "Plant Morphology"
+    ],
+    "Zoology": [
+        "Animal Kingdom",
+        "Structural Organisation in Animals",
+        "Biomolecules",
+        "Digestion and Absorption",
+        "Breathing and Exchange of Gases"
+    ]
+};
+
+// Question Bank for Class 11
+// Structure: subject -> chapter -> question type -> questions with tags
+const class11QuestionBank = {
+    "Botany": {
+        "Living World": {
+            mcq: {
+                bb: [
+                    { q: "The term 'Taxonomy' was coined by:", options: ["Linnaeus", "De Candolle", "Theophrastus", "Aristotle"] },
+                    { q: "Binomial nomenclature was introduced by:", options: ["Carolus Linnaeus", "Darwin", "Lamarck", "Mendel"] }
+                ],
+                interior: []
+            },
+            shortAnswer: {
+                bb: [
+                    { q: "What are the basic characteristics of living organisms?" }
+                ],
+                interior: [
+                    { q: "Define Taxonomy and its importance." }
+                ]
+            },
+            longAnswer: {
+                bb: [
+                    { q: "Explain the hierarchical classification system in taxonomy.", b: "Describe the rules of binomial nomenclature" }
+                ],
+                interior: []
+            }
+        },
+        "Plant Kingdom": {
+            mcq: {
+                bb: [
+                    { q: "Which of the following is a bryophyte?", options: ["Funaria", "Fern", "Pine", "Mango"] }
+                ],
+                interior: []
+            },
+            shortAnswer: {
+                bb: [
+                    { q: "Write the salient features of bryophytes." }
+                ],
+                interior: [
+                    { q: "What is alternation of generation?" }
+                ]
+            },
+            longAnswer: {
+                bb: [
+                    { q: "Describe the life cycle of a moss plant.", b: "Explain the classification of plant kingdom." }
+                ],
+                interior: []
+            }
+        }
+    },
+    "Zoology": {
+        "Animal Kingdom": {
+            mcq: {
+                bb: [
+                    { q: "Which phylum has a water vascular system?", options: ["Echinodermata", "Mollusca", "Arthropoda", "Chordata"] }
+                ],
+                interior: []
+            },
+            shortAnswer: {
+                bb: [
+                    { q: "What are the characteristics of phylum Chordata?" }
+                ],
+                interior: [
+                    { q: "Differentiate between Protostomes and Deuterostomes." }
+                ]
+            },
+            longAnswer: {
+                bb: [
+                    { a: "Describe the classification of animal kingdom with examples.", b: "Explain the salient features of phylum Arthropoda." }
+                ],
+                interior: []
+            }
+        }
+    }
+};
+
+// Common questions for Class 11
+const class11CommonQuestions = {
+    match: {
+        bb: [
+            {
+                title: "Match the following (Plant Groups):",
+                columnA: ["Algae", "Bryophytes", "Pteridophytes", "Gymnosperms"],
+                columnB: ["Amphibians of plant kingdom", "Vascular cryptogams", "Naked seeds", "Thallophytes"],
+                correctMatch: ["D", "A", "B", "C"]
+            }
+        ],
+        interior: []
+    },
+    assertion: {
+        bb: [
+            {
+                assertion: "All living organisms are made up of cells.",
+                reason: "Cell is the basic structural and functional unit of life."
+            }
+        ],
+        interior: []
+    }
+};
