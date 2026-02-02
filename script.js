@@ -77,6 +77,9 @@ auth.onAuthStateChanged((user) => {
         headerSteps.style.pointerEvents = 'auto';
         console.log("Admin Access Granted: " + user.email);
 
+        // Load user-specific history
+        loadHistory();
+
         // If we are on the Login tab, automatically move to Exam Details
         if (currentTab === 0) {
             goToTab(1);
@@ -98,6 +101,9 @@ auth.onAuthStateChanged((user) => {
         headerSteps.style.pointerEvents = 'none'; // Only allow Tab 0
         if (currentTab !== 0) goToTab(0);
         console.log("Not logged in");
+
+        // Load default/guest history
+        loadHistory();
     }
 });
 
@@ -2332,6 +2338,35 @@ function generateFinalPaper() {                     // Main engine to build the 
 }
 
 /**
+ * Get the localStorage key for history based on user login status
+ */
+function getHistoryKey() {
+    if (auth.currentUser) {
+        return `qp_history_${auth.currentUser.uid}`; // User-specific key
+    }
+    return 'questionPaperHistory'; // Default/Guest key
+}
+
+/**
+ * Load history from localStorage
+ */
+function loadHistory() {
+    const key = getHistoryKey();
+    const savedHistory = localStorage.getItem(key);
+
+    papersHistory = []; // Reset first
+
+    if (savedHistory) {
+        try {
+            papersHistory = JSON.parse(savedHistory);
+        } catch (e) {
+            console.error("Error parsing history:", e);
+        }
+    }
+    renderHistory();
+}
+
+/**
  * Save current paper configuration to history
  */
 function savePaperToHistory() {
@@ -2371,7 +2406,7 @@ function savePaperToHistory() {
         // Keep only last 10 papers
         if (papersHistory.length > 10) papersHistory.pop();
 
-        localStorage.setItem('questionPaperHistory', JSON.stringify(papersHistory));
+        localStorage.setItem(getHistoryKey(), JSON.stringify(papersHistory));
         renderHistory();
     } catch (err) {
         console.error("Error saving to history:", err);
@@ -4052,15 +4087,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loadState();
 
     // Load history
-    const savedHistory = localStorage.getItem('questionPaperHistory');
-    if (savedHistory) {
-        try {
-            papersHistory = JSON.parse(savedHistory);
-            renderHistory();
-        } catch (e) {
-            console.error("Error parsing history:", e);
-        }
-    }
+    loadHistory();
 
     // Show the current tab
     showTab(currentTab);
