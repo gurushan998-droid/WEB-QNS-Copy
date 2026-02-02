@@ -163,6 +163,9 @@ async function loadClassData(standardValue) {
         if (!response.ok) throw new Error("File Missing");
         const data = await response.json();
 
+        // Save full data for chapter lookup
+        fullClassData = data;
+
         // Unga JSON structure-kku thagundha maadhiri
         subjects = data.subjects || []; //
         populateSubjectDropdown();
@@ -182,6 +185,14 @@ async function loadClassData(standardValue) {
  */
 function loadSubjectChapters(subjectValue) {
     const standard = document.getElementById('standard').value;
+
+    // Fast Load: Populate chapters from class11/12.json metadata immediately
+    if (fullClassData && fullClassData.chapters && fullClassData.chapters[subjectValue]) {
+        console.log("Loading chapters from metadata...");
+        chapters = fullClassData.chapters[subjectValue];
+        populateChapterList();
+    }
+
     if (standard && subjectValue) {
         fetchQuestions(standard, subjectValue);
     }
