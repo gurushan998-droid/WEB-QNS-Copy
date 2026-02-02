@@ -150,7 +150,7 @@ function handleLogout() {
     });
 }
 async function loadClassData(standardValue) {
-    const filePath = `data/class11${standardValue}.json`; // 'data/' folder illana remove pannunga
+    const filePath = `data/class${standardValue}.json`; // 'data/' folder illana remove pannunga
 
     try {
         const response = await fetch(filePath);
@@ -159,7 +159,7 @@ async function loadClassData(standardValue) {
 
         // Unga JSON structure-kku thagundha maadhiri
         subjects = data.subjects || []; //
-        populateSubjectList();
+        populateSubjectDropdown();
     } catch (error) {
         console.warn("Using Fallback Data:", error);
         // JSON fetch aagalana manual-ah data set pannunga
@@ -167,17 +167,19 @@ async function loadClassData(standardValue) {
             { value: "Botany", label: "Botany" },
             { value: "Zoology", label: "Zoology" }
         ];
-        populateSubjectList();
+        populateSubjectDropdown();
     }
 }
 /**
  * Load chapters for the selected subject
  * @param {string} subjectValue - Selected subject name
  */
-/**
- * Load chapters for the selected subject using JSON Fetch
- * @param {string} subjectValue - Selected subject name
- */
+function loadSubjectChapters(subjectValue) {
+    const standard = document.getElementById('standard').value;
+    if (standard && subjectValue) {
+        fetchQuestions(standard, subjectValue);
+    }
+}
 
 async function fetchQuestions(standard, subject) {
     // Unga file 'data' folder-kulla illana 'data/' thookidunga

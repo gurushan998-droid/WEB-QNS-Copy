@@ -1,0 +1,85 @@
+{
+    "Living World": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "The term 'Taxonomy' was coined by:",
+                    "options": [
+                        "Linnaeus",
+                        "De Candolle",
+                        "Theophrastus",
+                        "Aristotle"
+                    ]
+                },
+                {
+                    "q": "Binomial nomenclature was introduced by:",
+                    "options": [
+                        "Carolus Linnaeus",
+                        "Darwin",
+                        "Lamarck",
+                        "Mendel"
+                    ]
+                }
+            ],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "What are the basic characteristics of living organisms?"
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Define Taxonomy and its importance."
+                }
+            ]
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Explain the hierarchical classification system in taxonomy.",
+                    "b": "Describe the rules of binomial nomenclature"
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Plant Kingdom": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "Which of the following is a bryophyte?",
+                    "options": [
+                        "Funaria",
+                        "Fern",
+                        "Pine",
+                        "Mango"
+                    ]
+                }
+            ],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Write the salient features of bryophytes."
+                }
+            ],
+            "interior": [
+                {
+                    "q": "What is alternation of generation?"
+                }
+            ]
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Describe the life cycle of a moss plant.",
+                    "b": "Explain the classification of plant kingdom."
+                }
+            ],
+            "interior": []
+        }
+    }
+}

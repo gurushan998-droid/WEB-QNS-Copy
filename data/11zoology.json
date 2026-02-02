@@ -1,0 +1,39 @@
+{
+    "Animal Kingdom": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "Which phylum has a water vascular system?",
+                    "options": [
+                        "Echinodermata",
+                        "Mollusca",
+                        "Arthropoda",
+                        "Chordata"
+                    ]
+                }
+            ],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "What are the characteristics of phylum Chordata?"
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Differentiate between Protostomes and Deuterostomes."
+                }
+            ]
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "a": "Describe the classification of animal kingdom with examples.",
+                    "b": "Explain the salient features of phylum Arthropoda."
+                }
+            ],
+            "interior": []
+        }
+    }
+}
