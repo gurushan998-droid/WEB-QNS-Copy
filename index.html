@@ -137,15 +137,19 @@
                         <div class="form-group"> <!-- Single label+input wrapper -->
                             <label for="standard">Standard <span class="required">*</span></label>
                             <!-- School grade label -->
-                            <select id="standard"> <!-- Dropdown for class/standard -->
-                                <!-- Populated by JS -->
+                            <select id="standard" onchange="loadClassData(this.value)">
+                                <!-- Dropdown for class/standard -->
+                                <option value="" disabled selected>Select Standard</option>
+                                <option value="11">11th Standard</option>
+                                <option value="12">12th Standard</option>
                             </select>
                         </div>
                         <div class="form-group"> <!-- Single label+input wrapper -->
                             <label for="subject">Subject <span class="required">*</span></label>
                             <!-- Academic subject label -->
-                            <select id="subject"> <!-- Dropdown for subject choice -->
-                                <!-- Populated by JS -->
+                            <select id="subject" onchange="loadSubjectChapters(this.value)">
+                                <!-- Dropdown for subject choice -->
+                                <option value="" disabled selected>Select Subject</option>
                             </select>
                         </div>
                         <div class="form-group"> <!-- Single label+input wrapper -->

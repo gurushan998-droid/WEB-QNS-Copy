@@ -45,6 +45,10 @@
                 }
             ],
             "interior": []
+        },
+        "longAnswer": {
+            "bb": [],
+            "interior": []
         }
     },
     "Classical Genetics": {
@@ -939,7 +943,7 @@
                     ]
                 },
                 {
-                    "q": "Ecology is the study of an individual species is called. <br> i) Community ecology     ii) Autecology     iii) Species ecology     iv) Synecology",
+                    "q": "Ecology is the study of an individual species is called. <br> i) Community ecology     ii) Autecology     iii) Species ecology     iv) Synecology",
                     "options": [
                         "i only",
                         "ii only",
@@ -957,7 +961,7 @@
                     ]
                 },
                 {
-                    "q": "Read the given statements and select the correct option. <br> i) Hydrophytes possess aerenchyma    ii) Seeds of Viscum are positively photoblastic     iii) Hygroscopic water is the only soil water    iv) High temperature reduces use of water",
+                    "q": "Read the given statements and select the correct option. <br> i) Hydrophytes possess aerenchyma    ii) Seeds of Viscum are positively photoblastic     iii) Hygroscopic water is the only soil water    iv) High temperature reduces use of water",
                     "options": [
                         "i, ii, and iii only",
                         "ii, iii and iv",
@@ -975,7 +979,7 @@
                     ]
                 },
                 {
-                    "q": "Read the given statements and select the correct option. <br> i) Loamy soil is best suited    ii) The process of humification is slow    iii) Capillary water is the only water    iv) Leaves of shade plant",
+                    "q": "Read the given statements and select the correct option. <br> i) Loamy soil is best suited    ii) The process of humification is slow    iii) Capillary water is the only water    iv) Leaves of shade plant",
                     "options": [
                         "i, ii and iii only",
                         "ii, iii and iv only",

@@ -23,6 +23,7 @@ const standards = [                                     // Array of available sc
 // Current active data - populated based on class selection
 let subjects = [];                                    // Holds subject list for selected class
 let chapters = [];                                    // Holds chapter list for selected subject
+let fullClassData = null;                             // Master container for the selected class
 let questionBank = {};                                // Master container for all questions
 let commonQuestions = {};                             // Stores widely used standard questions
 let papersHistory = [];                               // Stores previously generated papers history
@@ -149,30 +150,24 @@ function handleLogout() {
     });
 }
 async function loadClassData(standardValue) {
-    // Example: data/class12.json
-    const filePath = `data/class${standardValue}.json`;
+    const filePath = `data/class11${standardValue}.json`; // 'data/' folder illana remove pannunga
 
     try {
         const response = await fetch(filePath);
-        if (!response.ok) throw new Error("Class file not found!");
-
+        if (!response.ok) throw new Error("File Missing");
         const data = await response.json();
 
-        // Subjects list-ai update panrom
-        subjects = data.subjects;
-
-        // Dropdown-ai update pannuvom
-        populateSubjectDropdown();
-        saveState();
-
+        // Unga JSON structure-kku thagundha maadhiri
+        subjects = data.subjects || []; //
+        populateSubjectList();
     } catch (error) {
-        console.error("Error loading class data:", error);
-        // Fallback (Error vandha default subjects)
+        console.warn("Using Fallback Data:", error);
+        // JSON fetch aagalana manual-ah data set pannunga
         subjects = [
             { value: "Botany", label: "Botany" },
             { value: "Zoology", label: "Zoology" }
         ];
-        populateSubjectDropdown();
+        populateSubjectList();
     }
 }
 /**
@@ -183,40 +178,26 @@ async function loadClassData(standardValue) {
  * Load chapters for the selected subject using JSON Fetch
  * @param {string} subjectValue - Selected subject name
  */
-async function loadSubjectChapters(subjectValue) {
-    const classValue = document.getElementById('standard').value;
 
-    // STEP 1: JSON File Path set pannuvom
-    // Example: data/12botany.json
-    const filePath = `data/${classValue}${subjectValue.toLowerCase()}.json`;
+async function fetchQuestions(standard, subject) {
+    // Unga file 'data' folder-kulla illana 'data/' thookidunga
+    const fileName = `${standard}${subject.toLowerCase()}.json`;
+    const filePath = `data/${fileName}`; // Inga path-ah check pannunga
 
     try {
-        // STEP 2: Online-la irundhu data-va fetch pannuvom
         const response = await fetch(filePath);
-        if (!response.ok) throw new Error("Question file not found!");
+        if (!response.ok) throw new Error("File Not loaded: " + filePath);
 
         const data = await response.json();
-
-        // STEP 3: Question bank and Chapters-ah update pannuvom
-        // Ippo GitHub-la neenga JSON update panna udane, indha 'data' refresh aagidum
         questionBank = data;
-        chapters = Object.keys(data); // JSON-la irukka keys-ah chapters-ah edukkum
+        chapters = Object.keys(data);
 
-        if (!stateRestoration) {
-            selectedChapters = [];
-        }
-
-        // UI-ah update pannuvom
         populateChapterList();
-        saveState();
-
-        console.log(`Success: Loaded ${subjectValue} questions from GitHub/Netlify.`);
+        saveState(); // Data load aanadhuku appram save pannunga
     } catch (error) {
-        console.error("Error loading JSON:", error);
-        alert("File is not loading. Check the file name " + filePath + " is correct.");
+        console.error("Error:", error);
     }
 }
-
 let stateRestoration = false; // Flag to prevent overwriting during loadState
 
 // ... (skipping some lines) ...
@@ -481,15 +462,22 @@ function populateStandardDropdown() {
 }
 
 function populateSubjectDropdown() {
-    const select = document.getElementById('subject');
-    if (!select) return;
-
-    select.innerHTML = '<option value="">Select Subject</option>' +
+    const subjectSelect = document.getElementById('subject');
+    if (!subjectSelect) return;
+    subjectSelect.innerHTML = '<option value="">Select Subject</option>' +
         subjects.map(sub => `<option value="${sub.value}">${sub.label}</option>`).join('');
 }
 
 function populateChapterList() {                      // Draws checkboxes for Portions Tab
     const container = document.getElementById('chapterList'); // Get the grid container el
+    if (!container) {
+        console.error("populateChapterList: #chapterList container not found in DOM!");
+        return;
+    }
+    if (!chapters || chapters.length === 0) {
+        container.innerHTML = '<p style="padding: 20px; color: #666;">No chapters found. Please select a subject first.</p>';
+        return;
+    }
     container.innerHTML = chapters.map((chapter, index) => `  
         <div class="chapter-item" onclick="toggleChapterByClick('${chapter}')"> <!-- Card wrapper -->
             <input type="checkbox" id="ch_${chapter.replace(/\s/g, '_')}" value="${chapter}" onchange="toggleChapter('${chapter}')" 
@@ -3440,6 +3428,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (subjectSelect) {
         subjectSelect.addEventListener('change', function () {
+            const subjectSelect = document.getElementById('subject');
             loadSubjectChapters(this.value);
             saveState();
         });
