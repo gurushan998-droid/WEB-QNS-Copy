@@ -32,65 +32,120 @@ let papersHistory = [];                               // Stores previously gener
  * @param {string} classValue - "11" or "12"
  */
 
-// Login Modal Functions    
+// Login Tab Functions    
 function openLoginModal() {
-    document.getElementById('loginModal').style.display = 'flex';
+    goToTab(0);
 }
 
 function closeLoginModal() {
-    document.getElementById('loginModal').style.display = 'none';
-}
-// User login state-ah check panna
-auth.onAuthStateChanged((user) => {
-    if (user) {
-        // User login aahi irundha content kaatuvom
-        document.querySelector('.app-main').style.display = 'block';
-        console.log("Logged in as: " + user.email);
+    // If authenticated, go to first step, otherwise stay on login
+    if (auth.currentUser) {
+        goToTab(1);
     } else {
-        // User login aagalana login modal-ah force-ah kaatuvom
-        document.querySelector('.app-main').style.display = 'none';
-        openLoginModal();
+        goToTab(0);
     }
-});
+}
 // Firebase login state-ah monitor pannum
 auth.onAuthStateChanged((user) => {
     const mainContent = document.querySelector('.app-main');
     const headerSteps = document.querySelector('.progress-indicator');
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const userEmailSpan = document.getElementById('userEmail');
+    const stepLogin = document.getElementById('stepLogin');
+
+    const loginForm = document.getElementById('loginForm');
+    const userInfo = document.getElementById('userInfo');
+    const loggedInUserEmail = document.getElementById('loggedInUserEmail');
 
     if (user) {
-        // Login success: Content-ah kaatuvom
-        mainContent.style.visibility = 'visible';
-        mainContent.style.opacity = '1';
-        headerSteps.style.pointerEvents = 'auto'; // Steps-ah click panna mudiyum
+        // Login success
+        if (loginBtn) loginBtn.style.display = 'none';
+        if (logoutBtn) logoutBtn.style.display = 'inline-block';
+        if (userEmailSpan) {
+            userEmailSpan.style.display = 'inline-block';
+            userEmailSpan.textContent = user.email;
+        }
+        if (stepLogin) stepLogin.textContent = "Account";
+
+        // Tab 0 Content Update
+        if (loginForm) loginForm.style.display = 'none';
+        if (userInfo) userInfo.style.display = 'block';
+        if (loggedInUserEmail) loggedInUserEmail.textContent = user.email;
+
+        headerSteps.style.pointerEvents = 'auto';
         console.log("Admin Access Granted: " + user.email);
+
+        // If we are on the Login tab, automatically move to Exam Details
+        if (currentTab === 0) {
+            goToTab(1);
+            // Ensure data is loaded
+            const currentStandard = document.getElementById('standard').value;
+            if (currentStandard) loadClassData(currentStandard);
+        }
     } else {
-        // Login aagalana: Content-ah maraichiduvom
-        mainContent.style.visibility = 'hidden';
-        mainContent.style.opacity = '0';
-        headerSteps.style.pointerEvents = 'none'; // Steps-ah block pannuvom
-        openLoginModal(); // Login modal-ah automatic-ah open pannum
+        // Logged out
+        if (loginBtn) loginBtn.style.display = 'inline-block';
+        if (logoutBtn) logoutBtn.style.display = 'none';
+        if (userEmailSpan) userEmailSpan.style.display = 'none';
+        if (stepLogin) stepLogin.textContent = "Login";
+
+        // Tab 0 Content Update
+        if (loginForm) loginForm.style.display = 'block';
+        if (userInfo) userInfo.style.display = 'none';
+
+        headerSteps.style.pointerEvents = 'none'; // Only allow Tab 0
+        if (currentTab !== 0) goToTab(0);
+        console.log("Not logged in");
     }
 });
+
 // Login function
 function handleLogin() {
-    const email = document.getElementById('loginEmail').value;
-    const pass = document.getElementById('loginPassword').value;
+    const email = document.getElementById('tabLoginEmail').value;
+    const pass = document.getElementById('tabLoginPassword').value;
+    const loginBtn = document.getElementById('tabLoginBtn');
+
+    if (!email || !pass) {
+        alert("Please enter email and password");
+        return;
+    }
+
+    // Show loading state
+    if (loginBtn) {
+        loginBtn.disabled = true;
+        loginBtn.textContent = "Verifying Credentials...";
+    }
 
     auth.signInWithEmailAndPassword(email, pass)
         .then(() => {
-            alert("Login Success!");
-            closeLoginModal();
+            // Immediate navigation for better UX
+            goToTab(1);
+
+            // Ensure data is loaded
+            const currentStandard = document.getElementById('standard').value;
+            if (currentStandard) loadClassData(currentStandard);
+
+            setTimeout(() => {
+                alert("Login Success! Access Granted.");
+            }, 200);
         })
         .catch((error) => {
-            alert("Invalid Access! Admin-kitta login details kelunga.");
+            alert("Login Failed: " + error.message);
+            console.error(error);
+            // Reset button state on failure
+            if (loginBtn) {
+                loginBtn.disabled = false;
+                loginBtn.textContent = "Login";
+            }
         });
 }
 
-// Logout panna (Header-la button vechukkalam)
+// Logout function
 function handleLogout() {
     auth.signOut().then(() => {
         alert("Logged out safely.");
-        location.reload(); // Page-ah refresh panni block pannuvom
+        // No need to reload, onAuthStateChanged will handle it
     });
 }
 async function loadClassData(standardValue) {
@@ -158,25 +213,9 @@ async function loadSubjectChapters(subjectValue) {
         console.log(`Success: Loaded ${subjectValue} questions from GitHub/Netlify.`);
     } catch (error) {
         console.error("Error loading JSON:", error);
-        alert("JSON file load aagala. Check if " + filePath + " exists in GitHub.");
+        alert("File is not loading. Check the file name " + filePath + " is correct.");
     }
 }
-
-auth.onAuthStateChanged((user) => {
-    if (user) {
-        // Login success: User-kku content kaatuvom
-        document.querySelector('.app-main').style.display = 'block';
-
-        // Default-ah class load panna trigger pannalam
-        const currentStandard = document.getElementById('standard').value;
-        loadClassData(currentStandard);
-    } else {
-        // Login illa: Content block
-        document.querySelector('.app-main').style.display = 'none';
-        openLoginModal();
-    }
-});
-
 
 let stateRestoration = false; // Flag to prevent overwriting during loadState
 
@@ -187,7 +226,7 @@ function showTab(tabNumber) {                          // Controls visual page s
     document.getElementById(`tab${tabNumber}`).classList.add('active'); // Show selected panel
 
     document.querySelectorAll('.progress-step').forEach((step, index) => { // Sync top navigation dots
-        step.classList.toggle('active', index + 1 === tabNumber); // Highlight current dot
+        step.classList.toggle('active', index === tabNumber); // Highlight current dot
     });
 
     if (tabNumber === 2) {                             // If moving to Chapters tab...
@@ -229,7 +268,7 @@ function goToTab(tabNumber) {
 // ==========================================
 
 // Track which tab is currently active (1-4)
-let currentTab = 1;                                  // App starts on Tab 1
+let currentTab = 0;                                  // App starts on Tab 0 (Login)
 let currentLineHeight = 1.2;                          // Initial preview line spacing
 let pFontSize = 12;                                   // Standard document font size (pt)
 let pFontFamily = "'Times New Roman', Times, serif";  // Default academic serif font
@@ -368,7 +407,7 @@ function prevTab() {
     if (currentTab === 4 && activeSectionTab > 0) {
         // Move to previous section within Tab 4
         switchSectionTab(activeSectionTab - 1);
-    } else if (currentTab > 1) {
+    } else if (currentTab > 0) {
         currentTab--;
         showTab(currentTab);
         saveState(); // Save state when going back
@@ -3313,7 +3352,7 @@ function loadState() {
 
 
         // Restore active tab
-        currentTab = state.currentTab || 1;
+        currentTab = state.currentTab !== undefined ? state.currentTab : 0;
         showTab(currentTab);
 
         // Re-render UI based on restored state

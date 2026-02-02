@@ -14,39 +14,14 @@
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet"> <!-- Imports modern typography styles -->
     <link rel="stylesheet" href="style.css"> <!-- Connects the external CSS design file -->
+    <link rel="shortcut icon" href="#">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <!-- Library for direct PDF download -->
 
-    <!--Login module-->
-    <div class="header-actions no-print">
-        <button id="loginBtn" class="btn btn-sm btn-outline" onclick="openLoginModal()">👤 Login</button>
-        <span id="userEmail" style="display:none; font-size: 0.8rem; margin-right: 10px;"></span>
-    </div>
 </head>
 
 <body> <!-- Main visible content of the page -->
-    <!--Login module-->
-    <div id="loginModal" class="modal-overlay" style="display: none;">
-        <div class="modal-container">
-            <div class="modal-header">
-                <h3>User Login</h3>
-                <button class="btn-icon danger" onclick="closeLoginModal()">✕</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" id="loginEmail" placeholder="example@mail.com">
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="loginPassword" placeholder="******">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" onclick="handleLogin()">Login</button>
-            </div>
-        </div>
-    </div>
+
     <div class="app-container"> <!-- Root wrapper for the entire application -->
         <!-- Header -->
         <header class="app-header"> <!-- Top navigation and title section -->
@@ -57,6 +32,7 @@
                 </h1>
             </div>
             <div class="progress-indicator"> <!-- Step-by-step navigation indicator -->
+                <div class="progress-step" onclick="goToTab(0)" id="stepLogin">Login</div> <!-- Tab 0 link -->
                 <div class="progress-step" onclick="goToTab(1)">Exam Details</div> <!-- Tab 1 link -->
                 <div class="progress-step" onclick="goToTab(2)">Portion Selection</div> <!-- Tab 2 link -->
                 <div class="progress-step" onclick="goToTab(3)">Configure Sections</div> <!-- Tab 3 link -->
@@ -66,12 +42,95 @@
                     style="background: var(--color-success); color: white; border: none; font-weight: 700;">🖨️ Print
                     Paper</div>
             </div>
+
         </header>
 
         <!-- Main Content -->
         <main class="app-main"> <!-- Main workspace area for the app -->
+            <!-- Tab 0: Login / Account -->
+            <section id="tab0" class="tab-content active">
+                <div class="login-wrapper">
+                    <div class="login-container">
+                        <!-- Left Decoration Side (Desktop Only) -->
+                        <div class="login-aside">
+                            <div class="aside-content">
+                                <div class="aside-icon">🛡️</div>
+                                <h2 class="aside-title">Secure Access</h2>
+                                <p class="aside-text">Expertly crafted tools for educators to generate high-quality
+                                    biology question papers in minutes.</p>
+                                <div class="feature-tags">
+                                    <span>✓ Verified</span>
+                                    <span>✓ PDF Export</span>
+                                    <span>✓ History</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Form Side -->
+                        <div class="login-main">
+                            <div id="loginForm" class="auth-box">
+                                <div class="auth-header">
+                                    <h2 class="auth-title">Welcome Back</h2>
+                                    <p class="auth-subtitle">Please enter your credentials to continue</p>
+                                </div>
+                                <div class="auth-form">
+                                    <div class="form-group">
+                                        <label for="tabLoginEmail">Email Address</label>
+                                        <div class="input-with-icon">
+                                            <span class="icon">✉️</span>
+                                            <input type="email" id="tabLoginEmail" placeholder="admin@example.com">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tabLoginPassword">Password</label>
+                                        <div class="input-with-icon">
+                                            <span class="icon">🔑</span>
+                                            <input type="password" id="tabLoginPassword" placeholder="••••••••">
+                                        </div>
+                                    </div>
+                                    <button id="tabLoginBtn" class="btn btn-primary btn-lg" onclick="handleLogin()"
+                                        style="width: 100%; margin-top: 10px;">
+                                        <span>Sign In</span>
+                                        <span class="btn-arrow">→</span>
+                                    </button>
+                                </div>
+                                <div class="auth-footer">
+                                    <p>Authorized access only. Use your registered institution email.</p>
+                                </div>
+                            </div>
+
+                            <div id="userInfo" class="auth-box" style="display: none;">
+                                <div class="auth-header">
+                                    <div class="user-avatar">👤</div>
+                                    <h2 class="auth-title">Account Details</h2>
+                                    <p id="loggedInUserEmail" class="user-email-display"></p>
+                                </div>
+                                <div class="user-status-card">
+                                    <div class="status-indicator">
+                                        <span class="dot pulse"></span>
+                                        <span class="text">Session Active</span>
+                                    </div>
+                                    <div class="status-meta">
+                                        Access Level: <span>Premium Admin</span>
+                                    </div>
+                                </div>
+                                <div class="auth-actions">
+                                    <button class="btn btn-primary btn-lg" onclick="goToTab(1)" style="width: 100%;">
+                                        Go to Dashboard →
+                                    </button>
+                                    <button class="btn btn-outline-danger" onclick="handleLogout()"
+                                        style="width: 100%; margin-top: 10px;">
+                                        Sign Out
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Tab 1: Exam Details -->
-            <section id="tab1" class="tab-content active"> <!-- Panel for basic paper info -->
+            <section id="tab1" class="tab-content"> <!-- Panel for basic paper info -->
                 <div class="tab-card"> <!-- Elevated container for form content -->
                     <h2 class="tab-title">Exam Details</h2> <!-- Section header text -->
                     <div class="form-grid"> <!-- Grid layout for input field pairs -->
@@ -446,10 +505,6 @@
         </div>
     </div>
 
-    <!-- Main Logic -->
-    <script src="script.js"></script> <!-- The core application behavior file -->
-
-    <!-- Symbol Modal -->
     <div id="symbolModal" class="modal-overlay"> <!-- Mathematical symbols picker overlay -->
         <div class="modal-content"> <!-- Content area for symbols -->
             <div class="modal-header"> <!-- Header with close button -->
@@ -461,11 +516,12 @@
             </div>
         </div>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+
+    <!-- Firebase Library (Must load before script.js) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
 
     <script>
-        // Firebase Config 
         const firebaseConfig = {
             apiKey: "AIzaSyCjPLgP_4TglF70q0IJgBz--T-t0jmmYQE",
             authDomain: "qns-gen.firebaseapp.com",
@@ -480,6 +536,9 @@
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
     </script>
+
+    <!-- Main Logic (Load after Firebase) -->
+    <script src="script.js"></script>
 </body>
 
 </html>

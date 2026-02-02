@@ -226,6 +226,13 @@ body {
     /* Space between header sections */
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
 .app-title {
     font-family: var(--font-display);
     font-size: 1.5rem;
@@ -391,6 +398,205 @@ body {
     margin-bottom: 24px;
 }
 
+/* --- Enhanced Login UI --- */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+}
+
+.login-container {
+    display: flex;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    width: 100%;
+    max-width: 900px;
+    min-height: 550px;
+}
+
+.login-aside {
+    flex: 1;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.aside-content {
+    max-width: 320px;
+}
+
+.aside-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.aside-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.aside-text {
+    font-size: 1rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.feature-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.feature-tags span {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.login-main {
+    flex: 1.2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-box {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.auth-header {
+    margin-bottom: 30px;
+}
+
+.auth-title {
+    font-family: var(--font-display);
+    font-size: 1.85rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.auth-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon .icon {
+    position: absolute;
+    left: 15px;
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+
+.input-with-icon input {
+    padding-left: 45px !important;
+}
+
+.auth-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.auth-footer p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+/* User Info Panel */
+.user-avatar {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.user-email-display {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.user-status-card {
+    background: #f8fafc;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-success);
+}
+
+.pulse {
+    animation: statusPulse 2s infinite;
+}
+
+@keyframes statusPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+.status-meta {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.status-meta span {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* Responsive Login */
+@media (max-width: 850px) {
+    .login-container {
+        flex-direction: column;
+        max-width: 450px;
+    }
+
+    .login-aside {
+        display: none;
+    }
+}
+
+
 .tab-header-flex {
     display: flex;
     justify-content: space-between;
@@ -529,6 +735,23 @@ body {
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
     /* Subtle blue shadow */
 }
+
+.btn-lg {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+}
+
+.btn-outline-danger {
+    background: transparent;
+    border: 2px solid #ef4444;
+    color: #ef4444;
+}
+
+.btn-outline-danger:hover {
+    background: #ef4444;
+    color: #fff;
+}
+
 
 .btn-primary:hover {
     /* Hover over main button */
