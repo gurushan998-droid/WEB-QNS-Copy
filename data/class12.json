@@ -11,6 +11,14 @@
         {
             "value": "Chemistry",
             "label": "Chemistry"
+        },
+        {
+            "value": "Maths",
+            "label": "Maths"
+        },
+        {
+            "value": "Physics",
+            "label": "Physics"
         }
     ],
     "chapters": {
@@ -39,21 +47,53 @@
             "Environmental Issues (Zoo)"
         ],
         "Chemistry": [
-            "Unit 1 - Metallurgy",
-            "Unit 2 - P-Block Elements - I",
-            "Unit 3 - P-Block Elements - II",
-            "Unit 4 - Transition and Inner Transition Elements",
-            "Unit 5 - Coordination Chemistry",
-            "Unit 6 - Solid State",
-            "Unit 7 - Chemical Kinetics",
-            "Unit 8 - Ionic Equilibrium",
-            "Unit 9 - Electro Chemistry",
-            "Unit 10 - Surface Chemistry",
-            "Unit 11 - Hydroxy Compounds and Ethers",
-            "Unit 12 - Carbonyl Compounds and Carboxylic Acids",
-            "Unit 13 - Organic Nitrogen Compounds",
-            "Unit 14 - Biomolecules",
-            "Unit 15 - Chemistry in Everyday Life"
+            "Metallurgy",
+            "P-Block Elements - I",
+            "P-Block Elements - II",
+            "Transition and Inner Transition Elements",
+            "Coordination Chemistry",
+            "Solid State",
+            "Chemical Kinetics",
+            "Ionic Equilibrium",
+            "Electro Chemistry",
+            "Surface Chemistry",
+            "Hydroxy Compounds and Ethers",
+            "Carbonyl Compounds and Carboxylic Acids",
+            "Organic Nitrogen Compounds",
+            "Biomolecules",
+            "Chemistry in Everyday Life"
+        ],
+        "Maths": [
+            "Applications of Matrices and Determinants",
+            "Complex Numbers",
+            "Theory of Equations",
+            "Inverse Trigonometric Functions",
+            "Two Dimensional Analytical Geometry-II",
+            "Applications of Vector Algebra",
+            "Applications of Differential Calculus",
+            "Differentials and Partial Derivatives",
+            "Applications of Integration",
+            "Ordinary Differential Equations",
+            "Probability Distributions",
+            "Discrete Mathematics"
+        ],
+        "Physics": [
+            "Electric Charges and Fields",
+            "Electrostatic Potential and Capacitance",
+            "Current Electricity",
+            "Moving Charges and Magnetism",
+            "Magnetism and Matter",
+            "Electromagnetic Induction",
+            "Alternating Current",
+            "Electromagnetic Waves",
+            "Ray Optics and Optical Instruments",
+            "Wave Optics",
+            "Dual Nature of Radiation and Matter",
+            "Atoms",
+            "Nuclei",
+            "Semiconductor Electronics: Materials, Devices and Simple Circuits",
+            "Communication Systems",
+            "Recent Developments in Physics"
         ]
     }
 }

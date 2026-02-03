@@ -1,0 +1,1894 @@
+{
+    "Electric Charges and Fields": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "What is meant by quantisation of charge ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Write down Coulomb’s law in vector form and mention what each term represents.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are the differences between Coulomb force and gravitational force",
+                    "marks": 2
+                },
+                {
+                    "q": "Write a short note on super position principle.",
+                    "marks": 2
+                },
+                {
+                    "q": "Define electric field.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by electric field lines?",
+                    "marks": 2
+                },
+                {
+                    "q": "The electric field lines never intersect .Justify.",
+                    "marks": 2
+                },
+                {
+                    "q": "Define electric dipole .Give the expression for the magnitude of its electric dipole moment and the direction.",
+                    "marks": 2
+                },
+                {
+                    "q": "Write the general definition of electric dipole moment for a collection of point charge.",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Dicuss the basic properties of electric charges.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain in detail Coulomb’s law and its various aspects.",
+                    "marks": 5
+                },
+                {
+                    "q": "Define electric field and discuss its aspects.",
+                    "marks": 5
+                },
+                {
+                    "q": "Calculate the electric field due to a dipole on its axial line and equatorial line.",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive an expression for the torque experienced by a dipole due to a uniform electric field.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain Gauss law from Coulomb’s law.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain the expression for electric field due to an infinitely long charged wire.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain the expression for electric field due to an charged infinite plane sheet.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain the expression for electric field due to an uniformly charged spherical shell.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Electrostatic Potential and Capacitance": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Define electrostatic potential.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is equipotential surface?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are the properties of an equipotential surface?",
+                    "marks": 2
+                },
+                {
+                    "q": "Give the relation between electric field and electric potential.",
+                    "marks": 2
+                },
+                {
+                    "q": "Define electric flux. Give its unit.",
+                    "marks": 2
+                },
+                {
+                    "q": "Define electrostatic energy density.",
+                    "marks": 2
+                },
+                {
+                    "q": "Write a short note on electrostatic shielding.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is electric polarisation?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is dielectric strength?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define capacitance of a capacitor.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is corona discharge or action at points .",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Derive an expression for electrostatic potential due to a point charge.",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive an expression for electrostatic potential due to an electric dipole.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain an expression for potential energy due to a collection of three point charges which are separated by finite distances.",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive an expression for electrostatic potential energy of the dipole in a uniform electric field.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the properties of conductors in electrostatic equilibrium.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the process of electrostatic induction.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain dielectrics in detail and how an electric field induced inside dielectric.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain the expression for the capacitance for a parallel plate capacitor.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtaint the expression for energy staored in parallel plate capacitor.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain in detail the effect of a dielectric placed in a parallel plate capacitor.",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive an expression for resultant capacitance when capacitors are connected in series and parallel.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain in detail how charges are distributed in a conductor and the principle behind the lightning conductor.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain in detail the construction and working of a Van de Graaff generator.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Current Electricity": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Why current is a scalar?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define current density.",
+                    "marks": 2
+                },
+                {
+                    "q": "Distinguish between drift velocity and mobility.",
+                    "marks": 2
+                },
+                {
+                    "q": "State microscopic form of Ohm’s law.",
+                    "marks": 2
+                },
+                {
+                    "q": "State macroscopic form of Ohm’s law.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are Ohmic and non ohmic materials?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define electrical resistivity.",
+                    "marks": 2
+                },
+                {
+                    "q": "Define temperature coefficient of resistance .",
+                    "marks": 2
+                },
+                {
+                    "q": "Write a short note on superconductor.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is electric power and electric energy?",
+                    "marks": 2
+                },
+                {
+                    "q": "Derive the expression for power P = V I in electrical circuit.",
+                    "marks": 2
+                },
+                {
+                    "q": "Write down the various forms of expression for in electrical circuit.",
+                    "marks": 2
+                },
+                {
+                    "q": "State Kirchhoff’s first rule ( current rule / Junction rule)",
+                    "marks": 2
+                },
+                {
+                    "q": "State Kirchhoff’s second rule.( Voltage rule / Loop rule )",
+                    "marks": 2
+                },
+                {
+                    "q": "Explain the principle of potentiometer.",
+                    "marks": 2
+                },
+                {
+                    "q": "What you mean by internal resistance of a cell?",
+                    "marks": 2
+                },
+                {
+                    "q": "State Joule’s law of heating.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is seebeck effect?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is peltier effect?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Thomson effect?",
+                    "marks": 2
+                },
+                {
+                    "q": "State the applications of Seeback effect.",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Describe the microscopic model of current and obtain general form of Ohm’s law.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain the macroscopic form of Ohm’s law from its microscopic form and discuss its limitation.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the equivalent resistance of a series and parallel resistor network.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the determination of the internal resistance of a cell using voltmeter.",
+                    "marks": 5
+                },
+                {
+                    "q": "State and explain Kirchhoff’s rules.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain the condition for bridge balance in wheatstone’s bridge.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the determination of unknown resistance using meter bridge.",
+                    "marks": 5
+                },
+                {
+                    "q": "How the emf of two cells are compared using potentiometer?",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the determination of the internal resistance of a cell using potentiometer.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Moving Charges and Magnetism": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "State Biot savart’s law.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is magnetic permeability?",
+                    "marks": 2
+                },
+                {
+                    "q": "State Ampere’s circuital law.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is resonance condition in cyclotron?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define ampere.",
+                    "marks": 2
+                },
+                {
+                    "q": "State Fleming’s left hand rule.",
+                    "marks": 2
+                },
+                {
+                    "q": "Is an ammeter connected in series or parallel in a circuit why ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Explain the concept of velocity selector.",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Deduce the relation for the magnetic field at a point due to an infinitely long straight conductor carrying current.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain a relation for the magnetic field at a point along the axis of a circular coil carrying current.",
+                    "marks": 5
+                },
+                {
+                    "q": "Find the magnetic field due to a long straight conductor using Ampere’s circuital law.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the working of cyclotron in detail.",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive the expression for the torque on a current carrying in a magnetic field.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the conversion of galvanometer into an ammeter and voltmeter.",
+                    "marks": 5
+                },
+                {
+                    "q": "Calculate the magnetic field inside and outside of the long solenoid using Ampere’s circuital law.",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive the expression for the force between two parallel current carrying conductor.",
+                    "marks": 5
+                },
+                {
+                    "q": "Give an account of magnetic Lorentz force.",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive the expression for the force on a current carrying conductor in a magnetic field.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain about working of moving coil galvanometer",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Magnetism and Matter": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "What are the elements of the Earth ‘s magnetic field?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define magnetic flux.",
+                    "marks": 2
+                },
+                {
+                    "q": "Define magnetic dipole moment.",
+                    "marks": 2
+                },
+                {
+                    "q": "State Coulomb’s inverse law.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is magnetic susceptibility ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Compare dia , para and ferro magnetism.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by hysteresis?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define magnetic declination and inclination.",
+                    "marks": 2
+                },
+                {
+                    "q": "Give the properties of dia / para / ferro magnetic materials.",
+                    "marks": 2
+                },
+                {
+                    "q": "What happens to the domains in a ferromagnetic material in the presence of external magnetic field.",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Discuss Earth’s magnetic field in detail.",
+                    "marks": 5
+                },
+                {
+                    "q": "Compute the torque experienced by a magnetic needle in a uniform magnetic field.",
+                    "marks": 5
+                },
+                {
+                    "q": "Calculate the magnetic field at a point on the axial line of a bar magnet.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain the magnetic field at a point on the equatorial line of a bar magnet.",
+                    "marks": 5
+                },
+                {
+                    "q": "What is tangent law ? Discuss in detail.",
+                    "marks": 5
+                },
+                {
+                    "q": "Compare the properties of soft and hard ferromagnetic materials.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Electromagnetic Induction": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "What is meant by electromagnetic induction?",
+                    "marks": 2
+                },
+                {
+                    "q": "State Faraday’s laws of electromagnetic induction.",
+                    "marks": 2
+                },
+                {
+                    "q": "State Lenz’s law.",
+                    "marks": 2
+                },
+                {
+                    "q": "State Fleming’s right hand rule.",
+                    "marks": 2
+                },
+                {
+                    "q": "How is eddy current produced? How they flow in a conductor?",
+                    "marks": 2
+                },
+                {
+                    "q": "Mention the ways of producing induced emf.",
+                    "marks": 2
+                },
+                {
+                    "q": "What you mean by self induction?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by mutual induction?",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Establish the fact that relative motion between coil and magnet induces an emf in the coil of a closed circuit.",
+                    "marks": 5
+                },
+                {
+                    "q": "Give an illustration of determining direction of induced current - Lenz’s law.",
+                    "marks": 5
+                },
+                {
+                    "q": "Show that Lenz’s law in accordance with the law of conservation of energy.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain an expression for motional emf from Lorentz force.",
+                    "marks": 5
+                },
+                {
+                    "q": "Give the uses of Foucault current.",
+                    "marks": 5
+                },
+                {
+                    "q": "Define self inductance of a coil interms of i) magnetic flux ii)induced emf.",
+                    "marks": 5
+                },
+                {
+                    "q": "How will you define the unit of inductance?",
+                    "marks": 5
+                },
+                {
+                    "q": "What you understand by self inductance of a coil ? Give its physical significance.",
+                    "marks": 5
+                },
+                {
+                    "q": "Assuming the length of solenoid is large when compared to its diameter , find the equation for its inductance.(Self-inductance of long solenoid)",
+                    "marks": 5
+                },
+                {
+                    "q": "An inductor of inductance L carries an electric current i. How much energy is stored while establishing the current in it?",
+                    "marks": 5
+                },
+                {
+                    "q": "Show that the mutual inductance between a pair of coils same M12 = M 21 .",
+                    "marks": 5
+                },
+                {
+                    "q": "How will you induce an emf by changing the area enclosed by the coil ?",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Alternating Current": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "List out the advantages of stationary armature rotating field system of Ac generator.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are step up and step down transformer?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define average value of an alternating current.",
+                    "marks": 2
+                },
+                {
+                    "q": "How will you define RMS value of an alternating current?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are phasors?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define electric resonance.",
+                    "marks": 2
+                },
+                {
+                    "q": "What you mean by resonant frequency?",
+                    "marks": 2
+                },
+                {
+                    "q": "How will you define Q- factor?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define power factor.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by Wattless current?",
+                    "marks": 2
+                },
+                {
+                    "q": "Give any one definition of power factor.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are LC oscillations?",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Show mathematically that the rotation of a coil in a magnetic field over one rotation induces an alternating emf of one cycle.",
+                    "marks": 5
+                },
+                {
+                    "q": "Elaborate the working of a single construction details of AC generator.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the working of a single phase AC generator.",
+                    "marks": 5
+                },
+                {
+                    "q": "How are the three different emfs generated in a three phase AC generator ?Show the graphical representation of these three emfs.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the construction and working of transformer.",
+                    "marks": 5
+                },
+                {
+                    "q": "Mention the various energy losses in a transformer.",
+                    "marks": 5
+                },
+                {
+                    "q": "Give the advantages of AC in long distance power transmission with an illustration.",
+                    "marks": 5
+                },
+                {
+                    "q": "Find out the phase relationship between voltage and current in a pure inductive circuit. ( AC contains pure inductor )",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive an expression for phase angle between the applied voltage and current in a series RLC circuit.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain an expression for average power of AC over a cycle. Discuss its special cases.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the generation of LC oscillations in a circuit containing an inductor of inductance L and a capacitor of capacitance C.",
+                    "marks": 5
+                },
+                {
+                    "q": "Prove that total energy is conserved during LC oscillations.",
+                    "marks": 5
+                },
+                {
+                    "q": "Compare the electromagnetic oscillations of LC circuit with the mechanical oscillations of block spring system qualitatively to find the expression for angular frequency of LC oscillator.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Electromagnetic Waves": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "What is displacement current?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are electromagnetic waves?",
+                    "marks": 2
+                },
+                {
+                    "q": "Write down the integral form of modified Ampere’s circuital law.",
+                    "marks": 2
+                },
+                {
+                    "q": "Write a notes on Gauss law in magnetism.",
+                    "marks": 2
+                },
+                {
+                    "q": "Give two uses of i) IR radiation ii) UV radiation iii) micro waves.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are Fraunhofer lines ? Hoe are they useful in identification of elements present in sun?",
+                    "marks": 2
+                },
+                {
+                    "q": "Write notes on Ampere – Maxwell law.",
+                    "marks": 2
+                },
+                {
+                    "q": "Why are e.m waves non-mechanical?",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Write down the Maxwell equations in integral form.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the Maxwell’s modification of Ampere’s circuital law.",
+                    "marks": 5
+                },
+                {
+                    "q": "Write a short notes on i) micro waves ii ) X – Rays iii ) Radio waves iv) visible spectrum",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the Hertz experiment.",
+                    "marks": 5
+                },
+                {
+                    "q": "Expalin the importance of Maxwell’s correction.",
+                    "marks": 5
+                },
+                {
+                    "q": "Write down the properties of electromagnetic waves.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the source of electromagnetic waves.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the types of emission spectrum.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the types absorption spectrum.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Ray Optics and Optical Instruments": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "What is angle of deviation due to reflection ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Derive the relation between f and R for a spherical mirror.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are the Cartesian sign conventions for spherical mirrors?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is optical path ? Obtain the equation for optical path.",
+                    "marks": 2
+                },
+                {
+                    "q": "State Snell’s law / law of refraction.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is angle of deviation due to refraction ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is principle of reversibility ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is relative refractive index?",
+                    "marks": 2
+                },
+                {
+                    "q": "Obtain the equation for apparent depth.",
+                    "marks": 2
+                },
+                {
+                    "q": "Why do stars twinkle?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are critical angle and total internal reflection?",
+                    "marks": 2
+                },
+                {
+                    "q": "Obtain equation for critical angle.",
+                    "marks": 2
+                },
+                {
+                    "q": "Explain the reason for glittering of diamond.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are mirage and looming ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Write a short note on the prisms making use total internal reflections.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Snell’s window.",
+                    "marks": 2
+                },
+                {
+                    "q": "How does an endoscope work?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are primary focus and secondary focus of a lens ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are the sign conventions followed for lenses.",
+                    "marks": 2
+                },
+                {
+                    "q": "Arrive at lens equation from lens maker’s formula.",
+                    "marks": 2
+                },
+                {
+                    "q": "Obtain the equation for lateral magnification of the lens.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is power of lens?",
+                    "marks": 2
+                },
+                {
+                    "q": "Derive the equation for effective focal length for lenses in contact.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is angle of minimum deviation?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is dispersion ?",
+                    "marks": 2
+                },
+                {
+                    "q": "How are rainbows are formed?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Rayleigh’s scattering?",
+                    "marks": 2
+                },
+                {
+                    "q": "Why does sky appear blue?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is the reason for reddish appearance of sky during sunset and sunrise?",
+                    "marks": 2
+                },
+                {
+                    "q": "Why do clouds appear white?",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Derive the mirror equation and the equation for lateral magnification.",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the Fizeau’s method to determine the speed of light.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain the equation for radius of illumination (or) Snell’s window.",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive the equation for acceptance angle and numerical aperture of optical fibre.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain the equation for lateral displacement of light passing through a glass slab.",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive the equation for refraction at single spherical surface.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain lens maker’s formula and mention its significance.",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive the equations for thin lens and for magnification.",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive the equation for angle of deviation produced by a prism and the obtain the equation for refractive index of material of the prism.",
+                    "marks": 5
+                },
+                {
+                    "q": "What is dispersion? Obtain the equation for dispersive power of a medium.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Wave Optics": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "What are the salient features of corpuscular theory of light?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are the important points wave theory of light ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is the significance of electromagnetic wave theory of light?",
+                    "marks": 2
+                },
+                {
+                    "q": "Write a short note on quantum theory of light.",
+                    "marks": 2
+                },
+                {
+                    "q": "Define wavefront.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are the shapes of wavefront for a) source at infinite b) Point source c) Line source.",
+                    "marks": 2
+                },
+                {
+                    "q": "State Huygen’s principle.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is the interference of light ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is the phase of a wave ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Obtain the relation between phase difference and path difference .",
+                    "marks": 2
+                },
+                {
+                    "q": "What are coherent sources ?",
+                    "marks": 2
+                },
+                {
+                    "q": "How does wavefront division provide coherent sources?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is intensity or amplitude division?",
+                    "marks": 2
+                },
+                {
+                    "q": "How do source and images behave as coherent sources ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is bandwidth of interference pattern?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is diffraction?",
+                    "marks": 2
+                },
+                {
+                    "q": "Differentiate between Fresnel and Fraunhofer diffraction.",
+                    "marks": 2
+                },
+                {
+                    "q": "Discuss the special cases on first minimum in Fraunhofer diffraction.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Fresnel’s distance? Obtain the equation for Fresnel’s distance.",
+                    "marks": 2
+                },
+                {
+                    "q": "Mention the difference between interference and diffraction.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is diffraction grating?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is resolution?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Rayleigh’s criterion?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is the difference between resolution and magnification?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is polarisation?",
+                    "marks": 2
+                },
+                {
+                    "q": "Differentiate between polarised and unpolarised light.",
+                    "marks": 2
+                },
+                {
+                    "q": "Discuss polarisation by selective absorption.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are polariser and analyser?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are plane polarised , unpolarised and partially polarised light?",
+                    "marks": 2
+                },
+                {
+                    "q": "State and obtain Malus’s law.",
+                    "marks": 2
+                },
+                {
+                    "q": "List the uses of polaroid’s.",
+                    "marks": 2
+                },
+                {
+                    "q": "State Brewster’s law.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is angle of polarisation and obtain the equation for angle of polarisation.",
+                    "marks": 2
+                },
+                {
+                    "q": "Discuss about piles of plates.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is double refraction?",
+                    "marks": 2
+                },
+                {
+                    "q": "Mention the types of optically active crystals with example.",
+                    "marks": 2
+                },
+                {
+                    "q": "Discuss about Nicol prism.",
+                    "marks": 2
+                },
+                {
+                    "q": "How is polarisation of light obtained by scattering of light?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are near point and normal focusing?",
+                    "marks": 2
+                },
+                {
+                    "q": "Why is oil immersed objective preferred in a microscope?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are the advantages and disadvantages of are reflecting telescope?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is the use of an erecting lens in a terrestrial telescope?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is the use of collimator in a spectrometer?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are the uses of spectrometer?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is a myopia? What is its remedy?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is hypermetropia? What is its remedy?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is astigmatism? What its remedy?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is presbyopia?",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Prove law of reflection using Huygens’ principle.",
+                    "marks": 5
+                },
+                {
+                    "q": "Prove law of refraction using Huygens’ principle.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain the equation for resultant intensity due to interference of light.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the Young’s double slit equation experimental setup and obtain the equation path difference.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain the equation for bandwidth in Young’s double slit experiment.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the interference in thin films and obtain the equations for constructive and destructive interference for transmitted and reflected light.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the diffraction at single slit and obtain the condition for n th minimum.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the diffraction at a grating and obtain the condition for the m th maximum.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the experiment to determine the wavelength of monochromatic light using diffraction grating.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the experiment to determine the wavelength of different colours using diffraction grating.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain the equation for resolving power of optical instruments.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss about the simple microscope and obtain the equations for magnification for near point focusing and normal focusing.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain about compound microscope and obtain the equation for the magnification.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain the equation for resolving power of microscope.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss about astronomical telescope.",
+                    "marks": 5
+                },
+                {
+                    "q": "Mention different parts of spectrometer and explain the preliminary adjustments.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the experimental determination of refractive index of the material of the prism using spectrometer.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Dual Nature of Radiation and Matter": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Why do metals have a large number of free electrons?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define work function of a metal. Give its unit.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is photoelectric effect?",
+                    "marks": 2
+                },
+                {
+                    "q": "How does photo current vary with intensity of incident light?",
+                    "marks": 2
+                },
+                {
+                    "q": "Give the definition of intensity of light according to quantum concept and its unit.",
+                    "marks": 2
+                },
+                {
+                    "q": "How will you define threshold frequency?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is photo cell? Mention the different types of photocells?",
+                    "marks": 2
+                },
+                {
+                    "q": "Write the expression for the de Broglie wavelength associated with a charged particle of charge q and mass m , when it is a accelerated through a potential V.",
+                    "marks": 2
+                },
+                {
+                    "q": "State de Broglie hypothesis.",
+                    "marks": 2
+                },
+                {
+                    "q": "Why we do not see the wave properties of a base ball?",
+                    "marks": 2
+                },
+                {
+                    "q": "A proton and electron have same kinetic energy . Which one has greater de Broglie wavelength. Justify.",
+                    "marks": 2
+                },
+                {
+                    "q": "Write the relationship of de Broglie wavelength λ associated with a particle of mass m in terms of its kinetic energy K .",
+                    "marks": 2
+                },
+                {
+                    "q": "An electron and an alpha particle have same kinetic energy. How are the de Broglie wavelength associated with them related?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define stopping potential.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is surface barrier?",
+                    "marks": 2
+                },
+                {
+                    "q": "Mention the two features of X – ray spectra , not explained by classical electromagnetic theory.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Bremsstralung?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are the applications of X – ray ?",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "What do you mean by electron emission ? Explain briefly various methods of electron emission.",
+                    "marks": 5
+                },
+                {
+                    "q": "Briefly explain the observations of Hertz , Hallwachs and Lenard.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the effect of potential difference on photoelectric current.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain how frequency of incident light varies with stopping potential.",
+                    "marks": 5
+                },
+                {
+                    "q": "List out the laws of photoelectric effect.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain why photoelectric effect cannot be explained on the basis of wave nature of light.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the quantum concept of light.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain Einstein’s photoelectric equation with necessary explanation.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain experimentally observed facts of photoelectric effect with the help of Einstein’s explanation.",
+                    "marks": 5
+                },
+                {
+                    "q": "Give the construction and working of photo emissive cell.",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive an expression for de Broglie wave length of electrons.",
+                    "marks": 5
+                },
+                {
+                    "q": "Briefly explain the principle and working of electron microscope.",
+                    "marks": 5
+                },
+                {
+                    "q": "Briefly explain Davisson – Germer experiment which demonstrated the wave nature of electrons.",
+                    "marks": 5
+                },
+                {
+                    "q": "List out the characteristics of photons.",
+                    "marks": 5
+                },
+                {
+                    "q": "Give the applications of photocell.",
+                    "marks": 5
+                },
+                {
+                    "q": "Hoe do we obtain characteristics X – ray spectra?",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Atoms": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "What are cathode rays?",
+                    "marks": 2
+                },
+                {
+                    "q": "Write the properties of cathode rays .",
+                    "marks": 2
+                },
+                {
+                    "q": "Give the results of Rutherford alpha scattering experiment.",
+                    "marks": 2
+                },
+                {
+                    "q": "Write down the postulates of Bhor atom model.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by excitation energy?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define the ionization energy and ionization potential.",
+                    "marks": 2
+                },
+                {
+                    "q": "Write down the drawbacks of Bhor atom model.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is distance of closest approach?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define impact parameter.",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Explain the J.J.Thomson experiment to determine the specific charge of electron.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the Millikan’s oil drop experiment to determine the charge of an electron.",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive the energy expression for an electron is the hydrogen atom using Bhor atom model.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the spectral series of hydrogen atom.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Nuclei": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Write the general notation of nucleus of element X . What does each term denote?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is isotope? Give an example.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is isotone? Give an example.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is isobar? Give an example.",
+                    "marks": 2
+                },
+                {
+                    "q": "Define atomic mass unit u.",
+                    "marks": 2
+                },
+                {
+                    "q": "Show that nuclear density is almost constant for nuclei with Z > 10.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is mass defect?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is binding energy of a nucleus ? Give its expression. Calculate the energy equivalent of 1 atomic mass unit.",
+                    "marks": 2
+                },
+                {
+                    "q": "Give the physical meaning of binding energy per nucleon.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by radioactivity?",
+                    "marks": 2
+                },
+                {
+                    "q": "Give the symbolic representation of alpha decay, beta decay and gamma emission.",
+                    "marks": 2
+                },
+                {
+                    "q": "In alpha decay , why the unstable nucleus emits 4 He nucleus ? Why it does not emit four separate nucleons?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is mean life of a radio active nucleus ? Give an expression.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is half life of a radio active nucleus ? Give an expression.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by activity or decay rate ? Give its unit.",
+                    "marks": 2
+                },
+                {
+                    "q": "Define curie.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are the constituent particles of neutron and proton?",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Explain the variation of average binding energy with the mass number using graph and discuss about its feature.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain in detail the nuclear force.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the alpha decay process with example.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the beta decay process with example.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the gamma emission process with example.",
+                    "marks": 5
+                },
+                {
+                    "q": "Obtain the law of radio activity.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the properties of neutrino and its role in beta decay.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the idea of carbon dating.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the process of nuclear fission and its properties.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the process of nuclear fusion and how energy is generated in stars?",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the working of nuclear reactor with a block diagram.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain in detail the four fundamental forces in nature.",
+                    "marks": 5
+                },
+                {
+                    "q": "Briefly explain the elementary particles present in nature.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Semiconductor Electronics: Materials, Devices and Simple Circuits": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Define forbidden energy gap.",
+                    "marks": 2
+                },
+                {
+                    "q": "Why is temperature coefficient of resistance negative for semiconductor?",
+                    "marks": 2
+                },
+                {
+                    "q": "What do you mean by doping?",
+                    "marks": 2
+                },
+                {
+                    "q": "Distinguish between intrinsic and extrinsic semiconductors.",
+                    "marks": 2
+                },
+                {
+                    "q": "A diode is called as a unidirectional device. Explain.",
+                    "marks": 2
+                },
+                {
+                    "q": "What do you mean by leakage current in a diode?",
+                    "marks": 2
+                },
+                {
+                    "q": "Draw the input and output waveforms of a full wave rectifier.",
+                    "marks": 2
+                },
+                {
+                    "q": "Distinguish between avalanche breakdown and Zener breakdown.",
+                    "marks": 2
+                },
+                {
+                    "q": "Give the Barkhausen conditions for sustained oscillations.",
+                    "marks": 2
+                },
+                {
+                    "q": "Explain the current flow in a NPN transistor.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are logic gates?",
+                    "marks": 2
+                },
+                {
+                    "q": "Explain the need for feedback circuit in a transistor oscillator.",
+                    "marks": 2
+                },
+                {
+                    "q": "Write a short note on diffusion current across p-n junction .",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by biasing ? Mention its types.",
+                    "marks": 2
+                },
+                {
+                    "q": "Why can’t we interchange the emitter and collector even though they are made up of same type of semiconductor material?",
+                    "marks": 2
+                },
+                {
+                    "q": "Why are NOR and NAND gates called universal gates?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define barrier potential.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is rectification?",
+                    "marks": 2
+                },
+                {
+                    "q": "List the application of light emitting diode.",
+                    "marks": 2
+                },
+                {
+                    "q": "Give the principles of solar cells.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is an integrated circuit?",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Elucidate the formation of n- type extrinsic semiconductors.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the formation of depletion region and barrier potential in PN junction diode.",
+                    "marks": 5
+                },
+                {
+                    "q": "Draw the circuit diagram of a halfwave rectifier and explain its working.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the construction and working of full wave rectifier.",
+                    "marks": 5
+                },
+                {
+                    "q": "What is a LED ? Give the principle of its operation with a diagram.",
+                    "marks": 5
+                },
+                {
+                    "q": "Write note on photodiode.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the working principle of a solar cell. Mention its application.",
+                    "marks": 5
+                },
+                {
+                    "q": "Sketch the static characteristics of a common emitter transistor and bring out the essential features of input and output characteristics.",
+                    "marks": 5
+                },
+                {
+                    "q": "Transistor functions as a switch. Explain.",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the function of a transistor as an amplifier with the neat circuit diagram. Sketch the input and output waveforms.",
+                    "marks": 5
+                },
+                {
+                    "q": "Give the circuit symbol,logical operation, truth table Boolean expression of gates i) AND ii) OR iii) NOT iv) NAND v)NOR vi) EX- NOR",
+                    "marks": 5
+                },
+                {
+                    "q": "State and prove de Morgon’s first and second theorem.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Communication Systems": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "What is modulation?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define bandwidth of transmission system.",
+                    "marks": 2
+                },
+                {
+                    "q": "What do you mean by skip distance?",
+                    "marks": 2
+                },
+                {
+                    "q": "Give applications of RADAR.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is mobile communication?",
+                    "marks": 2
+                },
+                {
+                    "q": "Explain centre frequency or resisting frequency in frequency modulation.",
+                    "marks": 2
+                },
+                {
+                    "q": "What does RADAR stand for?",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Explain the amplitude modulations with necessary diagrams.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the basis elements of communication system with diagram.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the ground wave propagation and space wave propagation of electromagnetic waves through space.",
+                    "marks": 5
+                },
+                {
+                    "q": "Fibre optic communication is gaining popularity among the various transmission media – Justify.",
+                    "marks": 5
+                },
+                {
+                    "q": "List out the advantages and limitations of frequency modulation.",
+                    "marks": 5
+                },
+                {
+                    "q": "What is meant by satellite communication ? Give its application.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Recent Developments in Physics": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Distinguish between Nanoscience and Nanotechnology.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is the difference between Nano materials and Bulk materials?",
+                    "marks": 2
+                },
+                {
+                    "q": "Give any two examples for “Nano” in nature.",
+                    "marks": 2
+                },
+                {
+                    "q": "Mention any two advantages and disadvantages of Robotics.",
+                    "marks": 2
+                },
+                {
+                    "q": "Why steel is preferred in making Robots?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are black holes?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are sub atomic particles?",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Discuss the applications of nanoparticles in various fields.",
+                    "marks": 5
+                },
+                {
+                    "q": "What are the possible harmful effects of usage of nanoparticles ? why ?",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the functions of key components in Robots.",
+                    "marks": 5
+                },
+                {
+                    "q": "Elaborate any two types of robots with relevant examples.",
+                    "marks": 5
+                },
+                {
+                    "q": "Comment on the recent advancement in medical diagnosis and therapy.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    }
+}

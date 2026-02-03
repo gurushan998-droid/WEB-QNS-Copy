@@ -1,4 +1,14 @@
-<!DOCTYPE html> <!-- Declares the document as HTML5 -->
+<!DOCTYPE html>
+<!-- 
+    FILE: index.html
+    USE: This is the main entry point of the Question Paper Generator application.
+         It defines the structure of the web page, including:
+         - The Head (metadata, styles, external libraries like MathJax)
+         - The Body (visible content)
+         - The Application Shell (Header, Main Content Area, Footer)
+         - Five Functional Tabs (Login, Exam Details, Portions, Sections, Question Selection, Preview)
+         - Modals (Popups for importing questions, symbols, etc.)
+-->
 <html lang="en"> <!-- Sets the base language to English -->
 
 <head> <!-- Contains meta info and resource links -->
@@ -16,20 +26,18 @@
     <link rel="stylesheet" href="style.css"> <!-- Connects the external CSS design file -->
     <link rel="shortcut icon" href="#">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <!-- MathJax   -->
-    <meta charset="UTF-8">
-    <title>Math Question Renderer</title>
     <script>
         window.MathJax = {
             tex: {
                 inlineMath: [['$', '$'], ['\\(', '\\)']],
                 displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                enableMenu: false
             }
         };
     </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         body {
             font-family: sans-serif;
@@ -311,7 +319,7 @@
 
             <!-- Tab 5: Preview -->
             <section id="tab5" class="tab-content"> <!-- Final question paper review panel -->
-                <div id="display-area" class="question-box"></div> <!--math question display area  -->
+
                 <div class="preview-container"> <!-- Centers the A4 paper simulation -->
                     <div class="preview-actions no-print"> <!-- MS Word style formatting toolbar -->
                         <!-- Font Group -->

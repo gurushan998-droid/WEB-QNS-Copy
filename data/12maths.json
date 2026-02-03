@@ -1,0 +1,535 @@
+{
+    "Applications of Matrices and Determinants": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "If A is a square matrix of order 3 such that |adj A| = 64, then find |A|.",
+                    "options": [
+                        "±8",
+                        "±4",
+                        "±2",
+                        "64"
+                    ],
+                    "marks": 1
+                },
+                {
+                    "q": "If A is a 3x3 non-singular matrix such that A'A = AA' and B = A^{-1}A', then BB' is",
+                    "options": [
+                        "I",
+                        "A",
+                        "B",
+                        "A'"
+                    ],
+                    "marks": 1
+                }
+            ],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Find the adjoint of the matrix $\\begin{bmatrix} -3 & 4 & 6 \\\\ 2 & -5 & 8 \\\\ 1 & 7 & -2 \\end{bmatrix}$",
+                    "marks": 2
+                },
+                {
+                    "q": "Find the rank of the matrix $\\begin{bmatrix} 2 & -2 & 4 & 3 \\\\ -3 & 4 & -2 & -1 \\\\ 6 & 2 & -1 & 7 \\end{bmatrix}$ using minor method.",
+                    "marks": 3
+                },
+                {
+                    "q": "If $A = \\begin{bmatrix} a & 0 & 0 \\\\ 0 & a & 0 \\\\ 0 & 0 & a \\end{bmatrix}$, find the value of $|adj A|$.",
+                    "marks": 3
+                },
+                {
+                    "q": "If $A = \\begin{bmatrix} 1 & 2 \\\\ 4 & 2 \\end{bmatrix}$, then find the value of $k$ if $|2A| = k |A|$.",
+                    "marks": 3
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Solve the system of linear equations $2x + 5y = -2$ and $x + 2y = -3$ by matrix inversion method.",
+                    "marks": 5
+                },
+                {
+                    "q": "Solve by Cramer's rule: $3/x + 2y = 12$ and $2/x + 3y = 13$.",
+                    "marks": 5
+                },
+                {
+                    "q": "Solve using Gaussian elimination method: $2x - 2y + 3z = 2, x + 2y - z = 3, 3x - y + 2z = 1$.",
+                    "marks": 5
+                },
+                {
+                    "q": "Test for consistency and solve if possible by rank method: $x - y + 2z = 2, 2x + y + 4z = 7, 4x - y + z = 4$.",
+                    "marks": 5
+                },
+                {
+                    "q": "Solve the following system of homogeneous equations: $3x + 2y + 7z = 0, 4x - 3y - 2z = 0, 5x + 9y + 23z = 0$.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        },
+        "formulas": [
+            {
+                "name": "Inverse of a Matrix",
+                "eqn": "$A^{-1} = \\frac{1}{|A|} adj A$"
+            },
+            {
+                "name": "Cramer's Rule",
+                "eqn": "$x = \\frac{\\Delta_x}{\\Delta}, y = \\frac{\\Delta_y}{\\Delta}$"
+            }
+        ]
+    },
+    "Complex Numbers": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "The value of $i^{1947} + i^{1950}$ is",
+                    "options": [
+                        "0",
+                        "i",
+                        "-i",
+                        "-1-i"
+                    ]
+                }
+            ],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "If $z = 5 - 2i$ and $w = -1 + 3i$, find $z + w$.",
+                    "marks": 2
+                },
+                {
+                    "q": "Find the modulus of $\\frac{2i}{3+4i}$.",
+                    "marks": 3
+                },
+                {
+                    "q": "Write in rectangular form: $\\overline{(5+9i) + (2-4i)}$.",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "If $z = x + iy$ is a complex number such that $|\\frac{z-4i}{z+4i}| = 1$, show that the locus of $z$ is the real axis.",
+                    "marks": 5
+                },
+                {
+                    "q": "Write the polar form of $2 + i2\\sqrt{3}$.",
+                    "marks": 5
+                },
+                {
+                    "q": "If $\\omega \\neq 1$ is a cube root of unity, show that $\\frac{a+b\\omega+c\\omega^2}{b+c\\omega+a\\omega^2} + \\frac{a+b\\omega+c\\omega^2}{c+a\\omega+b\\omega^2} = -1$.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        },
+        "formulas": [
+            {
+                "name": "Euler Form",
+                "eqn": "$e^{i\\theta} = \\cos \\theta + i \\sin \\theta$"
+            }
+        ]
+    },
+    "Theory of Equations": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Discuss the nature of the roots of $2x^2 + kx + k = 0$ in terms of $k$ if $k$ is real.",
+                    "marks": 2
+                },
+                {
+                    "q": "Find the maximum possible number of real roots of $x^5 - 6x^2 - 4x + 5 = 0$.",
+                    "marks": 3
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "If the sides of a cubic box are increased by 1, 2, 3 units respectively to form a cuboid, then the volume is increased by 52 cubic units. Find the volume of the cuboid.",
+                    "marks": 5
+                },
+                {
+                    "q": "Solve the cubic equation: $2x^3 - x^2 - 18x + 9 = 0$ if sum of two of its roots vanishes.",
+                    "marks": 5
+                },
+                {
+                    "q": "Solve: $(x-5)(x-7)(x+6)(x+4) = 504$.",
+                    "marks": 5
+                },
+                {
+                    "q": "Solve the equation: $\\sin^2x - 5\\sin x + 4 = 0$.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        },
+        "formulas": [
+            {
+                "name": "Discriminant",
+                "eqn": "$\\Delta = b^2 - 4ac$"
+            }
+        ]
+    },
+    "Inverse Trigonometric Functions": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Find all the values of $x$ such that $-10\\pi \\leq x \\leq 10\\pi$ and $\\sin x = 0$.",
+                    "marks": 2
+                },
+                {
+                    "q": "Find the domain of $\\tan^{-1}(\\sqrt{9-x^2})$.",
+                    "marks": 3
+                },
+                {
+                    "q": "Find the principal value of $\\sec^{-1}(2/\\sqrt{3})$.",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Find the value of $\\sin^{-1}(\\cos(\\sin^{-1}(\\sqrt{3}/2)))$.",
+                    "marks": 5
+                },
+                {
+                    "q": "Prove that $\\tan^{-1}x + \\tan^{-1}y = \\tan^{-1}(\\frac{x+y}{1-xy})$.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        },
+        "formulas": [
+            {
+                "name": "Sine Inverse",
+                "eqn": "$\\sin^{-1}(\\sin x) = x, x \\in [-\\pi/2, \\pi/2]$"
+            }
+        ]
+    },
+    "Two Dimensional Analytical Geometry-II": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Identify the type of conic section for the equation $2x^2 - y^2 = 7$.",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Obtain the equation of the circles with radius 5 cm and touching the x-axis at the origin in general form.",
+                    "marks": 5
+                },
+                {
+                    "q": "Find the equation of the parabola with focus (4, 0) and directrix x = -4.",
+                    "marks": 5
+                },
+                {
+                    "q": "A tunnel through a mountain for a four lane highway is to have a semi elliptical opening. The total width of the highway (not the opening) is 16m, and the height at the edge of the road must be sufficient for a truck 4m high to clear if the highest point of the opening is 5m. Find the total width of the opening.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        },
+        "formulas": [
+            {
+                "name": "Circle Equation",
+                "eqn": "$(x-h)^2 + (y-k)^2 = r^2$"
+            }
+        ]
+    },
+    "Applications of Vector Algebra": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Find the angle between the line $\\vec{r} = (2\\hat{i} - \\hat{j} + \\hat{k}) + t(\\hat{i} + 2\\hat{j} - 2\\hat{k})$ and the plane $\\vec{r} \\cdot (6\\hat{i} + 3\\hat{j} + 2\\hat{k}) = 8$.",
+                    "marks": 3
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Prove by vector method that $\\cos(A-B) = \\cos A \\cos B + \\sin A \\sin B$.",
+                    "marks": 5
+                },
+                {
+                    "q": "Find the non-parametric form of vector equation and Cartesian equations of the straight line passing through the point with position vector $4\\hat{i} + 3\\hat{j} - 7\\hat{k}$ and parallel to the vector $2\\hat{i} - 6\\hat{j} + 7\\hat{k}$.",
+                    "marks": 5
+                },
+                {
+                    "q": "Find the non-parametric form of vector equation, and Cartesian equation of the plane passing through the point (2, 3, 6) and parallel to two straight lines $\\frac{x-1}{2} = \\frac{y+1}{3} = \\frac{z-3}{1}$ and $\\frac{x+3}{2} = \\frac{y-3}{-5} = \\frac{z+1}{-3}$.",
+                    "marks": 5
+                },
+                {
+                    "q": "Show that the lines $\\vec{r} = (5\\hat{i} + 7\\hat{j} - 3\\hat{k}) + s(4\\hat{i} + 4\\hat{j} - 5\\hat{k})$ and $\\vec{r} = (8\\hat{i} + 4\\hat{j} + 5\\hat{k}) + t(7\\hat{i} + \\hat{j} + 3\\hat{k})$ are coplanar.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        },
+        "formulas": [
+            {
+                "name": "Dot Product",
+                "eqn": "$\\vec{a} \\cdot \\vec{b} = |a||b|\\cos \\theta$"
+            }
+        ]
+    },
+    "Applications of Differential Calculus": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "A point moves along a straight line $s = 2t^2 + 3t$. Find average velocity between $t=3$ and $t=6$.",
+                    "marks": 2
+                },
+                {
+                    "q": "Evaluate $\\lim_{x \\to 0} \\frac{1-\\cos x}{x^2}$ using L'Hopital's rule.",
+                    "marks": 3
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Find two positive numbers whose sum is 12 and their product is maximum.",
+                    "marks": 5
+                },
+                {
+                    "q": "A garden is to be laid out in a rectangular area and protected by a wire fence. What is the largest possible area of the fenced garden with 40 meters of wire?",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        },
+        "formulas": [
+            {
+                "name": "Velocity",
+                "eqn": "$v = \\frac{ds}{dt}$"
+            }
+        ]
+    },
+    "Differentials and Partial Derivatives": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "The diameter of a tree is 30 cm. If the circumference grew 6 cm, how much did the diameter grow approximately?",
+                    "marks": 3
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "If $w(x, y) = x^3 - 3xy + 2y^2$, find the linear approximation for $w$ at $(1, -1)$.",
+                    "marks": 5
+                },
+                {
+                    "q": "If $u(x,y) = x^2 + 3xy + y^2$, find $\\frac{\\partial u}{\\partial x}$ and $\\frac{\\partial u}{\\partial y}$.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        },
+        "formulas": [
+            {
+                "name": "Linear Approximation",
+                "eqn": "$L(x,y) = f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b)$"
+            }
+        ]
+    },
+    "Applications of Integration": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Find an approximate value of $\\int_1^{1.5} x dx$ by applying the left-end rule with partition {1.1, 1.2, 1.3, 1.4, 1.5}.",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Evaluate $\\int_0^\\infty x^5 e^{-3x} dx$.",
+                    "marks": 5
+                },
+                {
+                    "q": "Find the area of the region bounded by $3x - 2y + 6 = 0, x = -3, x = 1$ and x-axis.",
+                    "marks": 5
+                },
+                {
+                    "q": "Find the volume of the solid generated by revolving the region enclosed by $y = 2x^2, y = 0, x = 1$ about x-axis.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        },
+        "formulas": [
+            {
+                "name": "Area",
+                "eqn": "$A = \\int y dx$"
+            }
+        ]
+    },
+    "Ordinary Differential Equations": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "The order and degree of $\\frac{d^2y}{dx^2} + (\\frac{dy}{dx})^2 + y = 0$ are",
+                    "options": [
+                        "2, 1",
+                        "2, 2",
+                        "1, 2",
+                        "1, 1"
+                    ]
+                }
+            ],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Radium decays at a rate proportional to the amount $Q$ present. Express this as a differential equation.",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "The rate of increase in the number of bacteria is proportional to the number present. If the number triples in 5 hours, find how many bacteria will be present after 10 hours.",
+                    "marks": 5
+                },
+                {
+                    "q": "Solve the differential equation $\\frac{dy}{dx} + y = e^x$.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        },
+        "formulas": [
+            {
+                "name": "General form",
+                "eqn": "$\\frac{dy}{dx} + Py = Q$"
+            }
+        ]
+    },
+    "Probability Distributions": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Suppose $X$ is the number of tails when three fair coins are tossed. Find the values of the random variable $X$.",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "A random variable $X$ has PDF $f(x) = kx(1-x)$ for $0 < x < 1$. Find $k$.",
+                    "marks": 5
+                },
+                {
+                    "q": "A hits target with probability 1/4. If he tries 10 times, find probability he hits exactly 4 times.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        },
+        "formulas": [
+            {
+                "name": "Mean",
+                "eqn": "$E[X] = \\sum x P(X=x)$"
+            }
+        ]
+    },
+    "Discrete Mathematics": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Determine whether $*$ defined by $a * b = a|b|$ is a binary operation on $R$.",
+                    "marks": 2
+                },
+                {
+                    "q": "Let $p$ and $q$ be statements. Write verbal sentence for $p \\land \\neg q$.",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Construct the truth table for $(p \\lor q) \\land (\\neg p \\land \\neg q)$.",
+                    "marks": 5
+                },
+                {
+                    "q": "Show that $(Z, +)$ is an abelian group.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        },
+        "formulas": [
+            {
+                "name": "Truth Table",
+                "eqn": "$p \\to q \\equiv \\neg p \\lor q$"
+            }
+        ]
+    }
+}

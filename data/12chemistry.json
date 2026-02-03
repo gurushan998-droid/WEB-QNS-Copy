@@ -1,173 +1,1565 @@
 {
-    "Unit 1 - Basic Concepts of Chemistry and Chemical Calculations": {
+    "Metallurgy": {
         "mcq": {
             "bb": [
                 {
-                    "q": "What is the molecular formula of sulfuric acid?",
+                    "q": "Bauxite has the composition",
                     "options": [
-                        "H<sub>2</sub>SO<sub>4</sub>",
-                        "HSO<sub>4</sub>",
-                        "H<sub>2</sub>S",
-                        "SO<sub>4</sub>"
-                    ],
-                    "marks": 1
-                }
-            ],
-            "interior": [
+                        "$Al_2O_3 \\cdot nH_2O$",
+                        "$Fe_2O_3 \\cdot nH_2O$",
+                        "$FeO \\cdot nH_2O$",
+                        "None of these"
+                    ]
+                },
                 {
-                    "q": "Calculate the number of moles in 18g of H<sub>2</sub>O",
+                    "q": "Roasting of sulphide ore gives the gas",
                     "options": [
-                        "0.5 mol",
-                        "1 mol",
-                        "2 mol",
-                        "18 mol"
-                    ],
-                    "marks": 1
-                }
-            ]
-        },
-        "shortAnswer": {
-            "bb": [
+                        "$SO_2$",
+                        "$SO_3$",
+                        "$CO_2$",
+                        "$NH_3$"
+                    ]
+                },
                 {
-                    "q": "Define molar mass and calculate it for CaCO<sub>3</sub>",
-                    "marks": 2
-                }
-            ],
-            "interior": [
-                {
-                    "q": "Write the balanced equation for the reaction:<br>Cu + HNO<sub>3</sub> → Cu(NO<sub>3</sub>)<sub>2</sub> + NO + H<sub>2</sub>O",
-                    "marks": 3
-                }
-            ]
-        },
-        "longAnswer": {
-            "bb": [
-                {
-                    "q": "Explain the law of multiple proportions with suitable examples"
-                }
-            ],
-            "interior": []
-        }
-    },
-    "Unit 2 - Quantum Mechanical Model of Atom": {
-        "mcq": {
-            "bb": [
-                {
-                    "q": "The electronic configuration of Fe<sup>2+</sup> is",
+                    "q": "Which of the following is used for concentrating ore in the froth flotation process?",
                     "options": [
-                        "[Ar] 3d<sup>6</sup>",
-                        "[Ar] 3d<sup>5</sup> 4s<sup>1</sup>",
-                        "[Ar] 3d<sup>4</sup>",
-                        "[Ar] 3d<sup>7</sup>"
-                    ],
-                    "marks": 1
-                }
-            ],
-            "interior": [
-                {
-                    "q": "Identify the subshell shown in this probability distribution diagram:<br><img src='data/subshell_p.png' width='150px' class='resizable-img'><br>Is it a p<sub>x</sub> or p<sub>y</sub> orbital?",
-                    "marks": 1
-                }
-            ]
-        },
-        "shortAnswer": {
-            "bb": [
-                {
-                    "q": "State Heisenberg's uncertainty principle: Δx × Δp ≥ h/4π",
-                    "marks": 2
-                }
-            ],
-            "interior": [
-                {
-                    "q": "Observe the laboratory icon shown below:<br><img src='data/icon.svg' width='100px' class='resizable-img'><br>Explain the importance of this safety symbol in a chemical laboratory.",
-                    "marks": 2
-                }
-            ]
-        },
-        "longAnswer": {
-            "bb": [],
-            "interior": []
-        }
-    },
-    "Unit 5 - Coordination Chemistry": {
-        "mcq": {
-            "bb": [],
-            "interior": []
-        },
-        "shortAnswer": {
-            "bb": [],
-            "interior": [
-                {
-                    "q": "Identify the Lewis acid and the Lewis base in the following reaction:<br>Cr<sup>3+</sup> + 6H<sub>2</sub>O → [Cr(H<sub>2</sub>O)<sub>6</sub>]<sup>3+</sup>",
-                    "marks": 2
-                }
-            ]
-        },
-        "longAnswer": {
-            "bb": [],
-            "interior": []
-        }
-    },
-    "Unit 7 - Chemical Kinetics": {
-        "mcq": {
-            "bb": [
-                {
-                    "q": "Identify the order for the following reactions:<br>(i) Rusting of Iron<br>(ii) Radioactive disintegration of <sub>92</sub>U<sup>238</sup><br>(iii) 2A + 3B → products ; rate = k [A]<sup>1/2</sup> [B]<sup>2</sup>",
-                    "options": [
-                        "First, First, 2.5",
-                        "Zero, First, 1.5",
-                        "First, Zero, 2.5",
-                        "Mixed, First, 5"
-                    ],
-                    "marks": 1
+                        "Pine oil",
+                        "Coconut oil",
+                        "Olive oil",
+                        "None of these"
+                    ]
                 }
             ],
             "interior": []
         },
         "shortAnswer": {
-            "bb": [],
-            "interior": [
+            "bb": [
                 {
-                    "q": "The rate constant for a first order reaction is 1.54 × 10<sup>-3</sup> s<sup>-1</sup>. Calculate its half life time.",
+                    "q": "What is the difference between minerals and ores?",
                     "marks": 2
                 },
                 {
-                    "q": "The rate of formation of dimer in a second order reaction is 7.5 × 10<sup>-3</sup> mol L<sup>-1</sup>s<sup>-1</sup> at 0.05 mol L<sup>-1</sup> monomer concentration. Calculate the rate constant.",
+                    "q": "What is the role of Silica in the extraction of copper from copper pyrites?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Calcination? Give an example.",
+                    "marks": 2
+                },
+                {
+                    "q": "Define the terms: (i) Gangue (ii) Slag",
+                    "marks": 2
+                },
+                {
+                    "q": "Give the uses of Zinc.",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Explain the Froth Flotation process with a neat diagram.",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the extraction of Aluminium by Hall-Heroult process.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the principle of Electrolytic refining with an example.",
+                    "marks": 5
+                },
+                {
+                    "q": "What is Zone Refining? Describe the process with a diagram.",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the Mond process for refining Nickel.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "P-Block Elements - I": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "An aqueous solution of borax is",
+                    "options": [
+                        "Neutral",
+                        "Acidic",
+                        "Basic",
+                        "Amphoteric"
+                    ]
+                },
+                {
+                    "q": "Boric acid is polymeric due to the presence of",
+                    "options": [
+                        "Mono-valent $OH$ group",
+                        "H-bonding",
+                        "Ionic bonding",
+                        "None of these"
+                    ]
+                },
+                {
+                    "q": "Which of the following is used as a moderator in nuclear reactors?",
+                    "options": [
+                        "Graphite",
+                        "Diamond",
+                        "Fullerene",
+                        "Coal"
+                    ]
+                }
+            ],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Write a note on Zeolites.",
+                    "marks": 2
+                },
+                {
+                    "q": "Give the uses of Borax.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is catenation? Give an example.",
+                    "marks": 2
+                },
+                {
+                    "q": "How will you prepare Boric acid from Borax?",
                     "marks": 3
                 },
                 {
-                    "q": "Identify the type of structure shown in the image below and explain its reaction rate:<br><img src='data/chemistry_structure.png' width='200px' class='resizable-img'><br>Explain why surface area affects the rate in this case.",
+                    "q": "Explain why Diamond is hard while Graphite is soft.",
+                    "marks": 3
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Explain the structure of Diborane ($B_2H_6$).",
+                    "diagram": "Che_01.jpg",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the preparation, properties and structure of Silicons.",
+                    "marks": 5
+                },
+                {
+                    "q": "Write a short note on (i) Hydroboration (ii) Borax bead test.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the different allotropes of Carbon.",
+                    "marks": 5
+                },
+                {
+                    "q": "Give the uses of (i) Aluminium Chloride (ii) Alums.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "P-Block Elements - II": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "Which of the following is the strongest oxidizing agent?",
+                    "options": [
+                        "$F_2$",
+                        "$Cl_2$",
+                        "$Br_2$",
+                        "$I_2$"
+                    ]
+                },
+                {
+                    "q": "The most stable oxidation state of bismuth is",
+                    "options": [
+                        "+3",
+                        "+5",
+                        "+1",
+                        "+2"
+                    ]
+                },
+                {
+                    "q": "Which of the following noble gases has the lowest boiling point?",
+                    "options": [
+                        "He",
+                        "Ne",
+                        "Ar",
+                        "Kr"
+                    ]
+                }
+            ],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Why is $HF$ a weak acid whereas $HI$ is a strong acid?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is 'Inert pair effect'?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is the hybridisation of $Xe$ in $XeF_2$ and $XeF_4$?",
+                    "marks": 3
+                },
+                {
+                    "q": "Write the uses of Nitrogen.",
+                    "marks": 2
+                },
+                {
+                    "q": "Explain the bleaching action of Chlorine.",
+                    "marks": 3
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Explain the manufacture of Ammonia by Haber's process.",
+                    "marks": 5
+                },
+                {
+                    "q": "How is Nitric acid prepared by Ostwald's process?",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the manufacture of Sulphuric acid by Contact process.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the anomalous nature of fluorine.",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the structure of (i) $PCl_5$ (ii) $SF_6$.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Transition and Inner Transition Elements": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "Which of the following ions has the highest magnetic moment?",
+                    "options": [
+                        "$Ti^{3+}$",
+                        "$Mn^{2+}$",
+                        "$Fe^{2+}$",
+                        "$Cu^{2+}$"
+                    ]
+                },
+                {
+                    "q": "The general electronic configuration of d-block elements is",
+                    "options": [
+                        "$(n-1)d^{1-10} ns^{0-2}$",
+                        "$(n-1)d^{1-5} ns^{1}$",
+                        "$(n-1)d^{10} ns^{1}$",
+                        "None of these"
+                    ]
+                },
+                {
+                    "q": "Lanthanoid contraction is due to",
+                    "options": [
+                        "Perfect shielding of 4f electrons",
+                        "Poor shielding of 4f electrons",
+                        "Increase in nuclear charge",
+                        "Both (b) and (c)"
+                    ]
+                }
+            ],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Why do transition elements form complexes?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Lanthanoid contraction? Give its consequences.",
+                    "marks": 3
+                },
+                {
+                    "q": "Why are transition elements paramagnetic in nature?",
+                    "marks": 2
+                },
+                {
+                    "q": "Write any three characteristics of interstitial compounds.",
+                    "marks": 3
+                },
+                {
+                    "q": "Compare the oxidation states of Lanthanoids and Actinoids.",
+                    "marks": 3
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Describe the preparation of Potassium Dichromate ($K_2Cr_2O_7$) from chromite ore.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the preparation of Potassium Permanganate ($KMnO_4$) and its oxidizing property in acidic medium.",
+                    "marks": 5
+                },
+                {
+                    "q": "What are the differences between Lanthanoids and Actinoids?",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the various factors that lead to the formation of alloys by transition metals.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the magnetic properties of transition metal ions with examples.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Coordination Chemistry": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "The coordination number of $Ni$ in $[Ni(en)_3]Cl_2$ is",
+                    "options": [
+                        "3",
+                        "6",
+                        "4",
+                        "2"
+                    ]
+                },
+                {
+                    "q": "According to Werner's theory, the secondary valency of a metal refers to its",
+                    "options": [
+                        "Oxidation state",
+                        "Coordination number",
+                        "Ionic charge",
+                        "None of these"
+                    ]
+                },
+                {
+                    "q": "A complex which has no d-electrons in the central metal atom is",
+                    "options": [
+                        "$[MnO_4]^-$",
+                        "$[Co(NH_3)_6]^{3+}$",
+                        "$[Fe(CN)_6]^{3-}$",
+                        "$[Cr(H_2O)_6]^{3+}$"
+                    ]
+                }
+            ],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Define 'Coordination number' with an example.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is a double salt? Give an example.",
+                    "marks": 2
+                },
+                {
+                    "q": "Explain 'Linkage isomerism' with an example.",
+                    "marks": 3
+                },
+                {
+                    "q": "Write the IUPAC names for: (i) $K_4[Fe(CN)_6]$ (ii) $[Co(NH_3)_5Cl]Cl_2$",
+                    "marks": 3
+                },
+                {
+                    "q": "What are the postulates of Werner's theory?",
+                    "marks": 3
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Explain the Valence Bond Theory (VBT) and apply it to find the geometry and magnetic property of $[CoF_6]^{3-}$.",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the Crystal Field Theory (CFT) and explain the crystal field splitting in octahedral complexes.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the various types of structural isomerism in coordination compounds.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the importance and applications of coordination compounds.",
+                    "marks": 5
+                },
+                {
+                    "q": "Briefly explain the nature of bonding in metal carbonyls.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Solid State": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "The number of atoms in a Body Centered Cubic (BCC) unit cell is",
+                    "options": [
+                        "1",
+                        "2",
+                        "4",
+                        "6"
+                    ]
+                },
+                {
+                    "q": "Which of the following is an amorphous solid?",
+                    "options": [
+                        "Glass",
+                        "Diamond",
+                        "Sodium Chloride",
+                        "Iodine"
+                    ]
+                },
+                {
+                    "q": "Schottky defect in crystals is observed when",
+                    "options": [
+                        "An ion leaves its normal site and occupies an interstitial site",
+                        "Unequal number of cations and anions are missing",
+                        "Equal number of cations and anions are missing",
+                        "Density of the crystal increases"
+                    ]
+                }
+            ],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Distinguish between Crystalline and Amorphous solids.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by the term 'Coordination number' in solids?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define 'Unit cell'.",
+                    "marks": 2
+                },
+                {
+                    "q": "Calculate the number of atoms in a Face Centered Cubic (FCC) unit cell.",
+                    "marks": 3
+                },
+                {
+                    "q": "What are Miller Indices?",
+                    "marks": 3
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Explain Schottky defect and Frenkel defect with diagrams.",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the Seven types of Crystal systems with their axial angles and edge lengths.",
+                    "marks": 5
+                },
+                {
+                    "q": "Calculate the packing efficiency of a Simple Cubic (SC) unit cell.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the classification of crystalline solids with examples.",
+                    "marks": 5
+                },
+                {
+                    "q": "What is Bragg's equation? Derive it.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Chemical Kinetics": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "The unit of rate constant for a zero order reaction is",
+                    "options": [
+                        "$mol L^{-1} s^{-1}$",
+                        "$L mol^{-1} s^{-1}$",
+                        "$s^{-1}$",
+                        "$mol^2 L^{-2} s^{-1}$"
+                    ]
+                },
+                {
+                    "q": "The rate constant of a reaction is $5.8 \\times 10^{-2} s^{-1}$. The order of the reaction is",
+                    "options": [
+                        "First order",
+                        "Zero order",
+                        "Second order",
+                        "Third order"
+                    ]
+                },
+                {
+                    "q": "For a first order reaction, the time required for 50% completion is 20 min. The time required for 75% completion is",
+                    "options": [
+                        "40 min",
+                        "30 min",
+                        "20 min",
+                        "10 min"
+                    ]
+                }
+            ],
+            "interior": [
+                {
+                    "q": "In a collision theory, the number of collisions per second per unit volume of the reaction mixture is known as",
+                    "options": [
+                        "Collision frequency",
+                        "Activation energy",
+                        "Threshold energy",
+                        "None of these"
+                    ]
+                },
+                {
+                    "q": "The plot of $k$ vs $1/T$ is a straight line with a slope of",
+                    "options": [
+                        "$-E_a/R$",
+                        "$E_a/R$",
+                        "$-R/E_a$",
+                        "$E_a/2.303R$"
+                    ]
+                }
+            ]
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Define 'Average rate' and 'Instantaneous rate'.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is activation energy?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define 'Half-life period' of a reaction.",
+                    "marks": 2
+                },
+                {
+                    "q": "Distinguish between Order and Molecularity of a reaction.",
+                    "marks": 3
+                },
+                {
+                    "q": "Give two examples for pseudo first order reactions.",
+                    "marks": 3
+                }
+            ],
+            "interior": [
+                {
+                    "q": "What is the effect of temperature on the rate of a reaction?",
+                    "marks": 2
+                },
+                {
+                    "q": "Explain why the rate of reaction increases with an increase in the concentration of reactants.",
+                    "marks": 3
+                },
+                {
+                    "q": "Write the Arrhenius equation and explain the terms.",
                     "marks": 3
                 }
             ]
         },
         "longAnswer": {
-            "bb": [],
+            "bb": [
+                {
+                    "q": "Derive the integrated rate law for a first order reaction.",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive the integrated rate law for a zero order reaction.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the factors that affect the rate of a reaction.",
+                    "marks": 5
+                }
+            ],
             "interior": [
                 {
-                    "q": "A first order reaction is 40% complete in 50 minutes. Calculate the value of the rate constant. In what time will the reaction be 80% complete?",
+                    "q": "Explain the collision theory of bimolecular reactions.",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the effect of a catalyst on reaction rate with the help of an energy level diagram.",
                     "marks": 5
                 }
             ]
         }
     },
-    "Unit 8 - Physical and Chemical Equilibrium": {
+    "Ionic Equilibrium": {
         "mcq": {
-            "bb": [],
-            "interior": []
-        },
-        "shortAnswer": {
-            "bb": [],
+            "bb": [
+                {
+                    "q": "Which of the following is the strongest conjugate base?",
+                    "options": [
+                        "$Cl^-$",
+                        "$NO_3^-$",
+                        "$SO_4^{2-}$",
+                        "$CH_3COO^-$"
+                    ]
+                },
+                {
+                    "q": "The pH of a $10^{-8}$ M $HCl$ solution is",
+                    "options": [
+                        "8",
+                        "7",
+                        "6.98",
+                        "Between 7 and 8"
+                    ]
+                },
+                {
+                    "q": "Which of the following acts as a Lewis acid?",
+                    "options": [
+                        "$BF_3$",
+                        "$NH_3$",
+                        "$H_2O$",
+                        "$OH^-$"
+                    ]
+                }
+            ],
             "interior": [
                 {
-                    "q": "Identify the Lewis acid and the Lewis base in the following reaction:<br>Cr<sup>3+</sup> + 6H<sub>2</sub>O → [Cr(H<sub>2</sub>O)<sub>6</sub>]<sup>3+</sup>",
+                    "q": "The degree of dissociation of a weak electrolyte increases with",
+                    "options": [
+                        "Increase in concentration",
+                        "Increase in pressure",
+                        "Dilution",
+                        "None of these"
+                    ]
+                },
+                {
+                    "q": "The ionic product of water ($K_w$) at 298 K is",
+                    "options": [
+                        "$1 \\times 10^{-14}$",
+                        "$1 \\times 10^{-7}$",
+                        "$1 \\times 10^{-12}$",
+                        "$1 \\times 10^{-10}$"
+                    ]
+                }
+            ]
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Define 'Lewis acids' and 'Lewis bases' with examples.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is 'Common ion effect'? Give an example.",
+                    "marks": 3
+                },
+                {
+                    "q": "Define pH and pOH. Give the relation between them.",
+                    "marks": 2
+                },
+                {
+                    "q": "State Ostwald’s dilution law.",
+                    "marks": 3
+                },
+                {
+                    "q": "What are 'Buffer solutions'? Give one example each for acidic and basic buffers.",
+                    "marks": 3
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Define 'Solubility Product' ($K_{sp}$).",
+                    "marks": 2
+                },
+                {
+                    "q": "What is the conjugate acid and base of $H_2O$?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define 'Ionic product of water'.",
                     "marks": 2
                 }
             ]
         },
         "longAnswer": {
-            "bb": [],
+            "bb": [
+                {
+                    "q": "Derive the Henderson-Hasselbalch equation for an acidic buffer.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the salt hydrolysis.",
+                    "marks": 5
+                }
+            ],
             "interior": []
+        }
+    },
+    "Electrochemistry": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "The unit of molar conductivity is",
+                    "options": [
+                        "$S m^2 mol^{-1}$",
+                        "$S m mol^{-1}$",
+                        "$S m^{-2} mol^{-1}$",
+                        "$S^2 m^2 mol^{-1}$"
+                    ]
+                },
+                {
+                    "q": "Which of the following is used as an anode in a Leclanche cell?",
+                    "options": [
+                        "Zinc container",
+                        "Graphite rod",
+                        "Copper container",
+                        "Lead storage plate"
+                    ]
+                },
+                {
+                    "q": "For a cell reaction $Zn(s) + Cu^{2+}(aq) \\rightarrow Zn^{2+}(aq) + Cu(s)$, the standard cell potential is 1.1 V. The Gibbs free energy change $\\Delta G^0$ is",
+                    "options": [
+                        "$-212.3 kJ mol^{-1}$",
+                        "$-110.5 kJ mol^{-1}$",
+                        "$-315.2 kJ mol^{-1}$",
+                        "$-410.1 kJ mol^{-1}$"
+                    ]
+                }
+            ],
+            "interior": [
+                {
+                    "q": "According to Kohlrausch's law, the limiting molar conductivity of an electrolyte is the",
+                    "options": [
+                        "Sum of the individual contributions of the ions",
+                        "Product of the ions",
+                        "Difference of the ions",
+                        "None of these"
+                    ]
+                },
+                {
+                    "q": "In a fuel cell, the chemical energy of fuel is directly converted into",
+                    "options": [
+                        "Electrical energy",
+                        "Heat energy",
+                        "Mechanical energy",
+                        "Solar energy"
+                    ]
+                }
+            ]
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "State Faraday's laws of electrolysis.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is a fuel cell?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define 'Molar conductivity'.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is 'Corrosion'? Give an example.",
+                    "marks": 2
+                }
+            ],
+            "interior": []
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Describe the construction and working of SHE (Standard Hydrogen Electrode).",
+                    "marks": 5
+                },
+                {
+                    "q": "Derive Nernst equation.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the working principles of a Lead Storage Battery during discharge and charging.",
+                    "marks": 5
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Surface Chemistry": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "Which of the following interface cannot be obtained?",
+                    "options": [
+                        "Liquid-Liquid",
+                        "Solid-Liquid",
+                        "Liquid-Gas",
+                        "Gas-Gas"
+                    ]
+                },
+                {
+                    "q": "Adsorption of a gas on a solid surface is generally exothermic because",
+                    "options": [
+                        "Enthalpy is positive",
+                        "Entropy decreases",
+                        "Entropy increases",
+                        "Free energy increases"
+                    ]
+                },
+                {
+                    "q": "The expansion of 'CMC' with respect to surface active agents is",
+                    "options": [
+                        "Critical Micelle Concentration",
+                        "Critical Metalloid Concentration",
+                        "Cationic Molecular Concentration",
+                        "None of these"
+                    ]
+                }
+            ],
+            "interior": [
+                {
+                    "q": "The movement of colloidal particles under the influence of an electric field is called",
+                    "options": [
+                        "Tyndall effect",
+                        "Brownian movement",
+                        "Electrophoresis",
+                        "Dialysis"
+                    ]
+                },
+                {
+                    "q": "Which of the following is an example of an emulsion?",
+                    "options": [
+                        "Milk",
+                        "Cloud",
+                        "Smoke",
+                        "Gold sol"
+                    ]
+                }
+            ]
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "What is the difference between Physisorption and Chemisorption?",
+                    "marks": 3
+                },
+                {
+                    "q": "Define 'Tyndall effect'.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are 'Lyophilic' and 'Lyophobic' colloids?",
+                    "marks": 3
+                },
+                {
+                    "q": "Explain 'Brownian movement' with a reason.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Peptization?",
+                    "marks": 2
+                }
+            ],
+            "interior": [
+                {
+                    "q": "State Hardy-Schulze rule.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by 'Gold number'?",
+                    "marks": 2
+                },
+                {
+                    "q": "Explain the term 'Auto catalysis' with an example.",
+                    "marks": 3
+                }
+            ]
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Explain the various factors affecting the adsorption of a gas on a solid.",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the intermediate compound formation theory of catalysis with an example.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the adsorption theory of catalysis (Heterogeneous catalysis).",
+                    "marks": 5
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Explain the preparation of colloids by chemical methods (Oxidation, Reduction, Hydrolysis).",
+                    "marks": 5
+                },
+                {
+                    "q": "How are colloids purified by Dialysis and Electro-dialysis? Explain with diagrams.",
+                    "marks": 5
+                },
+                {
+                    "q": "What are Emulsions? Explain the different types and their identification tests.",
+                    "marks": 5
+                }
+            ]
+        }
+    },
+    "Hydroxy Compounds and Ethers": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "Which of the following is most acidic?",
+                    "options": [
+                        "m-nitrophenol",
+                        "p-nitrophenol",
+                        "o-nitrophenol",
+                        "phenol"
+                    ]
+                },
+                {
+                    "q": "Identify the product in the following reaction: $Ethanol \\xrightarrow{PCl_5} X$",
+                    "options": [
+                        "Ethyl chloride",
+                        "Acetyl chloride",
+                        "Chloroform",
+                        "Ethane"
+                    ]
+                },
+                {
+                    "q": "Reaction of Phenol with Bromine water gives",
+                    "options": [
+                        "o-bromophenol",
+                        "p-bromophenol",
+                        "2,4,6-tribromophenol",
+                        "m-bromophenol"
+                    ]
+                }
+            ],
+            "interior": [
+                {
+                    "q": "The enzyme used in the conversion of glucose into ethanol is",
+                    "options": [
+                        "Zymase",
+                        "Invertase",
+                        "Diastase",
+                        "Maltase"
+                    ]
+                },
+                {
+                    "q": "Iodoform test is not given by",
+                    "options": [
+                        "Ethanol",
+                        "Methanol",
+                        "Acetone",
+                        "Isopropyl alcohol"
+                    ]
+                }
+            ]
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "How will you prepare Phenol from Cumene?",
+                    "marks": 3
+                },
+                {
+                    "q": "Explain Kolbe’s reaction.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is Reimer-Tiemann reaction?",
+                    "marks": 3
+                },
+                {
+                    "q": "How is Glycerol prepared from Triesters (Saponification)?",
+                    "marks": 3
+                },
+                {
+                    "q": "What is Williamson ether synthesis?",
+                    "marks": 3
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Explain the acidity of alcohols compared to water.",
+                    "marks": 2
+                },
+                {
+                    "q": "How will you convert Ethanol to Diethyl ether?",
+                    "marks": 2
+                },
+                {
+                    "q": "What happens when Phenol is distilled with Zinc dust?",
+                    "marks": 2
+                },
+                {
+                    "q": "Write a note on Dow’s process.",
+                    "marks": 3
+                }
+            ]
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Describe the Lucas test used to distinguish primary, secondary, and tertiary alcohols.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain Victor Meyer's test to distinguish the three classes of alcohols.",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the mechanism of acid-catalyzed dehydration of ethanol to ethene.",
+                    "marks": 5
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Discuss the mechanism of Kolbe’s reaction and Reimer-Tiemann reaction.",
+                    "marks": 5
+                },
+                {
+                    "q": "How is Glycol prepared? Explain its reaction with periodic acid ($HIO_4$).",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the various tests used to identify phenols.",
+                    "marks": 5
+                }
+            ]
+        }
+    },
+    "Carbonyl Compounds and Carboxylic Acids": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "Which of the following does not undergo Cannizzaro reaction?",
+                    "options": [
+                        "Formaldehyde",
+                        "Benzaldehyde",
+                        "Acetaldehyde",
+                        "Trimethyl acetaldehyde"
+                    ]
+                },
+                {
+                    "q": "The product formed when Acetone is reacted with $Mg/Hg$ and $H_2O$ is",
+                    "options": [
+                        "Propan-2-ol",
+                        "Pinacol",
+                        "Propan-1-ol",
+                        "Propane"
+                    ]
+                },
+                {
+                    "q": "Which of the following is the strongest acid?",
+                    "options": [
+                        "$ClCH_2COOH$",
+                        "$Cl_2CHCOOH$",
+                        "$Cl_3CCOOH$",
+                        "$CH_3COOH$"
+                    ]
+                }
+            ],
+            "interior": [
+                {
+                    "q": "The reagent used in Clemmensen reduction is",
+                    "options": [
+                        "$Zn-Hg/conc. HCl$",
+                        "$NH_2NH_2/C_2H_5ONa$",
+                        "$LiAlH_4$",
+                        "$H_2/Pd$"
+                    ]
+                },
+                {
+                    "q": "Formation of cyanohydrin from a ketone is an example of",
+                    "options": [
+                        "Electrophilic addition",
+                        "Nucleophilic addition",
+                        "Nucleophilic substitution",
+                        "Electrophilic substitution"
+                    ]
+                }
+            ]
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "What is Rosenmund reduction? Give an example.",
+                    "marks": 3
+                },
+                {
+                    "q": "Explain Aldol condensation with an example.",
+                    "marks": 3
+                },
+                {
+                    "q": "Write a note on Stephen’s reaction.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is Popoff’s rule?",
+                    "marks": 2
+                },
+                {
+                    "q": "How is Formic acid prepared from Glycerol?",
+                    "marks": 3
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Explain Urotropine formation and its uses.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is Haloform reaction? Give an example.",
+                    "marks": 3
+                },
+                {
+                    "q": "How will you convert Benzoic acid to Benzamide?",
+                    "marks": 2
+                },
+                {
+                    "q": "Write the test for Aldehydes using Tollens' reagent.",
+                    "marks": 2
+                }
+            ]
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Explain the mechanism of Aldol condensation.",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the mechanism of Cannizzaro reaction.",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the preparation, properties, and uses of Benzaldehyde.",
+                    "marks": 5
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Explain the mechanism of nucleophilic addition of $HCN$ to a carbonyl compound.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the effect of substituents on the acidity of carboxylic acids.",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe HVZ (Hell-Volhard-Zelinsky) reaction with its mechanism.",
+                    "marks": 5
+                }
+            ]
+        }
+    },
+    "Organic Nitrogen Compounds": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "Which of the following is the strongest base in aqueous solution?",
+                    "options": [
+                        "Methylamine",
+                        "Dimethylamine",
+                        "Trimethylamine",
+                        "Aniline"
+                    ]
+                },
+                {
+                    "q": "Secondary nitroalkanes react with nitrous acid to form",
+                    "options": [
+                        "Red solution",
+                        "Blue solution",
+                        "White precipitate",
+                        "No reaction"
+                    ]
+                },
+                {
+                    "q": "The reaction of Aniline with $CHCl_3$ and alcoholic $KOH$ gives",
+                    "options": [
+                        "Phenyl isocyanide",
+                        "Benzonitrile",
+                        "Chlorobenzene",
+                        "Nitrobenzene"
+                    ]
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Reduction of nitrobenzene with $Sn/HCl$ gives",
+                    "options": [
+                        "Aniline",
+                        "Azobenzene",
+                        "Hydrazobenzene",
+                        "Nitrosobenzene"
+                    ]
+                },
+                {
+                    "q": "Hofmann’s bromide degradation reaction is used to prepare",
+                    "options": [
+                        "Primary amines",
+                        "Secondary amines",
+                        "Tertiary amines",
+                        "Quaternary salts"
+                    ]
+                }
+            ]
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Write a note on Gabriel phthalimide synthesis.",
+                    "marks": 3
+                },
+                {
+                    "q": "Explain Mustard oil reaction.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is Gomberg reaction?",
+                    "marks": 2
+                },
+                {
+                    "q": "How will you distinguish primary, secondary and tertiary amines using nitrous acid?",
+                    "marks": 3
+                },
+                {
+                    "q": "Explain Carbylamine reaction.",
+                    "marks": 3
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Why is aniline less basic than ammonia?",
+                    "marks": 2
+                },
+                {
+                    "q": "How is Nitrobenzene prepared from Benzene? (Nitration)",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Coupling reaction? Give an example.",
+                    "marks": 3
+                },
+                {
+                    "q": "Write the uses of Aliphatic Nitro compounds.",
+                    "marks": 2
+                }
+            ]
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Describe the identification tests for primary, secondary and tertiary amines (Hinsberg’s test).",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the electrolytic reduction of nitrobenzene in different media.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the basic strength of amines in aqueous solution.",
+                    "marks": 5
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Describe the preparation of Aniline from: (i) Nitrobenzene (ii) Chlorobenzene (iii) Benzamide.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the chemical properties and structures of Benzene Diazonium Chloride.",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the mechanism of Hoffmann's bromide degradation reaction.",
+                    "marks": 5
+                }
+            ]
+        }
+    },
+    "Biomolecules": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "Which of the following is a non-reducing sugar?",
+                    "options": [
+                        "Glucose",
+                        "Fructose",
+                        "Sucrose",
+                        "Lactose"
+                    ]
+                },
+                {
+                    "q": "The linkage present in proteins is",
+                    "options": [
+                        "Glycosidic linkage",
+                        "Peptide linkage",
+                        "Ester linkage",
+                        "Phosphodiester linkage"
+                    ]
+                },
+                {
+                    "q": "Which base is present in RNA but not in DNA?",
+                    "options": [
+                        "Adenine",
+                        "Guanine",
+                        "Cytosine",
+                        "Uracil"
+                    ]
+                }
+            ],
+            "interior": [
+                {
+                    "q": "A carbohydrate that cannot be hydrolysed further into simpler units is called",
+                    "options": [
+                        "Monosaccharide",
+                        "Disaccharide",
+                        "Polysaccharide",
+                        "Oligosaccharide"
+                    ]
+                },
+                {
+                    "q": "Vitamins which are soluble in water are",
+                    "options": [
+                        "A and D",
+                        "B and C",
+                        "E and K",
+                        "A and E"
+                    ]
+                }
+            ]
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "What are 'Reducing' and 'Non-reducing' sugars?",
+                    "marks": 3
+                },
+                {
+                    "q": "Define 'Peptide bond' with an example.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is 'Denaturation' of proteins?",
+                    "marks": 2
+                },
+                {
+                    "q": "Distinguish between Glucose and Fructose.",
+                    "marks": 3
+                },
+                {
+                    "q": "What are 'Zwitter ions'?",
+                    "marks": 2
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Explain 'Mutarotation'.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are Essential and Non-essential amino acids?",
+                    "marks": 3
+                },
+                {
+                    "q": "Define 'Anomers'.",
+                    "marks": 2
+                },
+                {
+                    "q": "Write the biological functions of Nucleic acids.",
+                    "marks": 3
+                }
+            ]
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Elucidate the structure of Glucose (Open chain and Cyclic structure).",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the differences between DNA and RNA.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the primary, secondary, tertiary, and quaternary structures of proteins.",
+                    "marks": 5
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Explain the classification of vitamins based on their solubility and their deficiency diseases.",
+                    "marks": 5
+                },
+                {
+                    "q": "Describe the chemical composition and double helical structure of DNA.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the various types of RNA and their functions.",
+                    "marks": 5
+                }
+            ]
+        }
+    },
+    "Chemistry in Everyday Life": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "Which of the following is used as an antipyretic?",
+                    "options": [
+                        "Paracetamol",
+                        "Penicillin",
+                        "Chloramphenicol",
+                        "Bithional"
+                    ]
+                },
+                {
+                    "q": "A substance which can act both as an antiseptic and disinfectant is",
+                    "options": [
+                        "Phenol",
+                        "Aspirin",
+                        "Tincture of iodine",
+                        "Chloroxylenol"
+                    ]
+                },
+                {
+                    "q": "Terylene is a condensation polymer of ethylene glycol and",
+                    "options": [
+                        "Terephthalic acid",
+                        "Phthalic acid",
+                        "Salicylic acid",
+                        "Adipic acid"
+                    ]
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Which of the following is a narrow spectrum antibiotic?",
+                    "options": [
+                        "Penicillin G",
+                        "Ampicillin",
+                        "Amoxycillin",
+                        "Chloramphenicol"
+                    ]
+                },
+                {
+                    "q": "Artificial sweetening agent used by diabetic patients is",
+                    "options": [
+                        "Saccharin",
+                        "Glucose",
+                        "Fructose",
+                        "Lactose"
+                    ]
+                }
+            ]
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "What are Antipyretics? Give an example.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is the difference between Antiseptics and Disinfectants?",
+                    "marks": 3
+                },
+                {
+                    "q": "Define 'Antioxidants'.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are biodegradable and non-biodegradable polymers?",
+                    "marks": 3
+                },
+                {
+                    "q": "What is 'Saponification'?",
+                    "marks": 2
+                }
+            ],
+            "interior": [
+                {
+                    "q": "What are Tranquilizers? Give an example.",
+                    "marks": 2
+                },
+                {
+                    "q": "Define 'Food preservatives' with an example.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are Anaesthetics? How are they classified?",
+                    "marks": 3
+                },
+                {
+                    "q": "What is Vulcanization of rubber?",
+                    "marks": 3
+                }
+            ]
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Explain the cleansing action of soap with a neat diagram.",
+                    "marks": 5
+                },
+                {
+                    "q": "Discuss the classification of drugs based on their pharmacological effect.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the preparation of the following polymers: (i) Nylon 6,6 (ii) Buna-S rubber.",
+                    "marks": 5
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Describe the various types of food additives and their functions.",
+                    "marks": 5
+                },
+                {
+                    "q": "What is chemotherapy? Explain the different types of antibiotics with examples.",
+                    "marks": 5
+                },
+                {
+                    "q": "Explain the mechanism of drug-target interaction (Enzyme as drug targets).",
+                    "marks": 5
+                }
+            ]
         }
     }
 }

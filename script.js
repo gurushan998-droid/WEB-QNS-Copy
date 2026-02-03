@@ -1,6 +1,14 @@
 /* ========================================
-   +2 Biology Question Paper Generator
-   Multi-Tab JavaScript Logic
+   FILE: script.js
+   USE: This is the core logic of the +2 Biology Question Paper Generator.
+        It handles:
+        - Loading question data (JSON) based on selected Standard/Subject.
+        - Managing Application State (Current Tab, Selected Chapters, Sections).
+        - Rendering UI Components (Chapter lists, Section cards, Question slots).
+        - Drag-and-Drop functionality for reordering questions.
+        - Generating the final Question Paper preview.
+        - Saving/Loading History using LocalStorage.
+        - Exporting to PDF and Printing.
 ======================================== */
 
 // ==========================================
@@ -27,7 +35,6 @@ let fullClassData = null;                             // Master container for th
 let questionBank = {};                                // Master container for all questions
 let commonQuestions = {};                             // Stores widely used standard questions
 let papersHistory = [];                               // Stores previously generated papers history
-
 /**
  * Load data for the selected class
  * @param {string} classValue - "11" or "12"
@@ -490,6 +497,7 @@ function createNewPaper() {                         // Full generator reset logi
     showTab(1);                                        // View first tab
 
     saveState();                                       // Wipe localStorage sync
+    loadHistory();                                     // Ensure history remains visible
 }
 
 // ==========================================
@@ -862,55 +870,14 @@ function getAllSelectedQuestionKeys() {                // Finds all text-based Q
     return keys;                                       // Return the global "taken" list
 }
 
+
 /**
- * Render a question card with compulsory toggle
+ * Helper to trigger MathJax typeset on updated content
  */
-function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions, startingNum) {
-    if (!q) return '';
-
-    const section = sections.find(s => s.id === sectionId);
-    const questionNumber = startingNum + idx;
-    const isCompulsory = section && section.compulsoryIndex === idx;
-
-    // Question text
-    let questionText = q.q || q.assertion || q.title || 'Question';
-    if (questionText.length > 100) questionText = questionText.substring(0, 100) + '...';
-
-    return `
-        <div class="question-card" style="background: white; border: 2px solid ${isCompulsory ? '#ef4444' : '#e2e8f0'}; border-radius: 8px; padding: 15px; margin-bottom: 10px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                <div style="flex: 1;">
-                    <div style="font-weight: 700; font-size: 1.1rem; color: var(--color-primary); margin-bottom: 4px;">
-                        Q${questionNumber}
-                    </div>
-                    ${isCompulsory ? '<div style="color: #ef4444; font-size: 0.75rem; font-weight: 700; margin-bottom: 6px;">COMPULSORY</div>' : ''}
-                    <div style="color: var(--color-text); margin-bottom: 8px;">
-                        ${questionText}
-                    </div>
-                    ${q._type ? `<span style="font-size: 0.7rem; background: #e0e7ff; color: var(--color-primary); padding: 2px 6px; border-radius: 4px;">${q._type}</span>` : ''}
-                    ${q._chapter ? `<span style="font-size: 0.7rem; background: #fef3c7; color: #92400e; padding: 2px 6px; border-radius: 4px; margin-left: 4px;">${q._chapter}</span>` : ''}
-                </div>
-                <div style="display: flex; gap: 6px; flex-shrink: 0;">
-                    <button class="btn-icon ${isCompulsory ? 'danger' : 'stats'}" 
-                            onclick="toggleCompulsory(${sectionId}, ${idx})" 
-                            title="${isCompulsory ? 'Remove Compulsory' : 'Mark as Compulsory'}"
-                            style="font-size: 1rem;">
-                        ${isCompulsory ? '★' : '☆'}
-                    </button>
-                    <button class="btn-icon" 
-                            onclick="openBankForSlot(${sectionId}, ${idx})" 
-                            title="Change Question">
-                        🔄
-                    </button>
-                    <button class="btn-icon danger" 
-                            onclick="removeQuestion(${sectionId}, ${idx})" 
-                            title="Remove">
-                        ×
-                    </button>
-                </div>
-            </div>
-        </div>
-    `;
+function refreshMathJax() {
+    if (window.MathJax && window.MathJax.typesetPromise) {
+        MathJax.typesetPromise().catch((err) => console.warn('MathJax error:', err));
+    }
 }
 
 /**
@@ -942,8 +909,8 @@ function renderSectionQuestions() {
     const startingNum = getStartingQuestionNumber(activeSectionTab);
 
     container.innerHTML = `
-        <div class="question-manager">
-            <!-- Top Controls: Stats -->
+        <div class="question-manager" >
+            <!--Top Controls: Stats-->
             <div class="qm-header">
                 <div class="qm-section-info" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; background: var(--color-bg); padding: 12px 20px; border-radius: var(--radius-md); border-left: 4px solid var(--color-primary);">
                     <div style="display: flex; flex-direction: column;">
@@ -964,42 +931,44 @@ function renderSectionQuestions() {
                 </div>
             </div>
 
-            <!-- Single Content Area: Question List (Slots) -->
-            <div class="qm-body">
-                <div class="qm-panel selected-panel" style="width: 100%">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <h4 style="margin: 0;">Questions</h4>
-                        ${sectionQuestions[section.id].length < section.maxQuestions ?
+            <!--Single Content Area: Question List(Slots)-->
+        <div class="qm-body">
+            <div class="qm-panel selected-panel" style="width: 100%">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h4 style="margin: 0;">Questions</h4>
+                    ${sectionQuestions[section.id].length < section.maxQuestions ?
             `<button class="btn btn-sm btn-outline" onclick="autoFillSection(${section.id})">⚡ Autofill</button>` : ''}
-                    </div>
-                    
-                    <div class="qm-list" id="selectedList" ondragover="handleDragOver(event)">
-                        ${sectionQuestions[section.id].length > 0 ?
+                </div>
+
+                <div class="qm-list" id="selectedList" ondragover="handleDragOver(event)">
+                    ${sectionQuestions[section.id].length > 0 ?
             sectionQuestions[section.id].map((q, idx) => renderQuestionCard(q, idx, true, section.id, availableQuestions, startingNum)).join('') :
             '<div class="empty-state">No questions added yet. Click "Add Question" below.</div>'}
-                    </div>
+                </div>
 
-                    <!-- Bottom Buttons -->
-                    <!-- Bottom Buttons -->
-                    <div class="qm-bottom-actions" style="margin-top: 15px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px;">
-                        <div style="display: flex; justify-content: flex-start;">
-                            <button class="btn btn-import" onclick="openImportModal()" style="width: auto; padding: 12px 20px; font-size: 0.95rem;">
-                                ⬇ Import Question
-                            </button>
-                        </div>
-                        <button class="btn btn-secondary" 
-                                ${sectionQuestions[section.id].length >= section.maxQuestions ? 'disabled' : ''}
-                                onclick="addEmptyQuestionSlot(${section.id})" 
-                                style="width: auto; padding: 12px 50px;">
-                            ➕ Add Question
+                <!-- Bottom Buttons -->
+                <div class="qm-bottom-actions" style="margin-top: 15px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px;">
+                    <div style="display: flex; justify-content: flex-start;">
+                        <button class="btn btn-import" onclick="openImportModal()" style="width: auto; padding: 12px 20px; font-size: 0.95rem;">
+                            ⬇ Import Question
                         </button>
-                        <div></div>
                     </div>
+                    <button class="btn btn-secondary"
+                        ${sectionQuestions[section.id].length >= section.maxQuestions ? 'disabled' : ''}
+                        onclick="addEmptyQuestionSlot(${section.id})"
+                        style="width: auto; padding: 12px 50px;">
+                        ➕ Add Question
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
     `;
+
+    // Trigger MathJax after content is injected
+    setTimeout(refreshMathJax, 100);
 }
+
 
 /**
  * Automatically fill empty slots and reach max questions using random picks
@@ -1012,17 +981,30 @@ function autoFillSection(sectionId) {                 // AI-like random picker f
     if (!sectionQuestions[sectionId]) sectionQuestions[sectionId] = []; // Initialize list if missing
     const list = sectionQuestions[sectionId];          // Reference the slot list
 
-    let pool = getQuestionPool(section);               // Get all Qs matching chapters
+    // Temporarily reset global filters to ensure we get all relevant candidates
+    const oldFilterType = questionFilters.type;
+    questionFilters.type = 'all'; // Hack to bypass UI filter inside getQuestionPool
 
-    if (section.type && section.type !== 'all') {      // Filter pool by Part format (MCQ/Short etc)
-        pool = pool.filter(q => {                      // run filter loop
-            if (section.type === 'MCQ') {              // MCQ logic
-                return q._type === 'MCQ' || q._type === 'Match' || q._type === 'Assertion'; // group all 1-mark Qs
+    let pool = getQuestionPool(section, false);        // Get pool for this section
+
+    questionFilters.type = oldFilterType;              // Restore filter
+
+    if (section.type && section.type !== 'all') {      // Filter pool by Part format
+        pool = pool.filter(q => {
+            if (section.type === 'MCQ') {
+                return q._type === 'MCQ' || q._type === 'Match' || q._type === 'Assertion';
             }
-            if (section.type === 'MCQ_Only') {         // Pure MCQ logic
-                return q._type === 'MCQ';              // exclude Match/Assertion
+            if (section.type === 'MCQ_Only') {
+                return q._type === 'MCQ';
             }
-            return q._type === section.type;           // match specific type for logic
+            // Special handling for Short Answer marks filtering
+            if (section.type === 'Short Answer' && section.marksLevels && section.marksLevels.length > 0) {
+                return (q._type === 'Short Answer') && (q.marks && section.marksLevels.includes(parseInt(q.marks)));
+            }
+            if (section.type === 'Long Answer' && section.marksLevels && section.marksLevels.length > 0) {
+                return (q._type === 'Long Answer') && (q.marks && section.marksLevels.includes(parseInt(q.marks)));
+            }
+            return q._type === section.type;
         });
     }
 
@@ -1181,7 +1163,7 @@ function openBankForSlot(sectionId, idx) {
     activeSlotIndex = idx;
 
     // Show notification
-    alert(`Position ${idx + 1} is ready for replacement. Click on a question from the bank below to replace it.`);
+    alert(`Position ${idx + 1} is ready for replacement.Click on a question from the bank below to replace it.`);
 
     renderSectionQuestions();
 }
@@ -1555,6 +1537,15 @@ function getStartingQuestionNumber(currentSectionIndex) {
     return count;
 }
 
+function getImgPreview(q, maxWidth = '150px') {
+    const imgPath = q.diagram || q.image;
+    if (!imgPath) return '';
+    const fullImgPath = (imgPath.includes('/') || imgPath.includes('\\')) ? imgPath : `data/picture/${imgPath}`;
+    return `<div class="image-preview-box" style="margin-top: 8px; margin-bottom: 8px; border: 1px solid #e2e8f0; border-radius: 4px; overflow: hidden; display: inline-block; background: #fff;">
+        <img src="${fullImgPath}" style="max-width: ${maxWidth}; max-height: 120px; display: block; object-fit: contain;" alt="Preview" onerror="this.onerror=null; this.src='https://placehold.co/150x100?text=Image+Missing'">
+    </div>`;
+}
+
 function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = [], startingNum = 0) {
     // Calculate global question number
     const globalQNum = startingNum + idx + 1;
@@ -1563,7 +1554,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
     // Helper to render the rich active slot UI
     const renderActiveSlotUI = (sId, qIdx, subIdx, labelText, innerIdx = null) => {
         return `
-            <div class="q-card active-selection-slot" style="border: 3px solid var(--color-primary); background: #fff; padding: 0; display: flex; flex-direction: column; min-height: 250px; height: auto; max-height: 60vh; overflow: visible; width: 100%;">
+        <div class="q-card active-selection-slot" style = "border: 3px solid var(--color-primary); background: #fff; padding: 0; display: flex; flex-direction: column; min-height: 250px; height: auto; max-height: 60vh; overflow: visible; width: 100%;" >
                 <div style="background: #f8fafc; padding: 15px 20px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;">
                     <div style="display: flex; align-items: center; gap: 10px;">
                         ${subIdx !== null ? `
@@ -1688,6 +1679,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                                                 <span class="q-badge ${bankQ.bookBack ? 'badge-bb' : 'badge-int'}">${bankQ.bookBack ? 'BB' : 'INT'}</span>
                                                 <div style="flex: 1;">
                                                     <div style="font-weight: 600; font-size: 0.95rem; color: var(--color-text); line-height: 1.4;">${bankQ.q || bankQ.assertion || (bankQ.title + ' (Match)')}</div>
+                                                    ${getImgPreview(bankQ, '120px')}
                                                     ${bankDetail}
                                                 </div>
                                             </div>
@@ -1719,22 +1711,22 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
             const isSelectedInner = activeSlotIndex === idx && window.activeSubSlotIndex === parentSubIdx && window.activeInnerSlotIndex === innerIdx;
 
             if (isSelectedInner && isBankVisible) {
-                return `<div style="margin: 5px 0;">${renderActiveSlotUI(sectionId, idx, parentSubIdx, label, innerIdx)}</div>`;
+                return `<div style = "margin: 5px 0;" > ${renderActiveSlotUI(sectionId, idx, parentSubIdx, label, innerIdx)}</div> `;
             }
 
             if (innerQ.isPlaceholder) {
                 return `
-            <div class="q-card placeholder-slot" style="margin-bottom: 4px; padding: 10px; border-style: dashed; width: 100%; cursor: pointer; font-size: 0.85rem;" onclick="activateSubSlot(${idx}, ${parentSubIdx}, ${innerIdx})">
-                <div style="display: flex; align-items: center; gap: 8px;">
-                    <span style="font-weight: 700; color: var(--color-primary);">${label}</span>
-                    <span style="color: #94a3b8;">Choose question...</span>
-                </div>
-            </div>`;
+        <div class="q-card placeholder-slot" style = "margin-bottom: 4px; padding: 10px; border-style: dashed; width: 100%; cursor: pointer; font-size: 0.85rem;" onclick = "activateSubSlot(${idx}, ${parentSubIdx}, ${innerIdx})" >
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-weight: 700; color: var(--color-primary);">${label}</span>
+                <span style="color: #94a3b8;">Choose question...</span>
+            </div>
+            </div> `;
             }
 
             const qText = innerQ.q || innerQ.assertion || (innerQ.title + (innerQ.columnA ? ' (Match)' : ''));
             return `
-        <div class="q-card filled-slot" style="margin-bottom: 4px; padding: 10px; background: #fff; width: 100%; border: 1px solid #e2e8f0; border-radius: 6px; position: relative;" onclick="activateSubSlot(${idx}, ${parentSubIdx}, ${innerIdx})">
+        <div class="q-card filled-slot" style = "margin-bottom: 4px; padding: 10px; background: #fff; width: 100%; border: 1px solid #e2e8f0; border-radius: 6px; position: relative;" onclick = "activateSubSlot(${idx}, ${parentSubIdx}, ${innerIdx})" >
             <div style="display: flex; gap: 8px; align-items: flex-start;">
                 <span style="font-weight: 700; color: var(--color-primary); font-size: 0.85rem;">${label}</span>
                 <div style="flex: 1; padding-right: 70px;">
@@ -1746,6 +1738,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                         </div>
                     ` : `
                         <span style="font-size: 0.85rem; color: #334155; line-height: 1.4;">${qText}</span>
+                        ${getImgPreview(innerQ, '100px')}
                     `}
                 </div>
             </div>
@@ -1755,8 +1748,9 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                 <button class="btn-icon" style="width: 22px; height: 22px; font-size: 11px; background: #f1f5f9;" onclick="event.stopPropagation(); activateSubSlot(${idx}, ${parentSubIdx}, ${innerIdx})" title="Replace">↻</button>
                 <button class="btn-icon danger" style="width: 22px; height: 22px; font-size: 11px; background: #fee2e2;" onclick="event.stopPropagation(); removeQuestionFromSection(${sectionId}, ${idx}, ${parentSubIdx}, ${innerIdx})" title="Remove">✕</button>
             </div>
-            ` : ''}
-        </div>`;
+            ` : ''
+                }
+        </div> `;
         };
 
         const renderSubSlot = (subQ, subIdx, label) => {
@@ -1769,7 +1763,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                 const isEditingTitle = window.editingState && window.editingState.idx === idx && window.editingState.subIdx === subIdx && window.editingState.isPartTitle;
 
                 return `
-            <div class="nested-complex-container" style="width: 100%; margin-bottom: 8px; background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; position: relative; border-left: 4px solid var(--color-primary);">
+        <div class="nested-complex-container" style = "width: 100%; margin-bottom: 8px; background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; position: relative; border-left: 4px solid var(--color-primary);" >
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; gap: 10px;">
                     <div style="flex: 1;">
                         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
@@ -1812,7 +1806,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                         <button class="btn btn-sm btn-outline" style="padding: 8px; font-size: 0.85rem; width: 100%; margin-top: 8px; border-style: dashed; background: #fff; color: #64748b;" onclick="addSubSlot(${sectionId}, ${idx}, ${subIdx})">➕ Add Inner Part</button>
                     ` : ''}
                 </div>
-            </div>`;
+            </div> `;
             }
 
             if (isActive && isBankVisible) {
@@ -1821,11 +1815,11 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
 
             if (subQ.isPlaceholder) {
                 return `
-                <div class="q-card placeholder-slot sub-slot-draggable" draggable="true" 
-                    ondragstart="handleSubSlotDragStart(event, ${sectionId}, ${idx}, ${subIdx})" 
-                    ondrop="handleSubSlotDrop(event, ${sectionId}, ${idx}, ${subIdx})" 
-                    ondragover="handleDragOver(event)"
-                    style="margin-bottom: 8px; padding: 15px; border-style: dashed; width: 100%; cursor: move; position: relative;" onclick="activateSubSlot(${idx}, ${subIdx})">
+        <div class="q-card placeholder-slot sub-slot-draggable" draggable = "true"
+    ondragstart = "handleSubSlotDragStart(event, ${sectionId}, ${idx}, ${subIdx})"
+    ondrop = "handleSubSlotDrop(event, ${sectionId}, ${idx}, ${subIdx})"
+    ondragover = "handleDragOver(event)"
+    style = "margin-bottom: 8px; padding: 15px; border-style: dashed; width: 100%; cursor: move; position: relative;" onclick = "activateSubSlot(${idx}, ${subIdx})" >
                     <div class="q-content" style="flex-direction: row; gap: 10px; padding-right: 40px;">
                         <div class="sub-slot-handle" style="cursor: grab; color: #94a3b8; font-size: 16px; padding-right: 5px;" title="Drag to reorder">⋮⋮</div>
                         <input type="text" value="${label}" 
@@ -1847,7 +1841,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                         </div>
                         <button class="btn-icon danger" style="width: 26px; height: 26px; font-size: 13px; background: #fee2e2;" onclick="event.stopPropagation(); removeQuestionFromSection(${sectionId}, ${idx}, ${subIdx})" title="Remove">✕</button>
                     </div>
-                </div>`;
+                </div> `;
             }
 
             // Filled Sub-Question
@@ -1859,23 +1853,23 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
             const subQuestionText = subQ.q || subQ.assertion || (subQ.title + (subQ.columnA ? ' (Match)' : ''));
 
             return `
-            <div class="q-card filled-slot sub-slot-draggable" draggable="true" 
-                ondragstart="handleSubSlotDragStart(event, ${sectionId}, ${idx}, ${subIdx})" 
-                ondrop="handleSubSlotDrop(event, ${sectionId}, ${idx}, ${subIdx})" 
-                ondragover="handleDragOver(event)"
-                style="margin-bottom: 8px; padding: 12px; background: #fff; width: 100%; cursor: move; position: relative;" onclick="activateSubSlot(${idx}, ${subIdx})">
-                <div style="display: flex; gap: 10px;">
-                    <div class="sub-slot-handle" style="cursor: grab; color: #94a3b8; font-size: 16px; display: flex; align-items: center;" title="Drag to reorder">⋮⋮</div>
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
-                        <input type="text" value="${label}" 
-                            onchange="updateSubSlotLabel(${sectionId}, ${idx}, ${subIdx}, this.value)" 
-                            onclick="event.stopPropagation()"
-                            style="font-weight: 700; color: var(--color-primary); font-size: 0.9rem; width: 35px; border: 1px solid #cbd5e1; border-radius: 4px; padding: 2px 4px; text-align: center;">
-                        <span class="q-badge-mini ${subQ.bookBack ? 'badge-bb' : 'badge-int'}" style="font-size: 0.65rem;">${subQ.bookBack ? 'BB' : 'INT'}</span>
-                    </div>
-                    
-                    <div style="flex: 1; padding-right: 125px;">
-                        ${isEditingSub ? `
+        <div class="q-card filled-slot sub-slot-draggable" draggable = "true"
+    ondragstart = "handleSubSlotDragStart(event, ${sectionId}, ${idx}, ${subIdx})"
+    ondrop = "handleSubSlotDrop(event, ${sectionId}, ${idx}, ${subIdx})"
+    ondragover = "handleDragOver(event)"
+    style = "margin-bottom: 8px; padding: 12px; background: #fff; width: 100%; cursor: move; position: relative;" onclick = "activateSubSlot(${idx}, ${subIdx})" >
+        <div style="display: flex; gap: 10px;">
+            <div class="sub-slot-handle" style="cursor: grab; color: #94a3b8; font-size: 16px; display: flex; align-items: center;" title="Drag to reorder">⋮⋮</div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+                <input type="text" value="${label}"
+                    onchange="updateSubSlotLabel(${sectionId}, ${idx}, ${subIdx}, this.value)"
+                    onclick="event.stopPropagation()"
+                    style="font-weight: 700; color: var(--color-primary); font-size: 0.9rem; width: 35px; border: 1px solid #cbd5e1; border-radius: 4px; padding: 2px 4px; text-align: center;">
+                    <span class="q-badge-mini ${subQ.bookBack ? 'badge-bb' : 'badge-int'}" style="font-size: 0.65rem;">${subQ.bookBack ? 'BB' : 'INT'}</span>
+            </div>
+
+            <div style="flex: 1; padding-right: 125px;">
+                ${isEditingSub ? `
                             <textarea id="edit-q-${idx}-${subIdx}" style="width: 100%; height: 60px; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; font-family: inherit; font-size: 0.9rem;" onclick="event.stopPropagation()">${subQuestionText}</textarea>
                             ${subQ.options ? `
                                 <div style="margin-top: 8px; display: flex; flex-direction: column; gap: 5px;">
@@ -1893,10 +1887,11 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                             </div>
                         ` : `
                             <div style="font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; line-height: 1.4;">${subQuestionText}</div>
+                            ${getImgPreview(subQ, '110px')}
                         `}
-                    </div>
-                    
-                    ${!isEditingSub ? `
+            </div>
+
+            ${!isEditingSub ? `
                     <div class="q-actions" style="position: absolute; top: 10px; right: 10px; display: flex; flex-direction: row; gap: 4px; padding: 0;">
                         <!-- Mode Menu -->
                         <div style="position: relative;">
@@ -1916,12 +1911,12 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                             onclick="event.stopPropagation(); removeQuestionFromSection(${sectionId}, ${idx}, ${subIdx})" title="Remove">✕</button>
                     </div>
                     ` : ''}
-                </div>
-            </div>`;
+        </div>
+            </div> `;
         };
 
         return `
-        <div class="q-card complex-slot" draggable="true" ondragstart="handleDragStart(event, ${idx})" ondrop="handleDrop(event, ${idx}, ${sectionId})" ondragover="handleDragOver(event)" style="padding: 12px; background: #f8fafc; border: 1px solid #e2e8f0; position: relative;">
+        <div class="q-card complex-slot" draggable = "true" ondragstart = "handleDragStart(event, ${idx})" ondrop = "handleDrop(event, ${idx}, ${sectionId})" ondragover = "handleDragOver(event)" style = "padding: 12px; background: #f8fafc; border: 1px solid #e2e8f0; position: relative;" >
             <div class="q-handle" style="top: 10px; left: -15px;">⋮</div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                 <span class="q-num" style="font-size: 1.1rem; color: var(--color-primary);">${globalQNum}</span>
@@ -1962,7 +1957,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
     // Placeholder Slot (Normal Mode)
     if (q.isPlaceholder) {
         return `
-        <div class="q-card placeholder-slot" onclick="activeSlotIndex = ${idx}; renderSectionQuestions();">
+        <div class="q-card placeholder-slot" onclick = "activeSlotIndex = ${idx}; renderSectionQuestions();" >
             <div class="q-content">
                 <span class="q-num" style="font-size: 1.25rem; color: var(--color-primary); font-family: var(--font-display); font-weight: 700;">${globalQNum}</span>
                 <span class="badge-status" style="background: var(--color-bg); color: var(--color-text-muted); padding: 4px 12px; border-radius: 20px; font-weight: 600; font-size: 0.8rem;">Tap to choose question</span>
@@ -1988,13 +1983,13 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
     // Filled Slot (Normal Mode)
     let detailHtml = '';
     if (q.options) {
-        detailHtml = `<div class="slot-details mcq-options" style="font-size: 0.8rem; color: #666; margin-top: 5px; padding-left: 20px;">
-            ${q.options.map((opt, i) => `<div>${String.fromCharCode(97 + i)}) ${opt}</div>`).join('')}
-        </div>`;
+        detailHtml = `<div class="slot-details mcq-options" style = "font-size: 0.8rem; color: #666; margin-top: 5px; padding-left: 20px;" >
+        ${q.options.map((opt, i) => `<div>${String.fromCharCode(97 + i)}) ${opt}</div>`).join('')}
+        </div> `;
     } else if (q.columnA) {
-        detailHtml = `<div class="slot-details match-pairs" style="font-size: 0.8rem; color: #666; margin-top: 5px; padding-left: 20px;">
-            ${q.columnA.map((item, i) => `<div>${item} - ${q.columnB[i]}</div>`).join('')}
-        </div>`;
+        detailHtml = `<div class="slot-details match-pairs" style = "font-size: 0.8rem; color: #666; margin-top: 5px; padding-left: 20px;" >
+        ${q.columnA.map((item, i) => `<div>${item} - ${q.columnB[i]}</div>`).join('')}
+        </div> `;
     }
 
     const isEditing = window.editingState &&
@@ -2005,7 +2000,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
     const questionText = q.q || q.assertion || (q.title + ' (Match)');
 
     return `
-    <div class="q-card filled-slot" draggable="true" onclick="activeSlotIndex = ${idx}; renderSectionQuestions();" ondragstart="handleDragStart(event, ${idx})" ondrop="handleDrop(event, ${idx}, ${sectionId})" ondragover="handleDragOver(event)">
+        <div class="q-card filled-slot" draggable = "true" onclick = "activeSlotIndex = ${idx}; renderSectionQuestions();" ondragstart = "handleDragStart(event, ${idx})" ondrop = "handleDrop(event, ${idx}, ${sectionId})" ondragover = "handleDragOver(event)" >
         <div class="q-handle" title="Drag to reorder">⋮</div>
         
         <div class="q-num-panel">
@@ -2033,6 +2028,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                 </div>
             ` : `
                 <div class="q-text">${questionText}</div>
+                ${getImgPreview(q, '200px')}
                 ${detailHtml}
             `}
         </div>
@@ -2058,7 +2054,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
             ` : ''}
         </div>
     </div>
-    `;
+        `;
 }
 
 function cancelSelection() {
@@ -2309,7 +2305,7 @@ function addManualQuestion(sectionId) {
  * @param {number} sectionIndex - Index of the section to generate
  */
 function autoGenerateSection(sectionIndex) {
-    alert(`Auto-generate for Section ${romanize(sectionIndex + 1)} - Coming soon!`);
+    alert(`Auto - generate for Section ${romanize(sectionIndex + 1)} - Coming soon!`);
 }
 
 // Removed duplicate sections logic
@@ -2317,7 +2313,7 @@ function autoGenerateSection(sectionIndex) {
 function calculateSectionMarks(section) {
     const attempt = section.attemptQuestions === "" ? 0 : parseInt(section.attemptQuestions);
     const marks = section.marksPerQuestion === "" ? 0 : parseInt(section.marksPerQuestion);
-    return `( ${section.attemptQuestions || 0} x ${section.marksPerQuestion || 0} = ${attempt * marks} )`;
+    return `(${section.attemptQuestions || 0} x ${section.marksPerQuestion || 0} = ${attempt * marks})`;
 }
 
 function renderSections() {
@@ -2336,10 +2332,10 @@ function renderSections() {
 
     container.innerHTML = sections.map((section, sectionIdx) => {
         return `
-        <div class="section-card" draggable="true" 
-             ondragstart="handleSectionDragStart(event, ${sectionIdx})" 
-             ondragover="handleSectionDragOver(event)" 
-             ondrop="handleSectionDrop(event, ${sectionIdx})">
+    <div class="section-card" draggable = "true"
+ondragstart = "handleSectionDragStart(event, ${sectionIdx})"
+ondragover = "handleSectionDragOver(event)"
+ondrop = "handleSectionDrop(event, ${sectionIdx})" >
             <div class="section-drag-handle">⋮⋮</div>
             <button class="remove-section-btn" onclick="removeSection(${section.id})" title="Remove Section">×</button>
             <div class="section-header-row">
@@ -2494,22 +2490,22 @@ function populateQuestionSelectors() {
 
     // Populate section 1 (MCQs + Match + Assertion) - simplified for now
     document.getElementById('section1Selector').innerHTML = `
-        <p>📌 Section I will auto-select 4 MCQs + 2 Match + 2 Assertion (8 questions)</p>
-    `;
+    <p >📌 Section I will auto - select 4 MCQs + 2 Match + 2 Assertion(8 questions)</p>
+        `;
 
     // Populate section 2 (Short answer)
     document.getElementById('section2Selector').innerHTML = `
-        < p >📌 Section II will auto - select 6 questions(answer any 4)</p >
+        <p >📌 Section II will auto - select 6 questions(answer any 4)</p>
             `;
 
     // Populate section 3
     document.getElementById('section3Selector').innerHTML = `
-            < p >📌 Section III will auto - select 5 questions(answer any 3, Q19 compulsory)</p >
+            <p >📌 Section III will auto - select 5 questions(answer any 3, Q19 compulsory)</p>
                 `;
 
     // Populate section 4
     document.getElementById('section4Selector').innerHTML = `
-                < p >📌 Section IV will auto - select 2 questions with OR options</p >
+                <p >📌 Section IV will auto - select 2 questions with OR options</p>
                     `;
 }
 
@@ -2537,7 +2533,7 @@ function generateMatchOptions(correctArr) {
     const fakes = new Set();
     while (fakes.size < 3) {
         if (JSON.stringify(shuffled) !== JSON.stringify(correctArr)) {
-            fakes.add(shuffled.map((v, i) => `${['i', 'ii', 'iii', 'iv'][i]} - ${v}`).join(', '));
+            fakes.add(shuffled.map((v, i) => `${['i', 'ii', 'iii', 'iv'][i]} - ${v} `).join(', '));
         }
     }
 
@@ -2557,7 +2553,7 @@ function generateFinalPaper() {                     // Main engine to build the 
 
     const standardLabel = standardValue + " - STD";    // Formatted class label for header
 
-    let html = `                                       <!-- Start building HTML string -->
+    let html = `                                       <!--Start building HTML string-->
     <header class="paper-header">                     <!-- Visual header for the sheet -->
             <div style="display: flex; justify-content: flex-end; margin-bottom: 8px; padding-top: 5px;">
                 <div class="reg-no-wrapper">          <!-- Student ID box section -->
@@ -2624,16 +2620,68 @@ function generateFinalPaper() {                     // Main engine to build the 
         currentGlobalQNum = nextQNum;
     });
 
-    html += `</section>`;
+    html += `</section>`;    // --- Added Formula Sheet Feature ---
+    const subjectValue = (document.getElementById('subject')?.value || '').toLowerCase();
+    const isMaths = subjectValue.includes('maths') || subjectValue.includes('mathematics');
+
+    if (isMaths) {
+        let hasFormulas = false;
+        let formulaHtml = `
+            <div class="formula-reference-section" style="margin-top: 50px; border-top: 2px solid #333; padding-top: 20px; page-break-before: always;">
+                <h2 style="text-align: center; text-decoration: underline; margin-bottom: 20px;">FORMULA REFERENCE SHEET</h2>
+        `;
+
+        selectedChapters.forEach(chapter => {
+            const chapterData = questionBank[chapter];
+            if (chapterData && chapterData.formulas && chapterData.formulas.length > 0) {
+                hasFormulas = true;
+                formulaHtml += `
+                    <div class="chapter-formula-block" style="margin-bottom: 25px;">
+                        <h3 style="background: #f1f5f9; padding: 5px 10px; border-left: 4px solid var(--color-primary); font-size: 1.1rem; margin-bottom: 10px;">
+                            Chapter: ${chapter}
+                        </h3>
+                        <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px; background: white;">
+                            <thead>
+                                <tr style="background: #f8fafc;">
+                                    <th style="border: 1px solid #cbd5e1; padding: 10px; text-align: left; width: 40%;">Description</th>
+                                    <th style="border: 1px solid #cbd5e1; padding: 10px; text-align: center;">Formula</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                `;
+
+                chapterData.formulas.forEach(f => {
+                    formulaHtml += `
+                        <tr>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px; font-size: 0.95rem;">${f.name}</td>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px; text-align: center; font-family: 'Times New Roman'; font-size: 1.1rem;">${f.eqn}</td>
+                        </tr>
+                    `;
+                });
+
+                formulaHtml += `
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            }
+        });
+
+        formulaHtml += `</div>`;
+        if (hasFormulas) {
+            html += formulaHtml;
+        }
+    }
 
     // Add Footer
     html += `
         <div class="paper-footer" style="text-align: center; margin-top: 20px; font-weight: bold; font-style: italic;">
-            -------All the best-------
+            ------- All the best -------
         </div>
     `;
 
     document.getElementById('paperPreview').innerHTML = html;
+
 
     // Apply current line spacing
     applyPaperStyles();
@@ -2641,10 +2689,8 @@ function generateFinalPaper() {                     // Main engine to build the 
     // Save to history
     savePaperToHistory();
 
-    // Kadaisiyil idhai serkkavum
-    if (window.MathJax) {
-        MathJax.typesetPromise();
-    }
+    // Trigger MathJax for the new paper content
+    setTimeout(refreshMathJax, 100);
 }
 
 /**
@@ -2652,7 +2698,7 @@ function generateFinalPaper() {                     // Main engine to build the 
  */
 function getHistoryKey() {
     if (auth.currentUser) {
-        return `qp_history_${auth.currentUser.uid}`; // User-specific key
+        return `qp_history_${auth.currentUser.uid} `; // User-specific key
     }
     return 'questionPaperHistory'; // Default/Guest key
 }
@@ -2732,15 +2778,15 @@ function renderHistory() {
 
     if (papersHistory.length === 0) {
         historyList.innerHTML = `
-            <div class="empty-history">
-                <span style="font-size: 2rem; display: block; margin-bottom: 10px;">📄</span>
+    <div class="empty-history" >
+        <span style="font-size: 2rem; display: block; margin-bottom: 10px;">📄</span>
                 No previously generated papers yet.
-            </div>`;
+            </div> `;
         return;
     }
 
     historyList.innerHTML = papersHistory.map((paper, index) => `
-        <div class="history-item" onclick="loadPaperFromHistory(${index}, true)">
+    <div class="history-item" onclick = "loadPaperFromHistory(${index}, true)" >
             <div class="history-info">
                 <h4>${paper.name}</h4>
             </div>
@@ -3044,7 +3090,7 @@ function insertTable() {
             const td = document.createElement('td');
             td.style.border = '1px solid black';
             td.style.padding = '8px';
-            td.innerText = `Row ${i + 1} Col ${j + 1}`;
+            td.innerText = `Row ${i + 1} Col ${j + 1} `;
             tr.appendChild(td);
         }
         table.appendChild(tr);
@@ -3118,12 +3164,12 @@ function setupImageOverlay() {
     const overlay = document.createElement('div');
     overlay.id = 'image-tools-overlay';
     overlay.innerHTML = `
-        <div class="resize-handle nw" data-handle="nw"></div>
+    <div class="resize-handle nw" data - handle="nw" ></div>
         <div class="resize-handle ne" data-handle="ne"></div>
         <div class="resize-handle sw" data-handle="sw"></div>
         <div class="resize-handle se" data-handle="se"></div>
         <button class="remove-btn-img" onclick="deleteSelectedImage()">🗑 Remove</button>
-    `;
+`;
     paper.appendChild(overlay);
 
     // Global Deselect
@@ -3245,6 +3291,10 @@ function onDragMove(e) {
 
     updateOverlayPosition();
 }
+
+/**
+ * Drag & Resize Handlers
+ */
 
 function onDragEnd() {
     isDraggingImg = false;
@@ -3496,17 +3546,17 @@ function generateSectionHTML(section, questions, startQNo, sectionIndex) { // Re
     const partLabel = `${toRoman(sectionIndex + 1)}.`; // Convert block index to Roman (I, II, III)
     const sectionNote = getSectionNote(section);      // Get "Answer any X" style instruction
 
-    let html = `                                       <!-- Part wrap start -->
-        <div class="section">
-            <div class="section-header">              <!-- Styled row for title and marks -->
-                <div class="section-title">
-                    <span style="font-weight:bold;">${partLabel}</span> 
-                    ${sectionNote}                    <!-- Instructions display -->
-                    <span class="compulsory-header-notice">${getCompulsoryNotice(questions, startQNo)}</span> <!-- Special Q notice -->
-                </div>
-                <div class="section-marks">${section.attemptQuestions} × ${section.marksPerQuestion} = ${totalSectionMarks}</div> <!-- (Marks display) -->
+    let html = `                                       <!--Part wrap start-->
+    <div class="section">
+        <div class="section-header">              <!-- Styled row for title and marks -->
+            <div class="section-title">
+                <span style="font-weight:bold;">${partLabel}</span>
+                ${sectionNote}                    <!-- Instructions display -->
+                <span class="compulsory-header-notice">${getCompulsoryNotice(questions, startQNo)}</span> <!-- Special Q notice -->
             </div>
-    `;
+            <div class="section-marks">${section.attemptQuestions} × ${section.marksPerQuestion} = ${totalSectionMarks}</div> <!-- (Marks display) -->
+        </div>
+        `;
 
     questions.forEach((q, idx) => {                    // Loop through questions in this Part
         if (!q || q.isPlaceholder) return;             // Ignore unfilled slots
@@ -3522,7 +3572,7 @@ function generateSectionHTML(section, questions, startQNo, sectionIndex) { // Re
 function getCompulsoryNotice(questions, startQNo) {
     const compulsoryIdx = questions.findIndex(q => !q.isPlaceholder && q.isCompulsory);
     if (compulsoryIdx !== -1) {
-        return `<small style="font-weight: normal; margin-left: 5px;">( Q.No: ${startQNo + compulsoryIdx} is compulsory )</small>`;
+        return `< small style = "font-weight: normal; margin-left: 5px;" > (Q.No: ${startQNo + compulsoryIdx} is compulsory )</small > `;
     }
     return '';
 }
@@ -3554,7 +3604,7 @@ function renderQuestionForPaper(q, label) {
         // Complex (OR/AND)
         const partTitle = q.q || q.assertion || q.title || "";
         return `
-            <div class="question">
+    <div class="question" >
                 <div class="question-number">${label}</div>
                 <div class="question-content">
                     ${partTitle ? `<div style="font-weight: 600; margin-bottom: 8px;">${partTitle}</div>` : ''}
@@ -3564,33 +3614,36 @@ function renderQuestionForPaper(q, label) {
             return subHtml + separator;
         }).join('')}
                 </div>
-            </div>`;
+            </div> `;
     }
 
     // Single Question (MCQ, Answer, Match, etc.)
-    let indexHtml = `<div class="question-text">${q.q || q.assertion || (q.title + (q.columnA ? ' (Match)' : ''))}</div>`;
+    let indexHtml = `<div class="question-text" > ${q.q || q.assertion || (q.title + (q.columnA ? ' (Match)' : ''))}</div> `;
+
+    // Diagram support
+    const imgPath = q.diagram || q.image;
+    if (imgPath) {
+        // If it's just a filename, assume it's in data/picture/
+        const fullImgPath = (imgPath.includes('/') || imgPath.includes('\\')) ? imgPath : `data/picture/${imgPath}`;
+        indexHtml += `<div class="question-diagram" style="margin-top: 10px; margin-bottom: 10px;">
+            <img src="${fullImgPath}" style="max-width: 300px; height: auto; border: 1px solid #eee; padding: 5px; background: #fff;" alt="Question Diagram">
+        </div>`;
+    }
 
     if (q.options) {
         const layoutClass = getOptionLayoutClass(q.options);
         indexHtml += `
-            <div class="options-inline ${layoutClass}">
-                ${q.options.map((opt, i) => `<span class="option">${String.fromCharCode(97 + i)}) ${opt}</span>`).join('')}
-            </div>`;
+    <div class="options-inline ${layoutClass}" >
+        ${q.options.map((opt, i) => `<span class="option">${String.fromCharCode(97 + i)}) ${opt}</span>`).join('')}
+            </div> `;
     } else if (q.columnA) {
         indexHtml += `
-            <table class="match-table">
-               ${q.columnA.map((item, idx) => `<tr><td>${item}</td><td>${q.columnB[idx]}</td></tr>`).join('')}
-            </table>`;
+    < table class="match-table" >
+        ${q.columnA.map((item, idx) => `<tr><td>${item}</td><td>${q.columnB[idx]}</td></tr>`).join('')}
+            </table > `;
     }
 
-    return `<div class="question"><div class="question-number">${label}</div><div class="question-content">${indexHtml}</div></div>`;
-
-    // Diagram irundhal image tag-ai add pannum logic
-    if (q.diagram) {
-        indexHtml += `<div class="question-diagram"><img src="${q.diagram}" style="max-width:200px;"></div>`;
-    }
-
-    return `<div class="question"><div class="question-number">${label}</div><div class="question-content">${indexHtml}</div></div>`;
+    return `<div class="question" ><div class="question-number">${label}</div><div class="question-content">${indexHtml}</div></div> `;
 }
 
 // Auto Generate Button
@@ -3743,6 +3796,14 @@ function clearTab(tabNum) {
         sectionQuestions = {};
         renderSections();
         calculateTotalMarks();
+
+    } else if (tabNum === 4) {
+        if (!confirm("Are you sure you want to clear ALL selected questions across all sections?")) return;
+        // Reset questions for all sections
+        for (const section of sections) {
+            sectionQuestions[section.id] = [];
+        }
+        renderQuestionSelectionTab();
     }
 
     saveState(); // Update storage after clearing
@@ -3801,7 +3862,7 @@ function openImportModal() {
     const chapterSelect = document.getElementById('importChapter');
     if (chapterSelect) {
         chapterSelect.innerHTML = '<option value="">-- Select Chapter --</option>' +
-            selectedChapters.map(ch => `<option value="${ch}">${ch}</option>`).join('');
+            selectedChapters.map(ch => `<option value = "${ch}" > ${ch}</option > `).join('');
     }
 
     // Reset Fields
@@ -3900,7 +3961,7 @@ function submitImportQuestion() {
 // ==========================================
 
 window.toggleModeMenu = function (idx, subIdx = null) {
-    const selector = subIdx !== null ? `mode-menu-${idx}-${subIdx}` : `mode-menu-${idx}`;
+    const selector = subIdx !== null ? `mode - menu - ${idx} -${subIdx} ` : `mode - menu - ${idx} `;
     const menu = document.getElementById(selector);
     if (menu) {
         const isVisible = menu.style.display === 'block';
@@ -3950,21 +4011,21 @@ window.saveEditedQuestionText = function () {
         const mainQ = sectionQuestions[sectionId][idx];
         if (mainQ.questions && mainQ.questions[subIdx] && mainQ.questions[subIdx].questions && mainQ.questions[subIdx].questions[innerIdx]) {
             q = mainQ.questions[subIdx].questions[innerIdx];
-            textAreaId = `edit-q-${idx}-${subIdx}-${innerIdx}`;
-            optClassBase = `edit-opt-${idx}-${subIdx}-${innerIdx}`;
+            textAreaId = `edit - q - ${idx} -${subIdx} -${innerIdx} `;
+            optClassBase = `edit - opt - ${idx} -${subIdx} -${innerIdx} `;
         }
     } else if (subIdx !== null && subIdx !== undefined) {
         // Complex question sub-slot
         if (sectionQuestions[sectionId][idx].questions && sectionQuestions[sectionId][idx].questions[subIdx]) {
             q = sectionQuestions[sectionId][idx].questions[subIdx];
-            textAreaId = `edit-q-${idx}-${subIdx}`;
-            optClassBase = `edit-opt-${idx}-${subIdx}`;
+            textAreaId = `edit - q - ${idx} -${subIdx} `;
+            optClassBase = `edit - opt - ${idx} -${subIdx} `;
         }
     } else {
         // Normal question
         q = sectionQuestions[sectionId][idx];
-        textAreaId = `edit-q-${idx}`;
-        optClassBase = `edit-opt-${idx}`;
+        textAreaId = `edit - q - ${idx} `;
+        optClassBase = `edit - opt - ${idx} `;
     }
 
     if (!q) return;
@@ -3979,7 +4040,7 @@ window.saveEditedQuestionText = function () {
 
     // Save Options
     if (q.options && Array.isArray(q.options)) {
-        const optInputs = document.querySelectorAll(`.${optClassBase}`);
+        const optInputs = document.querySelectorAll(`.${optClassBase} `);
         optInputs.forEach((input, i) => {
             if (i < q.options.length) {
                 q.options[i] = input.value;
@@ -4104,7 +4165,7 @@ window.startEditingPartTitle = function (idx, subIdx) {
 };
 
 window.savePartTitle = function (sectionId, idx, subIdx) {
-    const text = document.getElementById(`edit-part-title-${idx}-${subIdx}`)?.value;
+    const text = document.getElementById(`edit - part - title - ${idx} -${subIdx} `)?.value;
     if (sectionQuestions[sectionId] && sectionQuestions[sectionId][idx] && sectionQuestions[sectionId][idx].questions) {
         sectionQuestions[sectionId][idx].questions[subIdx].q = text;
         window.editingState = null;
@@ -4270,7 +4331,7 @@ function selectEquationType(type) {
 
     if (type === 'fraction') {
         inputsBox.innerHTML = `
-            <div class="equation-input-group">
+    <div class="equation-input-group" >
                 <label>Numerator</label>
                 <input type="text" id="eqInput1" placeholder="x" oninput="updateLivePreview()">
             </div>
@@ -4280,13 +4341,13 @@ function selectEquationType(type) {
             </div>`;
     } else if (type === 'sqrt') {
         inputsBox.innerHTML = `
-            <div class="equation-input-group">
+    <div class="equation-input-group" >
                 <label>Value</label>
                 <input type="text" id="eqInput1" placeholder="x" oninput="updateLivePreview()">
             </div>`;
     } else if (type === 'superscript') {
         inputsBox.innerHTML = `
-            <div class="equation-input-group">
+    <div class="equation-input-group" >
                 <label>Base</label>
                 <input type="text" id="eqInput1" placeholder="x" oninput="updateLivePreview()">
             </div>
@@ -4296,7 +4357,7 @@ function selectEquationType(type) {
             </div>`;
     } else if (type === 'subscript') {
         inputsBox.innerHTML = `
-            <div class="equation-input-group">
+    <div class="equation-input-group" >
                 <label>Base</label>
                 <input type="text" id="eqInput1" placeholder="x" oninput="updateLivePreview()">
             </div>
@@ -4306,7 +4367,7 @@ function selectEquationType(type) {
             </div>`;
     } else if (type === 'integral') {
         inputsBox.innerHTML = `
-            <div class="equation-input-group">
+    <div class="equation-input-group" >
                 <label>Expression (Optional)</label>
                 <input type="text" id="eqInput1" placeholder="f(x)dx" oninput="updateLivePreview()">
             </div>`;
@@ -4332,23 +4393,23 @@ function updateLivePreview() {
     if (currentEqType === 'fraction') {
         // Enclosed in backticks and inserted val1/val2
         html = `
-            <span class="mq-fraction">
+    <span class="mq-fraction" >
                 <span class="mq-numerator">${val1 || 'x'}</span>
                 <span class="mq-denominator">${val2 || 'y'}</span>
-            </span>`;
+            </span> `;
     } else if (currentEqType === 'sqrt') {
         html = `
-            <span class="mq-sqrt">
+    <span class="mq-sqrt" >
                 <span class="mq-sqrt-symbol">√</span>
                 <span class="mq-sqrt-content">${val1 || 'x'}</span>
-            </span>`;
+            </span> `;
     } else if (currentEqType === 'superscript') {
-        html = `${val1 || 'x'}<sup>${val2 || '2'}</sup>`;
+        html = `${val1 || 'x'} <sup>${val2 || '2'}</sup>`;
     } else if (currentEqType === 'subscript') {
-        html = `${val1 || 'x'}<sub>${val2 || 'n'}</sub>`;
+        html = `${val1 || 'x'} <sub>${val2 || 'n'}</sub>`;
     } else if (currentEqType === 'integral') {
         // Added the integral symbol and the expression value
-        html = `∫ ${val1 || 'f(x)dx'}`;
+        html = `∫ ${val1 || 'f(x)dx'} `;
     }
 
     preview.innerHTML = html;
@@ -4385,7 +4446,27 @@ function romanize(num) {
         roman = (key[+digits.pop() + (i * 10)] || "") + roman;
     return Array(+digits.join("") + 1).join("M") + roman;
 }
+//maths formula conversion
+// JSON-இல் இருந்து தரவுகளைப் பெற்று அட்டவணையாக மாற்றுதல்
+function displayFormulas(chapterKey) {
+    const formulas = questionBank[chapterKey] ? questionBank[chapterKey].formulas : [];
+    if (!formulas || formulas.length === 0) return;
 
+    let html = `<h3>${chapterKey} - Formulas</h3><table border="1">`;
+    html += "<tr><th>Name</th><th>Equation</th></tr>";
+
+    formulas.forEach(f => {
+        html += `<tr><td>${f.name}</td><td>${f.eqn}</td></tr>`;
+    });
+
+    html += "</table>";
+    const container = document.getElementById('formula-container');
+    if (container) {
+        container.innerHTML = html;
+        // Trigger MathJax
+        refreshMathJax();
+    }
+}
 // ==========================================
 // INITIALIZATION
 // ==========================================

@@ -1,7 +1,12 @@
 /* ========================================
-   1. GLOBAL VARIABLES & DESIGN SYSTEM
-   Defines the color palette, typography, 
-   and reusable tokens like shadows/radius.
+   FILE: style.css
+   USE: This is the main stylesheet for the application.
+        It contains:
+        1. Global Variables (Colors, Fonts, Spacing) in :root
+        2. CSS Reset and Base Styles
+        3. Component Styles (Cards, Buttons, Inputs, Tables)
+        4. Layout Styles (Grid, Flexbox utilities)
+        5. Print Styles (@media print) to format the paper for A4 printing
 ======================================== */
 :root {
     --font-display: 'Outfit', sans-serif;
@@ -2741,4 +2746,69 @@ body {
         width: 25px !important;
         height: 25px !important;
     }
+}
+
+/* Formula Reference Sheet Styles */
+.formula-reference-section {
+    page-break-before: always;
+    margin-top: 50px;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+/* --- Formula Reference Sheet Styling --- */
+@media screen {
+    .formula-reference-section {
+        display: none !important;
+        /* Hide completely in preview tab */
+    }
+}
+
+@media print {
+    .formula-reference-section {
+        display: block !important;
+        page-break-before: always;
+        border-top: 2px solid #333;
+        padding-top: 20px;
+    }
+}
+
+.chapter-formula-block {
+    margin-bottom: 30px;
+}
+
+.chapter-formula-block h3 {
+    font-family: 'Outfit', sans-serif;
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+}
+
+.formula-reference-section table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Times New Roman', serif;
+}
+
+.formula-reference-section th,
+.formula-reference-section td {
+    border: 1px solid #cbd5e1;
+    padding: 12px;
+    text-align: left;
+}
+
+.formula-reference-section th {
+    background-color: #f8fafc;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+}
+
+.formula-reference-section td:last-child {
+    text-align: center;
+    font-size: 1.1rem;
 }
