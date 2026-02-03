@@ -15,7 +15,7 @@
     <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures mobile responsiveness -->
     <meta name="google-site-verification" content="8VMGsnwPAB3LCtUK29a3o3qQxPtaDh7mYhvtiWjNZFM" />
-    <title>+2 Biology Question Paper Generator</title> <!-- Tab title in the browser -->
+    <title>Question Paper Generator</title> <!-- Tab title in the browser -->
     <meta name="description" content="Automatic Question Paper Generator for Tamil Nadu HSC Examinations">
     <!-- SEO description -->
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Pre-connects to Google Fonts server -->
@@ -94,7 +94,7 @@
                                 <div class="aside-icon">🛡️</div>
                                 <h2 class="aside-title">Secure Access</h2>
                                 <p class="aside-text">Expertly crafted tools for educators to generate high-quality
-                                    biology question papers in minutes.</p>
+                                    question papers in minutes.</p>
                                 <div class="feature-tags">
                                     <span>✓ Verified</span>
                                     <span>✓ PDF Export</span>
@@ -224,6 +224,42 @@
                 <div class="tab-card history-panel" style="margin-top: 30px;">
                     <h2 class="tab-title">Recent Papers</h2>
                     <p class="tab-subtitle">Quickly access and reload your previously generated question papers</p>
+
+                    <!-- History Filters -->
+                    <div class="history-filters"
+                        style="margin-bottom: 15px; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+                        <input type="text" id="filterHistoryName" placeholder="Filter by Name" oninput="renderHistory()"
+                            style="padding: 8px; border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
+
+                        <!-- Subject Dropdown -->
+                        <select id="filterHistorySubject" onchange="renderHistory()"
+                            style="padding: 8px; border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
+                            <option value="">All Subjects</option>
+                            <option value="maths">Maths</option>
+                            <option value="physics">Physics</option>
+                            <option value="chemistry">Chemistry</option>
+                            <option value="biology">Biology</option>
+                            <option value="botany">Botany</option>
+                            <option value="zoology">Zoology</option>
+                            <option value="computer science">Computer Science</option>
+                        </select>
+
+                        <!-- Class Dropdown -->
+                        <select id="filterHistoryClass" onchange="renderHistory()"
+                            style="padding: 8px; border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
+                            <option value="">All Classes</option>
+                            <option value="11">11th Std</option>
+                            <option value="12">12th Std</option>
+                        </select>
+
+                        <input type="text" id="filterHistoryMarks" placeholder="Marks" oninput="renderHistory()"
+                            style="padding: 8px; border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
+
+                        <!-- Date Picker -->
+                        <input type="date" id="filterHistoryDate" onchange="renderHistory()"
+                            style="padding: 8px; border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
+                    </div>
+
                     <div id="historyList" class="history-list">
                         <!-- Dynamically populated -->
                         <div class="empty-history">
@@ -570,7 +606,7 @@
 
     <script>
         const firebaseConfig = {
-            apiKey: "AIzaSyCjPLgP_4TglF70q0IJgBz--T-t0jmmYQE",
+            apiKey: "AIzaSyBChRInAkk6lQFI_bjgj1J20uJ_z8KcFO0",
             authDomain: "qns-gen.firebaseapp.com",
             projectId: "qns-gen",
             storageBucket: "qns-gen.firebasestorage.app",

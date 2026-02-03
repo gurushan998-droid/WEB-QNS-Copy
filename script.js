@@ -1,14 +1,6 @@
 /* ========================================
-   FILE: script.js
-   USE: This is the core logic of the +2 Biology Question Paper Generator.
-        It handles:
-        - Loading question data (JSON) based on selected Standard/Subject.
-        - Managing Application State (Current Tab, Selected Chapters, Sections).
-        - Rendering UI Components (Chapter lists, Section cards, Question slots).
-        - Drag-and-Drop functionality for reordering questions.
-        - Generating the final Question Paper preview.
-        - Saving/Loading History using LocalStorage.
-        - Exporting to PDF and Printing.
+   +2 Biology Question Paper Generator
+   Multi-Tab JavaScript Logic
 ======================================== */
 
 // ==========================================
@@ -2554,6 +2546,10 @@ function generateFinalPaper() {                     // Main engine to build the 
     const standardLabel = standardValue + " - STD";    // Formatted class label for header
 
     let html = `                                       <!--Start building HTML string-->
+    <!-- 
+       PRINT PREVIEW HEADER SECTION 
+       (Starts here)
+    -->
     <header class="paper-header">                     <!-- Visual header for the sheet -->
             <div style="display: flex; justify-content: flex-end; margin-bottom: 8px; padding-top: 5px;">
                 <div class="reg-no-wrapper">          <!-- Student ID box section -->
@@ -2674,6 +2670,10 @@ function generateFinalPaper() {                     // Main engine to build the 
     }
 
     // Add Footer
+    /*
+        PRINT PREVIEW FOOTER SECTION
+            (Starts here)
+    */
     html += `
         <div class="paper-footer" style="text-align: center; margin-top: 20px; font-weight: bold; font-style: italic;">
             ------- All the best -------
@@ -2770,22 +2770,71 @@ function savePaperToHistory() {
 }
 
 /**
- * Render the history list in Tab 1
+ * Render the history list in Tab 1 with Filtering support
  */
 function renderHistory() {
     const historyList = document.getElementById('historyList');
     if (!historyList) return;
 
-    if (papersHistory.length === 0) {
+    // Get Filter Values
+    const fName = document.getElementById('filterHistoryName')?.value.toLowerCase() || '';
+    const fSub = document.getElementById('filterHistorySubject')?.value.toLowerCase() || '';
+    const fClass = document.getElementById('filterHistoryClass')?.value || '';
+    const fMarks = document.getElementById('filterHistoryMarks')?.value || '';
+    const fDate = document.getElementById('filterHistoryDate')?.value.toLowerCase() || '';
+
+    // Map to preserve original indices for actions
+    const indexedPapers = papersHistory.map((p, i) => ({ paper: p, originalIndex: i }));
+
+    // Filter Logic
+    const displayList = indexedPapers.filter(item => {
+        const paper = item.paper;
+        const conf = paper.config || {};
+        const pName = (paper.name || '').toLowerCase();
+        const pSub = (conf.subject || '').toLowerCase();
+        const pStd = (conf.standard || '').toString();
+        const pMarks = (conf.totalMarks || '').toString();
+
+        // Date Check
+        let dateMatch = true;
+        if (fDate) {
+            // stored paper.date is "M/D/YYYY, H:MM:SS AM" or similar locale string
+            // filter date is "YYYY-MM-DD"
+            const pDateObj = new Date(paper.date);
+            const fDateObj = new Date(fDate);
+
+            // Compare YYYY-MM-DD parts
+            if (!isNaN(pDateObj.getTime()) && !isNaN(fDateObj.getTime())) {
+                const isSameDate = pDateObj.getDate() === fDateObj.getDate() &&
+                    pDateObj.getMonth() === fDateObj.getMonth() &&
+                    pDateObj.getFullYear() === fDateObj.getFullYear();
+                dateMatch = isSameDate;
+            } else {
+                // Fallback to string match if parsing fails
+                dateMatch = (paper.date || '').includes(fDate);
+            }
+        }
+
+        return pName.includes(fName) &&
+            pSub.includes(fSub) &&
+            pStd.includes(fClass) &&
+            pMarks.includes(fMarks) &&
+            dateMatch;
+    });
+
+    if (displayList.length === 0) {
         historyList.innerHTML = `
     <div class="empty-history" >
         <span style="font-size: 2rem; display: block; margin-bottom: 10px;">📄</span>
-                No previously generated papers yet.
+                ${papersHistory.length === 0 ? "No previously generated papers yet." : "No papers match your filters."}
             </div> `;
         return;
     }
 
-    historyList.innerHTML = papersHistory.map((paper, index) => `
+    historyList.innerHTML = displayList.map(item => {
+        const paper = item.paper;
+        const index = item.originalIndex; // Use original index for correct actions
+        return `
     <div class="history-item" onclick = "loadPaperFromHistory(${index}, true)" >
             <div class="history-info">
                 <h4>${paper.name}</h4>
@@ -2799,7 +2848,7 @@ function renderHistory() {
                 <button class="btn btn-sm btn-secondary btn-history" style="color: #ef4444; border-color: #ef4444;" onclick="event.stopPropagation(); deletePaperFromHistory(${index})" title="Delete">🗑️</button>
             </div>
         </div>
-    `).join('');
+    `}).join('');
 }
 
 
