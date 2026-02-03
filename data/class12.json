@@ -7,6 +7,10 @@
         {
             "value": "Zoology",
             "label": "Zoology"
+        },
+        {
+            "value": "Chemistry",
+            "label": "Chemistry"
         }
     ],
     "chapters": {
@@ -33,6 +37,23 @@
             "Ecosystem (Zoo)",
             "Biodiversity and Conservation (Zoo)",
             "Environmental Issues (Zoo)"
+        ],
+        "Chemistry": [
+            "Unit 1 - Metallurgy",
+            "Unit 2 - P-Block Elements - I",
+            "Unit 3 - P-Block Elements - II",
+            "Unit 4 - Transition and Inner Transition Elements",
+            "Unit 5 - Coordination Chemistry",
+            "Unit 6 - Solid State",
+            "Unit 7 - Chemical Kinetics",
+            "Unit 8 - Ionic Equilibrium",
+            "Unit 9 - Electro Chemistry",
+            "Unit 10 - Surface Chemistry",
+            "Unit 11 - Hydroxy Compounds and Ethers",
+            "Unit 12 - Carbonyl Compounds and Carboxylic Acids",
+            "Unit 13 - Organic Nitrogen Compounds",
+            "Unit 14 - Biomolecules",
+            "Unit 15 - Chemistry in Everyday Life"
         ]
     }
 }

@@ -7,6 +7,10 @@
         {
             "value": "Zoology",
             "label": "Zoology"
+        },
+        {
+            "value": "Chemistry",
+            "label": "Chemistry"
         }
     ],
     "chapters": {
@@ -23,6 +27,22 @@
             "Biomolecules",
             "Digestion and Absorption",
             "Breathing and Exchange of Gases"
+        ],
+        "Chemistry": [
+            "Unit 1 - Basic Concepts of Chemistry and Chemical Calculations",
+            "Unit 2 - Quantum Mechanical Model of Atom",
+            "Unit 3 - Periodic Classification of Elements",
+            "Unit 4 - Hydrogen",
+            "Unit 5 - Alkali and Alkaline Earth Metals",
+            "Unit 6 - Gaseous State",
+            "Unit 7 - Thermodynamics",
+            "Unit 8 - Physical and Chemical Equilibrium",
+            "Unit 9 - Solutions",
+            "Unit 10 - Chemical Bonding",
+            "Unit 11 - Fundamentals of Organic Chemistry",
+            "Unit 12 - Hydrocarbons",
+            "Unit 13 - Haloalkanes and Haloarenes",
+            "Unit 14 - Environmental Chemistry"
         ]
     }
 }

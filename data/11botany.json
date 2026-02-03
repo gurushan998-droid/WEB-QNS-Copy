@@ -38,8 +38,10 @@
         "longAnswer": {
             "bb": [
                 {
-                    "q": "Explain the hierarchical classification system in taxonomy.",
-                    "b": "Describe the rules of binomial nomenclature"
+                    "q": "Explain the hierarchical classification system in taxonomy."
+                },
+                {
+                    "q": "Describe the rules of binomial nomenclature"
                 }
             ],
             "interior": []
@@ -75,8 +77,10 @@
         "longAnswer": {
             "bb": [
                 {
-                    "q": "Describe the life cycle of a moss plant.",
-                    "b": "Explain the classification of plant kingdom."
+                    "q": "Describe the life cycle of a moss plant."
+                },
+                {
+                    "q": "Explain the classification of plant kingdom."
                 }
             ],
             "interior": []

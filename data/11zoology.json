@@ -29,8 +29,10 @@
         "longAnswer": {
             "bb": [
                 {
-                    "a": "Describe the classification of animal kingdom with examples.",
-                    "b": "Explain the salient features of phylum Arthropoda."
+                    "q": "Describe the classification of animal kingdom with examples."
+                },
+                {
+                    "q": "Explain the salient features of phylum Arthropoda."
                 }
             ],
             "interior": []

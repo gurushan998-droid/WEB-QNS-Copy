@@ -156,22 +156,28 @@ function handleLogout() {
     });
 }
 async function loadClassData(standardValue) {
-    const filePath = `data/class${standardValue}.json`; // 'data/' folder illana remove pannunga
+    if (!standardValue) return; // Add check for empty value
+    const filePath = `data/class${standardValue}.json`;
 
     try {
         const response = await fetch(filePath);
-        if (!response.ok) throw new Error("File Missing");
+        if (!response.ok) throw new Error("File Missing: " + filePath);
         const data = await response.json();
 
         // Save full data for chapter lookup
         fullClassData = data;
 
-        // Unga JSON structure-kku thagundha maadhiri
-        subjects = data.subjects || []; //
+        subjects = data.subjects || [];
         populateSubjectDropdown();
+
+        // If subject was already selected (e.g. from restored state), reload chapters
+        const currentSubject = document.getElementById('subject').value;
+        if (currentSubject) {
+            loadSubjectChapters(currentSubject);
+        }
     } catch (error) {
         console.warn("Using Fallback Data:", error);
-        // JSON fetch aagalana manual-ah data set pannunga
+        fullClassData = null; // Ensure it's null so we don't use stale data
         subjects = [
             { value: "Botany", label: "Botany" },
             { value: "Zoology", label: "Zoology" }
@@ -179,42 +185,68 @@ async function loadClassData(standardValue) {
         populateSubjectDropdown();
     }
 }
-/**
- * Load chapters for the selected subject
- * @param {string} subjectValue - Selected subject name
- */
 function loadSubjectChapters(subjectValue) {
-    const standard = document.getElementById('standard').value;
+    if (!subjectValue) {
+        chapters = [];
+        populateChapterList();
+        return;
+    }
 
-    // Fast Load: Populate chapters from class11/12.json metadata immediately
+    const standard = document.getElementById('standard').value;
+    if (!standard) {
+        alert("Please select Standard (11th or 12th) first!");
+        document.getElementById('subject').value = ""; // Reset subject dropdown
+        return;
+    }
+
+    // Fast Load: Populate chapters from metadata immediately
     if (fullClassData && fullClassData.chapters && fullClassData.chapters[subjectValue]) {
-        console.log("Loading chapters from metadata...");
+        console.log("Loading chapters from metadata for:", subjectValue);
         chapters = fullClassData.chapters[subjectValue];
+        populateChapterList();
+    } else {
+        // Fallback for UI if fetch hasn't happened yet
+        chapters = [];
         populateChapterList();
     }
 
     if (standard && subjectValue) {
         fetchQuestions(standard, subjectValue);
+    } else {
+        console.warn("Standard or Subject missing:", { standard, subjectValue });
     }
 }
 
 async function fetchQuestions(standard, subject) {
-    // Unga file 'data' folder-kulla illana 'data/' thookidunga
     const fileName = `${standard}${subject.toLowerCase()}.json`;
-    const filePath = `data/${fileName}`; // Inga path-ah check pannunga
+    const filePath = `data/${fileName}`;
 
     try {
         const response = await fetch(filePath);
-        if (!response.ok) throw new Error("File Not loaded: " + filePath);
+        if (!response.ok) throw new Error("File not found or access denied: " + filePath);
 
         const data = await response.json();
         questionBank = data;
-        chapters = Object.keys(data);
 
-        populateChapterList();
-        saveState(); // Data load aanadhuku appram save pannunga
+        // If chapters weren't loaded from metadata, load them from the file keys
+        if (chapters.length === 0) {
+            chapters = Object.keys(data);
+            populateChapterList();
+        }
+
+        saveState();
     } catch (error) {
-        console.error("Error:", error);
+        console.error("Fetch Error:", error);
+        // Show error message in the chapter list area if it's currently empty
+        if (chapters.length === 0) {
+            const container = document.getElementById('chapterList');
+            if (container) {
+                container.innerHTML = `<div style="padding: 20px; color: #d32f2f; background: #fee2e2; border-radius: 8px;">
+                    <strong>Error loading questions:</strong> ${error.message}<br>
+                    <small>Please check if data/${fileName} exists and is valid.</small>
+                </div>`;
+            }
+        }
     }
 }
 let stateRestoration = false; // Flag to prevent overwriting during loadState
@@ -489,18 +521,25 @@ function populateSubjectDropdown() {
 
 function populateChapterList() {                      // Draws checkboxes for Portions Tab
     const container = document.getElementById('chapterList'); // Get the grid container el
-    if (!container) {
-        console.error("populateChapterList: #chapterList container not found in DOM!");
-        return;
-    }
+    if (!container) return;
+
     if (!chapters || chapters.length === 0) {
-        container.innerHTML = '<p style="padding: 20px; color: #666;">No chapters found. Please select a subject first.</p>';
+        const std = document.getElementById('standard').value;
+        const sub = document.getElementById('subject').value;
+        container.innerHTML = `
+            <div class="no-chapters-msg" style="padding: 20px; text-align: center; color: #666; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: var(--radius-md); width: 100%;">
+                <p>No chapters available yet.</p>
+                <p style="font-size: 0.85rem; margin-top: 10px;">
+                    Current Status: Standard: ${std || 'None'}, Subject: ${sub || 'None'}
+                </p>
+                ${(std && sub) ? '<p style="color: var(--color-primary); margin-top: 10px;">Loading data... please wait.</p>' : '<p style="color: #ef4444; margin-top: 10px;">Please go back to Step 1 and select both Standard and Subject.</p>'}
+            </div>`;
         return;
     }
     container.innerHTML = chapters.map((chapter, index) => `  
         <div class="chapter-item" onclick="toggleChapterByClick('${chapter}')"> <!-- Card wrapper -->
             <input type="checkbox" id="ch_${chapter.replace(/\s/g, '_')}" value="${chapter}" onchange="toggleChapter('${chapter}')" 
-                   ${selectedChapters.includes(chapter) ? 'checked' : ''}> <!-- Checkbox with state sync -->
+                   ${selectedChapters.includes(chapter) ? 'checked' : ''} onclick="event.stopPropagation()"> <!-- Checkbox with state sync -->
             <label for="ch_${chapter.replace(/\s/g, '_')}">Chapter ${index + 1} - ${chapter}</label> <!-- Label with naming index -->
         </div>
     `).join('');                                     // Join all card strings
@@ -588,7 +627,8 @@ function addSection() {                                // Appends a new Part (A,
         attemptQuestions: '',                          // Required to answer
         marksPerQuestion: '',                           // Scale of marks
         isOrType: false,                               // Flag for Either/Or questions
-        isAndType: false                               // Flag for Sub-question parts
+        isAndType: false,                               // Flag for Sub-question parts
+        marksLevels: []                                // Filter for 2 mark/3 mark questions
     };
 
     sections.push(section);                            // Push to global array
@@ -634,20 +674,22 @@ function updateSection(id, field, value) {
             // Preserve empty string if input is cleared, otherwise parse as number
             section[field] = value === '' ? '' : (parseInt(value) || 0);
 
-            // Validate attemptQuestions doesn't exceed max
+            // Validate attemptQuestions doesn't exceed max safely
             if (field === 'maxQuestions' || field === 'attemptQuestions') {
-                if (section.attemptQuestions > section.maxQuestions) {
+                const maxVal = section.maxQuestions === '' ? Infinity : parseInt(section.maxQuestions);
+                const attemptVal = section.attemptQuestions === '' ? 0 : parseInt(section.attemptQuestions);
+
+                if (attemptVal > maxVal) {
                     section.attemptQuestions = section.maxQuestions;
                 }
             }
 
-            // Sync UI inputs if values were clamped or dependencies changed
+            // Sync UI inputs if values were clamped
             const attemptInput = document.getElementById(`sec-attempt-${id}`);
             if (attemptInput) {
-                if (parseInt(attemptInput.value) !== section.attemptQuestions) {
+                if (attemptInput.value !== String(section.attemptQuestions)) {
                     attemptInput.value = section.attemptQuestions;
                 }
-                // Update properties
                 if (field === 'maxQuestions') {
                     attemptInput.max = section.maxQuestions;
                 }
@@ -663,6 +705,21 @@ function updateSection(id, field, value) {
         calculateTotalMarks();
         saveState();
     }
+}
+
+function toggleSectionMark(id, mark) {
+    const section = sections.find(s => s.id === id);
+    if (!section) return;
+
+    if (!section.marksLevels) section.marksLevels = [];
+
+    const index = section.marksLevels.indexOf(mark);
+    if (index > -1) {
+        section.marksLevels.splice(index, 1);
+    } else {
+        section.marksLevels.push(mark);
+    }
+    saveState();
 }
 
 // ==========================================
@@ -694,12 +751,14 @@ function renderQuestionSelectionTab() {
         const startQNo = sectionStartNums[index];
         const questions = sectionQuestions[section.id] || [];
         const notice = getCompulsoryNotice(questions, startQNo);
+        const hasCompulsory = section.compulsoryIndex !== null && section.compulsoryIndex !== undefined;
 
         return `
             <button class="section-tab ${index === activeSectionTab ? 'active' : ''}" 
                     onclick="switchSectionTab(${index})"
-                    style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px;">
+                    style="display: flex; flex-direction: column; align-items: center; gap: 4px; justify-content: center;">
                 <span>${romanize(index + 1)}. ${section.name || ''}</span>
+                ${hasCompulsory ? `<span style="font-size: 0.65rem; font-weight: 700; color: #ef4444;">COMPULSORY</span>` : ''}
                 ${notice ? `<span style="font-size: 0.7rem; font-weight: normal; opacity: 0.8;">${notice}</span>` : ''}
             </button>
         `;
@@ -722,6 +781,12 @@ function switchSectionTab(index) {
     if (section) {
         questionFilters.type = section.type;
         questionFilters.chapter = 'all'; // Reset chapter filter too for better UX
+        // Sync marks filter with section settings
+        if (section.type === 'Short Answer' && section.marksLevels) {
+            questionFilters.marks = [...section.marksLevels];
+        } else {
+            questionFilters.marks = [];
+        }
     }
 
     renderQuestionSelectionTab();
@@ -756,7 +821,8 @@ let questionFilters = {
     chapter: 'all',
     type: 'all',
     source: ['bookBack', 'interior'],
-    marks: []
+    marks: [],
+    searchText: ''
 };
 
 // New state for Drag & Drop and Selection
@@ -794,6 +860,57 @@ function getAllSelectedQuestionKeys() {                // Finds all text-based Q
     });
 
     return keys;                                       // Return the global "taken" list
+}
+
+/**
+ * Render a question card with compulsory toggle
+ */
+function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions, startingNum) {
+    if (!q) return '';
+
+    const section = sections.find(s => s.id === sectionId);
+    const questionNumber = startingNum + idx;
+    const isCompulsory = section && section.compulsoryIndex === idx;
+
+    // Question text
+    let questionText = q.q || q.assertion || q.title || 'Question';
+    if (questionText.length > 100) questionText = questionText.substring(0, 100) + '...';
+
+    return `
+        <div class="question-card" style="background: white; border: 2px solid ${isCompulsory ? '#ef4444' : '#e2e8f0'}; border-radius: 8px; padding: 15px; margin-bottom: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div style="flex: 1;">
+                    <div style="font-weight: 700; font-size: 1.1rem; color: var(--color-primary); margin-bottom: 4px;">
+                        Q${questionNumber}
+                    </div>
+                    ${isCompulsory ? '<div style="color: #ef4444; font-size: 0.75rem; font-weight: 700; margin-bottom: 6px;">COMPULSORY</div>' : ''}
+                    <div style="color: var(--color-text); margin-bottom: 8px;">
+                        ${questionText}
+                    </div>
+                    ${q._type ? `<span style="font-size: 0.7rem; background: #e0e7ff; color: var(--color-primary); padding: 2px 6px; border-radius: 4px;">${q._type}</span>` : ''}
+                    ${q._chapter ? `<span style="font-size: 0.7rem; background: #fef3c7; color: #92400e; padding: 2px 6px; border-radius: 4px; margin-left: 4px;">${q._chapter}</span>` : ''}
+                </div>
+                <div style="display: flex; gap: 6px; flex-shrink: 0;">
+                    <button class="btn-icon ${isCompulsory ? 'danger' : 'stats'}" 
+                            onclick="toggleCompulsory(${sectionId}, ${idx})" 
+                            title="${isCompulsory ? 'Remove Compulsory' : 'Mark as Compulsory'}"
+                            style="font-size: 1rem;">
+                        ${isCompulsory ? '★' : '☆'}
+                    </button>
+                    <button class="btn-icon" 
+                            onclick="openBankForSlot(${sectionId}, ${idx})" 
+                            title="Change Question">
+                        🔄
+                    </button>
+                    <button class="btn-icon danger" 
+                            onclick="removeQuestion(${sectionId}, ${idx})" 
+                            title="Remove">
+                        ×
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
 }
 
 /**
@@ -923,6 +1040,12 @@ function autoFillSection(sectionId) {                 // AI-like random picker f
     // First handle existing slots (including nested ones)
     for (let i = 0; i < list.length; i++) {
         const slot = list[i];
+
+        // Skip the compulsory question position - it should not be replaced
+        if (section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && i === section.compulsoryIndex) {
+            continue;
+        }
+
         if (slot.mode === 'or' && slot.questions) {
             // Fill nested placeholders
             for (let j = 0; j < slot.questions.length; j++) {
@@ -976,8 +1099,93 @@ function autoFillSection(sectionId) {                 // AI-like random picker f
     renderSectionQuestions();                          // Refresh the UI slots
 }
 
+/**
+ * Toggle compulsory status for a question position
+ * @param {number} sectionId - ID of the section
+ * @param {number} idx - Index/position of the question
+ */
+function toggleCompulsory(sectionId, idx) {
+    const section = sections.find(s => s.id === sectionId);
+    if (!section) return;
+
+    if (!sectionQuestions[sectionId] || !sectionQuestions[sectionId][idx]) return;
+
+    const question = sectionQuestions[sectionId][idx];
+
+    // Don't allow marking placeholders as compulsory
+    if (question.isPlaceholder) {
+        alert("Please select a question first before marking it as compulsory.");
+        return;
+    }
+
+    // Toggle: if this index is already compulsory, remove it; otherwise set it
+    if (section.compulsoryIndex === idx) {
+        section.compulsoryIndex = null; // Remove compulsory
+    } else {
+        section.compulsoryIndex = idx; // Set this position as compulsory
+    }
+
+    saveState();
+    renderSections(); // Update section display
+    renderSectionQuestions(); // Update question list
+}
+
+/**
+ * Remove a question from a section
+ * @param {number} sectionId - ID of the section
+ * @param {number} idx - Index of the question to remove
+ */
+function removeQuestion(sectionId, idx) {
+    if (!sectionQuestions[sectionId]) return;
+
+    const section = sections.find(s => s.id === sectionId);
+    if (!section) return;
+
+    // Remove the question
+    sectionQuestions[sectionId].splice(idx, 1);
+
+    // Adjust compulsory index if needed
+    if (section.compulsoryIndex !== null && section.compulsoryIndex !== undefined) {
+        if (section.compulsoryIndex === idx) {
+            // The compulsory question was removed
+            section.compulsoryIndex = null;
+        } else if (section.compulsoryIndex > idx) {
+            // Compulsory question was after the removed one, shift index down
+            section.compulsoryIndex--;
+        }
+    }
+
+    saveState();
+    renderSectionQuestions();
+}
+
 
 let activeSlotIndex = null; // Track which slot we are filling
+
+/**
+ * Open question bank to change/replace a question at a specific slot
+ * Clears compulsory status when user actively changes the question
+ */
+function openBankForSlot(sectionId, idx) {
+    const section = sections.find(s => s.id === sectionId);
+    if (!section) return;
+
+    // Clear compulsory status if this position was marked as compulsory
+    // Since user is actively changing the question at this position
+    if (section.compulsoryIndex === idx) {
+        section.compulsoryIndex = null;
+        saveState();
+    }
+
+    // Set this as the active slot for replacement
+    activeSlotIndex = idx;
+
+    // Show notification
+    alert(`Position ${idx + 1} is ready for replacement. Click on a question from the bank below to replace it.`);
+
+    renderSectionQuestions();
+}
+
 
 function addEmptyQuestionSlot(sectionId) {
     const section = sections.find(s => s.id === sectionId);
@@ -1130,11 +1338,18 @@ function getQuestionPool(section, forceAll = false) {
 
         if (forceAll || section.type === 'Short Answer' || questionFilters.type === 'Short Answer' || questionFilters.type === 'all') {
             if (chapterData.shortAnswer) {
-                if (Array.isArray(chapterData.shortAnswer)) pool = pool.concat(tag(chapterData.shortAnswer, 'Short Answer'));
+                let saItems = [];
+                if (Array.isArray(chapterData.shortAnswer)) saItems = tag(chapterData.shortAnswer, 'Short Answer');
                 else {
-                    if (chapterData.shortAnswer.bb) pool = pool.concat(tag(chapterData.shortAnswer.bb, 'Short Answer', 'bb'));
-                    if (chapterData.shortAnswer.interior) pool = pool.concat(tag(chapterData.shortAnswer.interior, 'Short Answer', 'interior'));
+                    if (chapterData.shortAnswer.bb) saItems = saItems.concat(tag(chapterData.shortAnswer.bb, 'Short Answer', 'bb'));
+                    if (chapterData.shortAnswer.interior) saItems = saItems.concat(tag(chapterData.shortAnswer.interior, 'Short Answer', 'interior'));
                 }
+
+                // Apply section-level marks filter if enabled and not forceAll (forceAll is for bank display)
+                if (section.marksLevels && section.marksLevels.length > 0 && section.type === 'Short Answer' && !forceAll) {
+                    saItems = saItems.filter(q => q.marks && section.marksLevels.includes(parseInt(q.marks)));
+                }
+                pool = pool.concat(saItems);
             }
         }
 
@@ -1201,6 +1416,30 @@ function getQuestionPool(section, forceAll = false) {
 // Filter logic
 function filterQuestions(pool) {
     return pool.filter(q => {
+        // Search text filter - check if search text exists in question content
+        if (questionFilters.searchText && questionFilters.searchText.trim() !== '') {
+            const searchLower = questionFilters.searchText.toLowerCase().trim();
+            let textToSearch = '';
+
+            // Collect all searchable text from the question
+            if (q.q) textToSearch += q.q + ' ';
+            if (q.assertion) textToSearch += q.assertion + ' ';
+            if (q.reason) textToSearch += q.reason + ' ';
+            if (q.title) textToSearch += q.title + ' ';
+            if (q.options && Array.isArray(q.options)) {
+                textToSearch += q.options.join(' ') + ' ';
+            }
+            if (q.columnA && Array.isArray(q.columnA)) {
+                textToSearch += q.columnA.join(' ') + ' ';
+            }
+            if (q.columnB && Array.isArray(q.columnB)) {
+                textToSearch += q.columnB.join(' ') + ' ';
+            }
+
+            // Check if search term exists in the collected text
+            if (!textToSearch.toLowerCase().includes(searchLower)) return false;
+        }
+
         // Chapter filter
         if (questionFilters.chapter !== 'all' && q._chapter !== questionFilters.chapter && q._chapter !== 'all') return false;
 
@@ -1255,6 +1494,18 @@ function updateQuestionFilter(type, value) {
     // Generic handler
     questionFilters[type] = value;
     renderSectionQuestions();
+
+    // Restore focus to search input if it was the search text being updated
+    if (type === 'searchText') {
+        setTimeout(() => {
+            const newSearchInput = document.querySelector('.inline-filters-sidebar input[type="text"]');
+            if (newSearchInput) {
+                newSearchInput.focus();
+                // Set cursor to the end
+                newSearchInput.setSelectionRange(value.length, value.length);
+            }
+        }, 0);
+    }
 }
 
 function toggleSourceFilter(source, isChecked) {
@@ -1272,6 +1523,14 @@ function toggleMarkFilter(mark, isChecked) {
     } else {
         questionFilters.marks = questionFilters.marks.filter(m => m !== mark);
     }
+
+    // Synchronize with section-level config
+    const section = sections[activeSectionTab];
+    if (section && section.type === 'Short Answer') {
+        section.marksLevels = [...questionFilters.marks];
+        saveState();
+    }
+
     renderSectionQuestions();
 }
 
@@ -1330,6 +1589,16 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                 <div style="display: flex; flex: 1; overflow: hidden;">
                     <!-- Left Sidebar: Filters -->
                     <div class="inline-filters-sidebar" style="width: 250px; background: #fbfbfc; border-right: 1px solid #e2e8f0; padding: 20px; display: flex; flex-direction: column; gap: 20px; flex-shrink: 0; overflow-y: auto;">
+                        <!-- Filter: Search by Keywords -->
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            <label style="font-size: 0.75rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Search by Words</label>
+                            <input type="text" 
+                                   placeholder="Type keywords..." 
+                                   value="${questionFilters.searchText || ''}"
+                                   oninput="updateQuestionFilter('searchText', this.value)" 
+                                   style="padding: 10px; border-radius: var(--radius-sm); border: 1.5px solid var(--color-border); font-family: var(--font-body); font-size: 0.9rem; background: white;">
+                        </div>
+                        
                         <!-- Filter: Type -->
                         <div style="display: flex; flex-direction: column; gap: 6px;">
                             <label style="font-size: 0.75rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Question Type</label>
@@ -1368,7 +1637,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
 
                         ${(() => {
                 const subjectValue = document.getElementById('subject')?.value;
-                if (subjectValue === 'Botany' && questionFilters.type === 'Short Answer') {
+                if (questionFilters.type === 'Short Answer') {
                     return `
                                     <!-- Filter: Marks -->
                                     <div style="display: flex; flex-direction: column; gap: 6px;">
@@ -2060,6 +2329,11 @@ function renderSections() {
         return;
     }
 
+    // Save scroll position of the main content area
+    const scrollArea = document.querySelector('.app-main');
+    const scrollPos = scrollArea ? scrollArea.scrollTop : 0;
+    const activeId = document.activeElement ? document.activeElement.id : null;
+
     container.innerHTML = sections.map((section, sectionIdx) => {
         return `
         <div class="section-card" draggable="true" 
@@ -2090,6 +2364,19 @@ function renderSections() {
                             <option value="Short Answer" ${section.type === 'Short Answer' ? 'selected' : ''}>Short Answer</option>
                             <option value="Long Answer" ${section.type === 'Long Answer' ? 'selected' : ''}>Long Answer</option>
                         </select>
+                        
+                        ${(section.type === 'Short Answer') ? `
+                        <div style="display: flex; gap: 15px; background: #fff; padding: 6px 10px; border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
+                            <label style="display: flex; align-items: center; gap: 5px; margin-bottom: 0; cursor: pointer; font-size: 0.8rem; font-weight: 600;">
+                                <input type="checkbox" ${(section.marksLevels && section.marksLevels.includes(2)) ? 'checked' : ''} 
+                                       onchange="toggleSectionMark(${section.id}, 2); renderSections();" style="width: 16px; height: 16px;"> 2 Mark
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 5px; margin-bottom: 0; cursor: pointer; font-size: 0.8rem; font-weight: 600;">
+                                <input type="checkbox" ${(section.marksLevels && section.marksLevels.includes(3)) ? 'checked' : ''} 
+                                       onchange="toggleSectionMark(${section.id}, 3); renderSections();" style="width: 16px; height: 16px;"> 3 Mark
+                            </label>
+                        </div>
+                        ` : ''}
                         
                         ${(section.type === 'Long Answer') ? `
                         <div style="display: flex; gap: 15px; background: #fff; padding: 6px 10px; border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
@@ -2122,6 +2409,13 @@ function renderSections() {
         </div>
     `;
     }).join('');
+
+    // Restore scroll position
+    if (scrollArea) scrollArea.scrollTop = scrollPos;
+    if (activeId) {
+        const el = document.getElementById(activeId);
+        if (el) el.focus();
+    }
 }
 
 
@@ -2334,7 +2628,7 @@ function generateFinalPaper() {                     // Main engine to build the 
 
     // Add Footer
     html += `
-        <div class="paper-footer" style="text-align: center; margin-top: 40px; font-weight: bold; font-style: italic;">
+        <div class="paper-footer" style="text-align: center; margin-top: 20px; font-weight: bold; font-style: italic;">
             -------All the best-------
         </div>
     `;
@@ -2346,6 +2640,11 @@ function generateFinalPaper() {                     // Main engine to build the 
 
     // Save to history
     savePaperToHistory();
+
+    // Kadaisiyil idhai serkkavum
+    if (window.MathJax) {
+        MathJax.typesetPromise();
+    }
 }
 
 /**
@@ -3269,22 +3568,29 @@ function renderQuestionForPaper(q, label) {
     }
 
     // Single Question (MCQ, Answer, Match, etc.)
-    let contentHtml = `<div class="question-text">${q.q || q.assertion || (q.title + (q.columnA ? ' (Match)' : ''))}</div>`;
+    let indexHtml = `<div class="question-text">${q.q || q.assertion || (q.title + (q.columnA ? ' (Match)' : ''))}</div>`;
 
     if (q.options) {
         const layoutClass = getOptionLayoutClass(q.options);
-        contentHtml += `
+        indexHtml += `
             <div class="options-inline ${layoutClass}">
                 ${q.options.map((opt, i) => `<span class="option">${String.fromCharCode(97 + i)}) ${opt}</span>`).join('')}
             </div>`;
     } else if (q.columnA) {
-        contentHtml += `
+        indexHtml += `
             <table class="match-table">
                ${q.columnA.map((item, idx) => `<tr><td>${item}</td><td>${q.columnB[idx]}</td></tr>`).join('')}
             </table>`;
     }
 
-    return `<div class="question"><div class="question-number">${label}</div><div class="question-content">${contentHtml}</div></div>`;
+    return `<div class="question"><div class="question-number">${label}</div><div class="question-content">${indexHtml}</div></div>`;
+
+    // Diagram irundhal image tag-ai add pannum logic
+    if (q.diagram) {
+        indexHtml += `<div class="question-diagram"><img src="${q.diagram}" style="max-width:200px;"></div>`;
+    }
+
+    return `<div class="question"><div class="question-number">${label}</div><div class="question-content">${indexHtml}</div></div>`;
 }
 
 // Auto Generate Button
@@ -3474,9 +3780,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const subjectSelect = document.getElementById('subject'); // FIXED: Declare variable before use
     if (subjectSelect) {
         subjectSelect.addEventListener('change', function () {
-            const subjectSelect = document.getElementById('subject');
             loadSubjectChapters(this.value);
             saveState();
         });
@@ -3838,10 +4144,6 @@ function clearTab(tabNum) {
     }
     saveState();
 }
-
-
-
-
 
 // Initialize on load
 window.onload = function () {

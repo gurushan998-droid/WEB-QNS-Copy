@@ -510,7 +510,7 @@ body {
 
 .auth-footer {
     margin-top: 30px;
-    padding-top: 20px;
+    padding-top: 10px;
     border-top: 1px solid var(--color-border);
     text-align: center;
 }
@@ -1687,9 +1687,8 @@ body {
 .question-text {
     /* Main question body text area */
     display: block;
-    /* Full-width block */
     white-space: pre-wrap;
-    /* Preserves breaks for editing */
+    /* Preserves breaks for editing and equations */
 }
 
 .options {
@@ -1744,8 +1743,8 @@ body {
     display: block;
     margin: 0;
     line-height: 1.4;
-    white-space: normal;
-    /* Allow internal wrapping if needed */
+    white-space: pre-wrap;
+    /* Preserves breaks for multi-line equations in options */
 }
 
 /* Table for Match the Following questions */
@@ -2523,6 +2522,96 @@ body {
 
 .reg-no-box:last-child {
     border-right: none;
+}
+
+/* ========================================
+   12. APPLICATION FOOTER
+   Styles for the sticky bottom bar 
+   with status, credits, and contact.
+======================================== */
+.app-footer {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    padding: 2px 40px;
+    flex-shrink: 0;
+    z-index: 100;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.footer-info,
+.footer-status,
+.footer-contact {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    flex: 1;
+    align-items: center;
+}
+
+
+.version-tag {
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    background: auto;
+    padding: 1px 5px;
+    border-radius: 3px;
+}
+
+.copyright {
+    font-size: 0.65rem;
+    color: var(--color-text-muted);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-success);
+    display: inline-block;
+}
+
+.status-text {
+    font-size: 0.65rem;
+    color: var(--color-text-muted);
+}
+
+.contact-label {
+    font-size: 0.65rem;
+    color: var(--color-text-muted);
+}
+
+.contact-link {
+    font-size: 0.65rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-info,
+    .footer-status,
+    .footer-contact {
+        align-items: center;
+    }
 }
 
 /* Consolidated Print Settings */

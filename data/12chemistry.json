@@ -1,0 +1,173 @@
+{
+    "Unit 1 - Basic Concepts of Chemistry and Chemical Calculations": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "What is the molecular formula of sulfuric acid?",
+                    "options": [
+                        "H<sub>2</sub>SO<sub>4</sub>",
+                        "HSO<sub>4</sub>",
+                        "H<sub>2</sub>S",
+                        "SO<sub>4</sub>"
+                    ],
+                    "marks": 1
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Calculate the number of moles in 18g of H<sub>2</sub>O",
+                    "options": [
+                        "0.5 mol",
+                        "1 mol",
+                        "2 mol",
+                        "18 mol"
+                    ],
+                    "marks": 1
+                }
+            ]
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "Define molar mass and calculate it for CaCO<sub>3</sub>",
+                    "marks": 2
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Write the balanced equation for the reaction:<br>Cu + HNO<sub>3</sub> → Cu(NO<sub>3</sub>)<sub>2</sub> + NO + H<sub>2</sub>O",
+                    "marks": 3
+                }
+            ]
+        },
+        "longAnswer": {
+            "bb": [
+                {
+                    "q": "Explain the law of multiple proportions with suitable examples"
+                }
+            ],
+            "interior": []
+        }
+    },
+    "Unit 2 - Quantum Mechanical Model of Atom": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "The electronic configuration of Fe<sup>2+</sup> is",
+                    "options": [
+                        "[Ar] 3d<sup>6</sup>",
+                        "[Ar] 3d<sup>5</sup> 4s<sup>1</sup>",
+                        "[Ar] 3d<sup>4</sup>",
+                        "[Ar] 3d<sup>7</sup>"
+                    ],
+                    "marks": 1
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Identify the subshell shown in this probability distribution diagram:<br><img src='data/subshell_p.png' width='150px' class='resizable-img'><br>Is it a p<sub>x</sub> or p<sub>y</sub> orbital?",
+                    "marks": 1
+                }
+            ]
+        },
+        "shortAnswer": {
+            "bb": [
+                {
+                    "q": "State Heisenberg's uncertainty principle: Δx × Δp ≥ h/4π",
+                    "marks": 2
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Observe the laboratory icon shown below:<br><img src='data/icon.svg' width='100px' class='resizable-img'><br>Explain the importance of this safety symbol in a chemical laboratory.",
+                    "marks": 2
+                }
+            ]
+        },
+        "longAnswer": {
+            "bb": [],
+            "interior": []
+        }
+    },
+    "Unit 5 - Coordination Chemistry": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [],
+            "interior": [
+                {
+                    "q": "Identify the Lewis acid and the Lewis base in the following reaction:<br>Cr<sup>3+</sup> + 6H<sub>2</sub>O → [Cr(H<sub>2</sub>O)<sub>6</sub>]<sup>3+</sup>",
+                    "marks": 2
+                }
+            ]
+        },
+        "longAnswer": {
+            "bb": [],
+            "interior": []
+        }
+    },
+    "Unit 7 - Chemical Kinetics": {
+        "mcq": {
+            "bb": [
+                {
+                    "q": "Identify the order for the following reactions:<br>(i) Rusting of Iron<br>(ii) Radioactive disintegration of <sub>92</sub>U<sup>238</sup><br>(iii) 2A + 3B → products ; rate = k [A]<sup>1/2</sup> [B]<sup>2</sup>",
+                    "options": [
+                        "First, First, 2.5",
+                        "Zero, First, 1.5",
+                        "First, Zero, 2.5",
+                        "Mixed, First, 5"
+                    ],
+                    "marks": 1
+                }
+            ],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [],
+            "interior": [
+                {
+                    "q": "The rate constant for a first order reaction is 1.54 × 10<sup>-3</sup> s<sup>-1</sup>. Calculate its half life time.",
+                    "marks": 2
+                },
+                {
+                    "q": "The rate of formation of dimer in a second order reaction is 7.5 × 10<sup>-3</sup> mol L<sup>-1</sup>s<sup>-1</sup> at 0.05 mol L<sup>-1</sup> monomer concentration. Calculate the rate constant.",
+                    "marks": 3
+                },
+                {
+                    "q": "Identify the type of structure shown in the image below and explain its reaction rate:<br><img src='data/chemistry_structure.png' width='200px' class='resizable-img'><br>Explain why surface area affects the rate in this case.",
+                    "marks": 3
+                }
+            ]
+        },
+        "longAnswer": {
+            "bb": [],
+            "interior": [
+                {
+                    "q": "A first order reaction is 40% complete in 50 minutes. Calculate the value of the rate constant. In what time will the reaction be 80% complete?",
+                    "marks": 5
+                }
+            ]
+        }
+    },
+    "Unit 8 - Physical and Chemical Equilibrium": {
+        "mcq": {
+            "bb": [],
+            "interior": []
+        },
+        "shortAnswer": {
+            "bb": [],
+            "interior": [
+                {
+                    "q": "Identify the Lewis acid and the Lewis base in the following reaction:<br>Cr<sup>3+</sup> + 6H<sub>2</sub>O → [Cr(H<sub>2</sub>O)<sub>6</sub>]<sup>3+</sup>",
+                    "marks": 2
+                }
+            ]
+        },
+        "longAnswer": {
+            "bb": [],
+            "interior": []
+        }
+    }
+}

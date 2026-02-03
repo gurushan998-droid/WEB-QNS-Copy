@@ -16,8 +16,34 @@
     <link rel="stylesheet" href="style.css"> <!-- Connects the external CSS design file -->
     <link rel="shortcut icon" href="#">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <!-- Library for direct PDF download -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- MathJax   -->
+    <meta charset="UTF-8">
+    <title>Math Question Renderer</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
 
+        .question-box {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 800px;
+        }
+    </style>
 </head>
 
 <body> <!-- Main visible content of the page -->
@@ -285,6 +311,7 @@
 
             <!-- Tab 5: Preview -->
             <section id="tab5" class="tab-content"> <!-- Final question paper review panel -->
+                <div id="display-area" class="question-box"></div> <!--math question display area  -->
                 <div class="preview-container"> <!-- Centers the A4 paper simulation -->
                     <div class="preview-actions no-print"> <!-- MS Word style formatting toolbar -->
                         <!-- Font Group -->
@@ -462,8 +489,8 @@
         <footer class="app-footer no-print"> <!-- Bottom sticky footer for credits and status -->
             <div class="footer-content"> <!-- Inner container for footer layout -->
                 <div class="footer-info"> <!-- Version and copyright group -->
-                    <span class="version-tag">Version 2.4.0-PRO</span> <!-- Release version identifier -->
-                    <span class="copyright">© 2026 Qns-Guru_Systems. All rights reserved.</span>
+                    <span class="version-tag">Version 2.4.0-PRO</span> <span class="copyright">• © 2026
+                        Qns-Guru_Systems. All rights reserved.</span>
                     <!-- Usage rights -->
                 </div>
                 <div class="footer-status"> <!-- Live connection or data status -->
@@ -480,11 +507,11 @@
 
     <!-- Data Files -->
     <!-- Data Files (Now loaded dynamically via JSON) -->
-    <!-- <script src="data/11botany.js"></script> -->
-    <!-- <script src="data/12botany.js"></script> -->
-    <!-- <script src="data/12zoology.js"></script> -->
-    <!-- <script src="data/class11.js"></script> -->
-    <!-- <script src="data/class12.js"></script> -->
+    <!-- <script src="data/11botany.json"></script> -->
+    <!-- <script src="data/12botany.json"></script> -->
+    <!-- <script src="data/12zoology.json"></script> -->
+    <!-- <script src="data/class11.json"></script> -->
+    <!-- <script src="data/class12.json"></script> -->
 
     <!-- Import Question Modal -->
     <div id="importModal" class="modal-overlay" style="display: none;"> <!-- Hidden overlay for adding Qs -->
@@ -551,6 +578,35 @@
 
     <!-- Main Logic (Load after Firebase) -->
     <script src="script.js"></script>
+
+    <!------------------------------------------------------Mathjax------------------------------------------------------>
+    <script>
+        // This matches the specific JSON format you provided
+        const questionFromJSON = {
+            "q": "Given $A = \\begin{bmatrix} 1 & -1 \\\\ 2 & 0 \\end{bmatrix}$, $B = \\begin{bmatrix} 3 & -2 \\\\ 1 & 1 \\end{bmatrix}$ and $C = \\begin{bmatrix} 1 & 1 \\\\ 2 & 2 \\end{bmatrix}$, find a matrix $X$ such that $AXB = C$.",
+            "marks": 5
+        };
+
+        function renderQuestion() {
+            const displayArea = document.getElementById('display-area');
+
+            // Injecting the raw LaTeX string from JSON into the HTML
+            displayArea.innerHTML = `
+            <p><strong>Question:</strong> ${questionFromJSON.q}</p>
+            <p><strong>Marks:</strong> ${questionFromJSON.marks}</p>
+        `;
+
+            // IMPORTANT: Tell MathJax to scan the new HTML and render the matrices
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                MathJax.typesetPromise([displayArea]).then(() => {
+                    console.log("Math rendered successfully!");
+                });
+            }
+        }
+
+        // Run the function when the page is ready
+        window.onload = renderQuestion;
+    </script>
 </body>
 
 </html>
