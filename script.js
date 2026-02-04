@@ -1080,60 +1080,40 @@ function autoFillSection(sectionId) {                 // AI-like random picker f
  * @param {number} idx - Index/position of the question
  */
 function toggleCompulsoryInternal(sectionId, idx) {
-    console.log('=== toggleCompulsory START ===');
-    console.log('Input sectionId:', sectionId, 'idx:', idx);
-
     const sId = Number(sectionId);
     const qIdx = Number(idx);
-    console.log('Converted sId:', sId, 'qIdx:', qIdx);
-
     const section = sections.find(s => s.id === sId);
-    console.log('Found section:', section);
 
     if (!section) {
-        console.error('ERROR: Section not found for sId:', sId);
-        console.log('Available sections:', sections.map(s => ({ id: s.id, name: s.name })));
+        console.error('Section not found:', sId);
         return;
     }
 
     if (!sectionQuestions[sId] || !sectionQuestions[sId][qIdx]) {
-        console.error('ERROR: Question not found at sId:', sId, 'qIdx:', qIdx);
-        console.log('sectionQuestions[sId]:', sectionQuestions[sId]);
+        console.error('Question not found at index:', sId, qIdx);
         return;
     }
-
-    console.log('Current compulsoryIndex BEFORE toggle:', section.compulsoryIndex);
 
     // Toggle: if this index is already compulsory, remove it; otherwise set it
     if (section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === qIdx) {
         section.compulsoryIndex = null; // Remove compulsory
-        console.log('✓ REMOVED compulsory from question', qIdx);
     } else {
         section.compulsoryIndex = qIdx; // Set this position as compulsory
-        console.log('✓ SET question', qIdx, 'as compulsory');
     }
-
-    console.log('Current compulsoryIndex AFTER toggle:', section.compulsoryIndex);
 
     // Close all mode menus
     document.querySelectorAll('.mode-menu').forEach(menu => {
         menu.style.display = 'none';
     });
 
-    console.log('Calling saveState()...');
     saveState();
-
-    console.log('Calling renderSectionQuestions()...');
     renderSectionQuestions();
 
     // Also refresh tabs to reflect compulsory notice if we are in Tab 4
     const tab4 = document.getElementById('tab4');
     if (tab4 && tab4.classList.contains('active')) {
-        console.log('Refreshing section tabs...');
         renderQuestionSelectionTab();
     }
-
-    console.log('=== toggleCompulsory END ===');
 }
 
 /**
@@ -3701,14 +3681,59 @@ function renderQuestionForPaper(q, label) {
     if (q.questions) {
         // Complex (OR/AND)
         const partTitle = q.q || q.assertion || q.title || "";
+
+        // Handle parent question diagram if present
+        let parentDiagramHtml = '';
+        const parentImgPath = q.diagram || q.image;
+        if (parentImgPath) {
+            const fullImgPath = (parentImgPath.includes('/') || parentImgPath.includes('\\')) ? parentImgPath : `data/picture/${parentImgPath}`;
+            parentDiagramHtml = `<div class="question-diagram" style="margin-top: 10px; margin-bottom: 10px;">
+                <img src="${fullImgPath}" style="max-width: 300px; height: auto; border: 1px solid #eee; padding: 5px; background: #fff;" alt="Question Diagram">
+            </div>`;
+        }
+
         return `
     <div class="question" >
                 <div class="question-number">${label}</div>
                 <div class="question-content">
                     ${partTitle ? `<div style="font-weight: 600; margin-bottom: 8px;">${partTitle}</div>` : ''}
+                    ${parentDiagramHtml}
                     ${q.questions.map((subQ, i) => {
-            const subHtml = renderQuestionForPaper(subQ, subQ.label || '');
-            const separator = (q.mode === 'or' && i < q.questions.length - 1) ? '<div style="text-align: center; font-weight: bold; margin: 10px 0;">- OR -</div>' : '';
+            // Generate sub-question label based on mode
+            let subLabel = '';
+            if (q.mode === 'or') {
+                // OR type: use (a), (b), (c)...
+                subLabel = `(${String.fromCharCode(97 + i)})`;
+            } else {
+                // AND type: use (i), (ii), (iii)...
+                const romanNumerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x'];
+                subLabel = `(${romanNumerals[i] || (i + 1)})`;
+            }
+
+            // Extract just the question text (without wrapping divs)
+            let subQuestionText = subQ.q || subQ.assertion || subQ.title || '';
+
+            // Handle options if present
+            let optionsHtml = '';
+            if (subQ.options) {
+                const layoutClass = getOptionLayoutClass(subQ.options);
+                optionsHtml = `<div class="options-inline ${layoutClass}">
+                    ${subQ.options.map((opt, optIdx) => `<span class="option">${String.fromCharCode(97 + optIdx)}) ${opt}</span>`).join('')}
+                </div>`;
+            }
+
+            // Handle diagram if present
+            let diagramHtml = '';
+            const imgPath = subQ.diagram || subQ.image;
+            if (imgPath) {
+                const fullImgPath = (imgPath.includes('/') || imgPath.includes('\\')) ? imgPath : `data/picture/${imgPath}`;
+                diagramHtml = `<div class="question-diagram" style="margin-top: 10px; margin-bottom: 10px;">
+                    <img src="${fullImgPath}" style="max-width: 300px; height: auto; border: 1px solid #eee; padding: 5px; background: #fff;" alt="Question Diagram">
+                </div>`;
+            }
+
+            const subHtml = `<div class="sub-question"><strong>${subLabel}</strong> ${subQuestionText}${diagramHtml}${optionsHtml}</div>`;
+            const separator = (q.mode === 'or' && i < q.questions.length - 1) ? '<div class="or-divider">- OR -</div>' : '';
             return subHtml + separator;
         }).join('')}
                 </div>
