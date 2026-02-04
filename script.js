@@ -629,7 +629,7 @@ function addSection() {                                // Appends a new Part (A,
         isOrType: false,                               // Flag for Either/Or questions
         isAndType: false,                               // Flag for Sub-question parts
         marksLevels: [],                                // Filter for 2 mark/3 mark questions
-        compulsoryIndex: false                           // Track which question is mandatory
+        compulsoryIndex: null                           // Track which question is mandatory
     };
 
     sections.push(section);                            // Push to global array
@@ -738,13 +738,7 @@ function renderQuestionSelectionTab() {
     }
 
     // Calculate start question numbers for each section to show in tabs
-    let currentGlobalQNum = 1;
-    const sectionStartNums = sections.map(s => {
-        const start = currentGlobalQNum;
-        const qCount = (sectionQuestions[s.id] || []).filter(q => !q.isPlaceholder).length;
-        currentGlobalQNum += qCount;
-        return start;
-    });
+    const sectionStartNums = sections.map((s, i) => getStartingQuestionNumber(i) + 1);
 
     // Render section tabs
     const tabsContainer = document.getElementById('sectionTabsContainer');
@@ -760,9 +754,8 @@ function renderQuestionSelectionTab() {
                     style="display: flex; flex-direction: column; align-items: center; gap: 2px; justify-content: center; min-width: 120px;">
                 <span style="font-weight: 600;">${romanize(index + 1)}. ${section.name || ''}</span>
                 ${hasCompulsory ? `
-                    <div style="display: flex; flex-direction: column; align-items: center; line-height: 1;">
-                        <span style="font-size: 0.6rem; font-weight: 900; color: #ef4444; letter-spacing: 0.05em;">COMPULSORY</span>
-                        ${notice ? `<span style="font-size: 0.65rem; font-weight: 700; color: #ef4444; margin-top: 1px;">Q.${startQNo + section.compulsoryIndex}</span>` : ''}
+                    <div style="font-size: 0.65rem; font-weight: 700; color: #ef4444; margin-top: 1px;">
+                        Q.No: ${Number(startQNo) + Number(section.compulsoryIndex)} is compulsory
                     </div>
                 ` : ''}
             </button>
@@ -916,7 +909,7 @@ function renderSectionQuestions() {
                             <span style="font-weight: 600; font-size: 1.1rem;">${section.name || 'Unnamed Section'}</span>
                             <button class="btn-icon stats" onclick="renameSectionFromTab4(${section.id})" title="Rename Section" style="margin-left: 10px; opacity: 0.6;">✏️</button>
                             <div style="margin-left: 15px; background: #fee2e2; border-radius: 4px; padding: 2px 8px; font-size: 0.8rem; font-weight: 700; color: #ef4444; display: ${section.compulsoryIndex !== null && section.compulsoryIndex !== undefined ? 'inline-block' : 'none'};">
-                                ${getCompulsoryNotice(sectionQuestions[section.id], startingNum, section)}
+                                ${getCompulsoryNotice(sectionQuestions[section.id], startingNum + 1, section)}
                             </div>
                         </div>
                         <div style="margin-top: 4px; color: var(--color-text-muted); font-size: 0.9rem;">
@@ -1024,7 +1017,7 @@ function autoFillSection(sectionId) {                 // AI-like random picker f
         const slot = list[i];
 
         // Skip the compulsory question position - it should not be replaced
-        if (section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && i === section.compulsoryIndex) {
+        if (section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === i) {
             continue;
         }
 
@@ -1086,39 +1079,61 @@ function autoFillSection(sectionId) {                 // AI-like random picker f
  * @param {number} sectionId - ID of the section
  * @param {number} idx - Index/position of the question
  */
-function toggleCompulsory(sectionId, idx) {
+function toggleCompulsoryInternal(sectionId, idx) {
+    console.log('=== toggleCompulsory START ===');
+    console.log('Input sectionId:', sectionId, 'idx:', idx);
+
     const sId = Number(sectionId);
     const qIdx = Number(idx);
+    console.log('Converted sId:', sId, 'qIdx:', qIdx);
+
     const section = sections.find(s => s.id === sId);
-    if (!section) return;
+    console.log('Found section:', section);
 
-    if (!sectionQuestions[sId] || !sectionQuestions[sId][qIdx]) return;
-
-    const question = sectionQuestions[sId][qIdx];
-
-    // Don't allow marking placeholders as compulsory
-    if (question.isPlaceholder) {
-        alert("Please select a question first before marking it as compulsory.");
+    if (!section) {
+        console.error('ERROR: Section not found for sId:', sId);
+        console.log('Available sections:', sections.map(s => ({ id: s.id, name: s.name })));
         return;
     }
 
-    // Toggle: if this index is already compulsory, remove it; otherwise set it
-    if (section.compulsoryIndex === qIdx) {
-        section.compulsoryIndex = null; // Remove compulsory
-    } else {
-        section.compulsoryIndex = qIdx; // Set this position as compulsory
+    if (!sectionQuestions[sId] || !sectionQuestions[sId][qIdx]) {
+        console.error('ERROR: Question not found at sId:', sId, 'qIdx:', qIdx);
+        console.log('sectionQuestions[sId]:', sectionQuestions[sId]);
+        return;
     }
 
+    console.log('Current compulsoryIndex BEFORE toggle:', section.compulsoryIndex);
+
+    // Toggle: if this index is already compulsory, remove it; otherwise set it
+    if (section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === qIdx) {
+        section.compulsoryIndex = null; // Remove compulsory
+        console.log('✓ REMOVED compulsory from question', qIdx);
+    } else {
+        section.compulsoryIndex = qIdx; // Set this position as compulsory
+        console.log('✓ SET question', qIdx, 'as compulsory');
+    }
+
+    console.log('Current compulsoryIndex AFTER toggle:', section.compulsoryIndex);
+
+    // Close all mode menus
+    document.querySelectorAll('.mode-menu').forEach(menu => {
+        menu.style.display = 'none';
+    });
+
+    console.log('Calling saveState()...');
     saveState();
 
-    // Refresh UI
+    console.log('Calling renderSectionQuestions()...');
     renderSectionQuestions();
 
     // Also refresh tabs to reflect compulsory notice if we are in Tab 4
     const tab4 = document.getElementById('tab4');
     if (tab4 && tab4.classList.contains('active')) {
+        console.log('Refreshing section tabs...');
         renderQuestionSelectionTab();
     }
+
+    console.log('=== toggleCompulsory END ===');
 }
 
 /**
@@ -1137,12 +1152,13 @@ function removeQuestion(sectionId, idx) {
 
     // Adjust compulsory index if needed
     if (section.compulsoryIndex !== null && section.compulsoryIndex !== undefined) {
-        if (section.compulsoryIndex === idx) {
+        const cIdx = Number(section.compulsoryIndex);
+        if (cIdx === idx) {
             // The compulsory question was removed
             section.compulsoryIndex = null;
-        } else if (section.compulsoryIndex > idx) {
+        } else if (cIdx > idx) {
             // Compulsory question was after the removed one, shift index down
-            section.compulsoryIndex--;
+            section.compulsoryIndex = cIdx - 1;
         }
     }
 
@@ -1979,9 +1995,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                         <div style="padding: 5px; cursor: pointer; border-bottom: 1px solid #eee;" onclick="event.stopPropagation(); window.setSlotMode(${sectionId}, ${idx}, 'normal')">( Single ) type</div>
                         <div style="padding: 5px; cursor: pointer; border-bottom: 1px solid #eee;" onclick="event.stopPropagation(); window.setSlotMode(${sectionId}, ${idx}, 'or')">( Or ) type</div>
                         <div style="padding: 5px; cursor: pointer; border-bottom: 1px solid #eee;" onclick="event.stopPropagation(); window.setSlotMode(${sectionId}, ${idx}, 'and')">( And ) type</div>
-                        <div style="padding: 5px; cursor: pointer; color: ${(section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === Number(idx)) ? 'var(--color-danger)' : 'var(--color-primary)'}; font-weight: 700;" onclick="event.stopPropagation(); window.toggleCompulsory(${sectionId}, ${idx})">
-                            ${(section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === Number(idx)) ? '✓ Compulsory' : 'Mark Compulsory'}
-                        </div>
+                        <div style="padding: 5px; cursor: pointer;" onclick="event.stopPropagation(); window.toggleCompulsory(${sectionId}, ${idx}); return false;">Compulsory</div>
                     </div>
                 </div>
                 <button class="btn-icon danger" onclick="event.stopPropagation(); removeQuestionFromSection(${sectionId}, ${idx})">❌</button>
@@ -2016,7 +2030,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
         <div class="q-num-panel">
             <span class="q-num">${globalQNum}</span>
             <span class="q-badge-mini ${q.bookBack ? 'badge-bb' : 'badge-int'}">${q.bookBack ? 'BB' : 'INT'}</span>
-            ${(section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === Number(idx)) ? `<span class="q-badge-mini" style="background: var(--color-danger); color: white; margin-top: 5px; font-size: 0.6rem; padding: 2px 4px;">COMPULSORY</span>` : ''}
+            ${(section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === Number(idx)) ? `<span style="color: #ef4444; font-weight: 800; font-size: 0.65rem; margin-top: 5px; text-transform: uppercase;">Compulsory</span>` : ''}
         </div>
 
         <div class="q-text-panel">
@@ -2052,9 +2066,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                     <div style="padding: 5px; cursor: pointer; border-bottom: 1px solid #eee;" onclick="event.stopPropagation(); window.setSlotMode(${sectionId}, ${idx}, 'normal')">( Single ) type</div>
                     <div style="padding: 5px; cursor: pointer; border-bottom: 1px solid #eee;" onclick="event.stopPropagation(); window.setSlotMode(${sectionId}, ${idx}, 'or')">( Or ) type</div>
                     <div style="padding: 5px; cursor: pointer; border-bottom: 1px solid #eee;" onclick="event.stopPropagation(); window.setSlotMode(${sectionId}, ${idx}, 'and')">( And ) type</div>
-                    <div style="padding: 5px; cursor: pointer; color: ${(section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === Number(idx)) ? 'var(--color-danger)' : 'var(--color-primary)'}; font-weight: 700;" onclick="event.stopPropagation(); window.toggleCompulsory(${sectionId}, ${idx})">
-                        ${(section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === Number(idx)) ? '✓ Compulsory' : 'Mark Compulsory'}
-                    </div>
+                    <div style="padding: 5px; cursor: pointer;" onclick="event.stopPropagation(); window.toggleCompulsory(${sectionId}, ${idx}); return false;">Compulsory</div>
                 </div>
             </div>
 
@@ -2262,7 +2274,7 @@ function removeQuestionFromSection(sectionId, idx, subIdx = null, innerIdx = nul
         saveState();
         renderSectionQuestions();
 
-        // Refresh tabs to update compulsory notice
+        // Refresh tabs to update UI
         const tab4 = document.getElementById('tab4');
         if (tab4 && tab4.classList.contains('active')) {
             renderQuestionSelectionTab();
@@ -3656,10 +3668,9 @@ function getCompulsoryNotice(questions, startQNo, overrideSection = null) {
     const section = overrideSection || sections[activeSectionTab];
     if (section && section.compulsoryIndex !== null && section.compulsoryIndex !== undefined) {
         const qIdx = Number(section.compulsoryIndex);
-        // Check if the question at this index exists and is not a placeholder
-        if (questions && questions[qIdx] && !questions[qIdx].isPlaceholder) {
-            return `(Q.No: ${startQNo + qIdx} is compulsory)`;
-        }
+        // Show the notice regardless of whether it's a placeholder or not
+        // This ensures the UI updates immediately when marked
+        return `(Q.No: ${Number(startQNo) + qIdx} is compulsory)`;
     }
     return '';
 }
@@ -3892,9 +3903,6 @@ function clearTab(tabNum) {
         // Reset questions only for the active section
         sectionQuestions[section.id] = [];
 
-        // Reset compulsory index for this section as well if it's cleared
-        section.compulsoryIndex = null;
-
         renderQuestionSelectionTab();
     }
 
@@ -4070,6 +4078,29 @@ window.toggleModeMenu = function (idx, subIdx = null) {
                 parentCard.style.zIndex = '1100';
             }
         }
+    }
+};
+window.toggleCompulsory = function (sectionId, idx) {
+    if (!sectionQuestions[sectionId] || !sectionQuestions[sectionId][idx]) return;
+
+    const section = sections.find(s => s.id === Number(sectionId));
+    if (!section) return;
+
+    // Toggle logic: Current index compulsory-ah irundha remove pannum, illana set pannum
+    if (section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === Number(idx)) {
+        section.compulsoryIndex = null;
+    } else {
+        section.compulsoryIndex = idx;
+    }
+
+    // Menus-ai close panni refresh pannum
+    document.querySelectorAll('.mode-menu').forEach(el => el.style.display = 'none');
+    saveState();
+    renderSectionQuestions();
+
+    const tab4 = document.getElementById('tab4');
+    if (tab4 && tab4.classList.contains('active')) {
+        renderQuestionSelectionTab();
     }
 };
 
@@ -4271,11 +4302,9 @@ window.savePartTitle = function (sectionId, idx, subIdx) {
 };
 
 window.toggleCompulsory = function (sectionId, idx) {
-    // Call the unified top-level function
-    toggleCompulsory(sectionId, idx);
+    // Call the internal toggleCompulsory function
+    toggleCompulsoryInternal(sectionId, idx);
 };
-
-
 
 // Initialize on load
 window.onload = function () {

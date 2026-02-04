@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Compulsory Toggle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .test-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .menu {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .menu-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+
+        .menu-item:hover {
+            background: #f0f0f0;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test-card">
+        <h2>Compulsory Toggle Test</h2>
+        <p>This is a simplified test to check if the toggleCompulsory function works.</p>
+
+        <div class="menu">
+            <div class="menu-item" onclick="testToggle('normal')">( Single ) type</div>
+            <div class="menu-item" onclick="testToggle('or')">( Or ) type</div>
+            <div class="menu-item" onclick="testToggle('and')">( And ) type</div>
+            <div class="menu-item" onclick="testCompulsory()">Compulsory</div>
+        </div>
+
+        <div class="status" id="status">
+            Click "Compulsory" to test the function
+        </div>
+    </div>
+
+    <script>
+        // Minimal test data
+        let sections = [{
+            id: 1,
+            name: "Test Section",
+            compulsoryIndex: null
+        }];
+
+        let sectionQuestions = {
+            1: [
+                { q: "Question 1", isPlaceholder: false },
+                { q: "Question 2", isPlaceholder: false },
+                { q: "Question 3", isPlaceholder: true }
+            ]
+        };
+
+        function testToggle(mode) {
+            updateStatus('Changed mode to: ' + mode);
+        }
+
+        function testCompulsory() {
+            updateStatus('Calling toggleCompulsory(1, 0)...');
+            try {
+                toggleCompulsory(1, 0);
+            } catch (e) {
+                updateStatus('ERROR: ' + e.message);
+            }
+        }
+
+        function updateStatus(msg) {
+            document.getElementById('status').innerHTML = msg + '<br>Time: ' + new Date().toLocaleTimeString();
+        }
+
+        // Copy the actual toggleCompulsory function
+        function toggleCompulsory(sectionId, idx) {
+            alert('Compulsory function called! Section: ' + sectionId + ', Index: ' + idx);
+
+            const sId = Number(sectionId);
+            const qIdx = Number(idx);
+            const section = sections.find(s => s.id === sId);
+
+            if (!section) {
+                alert('ERROR: Section not found!');
+                updateStatus('ERROR: Section not found');
+                return;
+            }
+
+            if (!sectionQuestions[sId] || !sectionQuestions[sId][qIdx]) {
+                alert('ERROR: Question not found!');
+                updateStatus('ERROR: Question not found');
+                return;
+            }
+
+            const question = sectionQuestions[sId][qIdx];
+
+            // Toggle
+            if (section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === qIdx) {
+                section.compulsoryIndex = null;
+                alert('Removed compulsory from question ' + qIdx);
+                updateStatus('✓ Removed compulsory from question ' + qIdx);
+            } else {
+                section.compulsoryIndex = qIdx;
+                alert('Set question ' + qIdx + ' as compulsory!');
+                updateStatus('✓ Set question ' + qIdx + ' as compulsory!<br>Section compulsoryIndex is now: ' + section.compulsoryIndex);
+            }
+        }
+
+        updateStatus('Test page loaded. Click "Compulsory" to test.');
+    </script>
+</body>
+
+</html>

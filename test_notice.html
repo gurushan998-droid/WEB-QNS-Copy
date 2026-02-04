@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Compulsory Notice Test</title>
+</head>
+
+<body>
+    <h2>Testing getCompulsoryNotice Function</h2>
+    <div id="output"></div>
+
+    <script>
+        // Simulate section data
+        let sections = [{
+            id: 1,
+            name: "Section A",
+            compulsoryIndex: 2  // Index 2 means 3rd question
+        }];
+
+        let activeSectionTab = 0;
+
+        // Copy the actual function from script.js
+        function getCompulsoryNotice(questions, startQNo, overrideSection = null) {
+            const section = overrideSection || sections[activeSectionTab];
+            if (section && section.compulsoryIndex !== null && section.compulsoryIndex !== undefined) {
+                const qIdx = Number(section.compulsoryIndex);
+                // Show the notice regardless of whether it's a placeholder or not
+                // This ensures the UI updates immediately when marked
+                return `(Q.No: ${Number(startQNo) + qIdx} is compulsory)`;
+            }
+            return '';
+        }
+
+        // Test 1: With overrideSection
+        const result1 = getCompulsoryNotice([], 1, sections[0]);
+        document.getElementById('output').innerHTML += `
+            <p><strong>Test 1:</strong> getCompulsoryNotice([], 1, sections[0])</p>
+            <p>Result: "${result1}"</p>
+            <p>Expected: "(Q.No: 3 is compulsory)"</p>
+            <p>Status: ${result1 === '(Q.No: 3 is compulsory)' ? '✅ PASS' : '❌ FAIL'}</p>
+            <hr>
+        `;
+
+        // Test 2: Starting from question 10
+        const result2 = getCompulsoryNotice([], 10, sections[0]);
+        document.getElementById('output').innerHTML += `
+            <p><strong>Test 2:</strong> getCompulsoryNotice([], 10, sections[0])</p>
+            <p>Result: "${result2}"</p>
+            <p>Expected: "(Q.No: 12 is compulsory)"</p>
+            <p>Status: ${result2 === '(Q.No: 12 is compulsory)' ? '✅ PASS' : '❌ FAIL'}</p>
+            <hr>
+        `;
+
+        // Test 3: No compulsory set
+        sections[0].compulsoryIndex = null;
+        const result3 = getCompulsoryNotice([], 1, sections[0]);
+        document.getElementById('output').innerHTML += `
+            <p><strong>Test 3:</strong> getCompulsoryNotice with compulsoryIndex = null</p>
+            <p>Result: "${result3}"</p>
+            <p>Expected: "" (empty string)</p>
+            <p>Status: ${result3 === '' ? '✅ PASS' : '❌ FAIL'}</p>
+            <hr>
+        `;
+
+        // Test 4: Display inline in section tab
+        sections[0].compulsoryIndex = 0;  // First question
+        const startQNo = 15;
+        const hasCompulsory = sections[0].compulsoryIndex !== null && sections[0].compulsoryIndex !== undefined;
+        const displayText = hasCompulsory ? `Q.No: ${Number(startQNo) + Number(sections[0].compulsoryIndex)} is compulsory` : '';
+
+        document.getElementById('output').innerHTML += `
+            <p><strong>Test 4:</strong> Section tab display (inline style)</p>
+            <p>compulsoryIndex: ${sections[0].compulsoryIndex}</p>
+            <p>startQNo: ${startQNo}</p>
+            <p>hasCompulsory: ${hasCompulsory}</p>
+            <p>Display Text: "${displayText}"</p>
+            <p>Expected: "Q.No: 15 is compulsory"</p>
+            <p>Status: ${displayText === 'Q.No: 15 is compulsory' ? '✅ PASS' : '❌ FAIL'}</p>
+        `;
+    </script>
+</body>
+
+</html>
