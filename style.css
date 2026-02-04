@@ -1855,7 +1855,7 @@ body {
 }
 
 .compulsory-header-notice {
-    color: #ef4444;
+    color: #000000;
     font-weight: bold;
     font-size: 10pt;
     margin-left: 10px;
@@ -2870,4 +2870,95 @@ body {
 .formula-reference-section td:last-child {
     text-align: center;
     font-size: 1.1rem;
+}
+
+/* Image Resizing Handles */
+.resize-handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-primary);
+    border: 1px solid #fff;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+.resize-handle-n {
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: ns-resize;
+}
+
+.resize-handle-s {
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: ns-resize;
+}
+
+.resize-handle-e {
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: ew-resize;
+}
+
+.resize-handle-w {
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: ew-resize;
+}
+
+.resize-handle-ne {
+    top: -5px;
+    right: -5px;
+    cursor: nesw-resize;
+}
+
+.resize-handle-nw {
+    top: -5px;
+    left: -5px;
+    cursor: nwse-resize;
+}
+
+.resize-handle-se {
+    bottom: -5px;
+    right: -5px;
+    cursor: nwse-resize;
+}
+
+.resize-handle-sw {
+    bottom: -5px;
+    left: -5px;
+    cursor: nesw-resize;
+}
+
+/* Styles when resizing is active */
+.resizing-active {
+    outline: 2px dashed var(--color-primary);
+    /* No box-shadow to avoid affect layout */
+}
+
+/* Image Resizing & Print Styles */
+@media print {
+
+    .resize-handle,
+    .resize-hint,
+    .resizing-active {
+        display: none !important;
+        outline: none !important;
+        border: none !important;
+    }
+
+    .question-diagram-wrapper {
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+    .resizable-image {
+        cursor: default !important;
+    }
 }

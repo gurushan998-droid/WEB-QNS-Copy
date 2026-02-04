@@ -8,20 +8,90 @@
                         "Gametes are involved in asexual reproduction",
                         "Bacteria reproduce asexually by budding",
                         "Conidia formation is a method of sexual reproduction",
-                        "Yeast reproduce by budding"
+                        "Yeast reproduces by budding"
                     ]
                 },
                 {
                     "q": "An eminent Indian embryologist is",
                     "options": [
-                        "S.R.Kashyap",
-                        "P.Maheswari",
+                        "S.R. Kashyap",
+                        "P. Maheswari",
                         "M.S. Swaminathan",
-                        "K.C.Mehta"
+                        "K.C. Mehta"
                     ]
-                }
-            ],
-            "interior": [
+                },
+                {
+                    "q": "Identify the correctly matched pair",
+                    "options": [
+                        "Tuber - Allium cepa",
+                        "Sucker – Pistia",
+                        "Rhizome – Musa",
+                        "Stolon - Zingiber"
+                    ]
+                },
+                {
+                    "q": "Pollen tube was discovered by",
+                    "options": [
+                        "J.G. Kolreuter",
+                        "G.B. Amici",
+                        "E. Strasburger",
+                        "E. Hanning"
+                    ]
+                },
+                {
+                    "q": "Size of pollen grain in Myosotis",
+                    "options": [
+                        "10 micrometer",
+                        "20 micrometer",
+                        "200 micrometer",
+                        "2000 micrometer"
+                    ]
+                },
+                {
+                    "q": "First cell of male gametophyte in angiosperm is",
+                    "options": [
+                        "Microspore",
+                        "Megaspore",
+                        "Nucleus",
+                        "Primary Endosperm nucleus"
+                    ]
+                },
+                {
+                    "q": "Match the following: I-Ext. fertilization, II-Androecium, III-Male gametophyte, IV-Pri. parietal layer",
+                    "options": [
+                        "I-iv, II-i, III-ii, IV-iii",
+                        "I-iii, II-iv, III-i, IV-ii",
+                        "I-iii, II-iv, III-ii, IV-i",
+                        "I-iii, II-i, III-iv, IV-ii"
+                    ]
+                },
+                {
+                    "q": "Arrange the layers of anther wall from locus to periphery",
+                    "options": [
+                        "Epidermis, middle layers, tapetum, endothecium",
+                        "Tapetum, middle layers, epidermis, endothecium",
+                        "Endothecium, epidermis, middle layers, tapetum",
+                        "Tapetum, middle layers, endothecium, epidermis"
+                    ]
+                },
+                {
+                    "q": "Identify the incorrect pair",
+                    "options": [
+                        "sporopollenin - exine of pollen grain",
+                        "tapetum – nutritive tissue for developing microspores",
+                        "Nucellus – nutritive tissue for developing embryo",
+                        "obturator – directs the pollen tube into micropyle"
+                    ]
+                },
+                {
+                    "q": "Assertion: Sporopollenin preserves pollen in fossil deposits; Reason: It is resistant to physical/biological decomposition",
+                    "options": [
+                        "Assertion is true; reason is false",
+                        "Assertion is false; reason is true",
+                        "Both Assertion and reason are not true",
+                        "Both Assertion and reason are true"
+                    ]
+                },
                 {
                     "q": "Choose the correct statement(s) about tenuinucellate ovule",
                     "options": [
@@ -30,8 +100,81 @@
                         "sporogenous cell is epidermal",
                         "ovules have single layer of nucellus tissue"
                     ]
+                },
+                {
+                    "q": "Which of the following represent mega gametophyte",
+                    "options": [
+                        "Ovule",
+                        "Embryo sac",
+                        "Nucellus",
+                        "Endosperm"
+                    ]
+                },
+                {
+                    "q": "In Haplopappus gracilis, nucellus cells have 4 chromosomes. Chromosome number in Primary endosperm cell is?",
+                    "options": [
+                        "8",
+                        "12",
+                        "6",
+                        "2"
+                    ]
+                },
+                {
+                    "q": "Transmitting tissue is found in",
+                    "options": [
+                        "Micropylar region of ovule",
+                        "Pollen tube wall",
+                        "Stylar region of gynoecium",
+                        "Integument"
+                    ]
+                },
+                {
+                    "q": "The scar left by funiculus in the seed is",
+                    "options": [
+                        "tegmen",
+                        "radicle",
+                        "epicotyls",
+                        "hilum"
+                    ]
+                },
+                {
+                    "q": "A plant has small flowers with reduced perianth and versatile anthers. Probable pollination agent is?",
+                    "options": [
+                        "water",
+                        "air",
+                        "butterflies",
+                        "beetles"
+                    ]
+                },
+                {
+                    "q": "Consider statements: i) Protandry-pistil first, ii) Protogyny-pistil first, iii) Herkogamy-unisexual, iv) Distyly-Primula",
+                    "options": [
+                        "i and ii are correct",
+                        "ii and iv are correct",
+                        "ii and iii are correct",
+                        "i and iv are correct"
+                    ]
+                },
+                {
+                    "q": "Parthenocarpic fruits lack",
+                    "options": [
+                        "Endocarp",
+                        "Epicarp",
+                        "Mesocarp",
+                        "seed"
+                    ]
+                },
+                {
+                    "q": "Majority of plants pollen is liberated at",
+                    "options": [
+                        "1 celled stage",
+                        "2 celled stage",
+                        "3 celled stage",
+                        "4 celled stage"
+                    ]
                 }
-            ]
+            ],
+            "interior": []
         },
         "shortAnswer": {
             "bb": [
@@ -342,16 +485,7 @@
                     ]
                 },
                 {
-                    "q": "The A and B genes are 10 cM apart on a chromosome. If an AB/ab heterozygote is testcrossed to ab/ab, how many of each progeny class would you expect out of 100 total progeny?",
-                    "options": [
-                        "25 AB, 25 ab, 25 Ab, 25 aB",
-                        "10 AB, 10 ab",
-                        "45 AB, 45 ab",
-                        "45 AB, 45 ab, 5 Ab, 5aB"
-                    ]
-                },
-                {
-                    "q": "Match list I with list II",
+                    "q": "Match list I (A-2n+2, B-2n+1, C-2n-1, D-2n-1-1) with list II (i-Mono, ii-Tetra, iii-Tri, iv-Double mono)",
                     "options": [
                         "A-i, B-iii, C-ii, D-iv",
                         "A-ii, B-iii, C-iv, D-i",
@@ -360,21 +494,12 @@
                     ]
                 },
                 {
-                    "q": "Which of the following sentences are correct? 1. The offspring exhibit only parental combinations due to incomplete linkage 2. The linked genes exhibit some crossing over in complete linkage 3. The separation of two linked genes are possible in incomplete linkage 4. Crossing over is absent in complete linkage",
+                    "q": "Which of the following sentences are correct regarding linkage?",
                     "options": [
-                        "1 and 2",
-                        "2 and 3",
-                        "3 and 4",
-                        "1 and 4"
-                    ]
-                },
-                {
-                    "q": "Accurate mapping of genes can be done by three point test cross because increases",
-                    "options": [
-                        "Possibility of single cross over",
-                        "Possibility of double cross over",
-                        "Possibility of multiple cross over",
-                        "Possibility of recombination frequency"
+                        "1 and 2 (Parental only in incomplete; Crossing over in complete)",
+                        "2 and 3 (Crossing over in complete; Separation in incomplete)",
+                        "3 and 4 (Separation in incomplete; Crossing over absent in complete)",
+                        "1 and 4 (Parental only in incomplete; Crossing over absent in complete)"
                     ]
                 },
                 {
@@ -387,15 +512,6 @@
                     ]
                 },
                 {
-                    "q": "Genes G S L H are located on same chromosome. The recombination percentage is between L and G is 15%, S and L is 50%, H and S are 20%. The correct order of genes is",
-                    "options": [
-                        "GHSL",
-                        "SHGL",
-                        "SGHL",
-                        "HSLG"
-                    ]
-                },
-                {
                     "q": "The point mutation sequence for transition, transition, transversion and transversion in DNA are",
                     "options": [
                         "A to T, T to A, C to G and G to C",
@@ -405,7 +521,7 @@
                     ]
                 },
                 {
-                    "q": "If haploid number in a cell is 18. The double monosomic and trisomic number will be",
+                    "q": "If haploid number (n) is 18, the double monosomic and trisomic numbers will be",
                     "options": [
                         "35 and 37",
                         "34 and 35",
@@ -423,21 +539,12 @@
                     ]
                 },
                 {
-                    "q": "Assertion (A): Gamma rays are generally use to induce mutation in wheat varieties. Reason (R): Because they carry lower energy to non-ionize electrons from atom",
+                    "q": "Assertion (A): Gamma rays induce mutation in wheat. Reason (R): They carry lower energy to non-ionize electrons.",
                     "options": [
                         "A is correct. R is correct explanation of A",
                         "A is correct. R is not correct explanation of A",
                         "A is correct. R is wrong explanation of A",
                         "A and R is wrong"
-                    ]
-                },
-                {
-                    "q": "How many map units separate two alleles A and B if the recombination frequency is 0.09?",
-                    "options": [
-                        "900 cM",
-                        "90 cM",
-                        "9 cM",
-                        "0.9 cM"
                     ]
                 }
             ],
@@ -791,23 +898,32 @@
                 {
                     "q": "Totipotency refers to",
                     "options": [
-                        "capacity to generate genetically identical plants.",
-                        "capacity to generate a whole plant from any plant cell / explant.",
-                        "capacity to generate hybrid protoplasts.",
-                        "recovery of healthy plants from diseased plants."
+                        "capacity to generate genetically identical plants",
+                        "capacity to generate a whole plant from any plant cell / explant",
+                        "capacity to generate hybrid protoplasts",
+                        "recovery of healthy plants from diseased plants"
                     ]
                 },
                 {
                     "q": "Micro propagation involves",
                     "options": [
-                        "vegetative multiplication of plants by using micro-organisms.",
-                        "vegetative multiplication of plants by using small explants.",
-                        "vegetative multiplication of plants by using microspores.",
-                        "Non-vegetative multiplication of plants by using microspores and megaspores."
+                        "vegetative multiplication of plants by using micro-organisms",
+                        "vegetative multiplication of plants by using small explants",
+                        "vegetative multiplication of plants by using microspores",
+                        "Non-vegetative multiplication of plants by using microspores"
                     ]
                 },
                 {
-                    "q": "The time duration for sterilization process by using autoclave is ______ minutes and the temperature is _______",
+                    "q": "Match: 1-Totipotency, 2-Dedifferentiation, 3-Explant, 4-Differentiation with A-Reversion, B-Changes, C-Properties, D-Tissue for culture",
+                    "options": [
+                        "1-C, 2-A, 3-D, 4-B",
+                        "1-A, 2-C, 3-B, 4-D",
+                        "1-B, 2-A, 3-D, 4-C",
+                        "1-D, 2-B, 3-C, 4-A"
+                    ]
+                },
+                {
+                    "q": "The time duration for sterilization process by using autoclave is _______ minutes and the temperature is _______",
                     "options": [
                         "10 to 30 minutes and 125° C",
                         "15 to 30 minutes and 121° C",
@@ -816,21 +932,21 @@
                     ]
                 },
                 {
-                    "q": "Which of the following statement is correct",
+                    "q": "Which of the following statement is correct regarding Plant Tissue Culture?",
                     "options": [
-                        "Agar is not extracted from marine algae such as seaweeds.",
-                        "Callus undergoes differentiation and produces somatic embryoids.",
+                        "Agar is not extracted from marine algae such as seaweeds",
+                        "Callus undergoes differentiation and produces somatic embryoids",
                         "Surface sterilization of explants is done by using mercuric bromide",
-                        "PH of the culture medium is 5.0 to 6.0 6."
+                        "PH of the culture medium is 5.0 to 6.0"
                     ]
                 },
                 {
-                    "q": "Select the incorrect statement from given statement",
+                    "q": "Select the incorrect statement from the given options",
                     "options": [
                         "A tonic used for cardiac arrest is obtained from Digitalis purpuria",
                         "Medicine used to treat Rheumatic pain is extracted from Capsicum annum",
-                        "An anti malarial drug is isolated from Cinchona officinalis.",
-                        "Anti-cancinogenic property is not seen in Catharanthus roseus."
+                        "An anti malarial drug is isolated from Cinchona officinalis",
+                        "Anti-cancinogenic property is not seen in Catharanthus"
                     ]
                 },
                 {
@@ -843,7 +959,7 @@
                     ]
                 },
                 {
-                    "q": "The prevention of large scale loss of biological interity",
+                    "q": "The prevention of large-scale loss of biological integrity is called",
                     "options": [
                         "Biopatent",
                         "Bioethics",
@@ -854,9 +970,9 @@
                 {
                     "q": "Cryopreservation means it is a process to preserve plant cells, tissues or organs",
                     "options": [
-                        "at very low temperature by using ether.",
+                        "at very low temperature by using ether",
                         "at very high temperature by using liquid nitrogen",
-                        "at very low temperature of -196 by using liquid nitrogen",
+                        "at very low temperature of -196°C by using liquid nitrogen",
                         "at very low temperature by using liquid nitrogen"
                     ]
                 },
@@ -936,23 +1052,23 @@
                 {
                     "q": "Arrange the correct sequence of ecological hierarchy starting from lower to higher level.",
                     "options": [
-                        "Individual organism → Population Landscape → Ecosystem",
+                        "Individual organism → Population → Community → Ecosystem",
                         "Landscape → Ecosystem → Biome → Biosphere",
-                        "community → Ecosystem → Landscape → Biome",
+                        "Community → Ecosystem → Landscape → Biome",
                         "Population → organism → Biome → Landscape"
                     ]
                 },
                 {
-                    "q": "Ecology is the study of an individual species is called. <br> i) Community ecology     ii) Autecology     iii) Species ecology     iv) Synecology",
+                    "q": "Ecology which is the study of an individual species is called:",
                     "options": [
-                        "i only",
-                        "ii only",
-                        "i and iv only",
-                        "ii and iii only"
+                        "i only (Community ecology)",
+                        "ii only (Autecology)",
+                        "i and iv only (Synecology)",
+                        "ii and iii only (Species ecology/Autecology)"
                     ]
                 },
                 {
-                    "q": "A specific place in an ecosystem, where an organism lives and performs its functions is",
+                    "q": "A specific place in an ecosystem, where an organism lives and performs its functions is:",
                     "options": [
                         "habitat",
                         "niche",
@@ -961,7 +1077,7 @@
                     ]
                 },
                 {
-                    "q": "Read the given statements and select the correct option. <br> i) Hydrophytes possess aerenchyma    ii) Seeds of Viscum are positively photoblastic     iii) Hygroscopic water is the only soil water    iv) High temperature reduces use of water",
+                    "q": "Read statements: i) Hydrophytes have aerenchyma, ii) Viscum seeds are photoblastic, iii) Hygroscopic water is available to roots, iv) High temp reduces water use. Select correct:",
                     "options": [
                         "i, ii, and iii only",
                         "ii, iii and iv",
@@ -970,7 +1086,7 @@
                     ]
                 },
                 {
-                    "q": "Which of the given plant produces cardiac glycosides?",
+                    "q": "Which of the given plant produces cardiac glycosides as a defense mechanism?",
                     "options": [
                         "Calotropis",
                         "Acacia",
@@ -979,7 +1095,7 @@
                     ]
                 },
                 {
-                    "q": "Read the given statements and select the correct option. <br> i) Loamy soil is best suited    ii) The process of humification is slow    iii) Capillary water is the only water    iv) Leaves of shade plant",
+                    "q": "Select correct: i) Loamy soil is best, ii) Humification is slow with lignin, iii) Capillary water is available, iv) Shade leaves have low chl a/b ratio.",
                     "options": [
                         "i, ii and iii only",
                         "ii, iii and iv only",
@@ -988,16 +1104,16 @@
                     ]
                 },
                 {
-                    "q": "Read the given statements and select the correct option. <br> Statement A : Cattle do not graze on weeds of Calotropis.<br> Statement B : Calotropis have thorns and spines",
+                    "q": "Statement A: Cattle do not graze on Calotropis. Statement B: Calotropis have thorns/spines for defense. Select correct option:",
                     "options": [
                         "Both statements A and B are incorrect.",
                         "Statement A is correct but statement B is incorrect.",
-                        "Both statements A and B are correct but statement B is not the correct explanation of statement A.",
-                        "Both statements A and B are correct and statement B is the correct explanation of statement A."
+                        "Both are correct but B is not the correct explanation of A.",
+                        "Both are correct and B is the correct explanation of A."
                     ]
                 },
                 {
-                    "q": "In soil water available for plants is",
+                    "q": "In soil, the water specifically available for plant absorption is:",
                     "options": [
                         "gravitational water",
                         "chemically bound water",
@@ -1006,52 +1122,79 @@
                     ]
                 },
                 {
-                    "q": "The plant of this group are adapted to live partly in water and partly above substratum and free from water",
+                    "q": "Fill blanks: i) Total soil water content is ____, ii) Unavailable water is ____, iii) Available water is ____.",
+                    "options": [
+                        "Holard, Echard, Chresard",
+                        "Echard, Holard, Chresard",
+                        "Chresard, Echard, Holard",
+                        "Holard, Chresard, Echard"
+                    ]
+                },
+                {
+                    "q": "Match Soil Size (I: 0.2-2.0mm, II: <0.002mm, III: 0.002-0.02mm) with Type (i: Silt, ii: Clay, iii: Sandy):",
+                    "options": [
+                        "I-ii, II-iii, III-iv",
+                        "I-iv, II-i, III-iii",
+                        "I-iii, II-ii, III-i",
+                        "None of the above"
+                    ]
+                },
+                {
+                    "q": "Plants adapted to live partly in water and partly above the substratum free from water are:",
                     "options": [
                         "Xerophytes",
                         "Mesophytes",
-                        "Hydrophytes",
+                        "Hydrophytes (Amphibious)",
                         "Halophytes"
                     ]
                 },
                 {
-                    "q": "Ophrys an orchid resembling the female of an insect so as to able to get pollinated is due to phenomenon of",
+                    "q": "Identify Interactions: A (Mutualism effect), B (+/- interaction), C (Competition effect), D (-/0 interaction):",
+                    "options": [
+                        "A(+), B(Parasitism), C(-), D(Amensalism)",
+                        "A(-), B(Mutualism), C(+), D(Competition)",
+                        "A(+), B(Competition), C(0), D(Mutualism)",
+                        "A(0), B(Amensalism), C(+), D(Parasitism)"
+                    ]
+                },
+                {
+                    "q": "Ophrys orchid resembling a female insect to ensure pollination is an example of:",
                     "options": [
                         "Myrmecophily",
                         "Ecological equivalents",
-                        "Mimicry",
+                        "Mimicry (Pseudocopulation)",
                         "None of these"
                     ]
                 },
                 {
-                    "q": "A free living nitrogen fixing cyanobacterium which can also form symbiotic association with the water fern Azolla",
+                    "q": "A free living N2 fixing cyanobacterium forming symbiotic association with Azolla is:",
                     "options": [
                         "Nostoc",
-                        "Anabaena",
-                        "chlorella",
+                        "Anabaena (Anabaena azollae)",
+                        "Chlorella",
                         "Rhizobium"
                     ]
                 },
                 {
-                    "q": "Pedogenesis refers to",
+                    "q": "Pedogenesis refers specifically to the process of:",
                     "options": [
-                        "Fossils",
-                        "Water",
-                        "Population",
-                        "Soil"
+                        "Fossil formation",
+                        "Water cycle",
+                        "Population growth",
+                        "Soil formation"
                     ]
                 },
                 {
-                    "q": "Mycorrhiza promotes plant growth by",
+                    "q": "Mycorrhiza primarily promotes plant growth by:",
                     "options": [
-                        "Serving as a plant growth regulators",
-                        "Absorbing inorganic ions from soil",
-                        "Helping the plant in utilizing atmospheric nitrogen",
-                        "Protecting the plant from infection"
+                        "Serving as plant growth regulators",
+                        "Absorbing inorganic ions (like Phosphorus) from soil",
+                        "Utilizing atmospheric nitrogen",
+                        "Protecting from viral infection"
                     ]
                 },
                 {
-                    "q": "Which of the following plant has a nonsucculent xerophytic and thick leathery leaves with waxy coating",
+                    "q": "Which plant has non-succulent xerophytic traits and thick leathery leaves with waxy coating?",
                     "options": [
                         "Bryophyllum",
                         "Ruscus",
@@ -1060,30 +1203,39 @@
                     ]
                 },
                 {
-                    "q": "In a fresh water environment like pond, rooted autotrophs are",
+                    "q": "In a fresh water pond environment, which of the following are rooted autotrophs?",
                     "options": [
-                        "Nymphaea and typha",
+                        "Nymphaea and Typha",
                         "Ceratophyllum and Utricularia",
-                        "Wolffia and pistia",
-                        "Azolla and lemna"
+                        "Wolffia and Pistia",
+                        "Azolla and Lemna"
                     ]
                 },
                 {
-                    "q": "Strong, sharp spines that get attached to animal’s feet are found in the fruits of",
+                    "q": "Match Interaction: I-Mutualism, II-Commensalism, III-Parasitism, IV-Predation, V-Amensalism with Examples:",
+                    "options": [
+                        "I-i, II-ii, III-iii, IV-iv, V-v",
+                        "I-ii, II-iii, III-iv, IV-v, V-i",
+                        "I-iv, II-iii, III-ii, IV-v, V-i",
+                        "None of the above combinations"
+                    ]
+                },
+                {
+                    "q": "Strong, sharp spines that attach to animals' feet (Zoochory) are found in the fruits of:",
                     "options": [
                         "Argemone",
                         "Ecballium",
-                        "Heritier",
+                        "Heritiera",
                         "Crossandra"
                     ]
                 },
                 {
-                    "q": "Sticky glands of Boerhaavia and Cleome support",
+                    "q": "The sticky glands found in Boerhaavia and Cleome support which type of dispersal?",
                     "options": [
-                        "Anemochory",
-                        "Zoochory",
-                        "Autochory",
-                        "Hydrochory"
+                        "Anemochory (Wind)",
+                        "Zoochory (Animal)",
+                        "Autochory (Self)",
+                        "Hydrochory (Water)"
                     ]
                 }
             ],
@@ -1251,7 +1403,7 @@
         "mcq": {
             "bb": [
                 {
-                    "q": "Which of the following is not a abiotic component of the ecosystem?",
+                    "q": "Which of the following is not an abiotic component of the ecosystem?",
                     "options": [
                         "Bacteria",
                         "Humus",
@@ -1274,11 +1426,11 @@
                         "forest ecosystem",
                         "grassland ecosystem",
                         "marine ecosystem",
-                        "fresh water ecosystem"
+                        "freshwater ecosystem"
                     ]
                 },
                 {
-                    "q": "Pond ecosystem is",
+                    "q": "A Pond ecosystem is considered to be",
                     "options": [
                         "not self sufficient and self regulating",
                         "partially self sufficient and self regulating",
@@ -1287,12 +1439,12 @@
                     ]
                 },
                 {
-                    "q": "Profundal zone is predominated by heterotrophs in a pond ecosystem, because of",
+                    "q": "Profundal zone is predominated by heterotrophs in a pond ecosystem because of",
                     "options": [
-                        "with effective light penetration",
+                        "effective light penetration",
                         "no effective light penetration",
                         "complete absence of light",
-                        "a and b"
+                        "both a and b"
                     ]
                 },
                 {
@@ -1305,7 +1457,7 @@
                     ]
                 },
                 {
-                    "q": "Which of the following ecosystem has the highest primary productivity?",
+                    "q": "Which of the following ecosystems has the highest primary productivity?",
                     "options": [
                         "Pond ecosystem",
                         "Lake ecosystem",
@@ -1314,7 +1466,7 @@
                     ]
                 },
                 {
-                    "q": "Ecosystem consists of",
+                    "q": "An ecosystem consists of",
                     "options": [
                         "decomposers",
                         "producers",
@@ -1323,16 +1475,35 @@
                     ]
                 },
                 {
-                    "q": "Significance of food web is / are",
+                    "q": "Which one is in the correct descending order of a food chain?",
+                    "options": [
+                        "Producers → Secondary consumers → Primary consumers → Tertiary consumers",
+                        "Tertiary consumers → Primary consumers → Secondary consumers → Producers",
+                        "Tertiary consumers → Secondary consumers → Primary consumers → Producers",
+                        "Tertiary consumers → Producers → Primary consumers → Secondary consumers"
+                    ]
+                },
+                {
+                    "q": "Significance of a food web is / are",
                     "options": [
                         "it does not maintain stability in nature",
                         "it shows patterns of energy transfer",
                         "it explains species interaction",
-                        "b and c"
+                        "both b and c"
                     ]
                 },
                 {
-                    "q": "Which of the following is / are not the mechanism of decomposition",
+                    "q": "The following diagram represents",
+                    "image": "data/picture/pyramid.png",
+                    "options": [
+                        "Pyramid of number in a grassland ecosystem",
+                        "Pyramid of number in a pond ecosystem",
+                        "Pyramid of number in a forest ecosystem",
+                        "Pyramid of biomass in a pond ecosystem"
+                    ]
+                },
+                {
+                    "q": "Which of the following is / are not the mechanism of decomposition?",
                     "options": [
                         "Eluviation",
                         "Catabolism",
@@ -1341,7 +1512,7 @@
                     ]
                 },
                 {
-                    "q": "Which of the following is not a sedimentary cycle",
+                    "q": "Which of the following is not a sedimentary cycle?",
                     "options": [
                         "Nitrogen cycle",
                         "Phosphorous cycle",
@@ -1350,57 +1521,12 @@
                     ]
                 },
                 {
-                    "q": "Which of the following are not regulating services of ecosystem services",
+                    "q": "Which of the following are not regulating services of ecosystem services? (i-Genetic resources, ii-Recreation, iii-Invasion resistance, iv-Climatic regulation)",
                     "options": [
                         "i and iii",
                         "ii and iv",
                         "i and ii",
                         "i and iv"
-                    ]
-                },
-                {
-                    "q": "Which of the following is not a producer?",
-                    "options": [
-                        "Spirogyra",
-                        "Agaricus",
-                        "Volvox",
-                        "Nostoc"
-                    ]
-                },
-                {
-                    "q": "Identify the mismatching pair",
-                    "options": [
-                        "Trophic level-1 - Herbivores",
-                        "Trophic level-2 - Primary Consumers",
-                        "Trophic level-3 - Secondary Consumers",
-                        "Trophic level-4 - Tertiary Consumers"
-                    ]
-                },
-                {
-                    "q": "Which of the following is a partial parasite?",
-                    "options": [
-                        "Cuscuta",
-                        "Viscum",
-                        "Orobanche",
-                        "Ganoderma"
-                    ]
-                },
-                {
-                    "q": "Identify the correct food chain",
-                    "options": [
-                        "Grass → Frog → Insect → Snake → Eagle",
-                        "Grass → Insect → Frog → Snake → Eagle",
-                        "Grass → Snake → Insect → Frog → Eagle",
-                        "Grass → Eagle → Snake → Insect → Frog"
-                    ]
-                },
-                {
-                    "q": "Which of the following organism is a primary consumer?",
-                    "options": [
-                        "Algae",
-                        "Grasshopper",
-                        "Frog",
-                        "Snake"
                     ]
                 }
             ],
@@ -1619,16 +1745,61 @@
         "mcq": {
             "bb": [
                 {
-                    "q": "Desired improved variety of economically useful crops are raised by",
+                    "q": "Assertion: Genetic variation provides the raw material for selection. Reason: Genetic variations are differences in genotypes of the individuals.",
                     "options": [
-                        "Natural Selection",
-                        "hybridization",
-                        "mutation",
-                        "biofertilisers"
+                        "Assertion is right and reason is wrong.",
+                        "Assertion is wrong and reason is right.",
+                        "Both reason and assertion is right.",
+                        "Both reason and assertion is wrong."
                     ]
                 },
                 {
-                    "q": "Plants having similar genotypes produced by plant breeding are called",
+                    "q": "While studying the history of domestication of various cultivated plants, which were recognized earlier?",
+                    "options": [
+                        "Centres of origin",
+                        "Centres of domestication",
+                        "Centres of hybrid",
+                        "Centres of variation"
+                    ]
+                },
+                {
+                    "q": "Pick out the odd pair regarding plant selection methods:",
+                    "options": [
+                        "Mass selection - Morphological characters",
+                        "Pureline selection - Repeated self pollination",
+                        "Clonal selection - Sexually propagated",
+                        "Natural selection - Involves nature"
+                    ]
+                },
+                {
+                    "q": "Match Column I (Scientists/Terms) with Column II: i-William S. Gaud, ii-Shull, iii-Cotton mother, iv-Muller and Stadler",
+                    "options": [
+                        "i-I, ii-II, iii-III, iv-IV",
+                        "i-III (Green rev), ii-I (Heterosis), iii-IV (Nat. hybrid), iv-II (Mutation)",
+                        "i-IV, ii-II, iii-I, iv-III",
+                        "i-II, ii-IV, iii-III, iv-I"
+                    ]
+                },
+                {
+                    "q": "The quickest method of plant breeding among the following is:",
+                    "options": [
+                        "Introduction",
+                        "Selection",
+                        "Hybridization",
+                        "Mutation breeding"
+                    ]
+                },
+                {
+                    "q": "Desired improved varieties of economically useful crops are primarily raised by:",
+                    "options": [
+                        "Natural Selection",
+                        "Hybridization",
+                        "Mutation",
+                        "Biofertilisers"
+                    ]
+                },
+                {
+                    "q": "Plants having similar genotypes produced by plant breeding are called:",
                     "options": [
                         "clone",
                         "haploid",
@@ -1637,7 +1808,7 @@
                     ]
                 },
                 {
-                    "q": "Importing better varieties and plants from outside and acclimatising them to local environment is called",
+                    "q": "Importing better varieties and plants from outside and acclimatising them to a local environment is called:",
                     "options": [
                         "cloning",
                         "heterosis",
@@ -1646,7 +1817,7 @@
                     ]
                 },
                 {
-                    "q": "Dwarfing gene of wheat is",
+                    "q": "The specific dwarfing gene used for high-yielding wheat varieties is:",
                     "options": [
                         "pal 1",
                         "Atomita 1",
@@ -1655,7 +1826,7 @@
                     ]
                 },
                 {
-                    "q": "Crosses between the plants of the same variety are called",
+                    "q": "Crosses between plants belonging to the same variety are called:",
                     "options": [
                         "interspecific",
                         "inter varietal",
@@ -1664,16 +1835,16 @@
                     ]
                 },
                 {
-                    "q": "Progeny obtained as a result of repeat self pollination a cross pollinated crop to called",
+                    "q": "Progeny obtained as a result of repeat self-pollination in a cross-pollinated crop is called:",
                     "options": [
                         "pure line",
                         "pedigree line",
-                        "inbreed line",
+                        "inbred line",
                         "heterosis"
                     ]
                 },
                 {
-                    "q": "Jaya and Ratna are the semi dwarf varieties of",
+                    "q": "Jaya and Ratna are well-known semi-dwarf varieties of which crop?",
                     "options": [
                         "wheat",
                         "rice",
@@ -1682,7 +1853,7 @@
                     ]
                 },
                 {
-                    "q": "Which one of the following are the species that are crossed to give sugarcane varieties...",
+                    "q": "Which species were crossed to give North India sugarcane varieties with high sugar, yield, and thick stems?",
                     "options": [
                         "Saccharum robustum and Saccharum officinarum",
                         "Saccharum barberi and Saccharum officinarum",
@@ -1691,16 +1862,7 @@
                     ]
                 },
                 {
-                    "q": "Match column I (crop) with column II (Corresponding disease resistant variety)",
-                    "options": [
-                        "iv iii ii i",
-                        "ii i iii iv",
-                        "ii iv i iii",
-                        "i iii iv ii"
-                    ]
-                },
-                {
-                    "q": "A wheat variety, Atlas 66 which has been used as a donor for improving cultivated wheat, which is rich in",
+                    "q": "A wheat variety, Atlas 66, has been used as a donor for improving cultivated wheat because it is rich in:",
                     "options": [
                         "iron",
                         "carbohydrates",
@@ -1709,7 +1871,7 @@
                     ]
                 },
                 {
-                    "q": "Which one of the following crop varieties correct matches with its resistance to a disease?",
+                    "q": "Which one of the following crop varieties is correctly matched with its disease resistance?",
                     "options": [
                         "Pusa Komal - Bacterial blight",
                         "Pusa Sadabahar - White rust",
@@ -1718,7 +1880,7 @@
                     ]
                 },
                 {
-                    "q": "Which of the following is incorrectly paired?",
+                    "q": "Identify the pair that is incorrectly matched:",
                     "options": [
                         "Wheat - Himgiri",
                         "Milch breed - Sahiwal",
@@ -1727,12 +1889,12 @@
                     ]
                 },
                 {
-                    "q": "Match list I with list II (Biofertilizer vs Organisms)",
+                    "q": "Match Biofertilizers: i-Free Living N2, ii-Symbiotic N2, iii-P Solubilizing, iv-P Mobilizing",
                     "options": [
-                        "ic, iia, iiib, ivd",
-                        "id, iic, iiia, ivb.",
-                        "ia, iic, iiib, ivd",
-                        "ib, iia, iiid, ivc."
+                        "i-c, ii-a, iii-b, iv-d",
+                        "i-d (Azotobacter), ii-c (Anabaena), iii-a (Aspergillus), iv-b (Amanita)",
+                        "i-a, ii-c, iii-b, iv-d",
+                        "i-b, ii-a, iii-d, iv-c"
                     ]
                 }
             ],
@@ -1784,7 +1946,7 @@
         "mcq": {
             "bb": [
                 {
-                    "q": "Consider the following statements... i) Cereals are members of grass family. ii) Most of the food grains come from monocotyledon.",
+                    "q": "Consider the following statements and choose the right option: i) Cereals are members of grass family. ii) Most of the food grains come from monocotyledon.",
                     "options": [
                         "(i) is correct and (ii) is wrong",
                         "Both (i) and (ii) are correct",
@@ -1793,7 +1955,7 @@
                     ]
                 },
                 {
-                    "q": "Assertion: Vegetables are important part of healthy eating. Reason: Vegetables are succulent structures...",
+                    "q": "Assertion: Vegetables are important part of healthy eating. Reason: Vegetables are succulent structures of plants with pleasant aroma and flavours.",
                     "options": [
                         "Assertion is correct, Reason is wrong",
                         "Assertion is wrong, Reason is correct",
@@ -1811,7 +1973,7 @@
                     ]
                 },
                 {
-                    "q": "Statement A: Coffee contains caffeine. Statement B: Drinking coffee enhances cancer",
+                    "q": "Statement A: Coffee contains caffeine Statement B: Drinking coffee enhances cancer",
                     "options": [
                         "A is correct, B is wrong",
                         "A and B – Both are correct",
@@ -1824,7 +1986,7 @@
                     "options": [
                         "Lamiaceae",
                         "Fabaceae",
-                        "Dipterocaipaceae",
+                        "Dipterocarpaceae",
                         "Ebenaceae"
                     ]
                 },
@@ -1847,7 +2009,7 @@
                     ]
                 },
                 {
-                    "q": "Assertion: Turmeric fights various kinds of cancer. Reason: Curcumin is an anti-oxidant present in turmeric",
+                    "q": "Assertion: Turmeric fights various kinds of cancer Reason: Curcumin is an anti-oxidant present in turmeric",
                     "options": [
                         "Assertion is correct, Reason is wrong",
                         "Assertion is wrong, Reason is correct",
@@ -1858,10 +2020,10 @@
                 {
                     "q": "Find out the correctly matched pair.",
                     "options": [
-                        "Rubber Shorea robusta",
-                        "Dye Lawsonia inermis",
-                        "Timber Cyperus papyrus",
-                        "Pulp Hevea brasiliensis"
+                        "Rubber - Shorea robusta",
+                        "Dye - Lawsonia inermis",
+                        "Timber - Cyperus papyrus",
+                        "Pulp - Hevea brasiliensis"
                     ]
                 },
                 {
@@ -1895,7 +2057,7 @@
                     "q": "Which one of the following matches is correct?",
                     "options": [
                         "Palmyra - Native of Brazil",
-                        "Saccharun - Abundant in Kanyakumari",
+                        "Saccharum - Abundant in Kanyakumari",
                         "Steveocide - Natural sweetener",
                         "Palmyra sap - Fermented to give ethanol"
                     ]

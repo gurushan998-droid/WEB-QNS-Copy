@@ -3544,8 +3544,8 @@ function saveAsPDF(e) {
 
     // Temporarily modify paper for clean capture
     paper.contentEditable = "false"; // Disable editing to hide cursor/focus
-    const imageOverlay = document.getElementById('image-tools-overlay');
-    if (imageOverlay) imageOverlay.style.display = 'none'; // Hide resizing tools
+    // Clean up any active resize handles
+    if (window.destroyResizeOverlay) window.destroyResizeOverlay();
 
     paper.style.width = '210mm';
     paper.style.position = 'relative';
@@ -3678,42 +3678,47 @@ function getOptionLayoutClass(options) {
 function renderQuestionForPaper(q, label) {
     if (!q || q.isPlaceholder) return '';
 
+    // Helper for Diagram Layout (Centered Below)
+    const renderDiagram = (imgPath) => {
+        if (!imgPath) return '';
+        const fullImgPath = (imgPath.includes('/') || imgPath.includes('\\')) ? imgPath : `data/picture/${imgPath}`;
+        // Standard Centered Block
+        return `<div class="question-diagram-wrapper" style="margin: 10px auto; width: 250px; position: relative; text-align: center;">
+            <img src="${fullImgPath}" 
+                 class="resizable-image" 
+                 onclick="window.selectImageForResize(this, event)"
+                 style="width: 100%; display: block; height: auto; border: 1px solid #eee; padding: 5px; background: #fff; cursor: pointer;" 
+                 alt="Question Diagram"
+                 title="Click to Resize">
+        </div>`;
+    };
+
     if (q.questions) {
         // Complex (OR/AND)
         const partTitle = q.q || q.assertion || q.title || "";
 
-        // Handle parent question diagram if present
-        let parentDiagramHtml = '';
-        const parentImgPath = q.diagram || q.image;
-        if (parentImgPath) {
-            const fullImgPath = (parentImgPath.includes('/') || parentImgPath.includes('\\')) ? parentImgPath : `data/picture/${parentImgPath}`;
-            parentDiagramHtml = `<div class="question-diagram" style="margin-top: 10px; margin-bottom: 10px;">
-                <img src="${fullImgPath}" style="max-width: 300px; height: auto; border: 1px solid #eee; padding: 5px; background: #fff;" alt="Question Diagram">
-            </div>`;
-        }
+        // Parent Diagram
+        const parentDiagramHtml = renderDiagram(q.diagram || q.image);
 
         return `
-    <div class="question" >
+    <div class="question">
                 <div class="question-number">${label}</div>
-                <div class="question-content">
+                <div class="question-content" style="display: block;">
                     ${partTitle ? `<div style="font-weight: 600; margin-bottom: 8px;">${partTitle}</div>` : ''}
                     ${parentDiagramHtml}
+                    
                     ${q.questions.map((subQ, i) => {
             // Generate sub-question label based on mode
             let subLabel = '';
             if (q.mode === 'or') {
-                // OR type: use (a), (b), (c)...
                 subLabel = `(${String.fromCharCode(97 + i)})`;
             } else {
-                // AND type: use (i), (ii), (iii)...
-                const romanNumerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x'];
+                const romanNumerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi'];
                 subLabel = `(${romanNumerals[i] || (i + 1)})`;
             }
 
-            // Extract just the question text (without wrapping divs)
             let subQuestionText = subQ.q || subQ.assertion || subQ.title || '';
 
-            // Handle options if present
             let optionsHtml = '';
             if (subQ.options) {
                 const layoutClass = getOptionLayoutClass(subQ.options);
@@ -3722,18 +3727,16 @@ function renderQuestionForPaper(q, label) {
                 </div>`;
             }
 
-            // Handle diagram if present
-            let diagramHtml = '';
-            const imgPath = subQ.diagram || subQ.image;
-            if (imgPath) {
-                const fullImgPath = (imgPath.includes('/') || imgPath.includes('\\')) ? imgPath : `data/picture/${imgPath}`;
-                diagramHtml = `<div class="question-diagram" style="margin-top: 10px; margin-bottom: 10px;">
-                    <img src="${fullImgPath}" style="max-width: 300px; height: auto; border: 1px solid #eee; padding: 5px; background: #fff;" alt="Question Diagram">
-                </div>`;
-            }
+            // Sub Diagram
+            const diagramHtml = renderDiagram(subQ.diagram || subQ.image);
 
-            const subHtml = `<div class="sub-question"><strong>${subLabel}</strong> ${subQuestionText}${diagramHtml}${optionsHtml}</div>`;
+            const subHtml = `<div class="sub-question" style="margin-top: 8px;">
+                                <div><strong>${subLabel}</strong> ${subQuestionText}</div>
+                                ${optionsHtml}
+                                ${diagramHtml}
+                             </div>`;
             const separator = (q.mode === 'or' && i < q.questions.length - 1) ? '<div class="or-divider">- OR -</div>' : '';
+
             return subHtml + separator;
         }).join('')}
                 </div>
@@ -3741,32 +3744,34 @@ function renderQuestionForPaper(q, label) {
     }
 
     // Single Question (MCQ, Answer, Match, etc.)
-    let indexHtml = `<div class="question-text" > ${q.q || q.assertion || (q.title + (q.columnA ? ' (Match)' : ''))}</div> `;
+    let indexHtml = '';
 
-    // Diagram support
-    const imgPath = q.diagram || q.image;
-    if (imgPath) {
-        // If it's just a filename, assume it's in data/picture/
-        const fullImgPath = (imgPath.includes('/') || imgPath.includes('\\')) ? imgPath : `data/picture/${imgPath}`;
-        indexHtml += `<div class="question-diagram" style="margin-top: 10px; margin-bottom: 10px;">
-            <img src="${fullImgPath}" style="max-width: 300px; height: auto; border: 1px solid #eee; padding: 5px; background: #fff;" alt="Question Diagram">
-        </div>`;
-    }
+    // Text container
+    let textContent = `<div class="question-text" > ${q.q || q.assertion || (q.title + (q.columnA ? ' (Match)' : ''))}</div>`;
 
     if (q.options) {
         const layoutClass = getOptionLayoutClass(q.options);
-        indexHtml += `
+        textContent += `
     <div class="options-inline ${layoutClass}" >
         ${q.options.map((opt, i) => `<span class="option">${String.fromCharCode(97 + i)}) ${opt}</span>`).join('')}
             </div> `;
     } else if (q.columnA) {
-        indexHtml += `
-    < table class="match-table" >
+        textContent += `
+    <table class="match-table" >
         ${q.columnA.map((item, idx) => `<tr><td>${item}</td><td>${q.columnB[idx]}</td></tr>`).join('')}
-            </table > `;
+            </table> `;
     }
 
-    return `<div class="question" ><div class="question-number">${label}</div><div class="question-content">${indexHtml}</div></div> `;
+    // Diagram (Render AFTER text for Below positioning)
+    const diagramHtml = renderDiagram(q.diagram || q.image);
+
+    return `<div class="question" >
+                <div class="question-number">${label}</div>
+                <div class="question-content" style="display: block;">
+                    ${textContent}
+                    ${diagramHtml}
+                </div>
+            </div>`;
 }
 
 // Auto Generate Button
@@ -4298,6 +4303,119 @@ window.setSlotMode = function (sectionId, idx, mode, subIdx = null) {
     saveState();
     renderSectionQuestions();
 };
+
+// ==========================================
+// IMAGE RESIZING UTILITIES (8-Point)
+// ==========================================
+window.currentResizeImg = null;
+
+window.selectImageForResize = function (img, event) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
+    // Allow toggle off
+    if (window.currentResizeImg === img) {
+        destroyResizeOverlay();
+        return;
+    }
+
+    destroyResizeOverlay();
+    window.currentResizeImg = img;
+
+    // Create overlay on wrapper
+    const wrapper = img.parentElement;
+    if (!wrapper.classList.contains('question-diagram-wrapper')) return;
+
+    wrapper.classList.add('resizing-active');
+    wrapper.style.position = 'relative'; // Ensure positioning context
+
+    const directions = ['n', 's', 'e', 'w', 'ne', 'nw', 'se', 'sw'];
+
+    directions.forEach(dir => {
+        const handle = document.createElement('div');
+        handle.className = `resize-handle resize-handle-${dir}`;
+        handle.setAttribute('data-dir', dir);
+        wrapper.appendChild(handle);
+
+        handle.addEventListener('mousedown', function (e) {
+            initResize(e, wrapper, dir);
+        });
+    });
+};
+
+function initResize(e, wrapper, dir) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const startX = e.clientX;
+    const startY = e.clientY;
+    const startWidth = wrapper.offsetWidth;
+    const startHeight = wrapper.offsetHeight; // Note: img is block, wrapper height depends on img
+
+    // For maintaining aspect ratio properly, we often just manipulate width for simple image wrappers
+    // But if we want 2D resizing, we might need to set height explicitly.
+    // However, usually <img style="width:100%; height:auto;"> means we just change wrapper width.
+    // If we want height control, we must unlock aspect ratio.
+
+    // Let's assume proportional resize for corners, and strict width resize for edges for simplicity first,
+    // OR just width-based resize for everything since standard diagrams are proportional.
+    // BUT user asked for '8 dots'.
+
+    const onMouseMove = (e) => {
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+
+        // Calculate new width
+        let newWidth = startWidth;
+
+        if (dir.includes('e')) newWidth = startWidth + dx;
+        if (dir.includes('w')) newWidth = startWidth - dx;
+
+        // Apply Grid/Snap constraints if desired (optional)
+        if (newWidth < 50) newWidth = 50;
+        if (newWidth > 800) newWidth = 800;
+
+        // Apply
+        if (dir.includes('e') || dir.includes('w') || dir.includes('n') || dir.includes('s')) {
+            wrapper.style.width = `${newWidth}px`;
+            // Reset max-width to allow growth
+            wrapper.style.maxWidth = 'none';
+        }
+    };
+
+    const onMouseUp = () => {
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+    };
+
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+}
+
+function destroyResizeOverlay() {
+    if (!window.currentResizeImg) return;
+
+    const wrapper = window.currentResizeImg.parentElement;
+    if (wrapper) {
+        wrapper.classList.remove('resizing-active');
+        const handles = wrapper.querySelectorAll('.resize-handle');
+        handles.forEach(h => h.remove());
+    }
+    window.currentResizeImg = null;
+}
+
+// Global listener to close resizing selection when clicking outside
+document.addEventListener('click', function (e) {
+    if (window.currentResizeImg) {
+        // If clicking on the image itself or a handle, ignore
+        if (e.target === window.currentResizeImg || e.target.classList.contains('resize-handle')) {
+            return;
+        }
+        destroyResizeOverlay();
+    }
+});
 
 
 window.updateSubSlotLabel = function (sectionId, idx, subIdx, value) {
