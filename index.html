@@ -641,35 +641,6 @@
 
     <!-- Main Logic (Load after Firebase) -->
     <script src="script.js"></script>
-
-    <!------------------------------------------------------Mathjax------------------------------------------------------>
-    <script>
-        // This matches the specific JSON format you provided
-        const questionFromJSON = {
-            "q": "Given $A = \\begin{bmatrix} 1 & -1 \\\\ 2 & 0 \\end{bmatrix}$, $B = \\begin{bmatrix} 3 & -2 \\\\ 1 & 1 \\end{bmatrix}$ and $C = \\begin{bmatrix} 1 & 1 \\\\ 2 & 2 \\end{bmatrix}$, find a matrix $X$ such that $AXB = C$.",
-            "marks": 5
-        };
-
-        function renderQuestion() {
-            const displayArea = document.getElementById('display-area');
-
-            // Injecting the raw LaTeX string from JSON into the HTML
-            displayArea.innerHTML = `
-            <p><strong>Question:</strong> ${questionFromJSON.q}</p>
-            <p><strong>Marks:</strong> ${questionFromJSON.marks}</p>
-        `;
-
-            // IMPORTANT: Tell MathJax to scan the new HTML and render the matrices
-            if (window.MathJax && window.MathJax.typesetPromise) {
-                MathJax.typesetPromise([displayArea]).then(() => {
-                    console.log("Math rendered successfully!");
-                });
-            }
-        }
-
-        // Run the function when the page is ready
-        window.onload = renderQuestion;
-    </script>
 </body>
 
 </html>

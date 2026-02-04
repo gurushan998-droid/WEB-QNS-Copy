@@ -628,7 +628,8 @@ function addSection() {                                // Appends a new Part (A,
         marksPerQuestion: '',                           // Scale of marks
         isOrType: false,                               // Flag for Either/Or questions
         isAndType: false,                               // Flag for Sub-question parts
-        marksLevels: []                                // Filter for 2 mark/3 mark questions
+        marksLevels: [],                                // Filter for 2 mark/3 mark questions
+        compulsoryIndex: false                           // Track which question is mandatory
     };
 
     sections.push(section);                            // Push to global array
@@ -750,16 +751,20 @@ function renderQuestionSelectionTab() {
     tabsContainer.innerHTML = sections.map((section, index) => {
         const startQNo = sectionStartNums[index];
         const questions = sectionQuestions[section.id] || [];
-        const notice = getCompulsoryNotice(questions, startQNo);
+        const notice = getCompulsoryNotice(questions, startQNo, section);
         const hasCompulsory = section.compulsoryIndex !== null && section.compulsoryIndex !== undefined;
 
         return `
             <button class="section-tab ${index === activeSectionTab ? 'active' : ''}" 
                     onclick="switchSectionTab(${index})"
-                    style="display: flex; flex-direction: column; align-items: center; gap: 4px; justify-content: center;">
-                <span>${romanize(index + 1)}. ${section.name || ''}</span>
-                ${hasCompulsory ? `<span style="font-size: 0.65rem; font-weight: 700; color: #ef4444;">COMPULSORY</span>` : ''}
-                ${notice ? `<span style="font-size: 0.7rem; font-weight: normal; opacity: 0.8;">${notice}</span>` : ''}
+                    style="display: flex; flex-direction: column; align-items: center; gap: 2px; justify-content: center; min-width: 120px;">
+                <span style="font-weight: 600;">${romanize(index + 1)}. ${section.name || ''}</span>
+                ${hasCompulsory ? `
+                    <div style="display: flex; flex-direction: column; align-items: center; line-height: 1;">
+                        <span style="font-size: 0.6rem; font-weight: 900; color: #ef4444; letter-spacing: 0.05em;">COMPULSORY</span>
+                        ${notice ? `<span style="font-size: 0.65rem; font-weight: 700; color: #ef4444; margin-top: 1px;">Q.${startQNo + section.compulsoryIndex}</span>` : ''}
+                    </div>
+                ` : ''}
             </button>
         `;
     }).join('');
@@ -910,6 +915,9 @@ function renderSectionQuestions() {
                             <span style="font-weight: 700; color: var(--color-primary); margin-right: 10px;">${romanize(activeSectionTab + 1)}.</span>
                             <span style="font-weight: 600; font-size: 1.1rem;">${section.name || 'Unnamed Section'}</span>
                             <button class="btn-icon stats" onclick="renameSectionFromTab4(${section.id})" title="Rename Section" style="margin-left: 10px; opacity: 0.6;">✏️</button>
+                            <div style="margin-left: 15px; background: #fee2e2; border-radius: 4px; padding: 2px 8px; font-size: 0.8rem; font-weight: 700; color: #ef4444; display: ${section.compulsoryIndex !== null && section.compulsoryIndex !== undefined ? 'inline-block' : 'none'};">
+                                ${getCompulsoryNotice(sectionQuestions[section.id], startingNum, section)}
+                            </div>
                         </div>
                         <div style="margin-top: 4px; color: var(--color-text-muted); font-size: 0.9rem;">
                             Select <strong>${section.attemptQuestions}</strong> questions to be attempted. Each carries <strong>${section.marksPerQuestion}</strong> marks.
@@ -1079,12 +1087,14 @@ function autoFillSection(sectionId) {                 // AI-like random picker f
  * @param {number} idx - Index/position of the question
  */
 function toggleCompulsory(sectionId, idx) {
-    const section = sections.find(s => s.id === sectionId);
+    const sId = Number(sectionId);
+    const qIdx = Number(idx);
+    const section = sections.find(s => s.id === sId);
     if (!section) return;
 
-    if (!sectionQuestions[sectionId] || !sectionQuestions[sectionId][idx]) return;
+    if (!sectionQuestions[sId] || !sectionQuestions[sId][qIdx]) return;
 
-    const question = sectionQuestions[sectionId][idx];
+    const question = sectionQuestions[sId][qIdx];
 
     // Don't allow marking placeholders as compulsory
     if (question.isPlaceholder) {
@@ -1093,15 +1103,22 @@ function toggleCompulsory(sectionId, idx) {
     }
 
     // Toggle: if this index is already compulsory, remove it; otherwise set it
-    if (section.compulsoryIndex === idx) {
+    if (section.compulsoryIndex === qIdx) {
         section.compulsoryIndex = null; // Remove compulsory
     } else {
-        section.compulsoryIndex = idx; // Set this position as compulsory
+        section.compulsoryIndex = qIdx; // Set this position as compulsory
     }
 
     saveState();
-    renderSections(); // Update section display
-    renderSectionQuestions(); // Update question list
+
+    // Refresh UI
+    renderSectionQuestions();
+
+    // Also refresh tabs to reflect compulsory notice if we are in Tab 4
+    const tab4 = document.getElementById('tab4');
+    if (tab4 && tab4.classList.contains('active')) {
+        renderQuestionSelectionTab();
+    }
 }
 
 /**
@@ -1542,6 +1559,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
     // Calculate global question number
     const globalQNum = startingNum + idx + 1;
     const mode = q.mode || 'normal';
+    const section = sections.find(s => s.id === sectionId);
 
     // Helper to render the rich active slot UI
     const renderActiveSlotUI = (sId, qIdx, subIdx, labelText, innerIdx = null) => {
@@ -1961,8 +1979,8 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                         <div style="padding: 5px; cursor: pointer; border-bottom: 1px solid #eee;" onclick="event.stopPropagation(); window.setSlotMode(${sectionId}, ${idx}, 'normal')">( Single ) type</div>
                         <div style="padding: 5px; cursor: pointer; border-bottom: 1px solid #eee;" onclick="event.stopPropagation(); window.setSlotMode(${sectionId}, ${idx}, 'or')">( Or ) type</div>
                         <div style="padding: 5px; cursor: pointer; border-bottom: 1px solid #eee;" onclick="event.stopPropagation(); window.setSlotMode(${sectionId}, ${idx}, 'and')">( And ) type</div>
-                        <div style="padding: 5px; cursor: pointer; color: ${q.isCompulsory ? 'var(--color-danger)' : 'var(--color-primary)'}; font-weight: 700;" onclick="event.stopPropagation(); window.toggleCompulsory(${sectionId}, ${idx})">
-                            ${q.isCompulsory ? '✓ Compulsory' : 'Mark Compulsory'}
+                        <div style="padding: 5px; cursor: pointer; color: ${(section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === Number(idx)) ? 'var(--color-danger)' : 'var(--color-primary)'}; font-weight: 700;" onclick="event.stopPropagation(); window.toggleCompulsory(${sectionId}, ${idx})">
+                            ${(section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === Number(idx)) ? '✓ Compulsory' : 'Mark Compulsory'}
                         </div>
                     </div>
                 </div>
@@ -1998,7 +2016,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
         <div class="q-num-panel">
             <span class="q-num">${globalQNum}</span>
             <span class="q-badge-mini ${q.bookBack ? 'badge-bb' : 'badge-int'}">${q.bookBack ? 'BB' : 'INT'}</span>
-            ${q.isCompulsory ? `<span class="q-badge-mini" style="background: var(--color-danger); color: white; margin-top: 5px; font-size: 0.6rem; padding: 2px 4px;">COMPULSORY</span>` : ''}
+            ${(section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === Number(idx)) ? `<span class="q-badge-mini" style="background: var(--color-danger); color: white; margin-top: 5px; font-size: 0.6rem; padding: 2px 4px;">COMPULSORY</span>` : ''}
         </div>
 
         <div class="q-text-panel">
@@ -2034,8 +2052,8 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                     <div style="padding: 5px; cursor: pointer; border-bottom: 1px solid #eee;" onclick="event.stopPropagation(); window.setSlotMode(${sectionId}, ${idx}, 'normal')">( Single ) type</div>
                     <div style="padding: 5px; cursor: pointer; border-bottom: 1px solid #eee;" onclick="event.stopPropagation(); window.setSlotMode(${sectionId}, ${idx}, 'or')">( Or ) type</div>
                     <div style="padding: 5px; cursor: pointer; border-bottom: 1px solid #eee;" onclick="event.stopPropagation(); window.setSlotMode(${sectionId}, ${idx}, 'and')">( And ) type</div>
-                    <div style="padding: 5px; cursor: pointer; color: ${q.isCompulsory ? 'var(--color-danger)' : 'var(--color-primary)'}; font-weight: 700;" onclick="event.stopPropagation(); window.toggleCompulsory(${sectionId}, ${idx})">
-                        ${q.isCompulsory ? '✓ Compulsory' : 'Mark Compulsory'}
+                    <div style="padding: 5px; cursor: pointer; color: ${(section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === Number(idx)) ? 'var(--color-danger)' : 'var(--color-primary)'}; font-weight: 700;" onclick="event.stopPropagation(); window.toggleCompulsory(${sectionId}, ${idx})">
+                        ${(section.compulsoryIndex !== null && section.compulsoryIndex !== undefined && Number(section.compulsoryIndex) === Number(idx)) ? '✓ Compulsory' : 'Mark Compulsory'}
                     </div>
                 </div>
             </div>
@@ -2230,9 +2248,25 @@ function removeQuestionFromSection(sectionId, idx, subIdx = null, innerIdx = nul
         } else {
             // Normal section slot removal
             list.splice(idx, 1);
+
+            // Shift compulsory index logic
+            const section = sections.find(s => s.id === Number(sectionId));
+            if (section && section.compulsoryIndex !== null && section.compulsoryIndex !== undefined) {
+                if (Number(section.compulsoryIndex) === Number(idx)) {
+                    section.compulsoryIndex = null;
+                } else if (Number(section.compulsoryIndex) > Number(idx)) {
+                    section.compulsoryIndex--;
+                }
+            }
         }
         saveState();
         renderSectionQuestions();
+
+        // Refresh tabs to update compulsory notice
+        const tab4 = document.getElementById('tab4');
+        if (tab4 && tab4.classList.contains('active')) {
+            renderQuestionSelectionTab();
+        }
     }
 }
 
@@ -3601,7 +3635,7 @@ function generateSectionHTML(section, questions, startQNo, sectionIndex) { // Re
             <div class="section-title">
                 <span style="font-weight:bold;">${partLabel}</span>
                 ${sectionNote}                    <!-- Instructions display -->
-                <span class="compulsory-header-notice">${getCompulsoryNotice(questions, startQNo)}</span> <!-- Special Q notice -->
+                <span class="compulsory-header-notice">${getCompulsoryNotice(questions, startQNo, section)}</span> <!-- Special Q notice -->
             </div>
             <div class="section-marks">${section.attemptQuestions} × ${section.marksPerQuestion} = ${totalSectionMarks}</div> <!-- (Marks display) -->
         </div>
@@ -3618,10 +3652,14 @@ function generateSectionHTML(section, questions, startQNo, sectionIndex) { // Re
     return { html, nextQNum: currentQNo };
 }
 
-function getCompulsoryNotice(questions, startQNo) {
-    const compulsoryIdx = questions.findIndex(q => !q.isPlaceholder && q.isCompulsory);
-    if (compulsoryIdx !== -1) {
-        return `< small style = "font-weight: normal; margin-left: 5px;" > (Q.No: ${startQNo + compulsoryIdx} is compulsory )</small > `;
+function getCompulsoryNotice(questions, startQNo, overrideSection = null) {
+    const section = overrideSection || sections[activeSectionTab];
+    if (section && section.compulsoryIndex !== null && section.compulsoryIndex !== undefined) {
+        const qIdx = Number(section.compulsoryIndex);
+        // Check if the question at this index exists and is not a placeholder
+        if (questions && questions[qIdx] && !questions[qIdx].isPlaceholder) {
+            return `(Q.No: ${startQNo + qIdx} is compulsory)`;
+        }
     }
     return '';
 }
@@ -3847,11 +3885,16 @@ function clearTab(tabNum) {
         calculateTotalMarks();
 
     } else if (tabNum === 4) {
-        if (!confirm("Are you sure you want to clear ALL selected questions across all sections?")) return;
-        // Reset questions for all sections
-        for (const section of sections) {
-            sectionQuestions[section.id] = [];
-        }
+        const section = sections[activeSectionTab];
+        if (!section) return;
+        if (!confirm(`Are you sure you want to clear all selected questions for "${section.name || 'this section'}"?`)) return;
+
+        // Reset questions only for the active section
+        sectionQuestions[section.id] = [];
+
+        // Reset compulsory index for this section as well if it's cleared
+        section.compulsoryIndex = null;
+
         renderQuestionSelectionTab();
     }
 
@@ -4010,7 +4053,7 @@ function submitImportQuestion() {
 // ==========================================
 
 window.toggleModeMenu = function (idx, subIdx = null) {
-    const selector = subIdx !== null ? `mode - menu - ${idx} -${subIdx} ` : `mode - menu - ${idx} `;
+    const selector = subIdx !== null ? `mode-menu-${idx}-${subIdx}` : `mode-menu-${idx}`;
     const menu = document.getElementById(selector);
     if (menu) {
         const isVisible = menu.style.display === 'block';
@@ -4107,10 +4150,14 @@ window.cancelEditQuestion = function () {
     renderSectionQuestions();
 };
 
-window.activateSubSlot = function (idx, subIdx, innerIdx = null) {
+window.activateSubSlot = function activateSubSlot(idx, subIdx, innerIdx = null) {
     activeSlotIndex = idx;
     window.activeSubSlotIndex = subIdx;
     window.activeInnerSlotIndex = innerIdx;
+
+    // Set bank visibility flag to ensure it renders
+    isBankVisible = true;
+
     renderSectionQuestions();
 };
 
@@ -4214,7 +4261,7 @@ window.startEditingPartTitle = function (idx, subIdx) {
 };
 
 window.savePartTitle = function (sectionId, idx, subIdx) {
-    const text = document.getElementById(`edit - part - title - ${idx} -${subIdx} `)?.value;
+    const text = document.getElementById(`edit-part-title-${idx}-${subIdx}`)?.value;
     if (sectionQuestions[sectionId] && sectionQuestions[sectionId][idx] && sectionQuestions[sectionId][idx].questions) {
         sectionQuestions[sectionId][idx].questions[subIdx].q = text;
         window.editingState = null;
@@ -4224,36 +4271,11 @@ window.savePartTitle = function (sectionId, idx, subIdx) {
 };
 
 window.toggleCompulsory = function (sectionId, idx) {
-    if (!sectionQuestions[sectionId] || !sectionQuestions[sectionId][idx]) return;
-    const q = sectionQuestions[sectionId][idx];
-    q.isCompulsory = !q.isCompulsory;
-    saveState();
-
-    // Refresh UI
-    renderSectionQuestions();
-
-    // Also refresh tabs to reflect compulsory notice if we are in Tab 4
-    const tab4 = document.getElementById('tab4');
-    if (tab4 && tab4.classList.contains('active')) {
-        renderQuestionSelectionTab();
-    }
+    // Call the unified top-level function
+    toggleCompulsory(sectionId, idx);
 };
 
-function clearTab(tabNum) {
-    if (!confirm('Are you sure you want to clear all data in this tab? This cannot be undone.')) return;
 
-    if (tabNum === 2) {
-        selectedChapters = [];
-        populateChapterList();
-    } else if (tabNum === 3) {
-        sections = [];
-        renderSections();
-    } else if (tabNum === 4) {
-        sectionQuestions = {};
-        renderQuestionSelectionTab();
-    }
-    saveState();
-}
 
 // Initialize on load
 window.onload = function () {
@@ -4279,7 +4301,7 @@ function openSymbolPopup() {
     // Populate grid if empty
     if (grid.children.length === 0) {
         const symbols = [
-            'p', 'O', 'S', 'a', '�', '?', 'd', '?', '?', '�',
+            'p', 'O', 'S', 'a', '', '?', 'd', '?', '?', '',
             '', '', '', '', '', '', '', '', '', '', '',
             '', '', '', '', '', '', '', '', ''
         ];
