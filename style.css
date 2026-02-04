@@ -1,12 +1,7 @@
 /* ========================================
-   FILE: style.css
-   USE: This is the main stylesheet for the application.
-        It contains:
-        1. Global Variables (Colors, Fonts, Spacing) in :root
-        2. CSS Reset and Base Styles
-        3. Component Styles (Cards, Buttons, Inputs, Tables)
-        4. Layout Styles (Grid, Flexbox utilities)
-        5. Print Styles (@media print) to format the paper for A4 printing
+   1. GLOBAL VARIABLES & DESIGN SYSTEM
+   Defines the color palette, typography, 
+   and reusable tokens like shadows/radius.
 ======================================== */
 :root {
     --font-display: 'Outfit', sans-serif;
@@ -438,6 +433,8 @@ body {
 .aside-icon {
     font-size: 3rem;
     margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 .aside-title {
