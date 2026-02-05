@@ -3730,7 +3730,7 @@ function renderQuestionForPaper(q, label) {
             // Sub Diagram
             const diagramHtml = renderDiagram(subQ.diagram || subQ.image);
 
-            const subHtml = `<div class="sub-question" style="margin-top: 8px;">
+            const subHtml = `<div class="sub-question" style="margin-top: ${i === 0 ? '0' : '8px'};">
                                 <div><strong>${subLabel}</strong> ${subQuestionText}</div>
                                 ${optionsHtml}
                                 ${diagramHtml}
