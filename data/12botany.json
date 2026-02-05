@@ -183,15 +183,322 @@
                     "marks": 2
                 },
                 {
-                    "q": "Mention the contribution of Hofmeister towards Embryology.",
+                    "q": "List out two sub-aerial stem modifications with example.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is layering?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are clones?",
+                    "marks": 2
+                },
+                {
+                    "q": "A detached leaf of Bryophyllum produces new plants. How?",
+                    "marks": 3
+                },
+                {
+                    "q": "Differentiate Grafting and Layering.",
+                    "marks": 3
+                },
+                {
+                    "q": "“Tissue culture is the best method for propagating rare and endangered plant species”- Discuss.",
+                    "marks": 3
+                },
+                {
+                    "q": "Distinguish mound layering and air layering.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is Cantharophily?",
+                    "marks": 2
+                },
+                {
+                    "q": "List any two strategy adopted by bisexual flowers to prevent self-pollination.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is endothelium?",
+                    "marks": 2
+                },
+                {
+                    "q": "“The endosperm of angiosperm is different from gymnosperm”. Do you agree. Justify your answer.",
+                    "marks": 3
+                },
+                {
+                    "q": "Define the term Diplospory.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is polyembryony. How it can commercially exploited?",
+                    "marks": 3
+                },
+                {
+                    "q": "Why does the zygote divides only after the division of Primary endosperm cell?",
+                    "marks": 3
+                },
+                {
+                    "q": "What is Melittophily?",
+                    "marks": 2
+                },
+                {
+                    "q": "“Endothecium is associated with dehiscence of anther” Justify the statement.",
+                    "marks": 3
+                },
+                {
+                    "q": "List out the functions of tapetum.",
+                    "marks": 3
+                },
+                {
+                    "q": "Write short note on Pollen Kitt.",
+                    "marks": 2
+                },
+                {
+                    "q": "Distinguish tenuinucellate and crassinucellate ovules.",
+                    "marks": 3
+                },
+                {
+                    "q": "„Pollination in Gymnosperms is different from Angiosperms‟ – Give reasons.",
+                    "marks": 3
+                },
+                {
+                    "q": "Write short note on Heterostyly.",
+                    "marks": 3
+                },
+                {
+                    "q": "How do Dioscorea reproduce vegetatively?",
                     "marks": 2
                 }
             ],
-            "interior": []
+            "interior": [
+                {
+                    "q": "Write short notes on approach grafting.",
+                    "marks": 3
+                },
+                {
+                    "q": "Enumerate the advantages of conventional methods of propagation.",
+                    "marks": 3
+                },
+                {
+                    "q": "Name the cell which divides to form male nuclei.",
+                    "marks": 2
+                },
+                {
+                    "q": "How does pollination occur in bee orchid?",
+                    "marks": 3
+                },
+                {
+                    "q": "What is microsporogenesis?",
+                    "marks": 2
+                },
+                {
+                    "q": "Differentiate secretory and invasive tapetum.",
+                    "marks": 3
+                },
+                {
+                    "q": "Tapetum is dual in origin – Justify your answer.",
+                    "marks": 3
+                },
+                {
+                    "q": "Describe pollinium.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is stomium?",
+                    "marks": 2
+                },
+                {
+                    "q": "Draw a structure of pollen grains and label its parts.",
+                    "marks": 3
+                },
+                {
+                    "q": "What are the layers of anther wall?",
+                    "marks": 3
+                },
+                {
+                    "q": "What is meant by cryopreservation?",
+                    "marks": 2
+                },
+                {
+                    "q": "What do you know about pollen robbers?",
+                    "marks": 2
+                },
+                {
+                    "q": "Differentiate Intine and Exine.",
+                    "marks": 3
+                },
+                {
+                    "q": "Give short notes on types of ovules.",
+                    "marks": 3
+                },
+                {
+                    "q": "Define: Double fertilization.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is obturator?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define: perisperm.",
+                    "marks": 2
+                },
+                {
+                    "q": "Tabulate post fertilization changes in a flower.",
+                    "marks": 3
+                },
+                {
+                    "q": "Write the functions of endosperm.",
+                    "marks": 3
+                },
+                {
+                    "q": "Do you think parthenocarpy and apomixis are different process? Justify?",
+                    "marks": 3
+                },
+                {
+                    "q": "What is endospermous or ex – albuminous seeds?",
+                    "marks": 3
+                },
+                {
+                    "q": "Draw a structure of embryo sac and label its parts.",
+                    "marks": 3
+                },
+                {
+                    "q": "Write the parts of mature embryo sac.",
+                    "marks": 3
+                },
+                {
+                    "q": "Give examples for Helobial endosperm.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Anemophily?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Hydrophily?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Ornithophily?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Chieropterophily?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Myrmecophily?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Malacophily?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Phalaenophily?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Psychophily?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is epihydrophily and hypohydrophily?",
+                    "marks": 3
+                },
+                {
+                    "q": "What is homogamy?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Incomplete dichogamy?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define Cross - pollination.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is geitonogamy?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Xenogamy?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Herkogamy?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is bisporic embryo sac?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is tetrasporic embryo sac?",
+                    "marks": 2
+                },
+                {
+                    "q": "Give short notes on sporopollenin?",
+                    "marks": 3
+                }
+            ]
         },
         "longAnswer": {
-            "bb": [],
-            "interior": []
+            "bb": [
+                {
+                    "q": "Explain the conventional methods adopted in vegetative propagation of higher plants."
+                },
+                {
+                    "q": "Enumerate the characteristic features of Entomophilous flowers."
+                },
+                {
+                    "q": "Discuss the steps involved in Microsporogenesis."
+                },
+                {
+                    "q": "With a suitable diagram explain the structure of an ovule."
+                },
+                {
+                    "q": "Give a concise account on steps involved in fertilization of an angiosperm plant."
+                },
+                {
+                    "q": "Differentiate the structure of Dicot and Monocot seed."
+                },
+                {
+                    "q": "Give a detailed account on parthenocarpy. Add a note on its significance."
+                },
+                {
+                    "q": "What is endosperm? Explain the types."
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Explain the structure of mature anther."
+                },
+                {
+                    "q": "Explain the different mode of entry of pollen tube into the ovule."
+                },
+                {
+                    "q": "Write the characters of anemophilous plant."
+                },
+                {
+                    "q": "Explain pollination in Salvia (Lever mechanism)."
+                },
+                {
+                    "q": "Explain the development of a Dicot embryo."
+                },
+                {
+                    "q": "Describe about the mature embryo sac."
+                },
+                {
+                    "q": "Draw a structure of Cicer arientinum (Dicot seed) and label its parts."
+                },
+                {
+                    "q": "Describe megasporogenesis."
+                }
+            ]
         }
     },
     "Classical Genetics": {
@@ -410,7 +717,7 @@
             "bb": [
                 {
                     "q": "Name the seven contrasting traits of Mendel.",
-                    "marks": 2
+                    "marks": 3
                 },
                 {
                     "q": "What is meant by true breeding or pure breeding lines / strain?",
@@ -425,11 +732,11 @@
                     "marks": 2
                 },
                 {
-                    "q": "Define Genetics.",
+                    "q": "Define : Genetics.",
                     "marks": 2
                 },
                 {
-                    "q": "What are multiple alleles",
+                    "q": "What are multiple alleles?",
                     "marks": 2
                 },
                 {
@@ -437,11 +744,15 @@
                     "marks": 3
                 },
                 {
-                    "q": "Differentiate incomplete dominance and codominance.",
+                    "q": "Differentiate incomplete dominance and co dominance.",
                     "marks": 3
                 },
                 {
-                    "q": "What is meant by cytoplasmic inheritance",
+                    "q": "What is meant by cytoplasmic inheritance?",
+                    "marks": 2
+                },
+                {
+                    "q": "Explain with an example how single gene affect multiple traits and alleles the phenotype of an organism.",
                     "marks": 3
                 },
                 {
@@ -449,7 +760,64 @@
                     "marks": 3
                 }
             ],
-            "interior": []
+            "interior": [
+                {
+                    "q": "What is lethal allele?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are alleles?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Codominance?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is test cross?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is a Atavism?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is incomplete dominance?",
+                    "marks": 2
+                },
+                {
+                    "q": "Name the three types of phenotype observed in plants in snapdragon.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is reciprocal cross?",
+                    "marks": 2
+                },
+                {
+                    "q": "Why did Mendel choose pea plants for his experiments?",
+                    "marks": 3
+                },
+                {
+                    "q": "Name the four major subdisciplines of genetics.",
+                    "marks": 2
+                },
+                {
+                    "q": "Why is Mendel called as father of genetics?",
+                    "marks": 2
+                },
+                {
+                    "q": "Gametes are never hybrid – Justify.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is incomplete dominance? In 4 O' clock plant shows incomplete dominance for flower.",
+                    "marks": 3
+                },
+                {
+                    "q": "Mitochondrial Inheritance - Explain.",
+                    "marks": 3
+                }
+            ]
         },
         "longAnswer": {
             "bb": [
@@ -463,13 +831,17 @@
                     "q": "Explain polygenic inheritance with an example."
                 },
                 {
-                    "q": "Explain with an example how single genes affect multiple traits and alleles the phenotype of an organism."
-                },
-                {
                     "q": "Bring out the inheritance of chloroplast gene with an example."
                 }
             ],
-            "interior": []
+            "interior": [
+                {
+                    "q": "Explain about dihybrid cross."
+                },
+                {
+                    "q": "State the laws of inheritance proposed by Mendel."
+                }
+            ]
         }
     },
     "Chromosomal Basis of Inheritance": {
@@ -565,28 +937,12 @@
                     "marks": 3
                 },
                 {
-                    "q": "If you cross dominant genotype PV/PV male Drosophila with double recessive female and obtain F1 hybrid. Now you cross F1 male with double recessive female. i) What type of linkage is seen? ii) Draw the cross with correct genotype. iii) What is the possible genotype in F2 generation?",
-                    "marks": 3
-                },
-                {
                     "q": "What is the difference between missense and nonsense mutation?",
-                    "marks": 2
-                },
-                {
-                    "q": "Identify the type of mutation from given figure and explain it.",
                     "marks": 3
                 },
                 {
                     "q": "Write the salient features of Sutton and Boveri concept.",
-                    "marks": 2
-                },
-                {
-                    "q": "How is Nicotiana exhibit selfincompatibility. Explain its mechanism.",
                     "marks": 3
-                },
-                {
-                    "q": "Write the salient features of Sutton and Boveri concept.",
-                    "marks": 2
                 },
                 {
                     "q": "How sex is determined in monoecious plants. write their genes involved in it.",
@@ -597,15 +953,80 @@
                     "marks": 3
                 },
                 {
-                    "q": "Draw the diagram of different types of aneuploidy.",
+                    "q": "Mention the name of man-made cereal. How it is formed?",
                     "marks": 3
                 },
                 {
-                    "q": "Mention the name of man-made cereal. How it is formed?",
-                    "marks": 2
+                    "q": "From the above figure identify the type of mutation and explain it.",
+                    "marks": 3
                 }
             ],
-            "interior": []
+            "interior": [
+                {
+                    "q": "Define : Crossing over.",
+                    "marks": 2
+                },
+                {
+                    "q": "Write the importance of Crossing over?",
+                    "marks": 3
+                },
+                {
+                    "q": "Write short note on Colchicine.",
+                    "marks": 2
+                },
+                {
+                    "q": "Define: Mutation.",
+                    "marks": 2
+                },
+                {
+                    "q": "Mention few physical mutagens.",
+                    "marks": 2
+                },
+                {
+                    "q": "Write short notes on Sonora - 64.",
+                    "marks": 2
+                },
+                {
+                    "q": "Describe Castor Aruna.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are chemical mutagenes ? Give example.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are comutagens ? Give examples.",
+                    "marks": 2
+                },
+                {
+                    "q": "Give brief account on significance of ploidy.",
+                    "marks": 3
+                },
+                {
+                    "q": "How does linkage differ from crossing over ?",
+                    "marks": 3
+                },
+                {
+                    "q": "What are called linked genes?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by unlinked genes or syntenic genes?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are the types of mutation?",
+                    "marks": 2
+                },
+                {
+                    "q": "Write the number of chromosomes for the following organisms.",
+                    "marks": 2
+                },
+                {
+                    "q": "Name the three types of synapsis.",
+                    "marks": 2
+                }
+            ]
         },
         "longAnswer": {
             "bb": [
@@ -613,10 +1034,23 @@
                     "q": "Explain the mechanism of crossing over."
                 },
                 {
-                    "q": "Write the steps involved in molecular mechanism of DNA recombination with diagram."
+                    "q": "How is Nicotiana exhibit self - incompatibility. Explain its mechanism."
+                },
+                {
+                    "q": "Draw the diagram of different types of aneuploidy."
                 }
             ],
-            "interior": []
+            "interior": [
+                {
+                    "q": "Draw the flow chart of ploidy."
+                },
+                {
+                    "q": "What is meant by structural changes in chromosome Classify them."
+                },
+                {
+                    "q": "Explain the types of mutation with illustration."
+                }
+            ]
         }
     },
     "Principles and Processes of Biotechnology": {
@@ -826,7 +1260,7 @@
             "bb": [
                 {
                     "q": "How do you use the biotechnology in modern practice?",
-                    "marks": 2
+                    "marks": 3
                 },
                 {
                     "q": "What are the materials used to grow microorganism like Spirulina?",
@@ -837,7 +1271,7 @@
                     "marks": 3
                 },
                 {
-                    "q": "What are the enzymes you can used to cut terminal end and internal phospho di ester bond of nucleotide sequence?",
+                    "q": "What are the enzymes you can used to cut terminal end and internal phosphor di ester bond of nucleotide sequence?",
                     "marks": 2
                 },
                 {
@@ -846,26 +1280,14 @@
                 },
                 {
                     "q": "What do you know about the word pBR332?",
-                    "marks": 2
-                },
-                {
-                    "q": "Mention the application of Biotechnology.",
-                    "marks": 2
-                },
-                {
-                    "q": "What are restriction enzyme. Mention their type with role in Biotechnology.",
                     "marks": 3
                 },
                 {
-                    "q": "Is their any possibilities to transfer a suitable desirable gene to host plant without vector? Justify your answer.",
-                    "marks": 3
+                    "q": "Is their any possibilities to transfer a suitable desirable gene to host plant without vector?",
+                    "marks": 2
                 },
                 {
                     "q": "How will you identify a vectors?",
-                    "marks": 2
-                },
-                {
-                    "q": "Write the advantages of herbicide tolerant crops.",
                     "marks": 3
                 },
                 {
@@ -873,23 +1295,127 @@
                     "marks": 3
                 },
                 {
-                    "q": "What is bioremediation? give some examples of bioremediation.",
-                    "marks": 2
+                    "q": "Write the advantages of herbicide tolerant crops.",
+                    "marks": 3
                 },
                 {
-                    "q": "Write the benefits and risk of Genetically Modified Foods.",
+                    "q": "What is bioremediation? Give some examples of bioremediation.",
                     "marks": 3
                 }
             ],
-            "interior": []
+            "interior": [
+                {
+                    "q": "Define : plasmid.",
+                    "marks": 2
+                },
+                {
+                    "q": "Write note on Ti –plasmid.",
+                    "marks": 2
+                },
+                {
+                    "q": "Define: Single cell protein (SCP).",
+                    "marks": 2
+                },
+                {
+                    "q": "Name the microorganisms used as of SCP.",
+                    "marks": 2
+                },
+                {
+                    "q": "E.coli is the most widely used organism for vectors. Give reasons.",
+                    "marks": 3
+                },
+                {
+                    "q": "Describe Flavor Savr Tomato.",
+                    "marks": 2
+                },
+                {
+                    "q": "Describe Golden rice – biofortification.",
+                    "marks": 2
+                },
+                {
+                    "q": "Name the tools used as genetic engineering.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Genome?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Biopharming?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Bioprospecting?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Biopiracy?",
+                    "marks": 2
+                },
+                {
+                    "q": "Explain about the Biopiracy of neem.",
+                    "marks": 3
+                },
+                {
+                    "q": "Explain about the Biopiracy of Basmati.",
+                    "marks": 3
+                },
+                {
+                    "q": "Describe herbicide tolerant– basta.",
+                    "marks": 2
+                },
+                {
+                    "q": "Why do we call Agrobacterium tumefaciens as the natural genetic engineer of plants. What could be the reason?",
+                    "marks": 3
+                },
+                {
+                    "q": "What is meant by zymology?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Green Fluorescent Protein (GFP)?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Bio-reactor (Fermentor)?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is algal fuel?",
+                    "marks": 2
+                },
+                {
+                    "q": "Differentiate between upstream & downstream process.",
+                    "marks": 3
+                }
+            ]
         },
         "longAnswer": {
             "bb": [
                 {
+                    "q": "Mention the application of Biotechnology."
+                },
+                {
+                    "q": "What are restriction enzymes? Mention their type with role in Biotechnology."
+                },
+                {
                     "q": "Compare the various types of Blotting techniques."
+                },
+                {
+                    "q": "Write the benefits and risk of Genetically Modified Foods. GM Food – Benefits."
                 }
             ],
-            "interior": []
+            "interior": [
+                {
+                    "q": "Explain the method of biological hydrogen production by algae."
+                },
+                {
+                    "q": "Explain about the Biopiracy of turmeric? How the turmeric US patent was cancelled?"
+                },
+                {
+                    "q": "Explain the mechanism of Agarose gel Electrophoresis."
+                }
+            ]
         }
     },
     "Plant Tissue Culture": {
@@ -999,7 +1525,7 @@
         "shortAnswer": {
             "bb": [
                 {
-                    "q": "What is the name of the process given below? Write its 4 types. (Diagram based)",
+                    "q": "What is the name of the process given below? Write its 4 types.",
                     "marks": 3
                 },
                 {
@@ -1007,27 +1533,15 @@
                     "marks": 3
                 },
                 {
-                    "q": "Write the various steps involved in cell suspension culture.",
-                    "marks": 3
-                },
-                {
                     "q": "What do you mean Embryoids? Write its application.",
-                    "marks": 2
+                    "marks": 3
                 },
                 {
                     "q": "Give the examples for micro propagation performed plants.",
                     "marks": 2
                 },
                 {
-                    "q": "Based on the material used, how will you classify the culture technology? Explain it.",
-                    "marks": 3
-                },
-                {
                     "q": "Give an account on Cryopreservation.",
-                    "marks": 2
-                },
-                {
-                    "q": "What do you know about Germplasm conservation. Describe it.",
                     "marks": 3
                 },
                 {
@@ -1035,15 +1549,102 @@
                     "marks": 3
                 }
             ],
-            "interior": []
+            "interior": [
+                {
+                    "q": "Write the definitions of Tissue Culture.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Sterilization?",
+                    "marks": 2
+                },
+                {
+                    "q": "Name few culture media used for plant tissue culture technique.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is explant?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is known as cell suspension culture ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Describe hardening ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is somatic embryogenesis ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is cybrid ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is PEG ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Write short note on Intellectual property right (IPR).",
+                    "marks": 3
+                },
+                {
+                    "q": "What is Bioethics ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define : Biosafety.",
+                    "marks": 2
+                },
+                {
+                    "q": "What does the term patent represent ? What are the three parts of the patent ?",
+                    "marks": 3
+                },
+                {
+                    "q": "Give few industrially important plant secondary metabolites and their uses.",
+                    "marks": 3
+                },
+                {
+                    "q": "Write few advantages of artificial seeds.",
+                    "marks": 3
+                },
+                {
+                    "q": "Differentiate Soma clonal variation from Gametoclonal variations.",
+                    "marks": 3
+                }
+            ]
         },
         "longAnswer": {
             "bb": [
                 {
+                    "q": "Write the various steps involved in cell suspension culture."
+                },
+                {
                     "q": "Explain the basic concepts involved in plant tissue culture."
+                },
+                {
+                    "q": "Based on the material used, how will you classify the culture technology? Explain it."
+                },
+                {
+                    "q": "What do you know about Germplasm conservation. Describe it."
                 }
             ],
-            "interior": []
+            "interior": [
+                {
+                    "q": "Write the applications of Plant tissue culture."
+                },
+                {
+                    "q": "What are the steps involved in protoplast culture ?"
+                },
+                {
+                    "q": "Explain the sterilization methods used during the plant tissue culture. Sterilization."
+                },
+                {
+                    "q": "List out the laboratory facilities of plant tissue culture."
+                }
+            ]
         }
     },
     "Principles of Ecology": {
@@ -1256,15 +1857,15 @@
                     "marks": 2
                 },
                 {
-                    "q": "What is ecological hierarchy? Name the levels of ecological hierarchy.",
-                    "marks": 2
+                    "q": "Whatis ecological hierarchy? Name the levels of ecological hierarchy.",
+                    "marks": 3
                 },
                 {
                     "q": "What are ecological equivalents? Give one example.",
-                    "marks": 2
+                    "marks": 3
                 },
                 {
-                    "q": "Distinguish habitat and niche",
+                    "q": "Distinguish habitat and niche.",
                     "marks": 3
                 },
                 {
@@ -1272,11 +1873,11 @@
                     "marks": 3
                 },
                 {
-                    "q": "‘Green algae are not likely to be found in the deepest strata of the ocean’. Give at least one reason.",
+                    "q": "“Green algae are not likely to be found in the deepest strata of the ocean‟. Give at least one reason.",
                     "marks": 2
                 },
                 {
-                    "q": "What is Phytoremediation?",
+                    "q": "What is Phytoremediation ?",
                     "marks": 2
                 },
                 {
@@ -1284,8 +1885,8 @@
                     "marks": 3
                 },
                 {
-                    "q": "Why is an organic horizon generally absent in desert soils?",
-                    "marks": 2
+                    "q": "The organic horizon is generally absent from agricultural soils. Why is an organic horizon generally absent in desert soils ?",
+                    "marks": 3
                 },
                 {
                     "q": "Soil formation can be initiated by biological organisms. Explain how?",
@@ -1304,16 +1905,16 @@
                     "marks": 3
                 },
                 {
-                    "q": "What is mutualism? Mention any two example where the organisms involved are commercially exploited in modern agriculture.",
+                    "q": "What is mutualism? Mention any two examples where the organisms involved are commercially exploited in modern agriculture.",
                     "marks": 3
                 },
                 {
                     "q": "List any two adaptive features evolved in parasites enabling them to live successfully on their host?",
-                    "marks": 2
+                    "marks": 3
                 },
                 {
                     "q": "Mention any two significant roles of predation plays in nature.",
-                    "marks": 2
+                    "marks": 3
                 },
                 {
                     "q": "How does an orchid ophrys ensures its pollination by bees?",
@@ -1328,12 +1929,12 @@
                     "marks": 2
                 },
                 {
-                    "q": "What is vivipary? Name a plant group which exhibits vivipary",
+                    "q": "What is vivipary? Name a plant group which exhibits vivipary.",
                     "marks": 2
                 },
                 {
                     "q": "What is thermal stratification? Mention their types.",
-                    "marks": 2
+                    "marks": 3
                 },
                 {
                     "q": "How is rhytidome act as the structural defence by plants against fire?",
@@ -1356,47 +1957,114 @@
                     "marks": 2
                 },
                 {
-                    "q": "Explain Raunkiaer classification in the world’s vegetation based on the temperature.",
-                    "marks": 3
-                },
-                {
                     "q": "List out the effects of fire to plants.",
                     "marks": 3
                 },
                 {
-                    "q": "What is soil profile? Explain the characters of different soil horizons.",
-                    "marks": 3
-                },
-                {
-                    "q": "Give an account of various types of parasitism with examples.",
-                    "marks": 3
-                },
-                {
-                    "q": "Explain different types of hydrophytes with examples.",
-                    "marks": 3
-                },
-                {
-                    "q": "Enumerate the anatomical adaptations of xerophytes.",
-                    "marks": 3
-                },
-                {
-                    "q": "List out any five morphological adaptations of halophytes.",
-                    "marks": 3
-                },
-                {
                     "q": "What are the advantages of seed dispersal?",
-                    "marks": 2
-                },
-                {
-                    "q": "Describe dispersal of fruit and seeds by animals",
                     "marks": 3
                 }
             ],
-            "interior": []
+            "interior": [
+                {
+                    "q": "What is acid rain? mention its effects.",
+                    "marks": 3
+                },
+                {
+                    "q": "Which of the plants are called indicators of fire?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define: Pedology and Pedogenesis.",
+                    "marks": 2
+                },
+                {
+                    "q": "Define: Hollard, Chresard, Echard.",
+                    "marks": 3
+                },
+                {
+                    "q": "What are called as Epiphytes ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is called as Velamen tissue ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define phylloclades and give an example.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Cladode?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is called Phyllode?",
+                    "marks": 2
+                },
+                {
+                    "q": "Describe timber line / Tree line.",
+                    "marks": 2
+                },
+                {
+                    "q": "Describe negative interactions.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is called predation?",
+                    "marks": 2
+                },
+                {
+                    "q": "Why Drosera and Nepenthus plants consume insects?",
+                    "marks": 3
+                },
+                {
+                    "q": "What is Competition? List out their types.",
+                    "marks": 3
+                },
+                {
+                    "q": "Explain amensalism / antibiosis with suitable examples.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is meant by tropophytes ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Write the morphological adaptations of epiphytes.",
+                    "marks": 3
+                }
+            ]
         },
         "longAnswer": {
-            "bb": [],
-            "interior": []
+            "bb": [
+                {
+                    "q": "Explain Raunkiaer classification in the world’s vegetation based on the temperature."
+                },
+                {
+                    "q": "What is soil profile? Explain the characters of different soil horizons."
+                },
+                {
+                    "q": "Give an account of various types of parasitism with examples."
+                },
+                {
+                    "q": "Enumerate the anatomical adaptations of xerophytes."
+                },
+                {
+                    "q": "List out any five morphological adaptations of halophytes."
+                },
+                {
+                    "q": "Describe dispersal of fruit and seeds by animals."
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Draw diagram of an T.S. of Nerium leaf and label the parts."
+                },
+                {
+                    "q": "Tabulate the biological interaction of biotic factor."
+                }
+            ]
         }
     },
     "Ecosystem": {
@@ -1547,7 +2215,7 @@
         "shortAnswer": {
             "bb": [
                 {
-                    "q": "Productivity of profundal zone will be low. Why?",
+                    "q": "The productivity of profundal zone will be low. Why?",
                     "marks": 2
                 },
                 {
@@ -1555,31 +2223,168 @@
                     "marks": 3
                 },
                 {
-                    "q": "Define Ecosystem.",
+                    "q": "Pyramid of energy is always upright. Give reasons.",
+                    "marks": 3
+                },
+                {
+                    "q": "What will happen if all producers are removed from ecosystem?",
                     "marks": 2
                 },
                 {
-                    "q": "What are the components of an ecosystem?",
+                    "q": "Construct the food chain with the following data. (Hawk, plants, frog, snake, grasshopper).",
                     "marks": 3
                 },
                 {
-                    "q": "Differentiate between producers and consumers.",
+                    "q": "Generally human activities are against to the ecosystem, where as you a student how will you help to protect ecosystem?",
                     "marks": 3
                 },
                 {
-                    "q": "Explain the concept of Trophic levels.",
+                    "q": "Draw a pyramid from following details and explain in brief. Quantities of organisms are given- Hawks-50, plants-1000. rabbit and mouse-250 +250, pythons and lizard- 100 + 50 respectively.",
                     "marks": 3
-                },
-                {
-                    "q": "What is a food chain? Give an example.",
-                    "marks": 2
                 }
             ],
-            "interior": []
+            "interior": [
+                {
+                    "q": "Define : Ecosystem.",
+                    "marks": 2
+                },
+                {
+                    "q": "Differentiate between Lotic and Lentic.",
+                    "marks": 3
+                },
+                {
+                    "q": "Define Photosynthetically Active Radiation.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Food chain?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is a Food web?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is homeostasis?",
+                    "marks": 2
+                },
+                {
+                    "q": "Why is Pyramid of number in Parasite ecosystems always inverted?",
+                    "marks": 3
+                },
+                {
+                    "q": "What is meant by Ten percent law?",
+                    "marks": 2
+                },
+                {
+                    "q": "Give an example for first law of thermodynamics.",
+                    "marks": 2
+                },
+                {
+                    "q": "Describe the second law of thermodynamics.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are decomposers?",
+                    "marks": 2
+                },
+                {
+                    "q": "Differences between primary and secondary succession.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is called as plant succession ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Significance of Plant Succession - List them.",
+                    "marks": 3
+                },
+                {
+                    "q": "List out the biotic components of ecosystem.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is meant by fragmentation?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by Catabolism?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by Mineralization?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by Leaching or Eluviation?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define biogeochemical cycles.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by ecosystem resilience ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Describe blue carbon ecosystems.",
+                    "marks": 3
+                },
+                {
+                    "q": "What are known as 3R ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is known as Carbon cycle?",
+                    "marks": 3
+                },
+                {
+                    "q": "Write the significance of food web.",
+                    "marks": 3
+                },
+                {
+                    "q": "What are the human activities disturb or re-engineer an ecosystem every day?",
+                    "marks": 3
+                }
+            ]
         },
         "longAnswer": {
-            "bb": [],
-            "interior": []
+            "bb": [
+                {
+                    "q": "Shape of pyramid in a particular ecosystem is always different in shape. Explain with example."
+                },
+                {
+                    "q": "Name of the food chain which is generally present in all type of ecosystem. Explain and write their significance."
+                },
+                {
+                    "q": "Generally in summer the forest are affected by natural fire. Over a period of time it recovers itself by the process of successions. Find out the types of succession and explain."
+                },
+                {
+                    "q": "Various stages of succession are given bellow. From that rearrange them accordingly. Find out the type of succession and explain in detail. Reed-swamp stage, phytoplankton stage, shrub stage, submerged plant stage, forest stage, submerged free floating stage, marsh Medow stage."
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Explain types of food chain. Food chain."
+                },
+                {
+                    "q": "Describe energy flow."
+                },
+                {
+                    "q": "Mention the steps involved in the process of decomposition."
+                },
+                {
+                    "q": "List out the factors affecting decomposition."
+                },
+                {
+                    "q": "Explain the different types of carbon."
+                },
+                {
+                    "q": "Draw the flow chart of types of ecosystem."
+                }
+            ]
         }
     },
     "Environmental Issues": {
@@ -1711,34 +2516,179 @@
                 },
                 {
                     "q": "How do forests help in maintaining the climate?",
-                    "marks": 2
+                    "marks": 3
                 },
                 {
                     "q": "How do sacred groves help in the conservation of biodiversity?",
-                    "marks": 2
+                    "marks": 3
                 },
                 {
                     "q": "Which one gas is most abundant out of the four commonest greenhouse gases? Discuss the effect of this gas on the growth of plants?",
                     "marks": 3
                 },
                 {
-                    "q": "Suggest a solution to water crisis and explain its advantages.",
-                    "marks": 3
-                },
-                {
-                    "q": "Explain afforestation with case studies.",
-                    "marks": 3
-                },
-                {
-                    "q": "What are the effects of deforestation and benefits of agroforesty?",
+                    "q": "What is called ozone shield? Write their use.",
                     "marks": 3
                 }
             ],
-            "interior": []
+            "interior": [
+                {
+                    "q": "What is Dobson Unit ?",
+                    "marks": 2
+                },
+                {
+                    "q": "List out the effects of Ozone depletion.",
+                    "marks": 3
+                },
+                {
+                    "q": "What are the benefits of ozone shield?",
+                    "marks": 2
+                },
+                {
+                    "q": "Write is about Montreal Protocol.",
+                    "marks": 2
+                },
+                {
+                    "q": "What are greenhouse gases ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by greenhouse effect ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Bring out the human activities which lead to produce the greenhouse effect.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is global warming?",
+                    "marks": 2
+                },
+                {
+                    "q": "Mention the effects of global warming.",
+                    "marks": 3
+                },
+                {
+                    "q": "Bring out the alternatives to control Global warming.",
+                    "marks": 3
+                },
+                {
+                    "q": "Write about Kyoto protocol.",
+                    "marks": 2
+                },
+                {
+                    "q": "Define agro forestry.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Social forestry?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Live fence of fodder trees?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Protein Bank ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Describe appiko movement.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is carbon sink ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Carbon Foot Print ?",
+                    "marks": 2
+                },
+                {
+                    "q": "If you imported fruit like kiwi, indirectly it increases carbon foot print. How?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is invasive species?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are the steps taken to reduce carbon foot print?",
+                    "marks": 3
+                },
+                {
+                    "q": "List out some Alien invasive invasive plants.",
+                    "marks": 3
+                },
+                {
+                    "q": "Describe an invasive weed Eichhornia crassipes.",
+                    "marks": 3
+                },
+                {
+                    "q": "What are called as plant indicators ? Given some examples.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is Biomonitoring ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is remote sensing ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Geographic Information System (GIS) ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Biodiversity Impact Assessment (BIA) ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Enumerate the uses of biodiversity impact assessment (BIA).",
+                    "marks": 3
+                },
+                {
+                    "q": "What is endemic species ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Why are we called Jadav “Molai” Payeng as forest man of India ?",
+                    "marks": 3
+                },
+                {
+                    "q": "Write the slogan of Chipko movement - (5 F‟s) ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Name some satellites and their applications regarding environment.",
+                    "marks": 3
+                }
+            ]
         },
         "longAnswer": {
-            "bb": [],
-            "interior": []
+            "bb": [
+                {
+                    "q": "Suggest a solution to water crisis and explain its advantages."
+                },
+                {
+                    "q": "Explain afforestation with Case studies."
+                },
+                {
+                    "q": "What are the effects of deforestation and benefits of agro forestry?"
+                }
+            ],
+            "interior": [
+                {
+                    "q": "Draw the flow chart of Relative contribution of greenhouse gases."
+                },
+                {
+                    "q": "Explain about Chipko movement ?"
+                },
+                {
+                    "q": "Enumerate the causes of deforestation."
+                }
+            ]
         }
     },
     "Plant Breeding": {
@@ -1916,30 +2866,167 @@
                 },
                 {
                     "q": "How are microbial innoculants used to increase the soil fertility?",
-                    "marks": 2
+                    "marks": 3
                 },
                 {
                     "q": "What are the different types of hybridization?",
                     "marks": 2
                 },
                 {
-                    "q": "Explain the best suited type followed by plant breeders at present?",
+                    "q": "Write a note on heterosis or Hybrid vigour.",
                     "marks": 3
-                },
-                {
-                    "q": "Write a note on heterosis.",
-                    "marks": 2
                 },
                 {
                     "q": "List out the new breeding techniques involved in developing new traits in plant breeding.",
                     "marks": 3
                 }
             ],
-            "interior": []
+            "interior": [
+                {
+                    "q": "Enumerate the objectives of plant breeding.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is an organic agriculture?",
+                    "marks": 2
+                },
+                {
+                    "q": "Define biofertilizers. Write their uses.",
+                    "marks": 3
+                },
+                {
+                    "q": "Write the importance of biofertilizers.",
+                    "marks": 3
+                },
+                {
+                    "q": "Write note on role of Azolla as biofertilizer.",
+                    "marks": 2
+                },
+                {
+                    "q": "Name some microorganisms used as phosphate mobilizing Bio – fertilizers.",
+                    "marks": 2
+                },
+                {
+                    "q": "Name some microorganisms used N2 as fixing Bio – fertilizers. Free-living.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by Arbuscular mycorrhizae?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is meant by bio-pesticides?",
+                    "marks": 2
+                },
+                {
+                    "q": "Explain the role of Trichoderma for enhancement of plants.",
+                    "marks": 3
+                },
+                {
+                    "q": "Explain the role of Beauveria species act as a bio-pesticides.",
+                    "marks": 3
+                },
+                {
+                    "q": "Mention the main objectives of green manuring.",
+                    "marks": 3
+                },
+                {
+                    "q": "List out some important Crops used as green manures.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Green in-situ manuring ? Give Example.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Green leaf manuring ? Give example.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is plant introduction?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Pure line selection ?",
+                    "marks": 2
+                },
+                {
+                    "q": "What are the demerits of pure line selection?",
+                    "marks": 3
+                },
+                {
+                    "q": "Explain Nel Jayaraman contribution to rice.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is meant by polyploids ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Write a note on NORIN 10.",
+                    "marks": 2
+                },
+                {
+                    "q": "Mention some semi dwarf wheat breeding varieties.",
+                    "marks": 2
+                },
+                {
+                    "q": "Mention any two-semi dwarf Breeded Rice varieties in India.",
+                    "marks": 2
+                },
+                {
+                    "q": "Why is Dr. M.S. Swaminathan called as Father of green revolution in India?",
+                    "marks": 3
+                },
+                {
+                    "q": "List out any three important Indian Plant Breeders.",
+                    "marks": 2
+                },
+                {
+                    "q": "What is mutation?",
+                    "marks": 2
+                },
+                {
+                    "q": "List out the Physical and Chemical Mutagens used in Plant breeding.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is parbharni kranti ?",
+                    "marks": 2
+                },
+                {
+                    "q": "Describe: NBPGR.",
+                    "marks": 2
+                },
+                {
+                    "q": "Differentiate autopolyploidy from allopolyploidy.",
+                    "marks": 3
+                },
+                {
+                    "q": "What is acclimatization?",
+                    "marks": 2
+                }
+            ]
         },
         "longAnswer": {
             "bb": [],
-            "interior": []
+            "interior": [
+                {
+                    "q": "Explain the best suited type followed by plant breeders at present?"
+                },
+                {
+                    "q": "Describe Mass selection."
+                },
+                {
+                    "q": "Describe gamma garden or atomic garden."
+                },
+                {
+                    "q": "Are the types of Conventional Plant Breeding Methods?"
+                },
+                {
+                    "q": "What are the steps of Hybridization?"
+                }
+            ]
         }
     },
     "Economically Useful Plants and Entrepreneurial Botany": {
@@ -2089,12 +3176,8 @@
                     "marks": 2
                 },
                 {
-                    "q": "What is pseudo cereal? Give an example.",
+                    "q": "What is pseudocereal? Give an example.",
                     "marks": 2
-                },
-                {
-                    "q": "Discuss which wood is better for making furniture.",
-                    "marks": 3
                 },
                 {
                     "q": "A person got irritation while applying chemical dye. What would be your suggestion for alternative?",
@@ -2117,7 +3200,7 @@
                     "marks": 3
                 },
                 {
-                    "q": "Write the origin and area of cultivation of green gram and red gram.",
+                    "q": "Write the origin and area of cultivation of green gram and red gram. Green gram.",
                     "marks": 3
                 },
                 {
@@ -2145,35 +3228,51 @@
                     "marks": 3
                 },
                 {
-                    "q": "Give an account of active principle and medicinal values of any two plants you have studied.",
-                    "marks": 3
-                },
-                {
-                    "q": "Write the economic importance of rice.",
-                    "marks": 3
-                },
-                {
                     "q": "Which TSM is widely practiced and culturally accepted in Tamil Nadu? - explain.",
-                    "marks": 3
-                },
-                {
-                    "q": "What are psychoactive drugs? Add a note Marijuana and Opium",
-                    "marks": 3
-                },
-                {
-                    "q": "What are the King and Queen of spices? Explain about them and their uses.",
-                    "marks": 3
-                },
-                {
-                    "q": "How will you prepare an organic pesticide for your home garden with the vegetables available from your kitchen?",
                     "marks": 3
                 }
             ],
-            "interior": []
+            "interior": [
+                {
+                    "q": "What is called as Vulcanization?",
+                    "marks": 2
+                },
+                {
+                    "q": "What is Capsaicin? Write short notes on it.",
+                    "marks": 2
+                },
+                {
+                    "q": "List out the uses of Palmyra.",
+                    "marks": 3
+                }
+            ]
         },
         "longAnswer": {
-            "bb": [],
-            "interior": []
+            "bb": [
+                {
+                    "q": "Discuss which wood is better for making furniture."
+                },
+                {
+                    "q": "Give an account of active principle and medicinal values of any two plants you have studied."
+                },
+                {
+                    "q": "Write the economic importance of rice."
+                },
+                {
+                    "q": "What are psychoactive drugs? Add a note Marijuana and Opium."
+                },
+                {
+                    "q": "What are the King and Queen of spices? Explain about them and their uses."
+                },
+                {
+                    "q": "How will you prepare an organic pesticide for your home garden with the vegetables available from your kitchen?"
+                }
+            ],
+            "interior": [
+                {
+                    "q": "List out the medicinal uses of any five common medicinal plants."
+                }
+            ]
         }
     }
 }
