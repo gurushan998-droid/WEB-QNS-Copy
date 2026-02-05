@@ -644,22 +644,9 @@
     <!-- Firebase Library (Must load before script.js) -->
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics-compat.js"></script>
 
-    <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyCjPLgP_4TglF70q0IJgBz--T-t0jmmYQE",
-            authDomain: "qns-gen.firebaseapp.com",
-            projectId: "qns-gen",
-            storageBucket: "qns-gen.firebasestorage.app",
-            messagingSenderId: "217008253010",
-            appId: "1:217008253010:web:2080612700b0e498ce178b",
-            measurementId: "G-BY36LZSMJX"
-        };
 
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-    </script>
 
     <!-- Main Logic (Load after Firebase) -->
     <script src="script.js"></script>

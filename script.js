@@ -13,6 +13,31 @@
 // Data is loaded dynamically based on class selection
 // ==========================================
 
+// ==========================================
+// FIREBASE CONFIGURATION
+// ==========================================
+const firebaseConfig = {
+    apiKey: "AIzaSyCjPLgP_4TglF70q0IJgBz--T-t0jmmYQE",
+    authDomain: "qns-gen.firebaseapp.com",
+    projectId: "qns-gen",
+    storageBucket: "qns-gen.firebasestorage.app",
+    messagingSenderId: "217008253010",
+    appId: "1:217008253010:web:2080612700b0e498ce178b",
+    measurementId: "G-BY36LZSMJX"
+};
+
+// Initialize Firebase
+// Check if firebase is available (loaded from CDN in index.html)
+let auth;
+let analytics;
+if (typeof firebase !== 'undefined') {
+    firebase.initializeApp(firebaseConfig);
+    auth = firebase.auth();
+    analytics = firebase.analytics();
+} else {
+    console.error("Firebase SDK not loaded!");
+}
+
 // Standard options for the exam (11th or 12th grade)
 // Add more standards here if needed for other grades
 const standards = [                                     // Array of available school grades
