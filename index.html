@@ -385,23 +385,42 @@
                             <!-- Font Top Row -->
                             <div class="toolbar-row"> <!-- Row 1: Familiy, Size, Case -->
                                 <select id="tool-font-family" class="tool-select"
-                                    onchange="updatePaperStyle('fontFamily', this.value)" style="width: 90px;">
-                                    <!-- Font family toggle -->
+                                    onchange="updatePaperStyle('fontFamily', this.value)" style="width: 120px;">
+                                    <!-- Serif Fonts -->
                                     <option value="'Times New Roman', Times, serif">Times New Roman</option>
-                                    <!-- Default serif -->
+                                    <option value="Georgia, serif">Georgia</option>
+                                    <option value="'Garamond', serif">Garamond</option>
+                                    <option value="'Bookman Old Style', serif">Bookman</option>
+
+                                    <!-- Sans-Serif Fonts -->
                                     <option value="Arial, Helvetica, sans-serif">Arial</option>
-                                    <!-- Standard sans-serif -->
-                                    <option value="'Inter', sans-serif">Inter</option> <!-- Modern UI font -->
-                                    <option value="Georgia, serif">Georgia</option> <!-- Elegant serif -->
-                                    <option value="'Courier New', Courier, monospace">monospace</option>
-                                    <!-- Typewriter style -->
+                                    <option value="'Inter', sans-serif">Inter</option>
+                                    <option value="Verdana, Geneva, sans-serif">Verdana</option>
+                                    <option value="Tahoma, Geneva, sans-serif">Tahoma</option>
+                                    <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+                                    <option value="Impact, Charcoal, sans-serif">Impact</option>
+
+                                    <!-- Monospace -->
+                                    <option value="'Courier New', Courier, monospace">Courier New</option>
                                 </select>
                                 <select id="tool-font-size" class="tool-select"
-                                    onchange="updatePaperStyle('fontSize', this.value)" style="width: 45px;">
-                                    <!-- Numeric size dropdown -->
-                                    <option value="8">8</option> <!-- Tiny text -->
-                                    <option value="12" selected>12</option> <!-- Standard text -->
-                                    <option value="24">24</option> <!-- Header text -->
+                                    onchange="updatePaperStyle('fontSize', this.value)" style="width: 50px;">
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12" selected>12</option>
+                                    <option value="14">14</option>
+                                    <option value="16">16</option>
+                                    <option value="18">18</option>
+                                    <option value="20">20</option>
+                                    <option value="22">22</option>
+                                    <option value="24">24</option>
+                                    <option value="26">26</option>
+                                    <option value="28">28</option>
+                                    <option value="36">36</option>
+                                    <option value="48">48</option>
+                                    <option value="72">72</option>
                                 </select>
                                 <button class="tool-btn" onclick="adjustFontSize(1)"
                                     title="Grow Font Size">A<sup>^</sup></button> <!-- Increments size by 1pt -->
@@ -476,16 +495,16 @@
                         <!-- Table Group -->
                         <div class="toolbar-group"> <!-- Table management tools -->
                             <div class="toolbar-row"> <!-- Table insertion tools -->
-                                <button class="tool-btn" onclick="insertTable()" title="Insert Table"
+                                <button class="tool-btn" onclick="insertTable()" title="Insert 3x3 Table"
                                     aria-label="Insert Table">▦</button> <!-- Inserts 3x3 grid -->
-                                <button class="tool-btn" onclick="alert('Drawing Tools coming soon!')"
-                                    title="Draw Table">✎</button> <!-- Placeholder for drawing -->
+                                <button class="tool-btn" onclick="insertHorizontalRule()" title="Insert Horizontal Line"
+                                    aria-label="Insert Horizontal Rule">─</button>
                             </div>
                             <div class="toolbar-row"> <!-- Table editing tools -->
-                                <button class="tool-btn" onclick="alert('Eraser coming soon!')"
-                                    title="Eraser">⌫</button> <!-- Logic to remove borders -->
-                                <button class="tool-btn" onclick="alert('Table Properties')"
-                                    title="Properties">⚙</button> <!-- Logic for cell styling -->
+                                <button class="tool-btn" onclick="clearFormatting()" title="Clear Formatting"
+                                    aria-label="Clear Formatting">⌫</button>
+                                <button class="tool-btn" onclick="editTableProps()" title="Table Properties"
+                                    aria-label="Table Properties">⚙</button>
                             </div>
                             <span class="toolbar-label">Table</span> <!-- Group identifying label -->
                         </div>
@@ -493,8 +512,8 @@
                         <!-- Symbols Group -->
                         <div class="toolbar-group"> <!-- Special character insertion tools -->
                             <div class="toolbar-row"> <!-- Common math symbols -->
-                                <button class="tool-btn" onclick="alert('Equation editor coming soon!')"
-                                    title="Equation">π</button> <!-- Math mode placeholder -->
+                                <button class="tool-btn" onclick="insertMathEquation()" title="Insert Equation (LaTeX)"
+                                    aria-label="Insert Equation">π</button>
                                 <button class="tool-btn" onclick="openSymbolPopup()" title="Insert Symbol">Ω</button>
                                 <!-- Opens symbol picker modal -->
                             </div>

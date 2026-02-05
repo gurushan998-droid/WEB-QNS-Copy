@@ -23,10 +23,10 @@
                 {
                     "q": "Identify the correctly matched pair",
                     "options": [
-                        "Tuber - Allium cepa",
-                        "Sucker – Pistia",
-                        "Rhizome – Musa",
-                        "Stolon - Zingiber"
+                        "Tuber    - Allium cepa",
+                        "Sucker   – Pistia",
+                        "Rhizome  – Musa",
+                        "Stolon   - Zingiber"
                     ]
                 },
                 {
@@ -57,15 +57,6 @@
                     ]
                 },
                 {
-                    "q": "Match the following: I-Ext. fertilization, II-Androecium, III-Male gametophyte, IV-Pri. parietal layer",
-                    "options": [
-                        "I-iv, II-i, III-ii, IV-iii",
-                        "I-iii, II-iv, III-i, IV-ii",
-                        "I-iii, II-iv, III-ii, IV-i",
-                        "I-iii, II-i, III-iv, IV-ii"
-                    ]
-                },
-                {
                     "q": "Arrange the layers of anther wall from locus to periphery",
                     "options": [
                         "Epidermis, middle layers, tapetum, endothecium",
@@ -77,19 +68,10 @@
                 {
                     "q": "Identify the incorrect pair",
                     "options": [
-                        "sporopollenin - exine of pollen grain",
-                        "tapetum – nutritive tissue for developing microspores",
-                        "Nucellus – nutritive tissue for developing embryo",
-                        "obturator – directs the pollen tube into micropyle"
-                    ]
-                },
-                {
-                    "q": "Assertion: Sporopollenin preserves pollen in fossil deposits; Reason: It is resistant to physical/biological decomposition",
-                    "options": [
-                        "Assertion is true; reason is false",
-                        "Assertion is false; reason is true",
-                        "Both Assertion and reason are not true",
-                        "Both Assertion and reason are true"
+                        "sporopollenin   - exine of pollen grain",
+                        "tapetum         – nutritive tissue for developing microspores",
+                        "Nucellus        – nutritive tissue for developing embryo",
+                        "obturator       – directs the pollen tube into micropyle"
                     ]
                 },
                 {
@@ -147,7 +129,7 @@
                     ]
                 },
                 {
-                    "q": "Consider statements: i) Protandry-pistil first, ii) Protogyny-pistil first, iii) Herkogamy-unisexual, iv) Distyly-Primula",
+                    "q": "Consider statements: <br> i) Protandry-pistil first, <br> ii) Protogyny-pistil first, <br> iii) Herkogamy-unisexual, <br> iv) Distyly-Primula",
                     "options": [
                         "i and ii are correct",
                         "ii and iv are correct",
@@ -171,6 +153,37 @@
                         "2 celled stage",
                         "3 celled stage",
                         "4 celled stage"
+                    ]
+                },
+                {
+                    "Match": "Match the Following:",
+                    "List I": [
+                        "External fertilization",
+                        "Androecium",
+                        "Male gametophyte",
+                        "primary parietal layer"
+                    ],
+                    "List II": [
+                        "pollen grain",
+                        "anther wall",
+                        "algae",
+                        "stamens"
+                    ],
+                    "options": [
+                        "1-iii, 2-iv, 3-i",
+                        "1-i, 2-ii, 3-iii",
+                        "1-iii, 2-ii, 3-i",
+                        "1-ii, 2-i, 3-iii"
+                    ]
+                },
+                {
+                    "Assertion": "Sporopollenin preserves pollen in fossil deposits.",
+                    "Reason": "It is resistant to physical and biological decomposition.",
+                    "options": [
+                        "Both Assertion and Reason are true.",
+                        "Assertion is true, Reason is false.",
+                        "Assertion is false, Reason is true.",
+                        "Both are false."
                     ]
                 }
             ],
@@ -857,15 +870,6 @@
                     ]
                 },
                 {
-                    "q": "Match list I (A-2n+2, B-2n+1, C-2n-1, D-2n-1-1) with list II (i-Mono, ii-Tetra, iii-Tri, iv-Double mono)",
-                    "options": [
-                        "A-i, B-iii, C-ii, D-iv",
-                        "A-ii, B-iii, C-iv, D-i",
-                        "A-ii, B-iii, C-i, D-iv",
-                        "A-iii, B-ii, C-i, D-iv"
-                    ]
-                },
-                {
                     "q": "Which of the following sentences are correct regarding linkage?",
                     "options": [
                         "1 and 2 (Parental only in incomplete; Crossing over in complete)",
@@ -908,15 +912,6 @@
                         "nonsense mutation",
                         "frameshift mutation",
                         "deletion mutation"
-                    ]
-                },
-                {
-                    "q": "Assertion (A): Gamma rays induce mutation in wheat. Reason (R): They carry lower energy to non-ionize electrons.",
-                    "options": [
-                        "A is correct. R is correct explanation of A",
-                        "A is correct. R is not correct explanation of A",
-                        "A is correct. R is wrong explanation of A",
-                        "A and R is wrong"
                     ]
                 }
             ],
@@ -1147,16 +1142,6 @@
                     ]
                 },
                 {
-                    "q": "Assertion : Agrobacterium tumifaciens is popular in genetic engineering... Reason: A gene incorporated in the bacterial chromosomal genome gets atomatically transferred...",
-                    "options": [
-                        "Both assertion and reason are true. But reason is correct explanation of assertion.",
-                        "Both assertion and reason are true. But reason is not correct explanation of assertion.",
-                        "Assertion is true, but reason is false.",
-                        "Assertion is false, but reason is true.",
-                        "Both assertion and reason are false."
-                    ]
-                },
-                {
                     "q": "Which one of the following is not correct statement.",
                     "options": [
                         "Ti plasmid causes the bunchy top disease",
@@ -1193,10 +1178,22 @@
                     ]
                 }
             ],
-            "interior": []
-        },
-        "match": {
-            "bb": [
+            "interior": [
+                {
+                    "assertion": "Agrobacterium tumefaciens is often called 'Nature's Genetic Engineer'.",
+                    "reason": "It has a Ti-plasmid which can deliver a piece of DNA (T-DNA) into plant cells.",
+                    "options": [
+                        "a) Both assertion and reason are true. But reason is correct explanation of assertion.",
+                        "b) Both assertion and reason are true. But reason is not correct explanation of assertion.",
+                        "c) Assertion is true, but reason is false.",
+                        "d) Assertion is false, but reason is true.",
+                        "e) Both assertion and reason are false."
+                    ]
+                },
+                {
+                    "assertion": "DNA replication is semi-conservative.",
+                    "reason": "Each new DNA molecule contains one old strand and one new strand."
+                },
                 {
                     "title": "Match the following (Enzymes):",
                     "columnA": [
@@ -1217,9 +1214,7 @@
                         "C",
                         "D"
                     ]
-                }
-            ],
-            "interior": [
+                },
                 {
                     "title": "Match the following (Ratios):",
                     "columnA": [
@@ -1242,19 +1237,6 @@
                     ]
                 }
             ]
-        },
-        "assertion": {
-            "bb": [
-                {
-                    "assertion": "Agrobacterium tumefaciens is often called 'Nature's Genetic Engineer'.",
-                    "reason": "It has a Ti-plasmid which can deliver a piece of DNA (T-DNA) into plant cells."
-                },
-                {
-                    "assertion": "DNA replication is semi-conservative.",
-                    "reason": "Each new DNA molecule contains one old strand and one new strand."
-                }
-            ],
-            "interior": []
         },
         "shortAnswer": {
             "bb": [

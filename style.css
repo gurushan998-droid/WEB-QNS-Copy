@@ -1375,31 +1375,7 @@ body {
     margin: 0 auto;
 }
 
-.preview-actions {
-    /* MS Word style formatting toolbar - Unified Sticky */
-    position: sticky;
-    top: -40px;
-    /* Offset exactly to match the .app-main padding-top */
-    z-index: 100;
-    /* Ensures it stays above paper content */
-    background: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 0;
-    margin-bottom: 25px;
-    padding: 10px;
-    background: #ffffff;
-    /* Solid white for a clean unified look with the header */
-    border: 1px solid var(--color-border);
-    border-top: none;
-    /* Remove top border to "connect" with header visually if close enough */
-    border-radius: 0 0 var(--radius-md) var(--radius-md);
-    /* Only round bottom corners for a "pendant" look */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    /* Soft shadow to separate from paper */
-    overflow-x: auto;
-}
+
 
 /* Optional: remove margin-top from first group to align better */
 .preview-actions .toolbar-group:first-child {
@@ -1407,13 +1383,36 @@ body {
 }
 
 /* Vertical column of tool buttons */
+/* Vertical column of tool buttons */
+.preview-actions {
+    /* MS Word style formatting toolbar - Unified Sticky */
+    position: sticky;
+    top: -40px;
+    z-index: 100;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0;
+    margin-bottom: 25px;
+    padding: 8px 12px;
+    background: #f8fafc;
+    /* Slightly off-white for contrast */
+    border: 1px solid var(--color-border);
+    border-top: none;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow-x: auto;
+}
+
 .toolbar-group {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0 8px;
-    border-right: 1px solid #d1d5db;
-    min-height: auto;
+    padding: 0 12px;
+    border-right: 1px solid #e2e8f0;
+    min-height: 55px;
+    align-items: center;
 }
 
 .toolbar-group:last-child {
@@ -1424,8 +1423,11 @@ body {
 .toolbar-row {
     display: flex;
     align-items: center;
-    gap: 1px;
-    margin-bottom: 2px;
+    gap: 4px;
+    /* Increased gap for better touch targets */
+    margin-bottom: 4px;
+    width: 100%;
+    justify-content: center;
 }
 
 .toolbar-row:last-child {
@@ -1435,12 +1437,14 @@ body {
 /* Text labels under tool groups */
 .toolbar-label {
     font-size: 0.65rem;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
-    color: #6b7280;
+    color: #64748b;
     text-align: center;
-    letter-spacing: 0.03em;
-    margin-top: 5px;
+    letter-spacing: 0.05em;
+    margin-top: auto;
+    /* Push to bottom */
+    padding-top: 4px;
 }
 
 /* Tool Buttons & Inputs */
@@ -1792,9 +1796,8 @@ body {
 /* Table for Match the Following questions */
 .match-table {
     width: auto;
-    min-width: 50%;
     border-collapse: collapse;
-    margin: 5px 0 10px 25px;
+    margin: 10px 0 10px 25px;
     font-size: 11pt;
 }
 

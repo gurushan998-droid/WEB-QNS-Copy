@@ -845,13 +845,13 @@ function getAllSelectedQuestionKeys() {                // Finds all text-based Q
                 if (Array.isArray(q.questions)) {       // check for deeper sub-questions
                     q.questions.forEach(subQ => {      // loop through choice A and B
                         if (subQ && !subQ.isPlaceholder) { // if the choice is filled...
-                            const key = subQ.q || subQ.assertion || subQ.title; // find display text
+                            const key = subQ.q || subQ.assertion || subQ.Assertion || subQ.match || subQ.Match || subQ.title; // find display text
                             if (key) keys.add(key);    // mark this text as "already taken"
                         }
                     });
                 }
             } else {                                   // Standard single-question slot
-                const key = q.q || q.assertion || q.title; // find identifying text
+                const key = q.q || q.assertion || q.Assertion || q.match || q.Match || q.title; // find identifying text
                 if (key) keys.add(key);                // mark as "already taken"
             }
         });
@@ -888,7 +888,7 @@ function renderSectionQuestions() {
     // Filter out already selected questions globally (across all sections and nested slots)
     const selectedTexts = getAllSelectedQuestionKeys();
     let availableQuestions = filteredPool.filter(q => {
-        const key = q.q || q.assertion || q.title;
+        const key = q.q || q.assertion || q.Assertion || q.match || q.Match || q.title;
         return key && !selectedTexts.has(key);
     });
 
@@ -1304,21 +1304,51 @@ function getQuestionPool(section, forceAll = false) {
         const chapterData = questionBank[chapter];
         if (!chapterData) return;
 
+        // Helper to tag with dynamic type detection for mixed arrays (like mcq containing match/assertion)
+        const tagDynamic = (arr, defaultType, source) => arr.map(q => {
+            let type = defaultType; // Default is likely 'MCQ'
+
+            // Only override type if the specific filter is active, or if we want to be smart about specific sections
+            // User Request: "if filter question type asertion choosed so assertion type... like wis match"
+            // "apdi tag mention agathat mcq normal mcq type" -> If filter is NOT specific, treat as normal MCQ
+
+            if (questionFilters.type === 'Match') {
+                if (q.Match || q.match || (q.title && q.title.toLowerCase().includes('match')) || q['List I'] || q.columnA) {
+                    type = 'Match';
+                }
+            }
+
+            if (questionFilters.type === 'Assertion') {
+                if (q.Assertion || q.assertion) {
+                    type = 'Assertion';
+                }
+            }
+
+            return {
+                ...q,
+                _chapter: chapter,
+                _type: type,
+                bookBack: source === 'bb' ? true : (q.bookBack || false),
+                interior: source === 'interior' ? true : (q.interior || false)
+            };
+        });
+
+        // Helper for standard tagging
         const tag = (arr, type, source) => arr.map(q => ({
             ...q,
             _chapter: chapter,
-            _type: type, // Store original type
-            // Ensure bookBack/interior flags are set if missing but implied by the new structure
+            _type: type,
             bookBack: source === 'bb' ? true : (q.bookBack || false),
             interior: source === 'interior' ? true : (q.interior || false)
         }));
 
-        if (forceAll || section.type === 'MCQ' || section.type === 'MCQ_Only' || questionFilters.type === 'MCQ' || questionFilters.type === 'all') {
+        if (forceAll || section.type === 'MCQ' || section.type === 'MCQ_Only' || ['MCQ', 'MCQ_Only', 'Match', 'Assertion', 'all'].includes(questionFilters.type)) {
             if (chapterData.mcq) {
-                if (Array.isArray(chapterData.mcq)) pool = pool.concat(tag(chapterData.mcq, 'MCQ'));
+                // Use tagDynamic for MCQs to correctly classify mixed Match/Assertion types
+                if (Array.isArray(chapterData.mcq)) pool = pool.concat(tagDynamic(chapterData.mcq, 'MCQ'));
                 else {
-                    if (chapterData.mcq.bb) pool = pool.concat(tag(chapterData.mcq.bb, 'MCQ', 'bb'));
-                    if (chapterData.mcq.interior) pool = pool.concat(tag(chapterData.mcq.interior, 'MCQ', 'interior'));
+                    if (chapterData.mcq.bb) pool = pool.concat(tagDynamic(chapterData.mcq.bb, 'MCQ', 'bb'));
+                    if (chapterData.mcq.interior) pool = pool.concat(tagDynamic(chapterData.mcq.interior, 'MCQ', 'interior'));
                 }
             }
         }
@@ -1411,7 +1441,11 @@ function filterQuestions(pool) {
             // Collect all searchable text from the question
             if (q.q) textToSearch += q.q + ' ';
             if (q.assertion) textToSearch += q.assertion + ' ';
+            if (q.Assertion) textToSearch += q.Assertion + ' ';
             if (q.reason) textToSearch += q.reason + ' ';
+            if (q.Reason) textToSearch += q.Reason + ' ';
+            if (q.match) textToSearch += q.match + ' ';
+            if (q.Match) textToSearch += q.Match + ' ';
             if (q.title) textToSearch += q.title + ' ';
             if (q.options && Array.isArray(q.options)) {
                 textToSearch += q.options.join(' ') + ' ';
@@ -1421,6 +1455,12 @@ function filterQuestions(pool) {
             }
             if (q.columnB && Array.isArray(q.columnB)) {
                 textToSearch += q.columnB.join(' ') + ' ';
+            }
+            if (q['List I'] && Array.isArray(q['List I'])) {
+                textToSearch += q['List I'].join(' ') + ' ';
+            }
+            if (q['List II'] && Array.isArray(q['List II'])) {
+                textToSearch += q['List II'].join(' ') + ' ';
             }
 
             // Check if search term exists in the collected text
@@ -1667,15 +1707,41 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                             chapterHeader = `<div class="bank-chapter-header" style="padding: 10px 15px; background: #f8fafc; font-weight: 700; font-size: 0.85rem; color: var(--color-primary); margin: 20px 0 10px 0; border-radius: var(--radius-sm); border-left: 4px solid var(--color-primary); position: sticky; top: -15px; z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">${lastChapter === 'all' ? 'Common / General Questions' : lastChapter}</div>`;
                         }
 
+                        // Determine Title / Main Text
+                        // Supports standard 'q', 'title', or specific 'Match', 'match' keys
+                        let titleHtml = bankQ.q || bankQ.Match || bankQ.match || (bankQ.title ? bankQ.title + (bankQ.columnA || bankQ['List I'] ? ' (Match)' : '') : '');
+
+                        // Special Handling for Assertion
+                        const asst = bankQ.assertion || bankQ.Assertion;
+                        const reas = bankQ.reason || bankQ.Reason;
+                        if (asst) {
+                            titleHtml = `<span style="color:#e11d48;">(A):</span> ${asst}`;
+                            if (reas) {
+                                titleHtml += `<br><span style="font-weight:400; margin-top:4px; display:block; color:#475569;"><span style="color:#e11d48; font-weight:600;">(R):</span> ${reas}</span>`;
+                            }
+                        }
+
+                        // Build Details (Match Lists, Options)
                         let bankDetail = '';
+
+                        // 1. Match Tables (List style or Column style)
+                        if (bankQ['List I'] && bankQ['List II']) {
+                            bankDetail += `<div style="font-size: 0.75rem; color: #555; margin-top: 8px; background:#f8fafc; padding:8px; border-radius:4px;">
+                                <table style="width:100%; border-collapse:collapse;">
+                                    ${bankQ['List I'].map((item, i) => `<tr><td style="padding:2px;border-bottom:1px solid #e2e8f0;">${item}</td><td style="padding:2px;border-bottom:1px solid #e2e8f0;">${bankQ['List II'][i]}</td></tr>`).join('')}
+                                </table>
+                             </div>`;
+                        } else if (bankQ.columnA && bankQ.columnB) {
+                            bankDetail += `<div style="font-size: 0.75rem; color: #777; margin-top: 5px; padding-left: 20px; border-left: 2px solid #f1f5f9;">
+                                    ${bankQ.columnA.map((it, i) => `<div>${it} — ${bankQ.columnB[i]}</div>`).join('')}
+                                </div>`;
+                        }
+
+                        // 2. Options (Always show if present)
                         if (bankQ.options) {
-                            bankDetail = `<div style="font-size: 0.75rem; color: #777; margin-top: 5px; padding-left: 20px; border-left: 2px solid #f1f5f9;">
-                                                        ${bankQ.options.map((opt, i) => `<div>${String.fromCharCode(97 + i)}) ${opt}</div>`).join('')}
-                                                    </div>`;
-                        } else if (bankQ.columnA) {
-                            bankDetail = `<div style="font-size: 0.75rem; color: #777; margin-top: 5px; padding-left: 20px; border-left: 2px solid #f1f5f9;">
-                                                        ${bankQ.columnA.map((it, i) => `<div>${it} — ${bankQ.columnB[i]}</div>`).join('')}
-                                                    </div>`;
+                            bankDetail += `<div style="font-size: 0.75rem; color: #777; margin-top: 8px; padding-left: 12px; border-left: 3px solid #e2e8f0; display: grid; gap: 4px;">
+                                ${bankQ.options.map((opt, i) => `<div><strong style="color:#333;">${String.fromCharCode(97 + i)})</strong> ${opt}</div>`).join('')}
+                            </div>`;
                         }
 
                         return chapterHeader + `
@@ -1684,7 +1750,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                                             <div style="display: flex; align-items: flex-start; gap: 10px;">
                                                 <span class="q-badge ${bankQ.bookBack ? 'badge-bb' : 'badge-int'}">${bankQ.bookBack ? 'BB' : 'INT'}</span>
                                                 <div style="flex: 1;">
-                                                    <div style="font-weight: 600; font-size: 0.95rem; color: var(--color-text); line-height: 1.4;">${bankQ.q || bankQ.assertion || (bankQ.title + ' (Match)')}</div>
+                                                    <div style="font-weight: 600; font-size: 0.95rem; color: var(--color-text); line-height: 1.4;">${titleHtml}</div>
                                                     ${getImgPreview(bankQ, '120px')}
                                                     ${bankDetail}
                                                 </div>
@@ -1730,7 +1796,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
             </div> `;
             }
 
-            const qText = innerQ.q || innerQ.assertion || (innerQ.title + (innerQ.columnA ? ' (Match)' : ''));
+            const qText = innerQ.q || innerQ.assertion || innerQ.Assertion || innerQ.match || innerQ.Match || (innerQ.title + (innerQ.columnA || innerQ['List I'] ? ' (Match)' : ''));
             return `
         <div class="q-card filled-slot" style = "margin-bottom: 4px; padding: 10px; background: #fff; width: 100%; border: 1px solid #e2e8f0; border-radius: 6px; position: relative;" onclick = "activateSubSlot(${idx}, ${parentSubIdx}, ${innerIdx})" >
             <div style="display: flex; gap: 8px; align-items: flex-start;">
@@ -2001,7 +2067,7 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
         window.editingState.idx === idx &&
         (window.editingState.subIdx === null || window.editingState.subIdx === undefined);
 
-    const questionText = q.q || q.assertion || (q.title + ' (Match)');
+    const questionText = q.q || q.assertion || q.Assertion || q.match || q.Match || (q.title + (q.columnA || q['List I'] ? ' (Match)' : ''));
 
     return `
         <div class="q-card filled-slot" draggable = "true" onclick = "activeSlotIndex = ${idx}; renderSectionQuestions();" ondragstart = "handleDragStart(event, ${idx})" ondrop = "handleDrop(event, ${idx}, ${sectionId})" ondragover = "handleDragOver(event)" >
@@ -3186,6 +3252,245 @@ function insertTable() {
     }
 }
 
+/**
+ * Inserts a horizontal line at the current cursor position
+ */
+function insertHorizontalRule() {
+    const paper = document.getElementById('paperPreview');
+    if (!paper) return;
+
+    // Use execCommand for simple <hr>
+    const sel = window.getSelection();
+    if (sel.rangeCount > 0 && paper.contains(sel.anchorNode)) {
+        document.execCommand('insertHorizontalRule', false, null);
+    } else {
+        // Fallback append
+        const hr = document.createElement('hr');
+        paper.appendChild(hr);
+    }
+}
+
+/**
+ * Clears formatting for the current selection
+ */
+function clearFormatting() {
+    const paper = document.getElementById('paperPreview');
+    const sel = window.getSelection();
+    if (sel.rangeCount > 0 && paper.contains(sel.anchorNode)) {
+        document.execCommand('removeFormat', false, null);
+    }
+}
+
+/**
+ * Edits table properties (border width, cell padding) for the currently selected table
+ */
+function editTableProps() {
+    const paper = document.getElementById('paperPreview');
+    const sel = window.getSelection();
+
+    // Find closest table
+    let node = sel.anchorNode;
+    let table = null;
+    while (node && node !== paper) {
+        if (node.tagName === 'TABLE') {
+            table = node;
+            break;
+        }
+        node = node.parentNode;
+    }
+
+    if (!table) {
+        alert("Please click inside a table first to edit its properties.");
+        return;
+    }
+
+    // Simple interaction for now
+    const currentPadding = table.querySelector('td')?.style.padding || '8px';
+    const newPadding = prompt("Enter cellpadding (e.g. 5px, 10px):", currentPadding);
+    if (newPadding !== null) {
+        table.querySelectorAll('td, th').forEach(cell => cell.style.padding = newPadding);
+    }
+
+    const currentBorder = table.style.borderColor || 'black';
+    const newColor = prompt("Enter border color (name or hex):", currentBorder);
+    if (newColor !== null) {
+        table.style.borderColor = newColor;
+        table.querySelectorAll('td, th').forEach(cell => cell.style.borderColor = newColor);
+    }
+}
+
+/**
+ * Inserts a MathJax-ready equation placeholder
+ */
+function insertMathEquation() {
+    const paper = document.getElementById('paperPreview');
+    const sel = window.getSelection();
+
+    if (sel.rangeCount > 0 && paper.contains(sel.anchorNode)) {
+        const latex = prompt("Enter LaTeX Equation:", "E = mc^2");
+        if (latex) {
+            // Create a span that MathJax can eventually process
+            // For now, we insert it as text \( ... \) which MathJax usually picks up
+            // Or we can try to force render. 
+            // Let's stick to standard LaTeX delimiters which the previewer's MathJax config presumably supports.
+            const eqText = ` \\(${latex}\\) `;
+            document.execCommand('insertText', false, eqText);
+
+            // Trigger re-render if MathJax is available globally
+            if (window.MathJax) {
+                setTimeout(() => {
+                    window.MathJax.typesetPromise ? window.MathJax.typesetPromise([paper]) : window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub, paper]);
+                }, 100);
+            }
+        }
+    } else {
+        alert("Click inside the paper to insert an equation.");
+    }
+}
+
+/**
+ * Inserts the current date at cursor
+ */
+function insertDate() {
+    const paper = document.getElementById('paperPreview');
+    const sel = window.getSelection();
+    if (sel.rangeCount > 0 && paper.contains(sel.anchorNode)) {
+        const dateStr = new Date().toLocaleDateString();
+        document.execCommand('insertText', false, dateStr);
+    }
+}
+
+/**
+ * Calculates and shows word count of the paper
+ */
+function getWordCount() {
+    const paper = document.getElementById('paperPreview');
+    if (!paper) return;
+
+    const text = paper.innerText || "";
+    // Simple split by whitespace
+    const count = text.trim().length === 0 ? 0 : text.trim().split(/\s+/).length;
+    alert(`Word Count: ${count} words`);
+}
+
+/**
+ * Inserts a specific symbol or looks it up
+ */
+function insertSymbol(symbolKey) {
+    const paper = document.getElementById('paperPreview');
+    const sel = window.getSelection();
+    if (sel.rangeCount === 0 || !paper.contains(sel.anchorNode)) {
+        alert("Please click inside the paper first.");
+        return;
+    }
+
+    const map = {
+        'sigma': 'Σ',
+        'alpha': 'α',
+        'beta': 'β',
+        'gamma': 'γ',
+        'delta': 'δ',
+        'pi': 'π',
+        'theta': 'θ',
+        'omega': 'Ω',
+        'infinity': '∞',
+        'approx': '≈',
+        'neq': '≠',
+        'leq': '≤',
+        'geq': '≥',
+        'degree': '°'
+    };
+
+    const char = map[symbolKey] || symbolKey;
+    document.execCommand('insertText', false, char);
+}
+
+/**
+ * Opens a dynamic popup to pick symbols
+ */
+function openSymbolPopup() {
+    // Check if exists
+    if (document.getElementById('symbol-popup-overlay')) return;
+
+    // Create Overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'symbol-popup-overlay';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
+    overlay.style.zIndex = '2000';
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+
+    const card = document.createElement('div');
+    card.style.background = 'white';
+    card.style.padding = '20px';
+    card.style.borderRadius = '8px';
+    card.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+    card.style.maxWidth = '400px';
+    card.style.width = '90%';
+
+    const title = document.createElement('h3');
+    title.innerText = 'Select Symbol';
+    title.style.marginTop = '0';
+    title.style.marginBottom = '15px';
+    title.style.color = '#333';
+    card.appendChild(title);
+
+    const grid = document.createElement('div');
+    grid.style.display = 'grid';
+    grid.style.gridTemplateColumns = 'repeat(6, 1fr)';
+    grid.style.gap = '8px';
+
+    const symbols = [
+        'α', 'β', 'γ', 'δ', 'ε', 'θ', 'λ', 'μ', 'π', 'ρ', 'σ', 'τ', 'φ', 'ω', 'Ω', 'Δ', 'Σ',
+        '∞', '≈', '≠', '≤', '≥', '±', '×', '÷', '√', '°', '←', '→', '↑', '↓'
+    ];
+
+    symbols.forEach(sym => {
+        const btn = document.createElement('button');
+        btn.innerText = sym;
+        btn.style.fontSize = '1.2rem';
+        btn.style.padding = '8px';
+        btn.style.background = '#f1f5f9';
+        btn.style.border = '1px solid #cbd5e1';
+        btn.style.borderRadius = '4px';
+        btn.style.cursor = 'pointer';
+
+        btn.onmouseover = () => btn.style.background = '#e2e8f0';
+        btn.onmouseout = () => btn.style.background = '#f1f5f9';
+
+        btn.onclick = () => {
+            insertSymbol(sym);
+            document.body.removeChild(overlay);
+        };
+        grid.appendChild(btn);
+    });
+
+    card.appendChild(grid);
+
+    // Cancel Button
+    const cancelBtn = document.createElement('button');
+    cancelBtn.innerText = 'Close';
+    cancelBtn.style.marginTop = '15px';
+    cancelBtn.style.padding = '8px 16px';
+    cancelBtn.style.background = '#ef4444';
+    cancelBtn.style.color = 'white';
+    cancelBtn.style.border = 'none';
+    cancelBtn.style.borderRadius = '4px';
+    cancelBtn.style.cursor = 'pointer';
+    cancelBtn.style.float = 'right';
+    cancelBtn.onclick = () => document.body.removeChild(overlay);
+
+    card.appendChild(cancelBtn);
+    overlay.appendChild(card);
+    document.body.appendChild(overlay);
+}
+
 function insertImage() {
     const paper = document.getElementById('paperPreview');
     if (!paper) return;
@@ -3747,15 +4052,63 @@ function renderQuestionForPaper(q, label) {
     let indexHtml = '';
 
     // Text container
-    let textContent = `<div class="question-text" > ${q.q || q.assertion || (q.title + (q.columnA ? ' (Match)' : ''))}</div>`;
+    let formattedText = '';
+
+    // Handle Assertion / Reason specifically if structure matches
+    // Supports both 'assertion' and 'Assertion' keys
+    const assertionText = q.assertion || q.Assertion;
+    const reasonText = q.reason || q.Reason;
+
+    if (assertionText && reasonText) {
+        // User requested: "asertion next line reason nizha option iruka mathiri sho aganum"
+        // And "identification ku match tag asertion tag" -> This implies we SHOULD show the tag in preview if it's an assertion question type
+        formattedText = `<strong>Assertion (A):</strong> ${assertionText}<br><strong>Reason (R):</strong> ${reasonText}`;
+    }
+    // Handle standard Question Text (including Match title)
+    else {
+        const rawText = q.q || q.title || q.Match || q.match || "";
+        formattedText = rawText ? rawText.replace(/\n/g, '<br>') : '';
+    }
+
+    let textContent = `<div class="question-text" > ${formattedText}</div>`;
 
     if (q.options) {
+        // Render Options
         const layoutClass = getOptionLayoutClass(q.options);
+
+        // Check for "List I" style match which needs a table BEFORE options
+        let matchTableHtml = '';
+        if (q['List I'] && q['List II']) {
+            matchTableHtml = `
+            <table class="match-table" style="margin: 10px 0;">
+                <thead>
+                    <tr>
+                        <th style="text-align: left; padding: 4px;">List I</th>
+                        <th style="text-align: left; padding: 4px;">List II</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${q['List I'].map((item, idx) => `<tr><td style="padding: 2px 4px;">${item}</td><td style="padding: 2px 4px;">${q['List II'][idx]}</td></tr>`).join('')}
+                </tbody>
+            </table>`;
+        } else if (q.columnA && q.columnB) { // Fallback for older "ColumnA/ColumnB" format
+            matchTableHtml = `
+            <table class="match-table" style="margin: 10px 0;">
+                <tbody>
+                    ${q.columnA.map((item, idx) => `<tr><td style="padding: 2px 4px;">${item}</td><td style="padding: 2px 4px;">${q.columnB[idx]}</td></tr>`).join('')}
+                </tbody>
+            </table>`;
+        }
+
+        // Combine: Text + Table + Options
+        textContent += matchTableHtml;
         textContent += `
-    <div class="options-inline ${layoutClass}" >
-        ${q.options.map((opt, i) => `<span class="option">${String.fromCharCode(97 + i)}) ${opt}</span>`).join('')}
+            <div class="options-inline ${layoutClass}" >
+                ${q.options.map((opt, i) => `<span class="option">${String.fromCharCode(97 + i)}) ${opt}</span>`).join('')}
             </div> `;
+
     } else if (q.columnA) {
+        // Match without options array (pure match, rare in MCQ but existing logic)
         textContent += `
     <table class="match-table" >
         ${q.columnA.map((item, idx) => `<tr><td>${item}</td><td>${q.columnB[idx]}</td></tr>`).join('')}
