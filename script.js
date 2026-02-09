@@ -1762,6 +1762,25 @@ function renderQuestionCard(q, idx, isSelected, sectionId, availableQuestions = 
                                 </div>`;
                         }
 
+
+                        // 1.5 Statements (New: Support for Read Statements type)
+                        if (bankQ.statements && Array.isArray(bankQ.statements)) {
+                            bankDetail += `<div style="font-size: 0.8rem; color: #475569; margin-top: 5px; padding-left: 12px; border-left: 2px solid #cbd5e1;">`;
+                            bankDetail += bankQ.statements.map((s, idx) => {
+                                let id, text;
+                                if (typeof s === 'string') {
+                                    const roman = ['i', 'ii', 'iii', 'iv', 'v', 'vi'];
+                                    id = `${roman[idx] || (idx + 1)})`;
+                                    text = s;
+                                } else {
+                                    id = s.id ? `${s.id})` : '•';
+                                    text = s.text || '';
+                                }
+                                return `<div style="margin-bottom: 2px;"><strong>${id}</strong> ${text}</div>`;
+                            }).join('');
+                            bankDetail += `</div>`;
+                        }
+
                         // 2. Options (Always show if present)
                         if (bankQ.options) {
                             bankDetail += `<div style="font-size: 0.75rem; color: #777; margin-top: 8px; padding-left: 12px; border-left: 3px solid #e2e8f0; display: grid; gap: 4px;">
@@ -4161,6 +4180,23 @@ function renderQuestionForPaper(q, label) {
     else {
         const rawText = q.q || q.title || q.Match || q.match || "";
         formattedText = rawText ? rawText.replace(/\n/g, '<br>') : '';
+    }
+
+    // Handle Statement Arrays (Vertical List)
+    if (q.statements && Array.isArray(q.statements)) {
+        const statementsHtml = q.statements.map((s, idx) => {
+            let id, text;
+            if (typeof s === 'string') {
+                const roman = ['i', 'ii', 'iii', 'iv', 'v', 'vi'];
+                id = `${roman[idx] || (idx + 1)})`;
+                text = s;
+            } else {
+                id = s.id ? `${s.id})` : '•';
+                text = s.text || '';
+            }
+            return `<div style="margin: 4px 0 4px 20px;"><strong>${id}</strong> ${text}</div>`;
+        }).join('');
+        formattedText += `<div class="statement-list" style="margin-top: 8px; margin-bottom: 8px;">${statementsHtml}</div>`;
     }
 
     let textContent = `<div class="question-text" > ${formattedText}</div>`;

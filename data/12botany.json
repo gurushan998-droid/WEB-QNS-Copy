@@ -129,7 +129,7 @@
                     ]
                 },
                 {
-                    "q": "Consider statements: <br> i) Protandry-pistil first, <br> ii) Protogyny-pistil first, <br> iii) Herkogamy-unisexual, <br> iv) Distyly-Primula",
+                    "q": "Consider statements:\n i) Protandry-pistil first, \n ii) Protogyny-pistil first, \n iii) Herkogamy-unisexual, \n iv) Distyly-Primula",
                     "options": [
                         "i and ii are correct",
                         "ii and iv are correct",
@@ -718,14 +718,6 @@
             ],
             "interior": []
         },
-        "match": {
-            "bb": [],
-            "interior": []
-        },
-        "assertion": {
-            "bb": [],
-            "interior": []
-        },
         "shortAnswer": {
             "bb": [
                 {
@@ -917,14 +909,6 @@
             ],
             "interior": []
         },
-        "match": {
-            "bb": [],
-            "interior": []
-        },
-        "assertion": {
-            "bb": [],
-            "interior": []
-        },
         "shortAnswer": {
             "bb": [
                 {
@@ -1088,7 +1072,7 @@
                     ]
                 },
                 {
-                    "q": "Consider the following statements: I. Recombinant DNA technology is popularly known as genetic engineering... II. pBR322 is the first artificial cloning vector... III. Restriction enzymes belongs to a class of enzymes called nucleases. Choose the correct option",
+                    "q": "Consider the following statements:\n I. Recombinant DNA technology is popularly known as genetic engineering...\n II. pBR322 is the first artificial cloning vector...\n III. Restriction enzymes belongs to a class of enzymes called nucleases.",
                     "options": [
                         "I & II",
                         "I & III",
@@ -1496,14 +1480,6 @@
             ],
             "interior": []
         },
-        "match": {
-            "bb": [],
-            "interior": []
-        },
-        "assertion": {
-            "bb": [],
-            "interior": []
-        },
         "shortAnswer": {
             "bb": [
                 {
@@ -1660,7 +1636,7 @@
                     ]
                 },
                 {
-                    "q": "Read statements: i) Hydrophytes have aerenchyma, ii) Viscum seeds are photoblastic, iii) Hygroscopic water is available to roots, iv) High temp reduces water use. Select correct:",
+                    "q": "Read statements: Hydrophytes have aerenchyma \n Viscum seeds are photoblastic \n Hygroscopic water is available to roots\n High temp reduces water use.",
                     "options": [
                         "i, ii, and iii only",
                         "ii, iii and iv",
@@ -1678,7 +1654,7 @@
                     ]
                 },
                 {
-                    "q": "Select correct: i) Loamy soil is best, ii) Humification is slow with lignin, iii) Capillary water is available, iv) Shade leaves have low chl a/b ratio.",
+                    "q": "Select correct statements:\n i) Loamy soil is best,\n ii) Humification is slow with lignin,\n iii) Capillary water is available,\n iv) Shade leaves have low chl a/b ratio.",
                     "options": [
                         "i, ii and iii only",
                         "ii, iii and iv only",
@@ -1687,7 +1663,7 @@
                     ]
                 },
                 {
-                    "q": "Statement A: Cattle do not graze on Calotropis. Statement B: Calotropis have thorns/spines for defense. Select correct option:",
+                    "q": "Statement A: Cattle do not graze on Calotropis.\n Statement B: Calotropis have thorns/spines for defense. Select correct option:",
                     "options": [
                         "Both statements A and B are incorrect.",
                         "Statement A is correct but statement B is incorrect.",
@@ -1822,14 +1798,6 @@
                     ]
                 }
             ],
-            "interior": []
-        },
-        "match": {
-            "bb": [],
-            "interior": []
-        },
-        "assertion": {
-            "bb": [],
             "interior": []
         },
         "shortAnswer": {
@@ -2186,14 +2154,6 @@
                 }
             ]
         },
-        "match": {
-            "bb": [],
-            "interior": []
-        },
-        "assertion": {
-            "bb": [],
-            "interior": []
-        },
         "shortAnswer": {
             "bb": [
                 {
@@ -2382,7 +2342,7 @@
                     ]
                 },
                 {
-                    "q": "With respect to Eichhornia Statement A: It drains off oxygen... Statement B: It is an indigenous species...",
+                    "q": "With respect to Eichhornia\n Statement A: It drains off oxygen...\n Statement B: It is an indigenous species...",
                     "options": [
                         "Statement A is correct and Statement B is wrong.",
                         "Both Statements A and B are correct.",
@@ -2472,14 +2432,6 @@
                     ]
                 }
             ],
-            "interior": []
-        },
-        "match": {
-            "bb": [],
-            "interior": []
-        },
-        "assertion": {
-            "bb": [],
             "interior": []
         },
         "shortAnswer": {
@@ -2832,14 +2784,6 @@
             ],
             "interior": []
         },
-        "match": {
-            "bb": [],
-            "interior": []
-        },
-        "assertion": {
-            "bb": [],
-            "interior": []
-        },
         "shortAnswer": {
             "bb": [
                 {
@@ -3015,7 +2959,7 @@
         "mcq": {
             "bb": [
                 {
-                    "q": "Consider the following statements and choose the right option: i) Cereals are members of grass family. ii) Most of the food grains come from monocotyledon.",
+                    "q": "Consider the following statements and choose the right option:\n i) Cereals are members of grass family.\n ii) Most of the food grains come from monocotyledon.",
                     "options": [
                         "(i) is correct and (ii) is wrong",
                         "Both (i) and (ii) are correct",
@@ -3024,7 +2968,7 @@
                     ]
                 },
                 {
-                    "q": "Assertion: Vegetables are important part of healthy eating. Reason: Vegetables are succulent structures of plants with pleasant aroma and flavours.",
+                    "q": "Assertion: Vegetables are important part of healthy eating.\n Reason: Vegetables are succulent structures of plants with pleasant aroma and flavours.",
                     "options": [
                         "Assertion is correct, Reason is wrong",
                         "Assertion is wrong, Reason is correct",
@@ -3042,7 +2986,7 @@
                     ]
                 },
                 {
-                    "q": "Statement A: Coffee contains caffeine Statement B: Drinking coffee enhances cancer",
+                    "q": "Statement A: Coffee contains caffeine\n Statement B: Drinking coffee enhances cancer",
                     "options": [
                         "A is correct, B is wrong",
                         "A and B – Both are correct",
@@ -3096,7 +3040,7 @@
                     ]
                 },
                 {
-                    "q": "Statement I – Perfumes are manufactured from essential oils. Statement II – Essential oils are formed at different parts of the plants.",
+                    "q": "Statement I – Perfumes are manufactured from essential oils.\n Statement II – Essential oils are formed at different parts of the plants.",
                     "options": [
                         "Statement I is correct",
                         "Statement II is correct",
@@ -3105,7 +3049,7 @@
                     ]
                 },
                 {
-                    "q": "Statement I: The drug sources of Siddha include plants, animal parts, ores and minerals. Statement II: Minerals are used for preparing drugs with long shelf-life.",
+                    "q": "Statement I: The drug sources of Siddha include plants, animal parts, ores and minerals.\n Statement II: Minerals are used for preparing drugs with long shelf-life.",
                     "options": [
                         "Statement I is correct",
                         "Statement II is correct",
@@ -3141,14 +3085,6 @@
                     ]
                 }
             ],
-            "interior": []
-        },
-        "match": {
-            "bb": [],
-            "interior": []
-        },
-        "assertion": {
-            "bb": [],
             "interior": []
         },
         "shortAnswer": {
