@@ -683,7 +683,7 @@ function updateSection(id, field, value) {
     if (section) {
         if (field === 'name' || field === 'type') {
             section[field] = value;
-            if (field === 'type' && value !== 'Long Answer') {
+            if (field === 'type' && value !== 'Long Answer' && value !== 'Short Answer') {
                 section.isOrType = false;
                 section.isAndType = false;
             }
@@ -2483,7 +2483,7 @@ ondrop = "handleSectionDrop(event, ${sectionIdx})" >
                         </div>
                         ` : ''}
                         
-                        ${(section.type === 'Long Answer') ? `
+                        ${(section.type === 'Long Answer' || section.type === 'Short Answer') ? `
                         <div style="display: flex; gap: 15px; background: #fff; padding: 6px 10px; border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
                             <label style="display: flex; align-items: center; gap: 5px; margin-bottom: 0; cursor: pointer; font-size: 0.8rem; font-weight: 600;">
                                 <input type="checkbox" ${section.isOrType ? 'checked' : ''} onchange="updateSection(${section.id}, 'isOrType', this.checked); renderSections();" style="width: 16px; height: 16px;"> Or type
@@ -4047,6 +4047,74 @@ function renderQuestionForPaper(q, label) {
                 subLabel = `(${romanNumerals[i] || (i + 1)})`;
             }
 
+            // CHECK FOR NESTED STRUCTURE (Support for OR -> AND nesting)
+            if (subQ.questions && subQ.questions.length > 0) {
+                let subTitle = subQ.q || subQ.title || ''; // Optional title for the group
+
+                // Smart Check: Avoid duplication if parent title matches first child question exactly
+                if (subQ.questions[0] && (subQ.questions[0].q === subTitle || subQ.questions[0].title === subTitle) && subTitle.trim() !== '') {
+                    subTitle = '';
+                }
+
+                const innerHtml = subQ.questions.map((innerQ, innerIdx) => {
+                    // Inner Label Logic
+                    let innerLabel = '';
+                    if (subQ.mode === 'or') {
+                        innerLabel = `(${String.fromCharCode(97 + innerIdx)})`;
+                    } else {
+                        // Default nested is Roman: (i), (ii)
+                        const roman = ['i', 'ii', 'iii', 'iv', 'v', 'vi'];
+                        innerLabel = `(${roman[innerIdx] || (innerIdx + 1)})`;
+                    }
+
+                    const innerText = innerQ.q || innerQ.assertion || innerQ.title || innerQ.match || '';
+                    const innerDiagram = renderDiagram(innerQ.diagram || innerQ.image);
+
+                    let innerOptions = '';
+                    if (innerQ.options) {
+                        const layoutClass = getOptionLayoutClass(innerQ.options);
+                        innerOptions = `<div class="options-inline ${layoutClass}">
+                            ${innerQ.options.map((opt, oIdx) => `<span class="option">${String.fromCharCode(97 + oIdx)}) ${opt}</span>`).join('')}
+                         </div>`;
+                    }
+
+                    // Adjust margins: First item has 0 top margin to align with label if inline
+                    const marginTop = innerIdx === 0 ? '0' : '6px';
+
+                    return `<div class="inner-question" style="margin-top: ${marginTop}; margin-left: 20px;">
+                                <div style="display:flex; gap:5px;">
+                                    <strong>${innerLabel}</strong> 
+                                    <div>${innerText}</div>
+                                </div>
+                                ${innerOptions}
+                                ${innerDiagram}
+                             </div>`;
+                }).join('');
+
+                let groupHtml = '';
+
+                if (subTitle === '') {
+                    // Inline Layout: (a) (i) ...
+                    groupHtml = `<div class="sub-question-group" style="margin-top: ${i === 0 ? '0' : '15px'}; display: flex; flex-direction: row;">
+                                    <div style="font-weight: 600; min-width: 25px;"><strong>${subLabel}</strong></div>
+                                    <div style="flex: 1;">
+                                        ${innerHtml}
+                                    </div>
+                                 </div>`;
+                } else {
+                    // Block Layout: (a) Title
+                    //                  (i) ...
+                    groupHtml = `<div class="sub-question-group" style="margin-top: ${i === 0 ? '0' : '15px'};">
+                                    <div style="font-weight: 600; margin-bottom: 5px;"><strong>${subLabel}</strong> ${subTitle}</div>
+                                    ${innerHtml}
+                                 </div>`;
+                }
+
+                const separator = (q.mode === 'or' && i < q.questions.length - 1) ? '<div class="or-divider" style="margin: 15px 0;">- OR -</div>' : '';
+                return groupHtml + separator;
+            }
+
+            // STANDARD SINGLE SUB-QUESTION
             let subQuestionText = subQ.q || subQ.assertion || subQ.title || '';
 
             let optionsHtml = '';
